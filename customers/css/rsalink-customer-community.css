@@ -1,0 +1,217 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Customers Community
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   04 Apr 2019
+*/
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_red_920x156.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 156px;
+}
+
+/* Style the main banner text */
+#mainBanner-title {
+    color: #fff;    
+    font-size: 48px;
+    padding: 24px 44px;
+    font-family: Arial,sans-serif;
+    font-weight: 100;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 0px;
+    margin-top: -25px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Customize the Ask a Question button */
+.ask-a-question-container button {
+    display: block;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	transition: background-color .25s ease-out;
+}
+.ask-a-question-container button:hover, 
+.ask-a-question-container button:focus {
+    background-color: #d86a16;
+}
+
+/* Style the buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    width: 88%;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out, color .25s ease-out;
+}
+a[data-role=button]:hover {
+    background-color: #fff;
+    color: #802629;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Change the color of every other header in the left column */
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+	background-color: #415464;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Change the color of the even rows in the content widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentblogpostswidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-featuredcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Hide any external link icons */
+.jive-link-external-small:after {
+    background: none;
+    margin: 0 -12px 0 -12px;
+}
+ 
+/* Community grid table to be full width */
+.community-grid {
+	width: 100%;
+}
+
+/* Set each column in the grid to be half width */
+.community-grid td {
+	width: 50%;	
+	padding: 15px;
+}
+
+/* Style the hyperlinks in the grid */
+.community-grid a {
+	color: #006ba6;
+	cursor: pointer;
+	background-color: transparent;
+	font-family: Arial,sans-serif;
+	font-size: 16px;
+	line-height: 25.6px;
+}
+.community-grid a:hover,
+.community-grid a:focus {
+	color: #1585cf;
+	text-decoration: none;
+}
+
+/* Style the description text in the grid */
+.community-grid p {
+	color: #232222;
+	font-family: Arial,sans-serif;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Style the section headings in the grid */
+h4.comm-grid-heading {
+	color: #0a0a0a;
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 22px;
+	margin-bottom: 16px;
+}
+
+/* Change the background of the recent content widget to gray */
+#jive-widget-container_1 .jive-widget-recentcontentwidget .jive-widget-body,
+#jive-widget-container_1 .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-odd td {
+    background-color: #eeeff0;
+}
+
+/* Make right column background a gray color (PMS 427, +30% White, +0.5 Opacity) */
+#jive-widget-container_2,
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Make right column widget banners blue/gray */
+#jive-widget-container_2 .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Style the Knowledge Base widget */
+.jive-widget-htmltextwidget .thinList {
+    margin-bottom: -12px;
+    line-height: 18px;
+    border-bottom: 1px solid rgba(65,84,100,.2);    /* PMS 7545 semi-transparent */
+}
+.jive-widget-htmltextwidget .thinList a {
+	font-size: 12.5px;
+}
+
+/* Style the Categories widget */
+#jive-widget-container_2 .jive-widget-taggroupwidget .j-icon-list li {
+    padding: 0px 0px 5px 0px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+#jive-widget-container_2 .jive-widget-taggroupwidget .j-icon-list li:last-child {
+    border-bottom: 0px;
+}
+#jive-widget-container_2 .jive-widget-taggroupwidget .jive-icon-med.jive-icon-folder {
+    background-image: none;
+}
