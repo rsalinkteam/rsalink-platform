@@ -1,0 +1,168 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			Advisories
+Author:			Jeff Shurtliff
+Published:		16 May 2018
+*/
+
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://community.rsa.com/resources/statics/27601/L3-Header-920x156-Blue.jpg?a=1501107624900);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 156px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 40px;
+    padding: 22px 44px;
+	font-family: inherit;
+    font-weight: 100;
+}
+.mac h1#mainBanner-title {
+	font-family:"Lucida Sans",Arial,sans-serif;
+	font-weight: 100;
+}
+@media only screen and (min-width: 1080px) and (max-width: 1165px) {
+	h1#mainBanner-title {
+		font-size: 35px;
+	}
+}
+@media only screen and (max-width: 1079px) {
+	h1#mainBanner-title {
+		font-size: 27px;
+		padding: 20px 44px;
+	}
+}
+h1#mainBanner-title.twoLineTitle {	/* If the title has two lines then add the .twoLineTitle class to the <h1> tag */
+    padding-top: 22px;
+}
+h1#mainBanner-title span {
+	font-family: "Open Sans Light",Arial,sans-serif;
+	font-weight: 600;
+}
+
+/* Lower the page body slightly */
+.j-body-place .j-contained #jive-widget-container {    
+    margin-top: -20px;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 25px;
+    margin-top: -25px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+    color: #fefefe;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Change the color of every other Watch a Tag header */
+.jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #006ba6;
+}
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+
+/* Style the View All buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 14px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #006ba6;
+    border: 1px solid #006ba6;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+}
+a.lightButton[data-role=button] {
+	background-color: #5eb4e3;
+    border: 1px solid #5eb4e3;
+}
+a.advButton {
+    padding: 8px 15px;
+    width: 88%;
+    font-size: 12px;
+}
+a[data-role=button]:hover {
+    background-color: #5eb4e3;
+    border: 1px solid #5eb4e3;
+    color: #FFF;
+}
+a.lightButton[data-role=button]:hover {
+    background-color: #006ba6;
+    border: 1px solid #006ba6;
+    color: #FFF;
+}
+
+/* Hide author and avatar */
+#jive-widget-container_1 td.jive-table-cell-author {
+    display: none;
+}
+
+#jive-widget-container_1 img.jive-avatar {
+    display: none;
+}
+
+/* Update the restricted advisories message when not logged in */
+.chrome .jive-widget-tagwidget .jive-widget-body-empty,
+.ff .jive-widget-tagwidget .jive-widget-body-empty,
+.opera .jive-widget-tagwidget .jive-widget-body-empty,
+.safari .jive-widget-tagwidget .jive-widget-body-empty {
+    visibility: hidden;
+}
+.chrome .jive-widget-tagwidget .jive-widget-body-empty:after,
+.ff .jive-widget-tagwidget .jive-widget-body-empty:after,
+.opera .jive-widget-tagwidget .jive-widget-body-empty:after,
+.safari .jive-widget-tagwidget .jive-widget-body-empty:after {
+    visibility: visible;
+    display: block;
+    content: 'These advisories are only accessible to users with active maintenance contracts. Please log in with a valid user to view the content.';
+    margin-top: -17px;
+    margin-bottom: -10px;
+}
+
+/* Hide the Watch a Tag label */
+.jive-widget-watchlabel {
+    display: none;
+}

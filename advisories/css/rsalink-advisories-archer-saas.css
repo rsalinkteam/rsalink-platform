@@ -1,0 +1,246 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Archer Suite Service Notifications
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   03 Apr 2019
+*/
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_blue_920x156.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 156px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 40px;
+    padding: 13px 44px;
+	font-family: Arial, sans-serif;
+    font-weight: 100;
+}
+@media only screen and (min-width: 1080px) and (max-width: 1165px) {
+	h1#mainBanner-title {
+		font-size: 35px;
+	}
+}
+@media only screen and (max-width: 1079px) {
+	h1#mainBanner-title {
+		font-size: 27px;
+		padding: 20px 44px;
+	}
+}
+
+/* Lower the page body slightly */
+.j-body-place .j-contained #jive-widget-container {    
+    margin-top: -20px;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 25px;
+    margin-top: -25px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Change the color of every other Watch a Tag header */
+.jive-widget-tagwidget .jive-widget-header,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #415464;
+}
+.jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Style the View All buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #415464;
+    border: 1px solid #415464;
+    width: 88%;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color .25s ease-out,
+                border .25s ease-out,
+                color .25s ease-out;
+}
+a.lightButton[data-role=button] {
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #fff;
+}
+a[data-role=button]:hover {
+    background-color: #fff;
+    border: 1px solid #415464;
+    color: #415464;
+}
+a.lightButton[data-role=button]:hover {
+    background-color: #fff;
+    border: 1px solid #802629;
+    color: #802629;
+}
+
+/* Change the color of the even rows in the Watch a Tag widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change background of the second Watch a Tag widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+.jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change styling of the third advisory type widgets back to normal */
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+.jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: #fff;
+}
+
+/* Change background of the fourth Watch a Tag widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+.jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Move "View All" buttons closer to the Watch a Tag widgets */
+.jive-widget-tagwidget {
+    margin-bottom: 0px;
+}
+
+/* Hide author and avatar */
+#jive-widget-container_1 td.jive-table-cell-author,
+#jive-widget-container_1 img.jive-avatar {
+    display: none;
+}
+
+/* Hide the Watch a Tag label */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Style the Recent Content widget if used for Service Notification */
+.jive-content-filter,
+.jive-widget-refresh,
+.more-status-content,
+.jive-box-footer {
+    display: none;
+}
+.jive-widget-recentcontentwidget .content-large .jive-table-recentcontent {
+    margin: -5px 0 10px;
+}
+.jive-widget-recentcontentwidget {
+    margin-bottom: 0px;
+}
+.jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;
+}
+
+/* Override inline CSS table width for "View All" buttons in left column */
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget-htmltextwidget table {
+    width: 49% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Make right column background a gray color (PMS 427, +30% White, +0.5 Opacity) */
+#jive-widget-container_2,
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Make right column widget banners blue/gray */
+#jive-widget-container_2 .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Style the Recent Advisory Articles widget on Security Advisories spaces */
+#jive-widget-container_2 .jive-widget-tagwidget .jive-icon-med {
+    display: none;
+}
+#jive-widget-container_2 .jive-widget-tagwidget .j-icon-list li {
+    padding: 0 0 15px 0px;
+}
+
+/* Style the View All button on Security Advisories spaces */
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-htmltextwidget a[data-role=button] {
+    background-color: #eeeff0;
+    border: 1px solid #0075B0;
+    color: #0075B0;
+    padding: 8px 15px;
+	width: 35%;
+    transition: background-color .25s ease-out,border .25s ease-out;
+}
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-htmltextwidget a[data-role=button]:hover {
+    background-color: #fff;
+    border: 1px solid #0075B0;
+}
+
+/* Adjust spacing between the Recent Advisory Articles widget and View All button */
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-htmltextwidget {
+    margin-top: -10px;
+}
+
+/* Update the Recent Advisory Articles message when not logged in */
+.chrome .jive-widget-tagwidget .jive-widget-body-empty p, 
+.ff .jive-widget-tagwidget .jive-widget-body-empty p, 
+.opera .jive-widget-tagwidget .jive-widget-body-empty p, 
+.safari .jive-widget-tagwidget .jive-widget-body-empty p {
+    visibility: hidden;
+}
+.chrome .jive-widget-tagwidget .jive-widget-body-empty p:after, 
+.ff .jive-widget-tagwidget .jive-widget-body-empty p:after, 
+.opera .jive-widget-tagwidget .jive-widget-body-empty p:after, 
+.safari .jive-widget-tagwidget .jive-widget-body-empty p:after {
+    visibility: visible;
+    display: block;
+    text-align: center;
+    content: 'No service notifications are available at this time. Please check again later.';
+    margin-top: -20px;
+    margin-bottom: -10px;
+}
