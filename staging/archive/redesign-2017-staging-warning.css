@@ -1,0 +1,5 @@
+/* Adjust spacing around the User Warning Message */
+#jive-widget-container_1 >.jive-widget-searchwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+	margin-top: -25px;
+	margin-bottom: 5px;
+}

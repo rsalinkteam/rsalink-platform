@@ -1,0 +1,31 @@
+<table id="stagingButtons">
+    <tbody>
+        <tr>
+            <td>
+                <!-- START PICK LIST -->
+                <div id="teamPickList">
+                    <select name="knowledgeBaseCategories" onchange="location = this.value;">
+                        <option value="#">Manage Release Teams</option>
+                        <option value="/admin/group-members.jsp?group=1096">Cloud</option>  
+                        <option value="/admin/group-members.jsp?group=1095">Hosted</option>  
+                        <option value="/admin/group-members.jsp?group=1097">Mobile SDK</option>  
+                        <option value="/admin/group-members.jsp?group=1027">On Premise</option>  
+                    </select>
+                </div>
+                <!-- END PICK LIST -->
+            </td>
+            <td class="buttonSpacer"></td>
+            <td class="middleCol">
+                <a class="stagingButton" data-role="button" href="/admin/group-members.jsp?group=1205" target="_blank">Manage Read-Only Access</a>
+            </td>
+            <td class="buttonSpacer"></td>
+            <td class="middleCol">
+                <a class="stagingButton" data-role="button" href="/community/products/adaptive-authentication/staging/bulkmanage">Migrate Content</a>
+            </td>
+            <td class="buttonSpacer"></td>
+            <td>
+                <a class="stagingButton" data-role="button" href="mailto:rsalink@rsa.com">Report an Issue</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

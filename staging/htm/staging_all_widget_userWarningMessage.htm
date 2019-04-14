@@ -1,0 +1,74 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+
+<!-- BEGIN TABLE -->
+<table id="userWarningTable">
+	<tbody>
+		<tr>
+			<td>
+				WARNING:  You are not currently logged in with an <b>RSA Product Team</b> account. <a href="/docs/DOC-60119" target="_blank">Click here</a> for more details.
+			</td>
+		</tr>		
+	</tbody>
+</table>
+<!-- END TABLE -->
+
+
+<!-- BEGIN CUSTOM STYLING -->
+<style>
+#userWarningTable {
+	background-color: #be3a34;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	font-family: Arial, sans-serif;
+}
+
+#userWarningTable td {
+	padding: 5px;
+}
+
+#userWarningTable a {
+	color: #fff;
+	text-decoration: underline;
+}
+
+#userWarningTable a:hover, 
+#userWarningTable a:focus {
+	font-weight: bold;
+	font-size: 15.5px;
+}
+
+#jive-widget-container_1 >.jive-widget-searchwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+	margin-top: -20px;
+	margin-bottom: 15px;
+}
+</style>
+<!-- end CUSTOM STYLING -->
+
+
+<!-- BEGIN JAVASCRIPT -->
+<script>
+$(function(){
+    var userid = window.parent._jive_current_user.ID;
+    if(userid == "12690" || userid == "24219" || userid == "24220" || userid == "24237" || userid == "24238" || userid == "24240" || userid == "26297" || userid == "26346" || userid == "26391" || userid == "26436" || userid == "26494" || userid == "26541" || userid == "26592" || userid == "26677" || userid == "50491" || userid == "51880" || userid == "19235") {
+		// Appropriate pseudo user is logged in
+		console.log("User is logged in with an appropriate pseudo user account. Will not display warning banner.");
+		$("#userWarningTable").hide();
+		setTimeout(function(){
+            resizeMe();
+        }, 500);
+   	} else {
+        // Regular user is logged in
+		console.log("User is logged in with a normal user account. Will display warning banner.");
+        $("#userWarningTable").show();
+		// $("#jive-widget-container_1 .jive-widget-htmltextwidget").hide();
+		// $("#jive-widget-container_1 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget").show();	
+    }
+	$("#iframe-login").on("click", function(){
+        event.preventDefault();
+        window.parent.document.getElementById('navLogin').click()
+    });
+});
+</script>
+<!-- END JAVASCRIPT -->

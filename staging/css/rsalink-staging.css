@@ -1,0 +1,225 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Archer Platform Translations Spaces
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   31 Dec 2018
+*/
+
+/* Invert the space icon color for Staging spaces */
+.j-page-header .placeImg {
+    filter: invert(100%);
+}
+
+/* Define the height of the iframes in the left column */
+#jive-widget-container_1 .htmlWidgetIframe {
+    min-height: 194px;
+}
+#jive-widget-container_1 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .htmlWidgetIframe {
+    min-height: 0px;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 0px;
+    margin-top: -25px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Style the buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    font-size: 12px;
+    width: 88%;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #fff;
+    text-decoration: none;
+	transition: background-color .25s ease-out, color .25s ease-out;
+}
+a[data-role=button]:hover {
+    background-color: #fff;
+    color: #802629;
+}
+
+/* Style the drop down button if it exists */
+#stagingButtons {
+    border: 0px; 
+    width: 100%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 20px;
+}
+#stagingButtons td {
+    vertical-align: top;
+    vertical-align: top;
+    text-align: center;
+    width: 23%;
+}
+#stagingButtons td.buttonSpacer {
+   width: 2%;
+}
+#teamPickList {
+    background-color: #802629;
+    color: #fff;
+    line-height: 1rem;
+    padding: 8px 15px;
+	transition: background-color .25s ease-out, color .25s ease-out;
+}
+#teamPickList, 
+#teamPickList select, 
+#teamPickList select option {
+    cursor: pointer;
+}
+.mac #teamPickList {
+	padding: 7px 15px;
+}
+.mac.safari #teamPickList {
+	padding: 6px 15px;
+}
+#teamPickList:hover {
+    background-color: #fff;
+    border: 1px solid #802629;
+    color: #802629;
+    padding: 7px 15px;
+}
+#teamPickList select {
+    font-family: Arial,sans-serif;
+    font-weight: bold;
+    border: none;
+    background-color: inherit;
+    color: #fff;
+    width: 88%;
+    font-size: 12px;
+}
+#teamPickList:hover select {
+    color: #802629;
+}
+.mac.safari #teamPickList select {
+	width: 85%;
+}
+.ie #teamPickList select, 
+.msedge #teamPickList select {
+	background-color: transparent;
+}
+.ie #teamPickList select option, 
+.msedge #teamPickList select option {
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #fff;
+}
+#teamPickList select:active, 
+#teamPickList select:focus {
+    outline: none;
+}
+
+/* Adjust spacing around the User Warning Message */
+#jive-widget-container_1 >.jive-widget-searchwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+	margin-top: -25px;
+	margin-bottom: 5px;
+}
+
+/* Change the color of the even rows in the content widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentblogpostswidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-featuredcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Style the content filter bar */
+.jive-content-filter,
+.jive-content-filter-tags {
+    background-color: #eeeff0;
+}
+
+/* Hide the RSS feed button at the bottom of the content widget */
+.jive-widget-recentcontentwidget .jive-box-footer {
+    display: none;
+}
+
+/* Style the More button at the bottom of the recent content widget */
+.jive-more-content {
+    background: #415464;
+    border: 1px solid #415464;
+}
+a.jive-more-content {
+    color: #fff;
+    font-weight: bold;
+    transition: background-color .25s ease-out, color .25s ease-out;
+}
+.jive-more-content:hover {
+    background-color: #fff;
+    color: #415464;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Make right column background a gray color (PMS 427, +30% White, +0.5 Opacity) */
+#jive-widget-container_2,
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Style the Categories widget */
+#jive-widget-container_2 .jive-widget-taggroupwidget .j-icon-list li {
+    padding: 0px 0px 5px 0px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+#jive-widget-container_2 .jive-widget-taggroupwidget .j-icon-list li:last-child {
+    border-bottom: 0px;
+}
+#jive-widget-container_2 .jive-widget-taggroupwidget .jive-icon-med.jive-icon-folder {
+    background-image: none;
+}
+
+/* Change hover effect on hyperlinks in right column */
+#jive-widget-container_2 .jive-widget a:hover {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Extend the length of the right column */
+.rightColumnSpacer {
+    min-height: 945px;
+}
+.rightColumnSpacer.longSpacer {
+    min-height: 1220px;
+}
