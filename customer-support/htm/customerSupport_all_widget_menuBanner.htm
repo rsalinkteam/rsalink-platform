@@ -1,0 +1,318 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+<link href="https://www.rsa.com/content/dam/rsalink/css/redesign-2017-global-fonts-local.css" rel="stylesheet" type="text/css">
+
+<div class="menuBackground">
+	<div class="center myMenu">
+		<ul class="dropDownMenu">
+			<li><a target="_parent" style="cursor: pointer;">Ask a Question</a>
+				<ul class="firstLevel normalMenu-cs">
+					<li><a target="_parent" href="/discussion/create.jspa?suppressMarkQuestion=true&question=true&containerType=14&containerID=2489">Ask a Question About RSA Link</a></li>
+					<li><a target="_parent" href="/docs/DOC-64587">Ask a Product-related Question</a></li>				
+					<li><a target="_parent" href="/docs/DOC-40387">Product Versions Life Cycle</a></li>
+				</ul>
+			</li>			
+			<li><a target="_blank" href="https://rsaportal.force.com/customer/apex/CP_Select_Case?sfdc.tabName=01r70000000Q8sD">Create a Case</a>
+				<ul class="firstLevel normalMenuLong-cs">
+					<li><a target="_blank" href="https://rsaportal.force.com/customer/apex/CP_Select_Case?sfdc.tabName=01r70000000Q8sD">Open a Customer Support Case</a></li>
+					<li><a target="_blank" href="https://support.rsa.com/contact">Open an RSA Link Support Case</a></li>
+				</ul>	
+			</li>	
+			<li><a target="_parent" href="/community/support/knowledge-base">Knowledge Base</a></li>			
+			<li><a target="_parent" style="cursor: pointer;">About Customer Support</a>
+				<ul class="firstLevel normalMenuLong-cs">
+					<li><a target="_parent" href="/docs/DOC-1294">How to Contact RSA Customer Support</a></li>
+					<li><a target="_parent" href="/docs/DOC-40389">Customer Support Strategy</a></li>
+					<li><a target="_parent" href="/docs/DOC-40401">Support Plans and Options</a></li>
+					<li><a target="_parent" href="/docs/DOC-1296">Holiday Schedule</a></li>
+				</ul>
+			</li>
+			<li><a target="_parent" href="/docs/DOC-58194">About RSA Link</a>
+				<ul class="firstLevel slideLeftMenu-cs">
+					<li><a target="_parent" href="/docs/DOC-41374">How to Register</a></li>
+					<li><a target="_parent" href="/videos/21554">Guided Tour of RSA Link</a></li>
+					<li><a target="_parent" href="/docs/DOC-58573">Frequently Asked Questions</a></li>
+					<li><a target="_parent" href="/community/support/knowledge-base/content?filterID=contentstatus%5Bpublished%5D~tag%5Brsa+link%5D">More Tutorials</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<!-- <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> -->
+
+
+<script type="text/javascript">
+	$('.myMenu ul.dropDownMenu li').hover(function() {
+		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
+	});
+	$('.myMenu ul.dropDownMenu li ul.firstLevel li').hover(function() {
+		$(this).find('ul.secondLevel').stop(true, false, true).slideToggle(300);
+	});
+</script>
+
+
+<style>
+@import url('https://www.rsa.com/content/dam/rsalink/css/redesign-2017-global.css');
+@import url('https://www.rsa.com/content/dam/rsalink/css/redesign-2017-suite-menu-base.css');
+
+/* Adjust spacing between menu and banner */
+.menuBackground {
+	margin-bottom: -34px;
+	margin-left: 0px;
+}
+
+/* Adjust width of entire menu */
+.menuBackground .center {
+	max-width: 1150px;
+}
+
+/* Change main menu item size */
+.dropDownMenu a {
+	font-size: 18px;
+}
+
+/* Level 2 Short Menu - Advisories */
+.dropDownMenu > li > ul.shortMenu {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 230px;
+	z-index: 999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+}
+
+/* Level 2 - RSA Customer Support */
+.dropDownMenu ul {
+	box-shadow: 2px 2px 15px 0 rgba(0,0,0, 0.5);
+}
+.dropDownMenu > li > ul.normalMenu-cs {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 280px;
+	z-index: 999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+}
+@media only screen and (min-width: 705px) {
+	.dropDownMenu > li > ul.normalMenu-cs {
+		text-align: left;
+		display: none;
+		background: #FFF;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 307px;
+		z-index: 999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+	}
+	.ie .dropDownMenu > li > ul.normalMenu-cs {
+		width: 309px;
+	}
+	.mac .dropDownMenu > li > ul.normalMenu-cs {
+		width: 309px;
+	}
+}
+
+/* Level 2 Extra Long - RSA Customer Support */
+.dropDownMenu > li > ul.normalMenuLong-cs {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 280px;
+	z-index: 999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+}
+@media only screen and (min-width: 705px) {
+	.dropDownMenu > li > ul.normalMenuLong-cs {
+		text-align: left;
+		display: none;
+		background: #FFF;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 362px;
+		z-index: 999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+	}
+	.ie .dropDownMenu > li > ul.normalMenuLong-cs {
+		width: 363px;
+	}
+	.mac .dropDownMenu > li > ul.normalMenuLong-cs {
+		width: 364px;
+	}
+}
+
+/* Level 2 Slide Left - RSA Customer Support */
+.dropDownMenu > li > ul.slideLeftMenu-cs {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	top: 100%;
+	left: -44%;
+	width: 280px;
+	z-index: 999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+}
+@media only screen and (min-width: 705px) {
+	.dropDownMenu > li > ul.slideLeftMenu-cs {
+		text-align: left;
+		display: none;
+		background: #FFF;
+		position: absolute;
+		top: 100%;
+		left: -91px;
+		width: 276px;
+		z-index: 999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+	}
+	.ie .dropDownMenu > li > ul.slideLeftMenu-cs {
+		width: 279px;
+	}
+	.mac .dropDownMenu > li > ul.slideLeftMenu-cs {
+		width: 279px;
+		left: -84px;
+	}
+}
+
+/* Level 3 - RSA Customer Support */
+.dropDownMenu > li > ul > li > ul.normalThirdMenu-cs {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	left: 100%;
+	top: -100%;
+	width: 240px;
+	z-index: 9999999;
+}
+@media only screen and (min-width: 705px) {
+	.dropDownMenu > li > ul > li > ul.normalThirdMenu-cs {
+		text-align: left;
+		display: none;
+		background: #FFF;
+		position: absolute;
+		left: 100%;
+		top: -108%;
+		width: 275px;
+		z-index: 9999999;
+	}
+}
+
+/* Level 3 Bottom Menu - RSA Customer Support */
+.dropDownMenu > li > ul > li > ul.rightMenuBottom-cs {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	left: 100%;
+	top: -316%;
+	width: 240px;
+	z-index: 9999999;
+}
+@media only screen and (min-width: 705px) {
+	.dropDownMenu > li > ul > li > ul.rightMenuBottom-cs {
+		text-align: left;
+		display: none;
+		background: #FFF;
+		position: absolute;
+		left: 100%;
+		top: -316%;
+		width: 270px;
+		z-index: 9999999;
+	}
+}
+
+/* Level 3 Left Menu - RSA Customer Support */
+.dropDownMenu > li > ul > li > ul.leftMenu-cs {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	left: -86%;
+	top: -100%;
+	width: 240px;
+	z-index: 9999999;
+}
+@media only screen and (min-width: 705px) {
+	.dropDownMenu > li > ul > li > ul.leftMenu-cs {
+		text-align: left;
+		display: none;
+		background: #FFF;
+		position: absolute;
+		left: -88%;
+		top: -108%;
+		width: 275px;
+		z-index: 9999999;
+	}
+}
+
+/* Level 3 Left Bottom Menu - RSA Customer Support */
+.dropDownMenu > li > ul > li > ul.leftMenuBottom-cs {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	left: -100%;
+	top: -175%;
+	width: 315px;
+	z-index: 9999999;
+}
+
+/* Adjust optimization of menu */
+@media only screen and (min-width: 1040px) and (max-width: 1135px) {
+	.dropDownMenu a {
+		font-size: 16px;
+	}
+	ul.slideLeftMenu-cs {
+		left: -107px;
+	}
+}
+@media only screen and (max-width: 1039px) {
+	.dropDownMenu a {
+		font-size: 15px;
+	}
+	ul.slideLeftMenu-cs {
+		left: -116px;
+	}
+}
+</style>
+
+<!-- BEGIN ROTATING BANNER -->
+
+<div id="mainBanner">
+<h1 id="mainBanner-title"><span>RSA</span>&reg; <span>Customer Support</span></h1>
+</div>
+
+<style>
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://community.rsa.com/resources/statics/1040/L2-Products-header-1128x172.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 195px;
+}
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 50px;
+    padding: 32px 44px;
+	font-family: "Lucida Sans Unicode";
+    font-weight: 100;
+}
+@media only screen and (max-width: 1040px) {
+	h1#mainBanner-title {
+		padding: 20px 44px;
+	}
+}
+h1#mainBanner-title span {
+	font-family: "Open Sans",Arial,sans-serif;
+	font-weight: 400;
+}
+h1#mainBanner-title span.japaneseText {
+    font-weight: 200;
+}
+</style>

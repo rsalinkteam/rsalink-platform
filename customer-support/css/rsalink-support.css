@@ -1,0 +1,124 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Customer Support
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   10 Apr 2019
+*/
+
+/* Forcefully define the width of the menu/banner widget to avoid jerking page load */
+#jive-widget-container_1 iframe.htmlWidgetIframe {
+    min-height: 228px !important;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 0px;
+    margin-top: -50px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Style the buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    width: 88%;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #415464;
+    border: 1px solid #415464;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+a[data-role=button]:hover {
+    background-color: #fff;
+    color: #415464;
+	border: 1px solid #415464;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Hide author and avatar in recent articles widget */
+#jive-widget-container_2 .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget td.jive-table-cell-author,
+#jive-widget-container_2 .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget img.jive-avatar {
+    display: none;
+}
+
+/* Change alternating rows of content widgets to standard gray */
+#jive-widget-container_2 .jive-widget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;
+}
+
+/* Style the Recent Discussions widget */
+#jive-widget-container_2 .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget-recentcontentwidget,
+#jive-widget-container_2 .jive-widget .jive-widget-body .jive-table-row-odd td {
+    background-color: #eeeff0;
+}
+
+/* Change the background for subsequent widgets back to normal */
+#jive-widget-container_2 .jive-widget ~ .jive-widget-recentcontentwidget,
+#jive-widget-container_2 .jive-widget ~ .jive-widget .jive-widget-body .jive-table-row-odd td {
+    background-color: #fff;
+}
+
+/* Change the color of every other header in the bottom columns */
+#jive-widget-container_3 .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_3 .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_3 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {	
+	background-color: #415464;
+}
+#jive-widget-container_3 .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_3 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {	
+	background-color: #802629;
+}
+
+
+
+/* Hide Question and Discussion button from Actions menu */
+#jive-place-link-actions-discussion-question,
+#jive-place-link-actions-discussion {
+    display: none;
+}

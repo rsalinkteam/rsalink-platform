@@ -1,0 +1,129 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Customer Support Menu Base Configuration
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   21 March 2019  
+*/
+
+/* Generic CSS */
+.headerContainerWrapper { 
+    background: #FFF;
+}
+.center {
+    width: 100%; 
+    margin: 0 auto;
+}
+.headerContainer, 
+.bodyContainer, 
+.footerContainer {
+    max-width: 960px; 
+    margin: 0 auto; 
+    background: #FFF;
+}
+.padding {
+    padding: 20px;
+}
+.bodyContainer {
+    min-height: 500px;
+}
+
+/* General Styles for Menu */
+.menuBackground {
+	background: #415464;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: Arial,sans-serif;
+	width: 100%;
+	margin: 0px 0px -1px 0px;
+}
+
+/* Base styling for the drop down sections */
+.menuBackground .center {
+    width: 100%;
+}
+.dropDownMenu ul {
+    box-shadow: 2px 2px 15px 0 rgba(0,0,0, 0.5);
+    text-align: left;
+	display: none;
+	background: #FFF;
+    position: absolute;
+    z-index: 999999;
+}
+.dropDownMenu,
+.dropDownMenu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.dropDownMenu ul {
+    box-shadow: 2px 2px 15px 0 rgba(0,0,0, 0.5);
+    text-align: left;
+    display: none;
+    background: #FFF;
+    position: absolute;
+    z-index: 999999;
+}
+.dropDownMenu li {
+	position: relative;
+}
+.dropDownMenu a {
+	padding: 3px 9px;
+	display: block;
+	text-decoration: none;
+	font-size: 16px;
+	color: #fff;
+}
+@media only screen and (min-width: 1029px) {
+	.dropDownMenu a {
+		 padding: 3px 20px;
+	}
+}
+.dropDownMenu a:hover {
+	background: #7a8893;
+	color: #FFF;
+}
+.dropDownMenu li li a {
+    font-size: 13px;
+	color: #000;
+}
+@media only screen and (min-width: 731px) {
+	.dropDownMenu li li a {
+		font-size: 14px;
+	}
+}
+
+/* Level 1 Drop Down */
+.dropDownMenu > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: -4px; /* solve the 4 pixels spacing between list-items */
+}
+.dropDownMenu > li:first-child {
+	margin-left: 0;
+}
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_gray_1128x172.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 195px;
+    margin:0;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 45px;
+    padding: 40px 44px;
+    font-family: Arial,sans-serif;
+    font-weight: 100;
+}
+
+/* Adjust the size of the registered trademark symbol */
+h1#mainBanner-title sup {
+    font-size: 28px;
+}
