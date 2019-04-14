@@ -1,0 +1,101 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Ready Quick Search Widget
+Author:         David DeWald
+Last Editor:    Jeff Shurtliff
+Last Updated:   18 Dec 2018
+*/
+
+/* Ensure that the background of the iframe is white */
+body {
+    background-color: #fff;
+}
+
+/* style the search bar */
+.dynatable-search {
+    float:left;
+    margin-bottom:10px;
+    padding-right:10px;
+}
+
+/* Style the table header */
+#ready-tbl {
+    font-family: Arial,sans-serif;
+    font-style: normal;
+}
+#ready-tbl th {
+    background-color: #415464;
+}
+#ready-tbl th a {
+    color: #fff;
+    font-weight: normal;
+}
+
+/* Style the table header hyperlinks */
+#ready-tbl th a:hover,
+#ready-tbl th a:focus {
+    text-decoration: underline;
+}
+#ready-tbl th a:hover span.dynatable-arrow,
+#ready-tbl th a:focus span.dynatable-arrow {
+    text-decoration: none !important;
+}
+
+/* Style the table body hyperlinks */
+#ready-tbl tbody a {
+    color: #006ba6;
+    font-weight: normal;
+}
+#ready-tbl tbody a:hover,
+#ready-tbl tbody a:focus {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Style the pagination links */
+#dynatable-pagination-links-ready-tbl .dynatable-page-link,
+#dynatable-pagination-links-ready-tbl .dynatable-page-next {
+    color: #006ba6;
+}
+#dynatable-pagination-links-ready-tbl .dynatable-disabled-page {
+    color: #999;
+}
+#dynatable-pagination-links-ready-tbl .dynatable-active-page {
+    background: #415464;
+}
+#dynatable-pagination-links-ready-tbl .dynatable-active-page a {
+    color: #fff;
+}
+.dynatable-disabled-page,
+.dynatable-active-page,
+.dynatable-page-break {
+    cursor: default;
+}
+
+/* Style the search bar */
+#dynatable-search-ready-tbl {
+    width: 87%;
+}
+input#dynatable-query-search-ready-tbl,
+select#dynatable-per-page-ready-tbl {
+    background: #fff;
+    height: auto;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    border-bottom: 1px solid #dadada;
+    padding: 6px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    font: 13px Arial,sans-serif;
+    margin: 0 10px 5px 0;
+}
+input#dynatable-query-search-ready-tbl {
+    width: 90%;
+}
+.dynatable-per-page {
+    width: 13%;
+    text-align: right;
+    display: inline-block;
+}
