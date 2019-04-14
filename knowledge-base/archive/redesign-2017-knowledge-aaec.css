@@ -1,0 +1,42 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			Product Knowledge Base (RSA Adaptive Authentication for eCommerce)
+Author:			Jeff Shurtliff
+Published:		06 Sep 2017
+*/
+
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 24px;
+    padding: 22px 44px;
+	font-family: inherit;
+    font-weight: 100;
+}
+.mac h1#mainBanner-title {
+	font-family:"Lucida Sans",Arial,sans-serif;
+	font-weight: 100;
+}
+@media only screen and (min-width: 1050px) and (max-width: 1138px) {
+	h1#mainBanner-title {
+		font-size: 28px;
+	}
+}
+@media only screen and (min-width: 1139px) and (max-width: 1235px) {
+	h1#mainBanner-title {
+		font-size: 33px;
+	}
+}
+@media only screen and (min-width: 1236px) {
+	h1#mainBanner-title {
+		font-size: 37px;
+	}
+}
+h1#mainBanner-title span {
+	font-family: "Open Sans",Arial,sans-serif;
+	font-weight: 400;
+}
+h1#mainBanner-title span.japaneseText {
+    font-weight: 200;
+}

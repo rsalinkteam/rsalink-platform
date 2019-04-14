@@ -1,0 +1,71 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			Knowledge Base Additional Styling
+Author:			Jeff Shurtliff
+Published:		05 Jan 2018
+*/
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+#jive-widget-container_2 .jive-widget-tagwidget .jive-icon-med {
+    display: none;
+}
+
+#jive-widget-container_2 .j-icon-list li {
+    padding: 0 0 15px 0px;
+}
+
+/* Make right column background a light blue color */
+#jive-widget-container_2 {
+    background-color: #e3f2f9;
+}
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #e3f2f9;
+}
+#DisplayProductResources {
+    background-color: #e3f2f9;
+}
+
+/* Style the View All Buttons */
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-htmltextwidget a[data-role=button] {
+    background-color: #e3f2f9;
+    border: 1px solid #006ba6;
+    color: #006ba6;
+    padding: 8px 15px;
+	width: 35%;
+    transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+}
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-htmltextwidget a[data-role=button]:hover {
+    background-color: #fff;
+    border: 1px solid #006ba6;
+    color: #006ba6;
+}
+
+/* Adjust spacing between View All buttons and Watch a Tag widget */
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-htmltextwidget {
+    margin-top: -25px;
+}
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-top: 0px;
+}
+
+/* Update the Recent Advisory Articles message when not logged in */
+.chrome #jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p, 
+.ff #jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p, 
+.opera #jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p, 
+.safari #jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p {
+    visibility: hidden;
+}
+.chrome #jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p:after, 
+.ff #jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p:after, 
+.opera #jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p:after, 
+.safari #jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p:after {
+    visibility: visible;
+    display: block;
+    content: 'RSA Security Advisory knowledge base articles are only accessible to customers and partners with active maintenance contracts that have logged in.';
+    margin-top: -34px;
+    margin-bottom: -10px;
+}

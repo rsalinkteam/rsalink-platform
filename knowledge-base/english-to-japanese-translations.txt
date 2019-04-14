@@ -1,0 +1,15 @@
+RSA NetWitness Logs and Packets Knowledge		RSANetWitness のログとパケット 知識ベース
+Knowledge Base						知識ベース
+Browse by Category					カテゴリ別表示
+View All Articles					すべての文書を表示する
+Request an Article					記事をリクエストする
+Top Knowledge Articles					トップ記事
+Recently Published Articles				最近公開された記事
+Product Versions					製品バージョン
+Product Resources					製品リソース
+Event Source Configuration				イベントソースのセットアップ
+Hardware Setup Guides					ハードウェア構成ガイド
+RSA Live Content					RSA Liveコンテンツ
+RSA NetWitness Navigator				RSA NetWitnessナビゲータ
+Products						製品
+Recent Advisory Articles                                最近の諮問記事

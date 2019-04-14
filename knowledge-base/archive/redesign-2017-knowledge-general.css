@@ -1,0 +1,200 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			RSA Link Knowledge Base
+Author:			Jeff Shurtliff
+Published:		16 May 2018
+*/
+
+/* Adjust the layout column width */
+#jive-body-layout-ls .jive-body-layout-l {
+    width: calc(93%);
+}
+
+#jive-body-layout-ls .jive-body-layout-s {
+    width: calc(25%);
+}
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://community.rsa.com/resources/statics/27601/L3-Header-920x156-Blue.jpg?a=1501107624900);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 156px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 24px;
+    padding: 11px 44px;
+	font-family: inherit;
+    font-weight: 100;
+}
+.mac h1#mainBanner-title {
+	font-family:"Lucida Sans",Arial,sans-serif;
+	font-weight: 100;
+}
+@media only screen and (min-width: 1050px) and (max-width: 1240px) {
+	h1#mainBanner-title {
+		font-size: 30px;
+	}
+}
+@media only screen and (min-width: 1241px) {
+	h1#mainBanner-title {
+		font-size: 40px;
+	}
+}
+h1#mainBanner-title span {
+	font-family: "Open Sans",Arial,sans-serif;
+	font-weight: 400;
+}
+h1#mainBanner-title span.japaneseText {
+    font-weight: 200;
+}
+
+/* Lower the page body slightly */
+.j-body-place .j-contained #jive-widget-container {    
+    margin-top: -20px;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 0px;
+    margin-top: -25px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+    color: #fefefe;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Style the buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 14px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #509e2e;
+    border: 1px solid #509e2e;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+}
+a.kbButton {
+    padding: 8px 15px;
+    width: 88%;
+    font-size: 12px;
+}
+a[data-role=button]:hover {
+    background-color: #7bbe20;
+    border: 1px solid #7bbe20;
+    color: #FFF;
+}
+
+/* Hide author and avatar */
+#jive-widget-container_1 td.jive-table-cell-author {
+    display: none;
+}
+
+#jive-widget-container_1 img.jive-avatar {
+    display: none;
+}
+
+/* Change the color of the Recent Content Widget */
+.jive-widget-recentcontentwidget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+
+/* Hide the filter option on the Recent Content widget */
+.jive-widget-recentcontentwidget .jive-widget-filter.jive-content-filter {
+    display: none;
+}
+
+/* Raise the recently published articles slightly */
+.jive-widget-recentcontentwidget .jive-widget-body {
+    margin-top: -5px;
+}
+
+/* Style the drop down menu */
+#articleButtons td {
+    vertical-align: top;
+    width: 33%;
+}
+#kbPickList {
+    background-color: #509e2e;
+    padding: 8px 15px;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+.mac #kbPickList {
+	padding: 7px 15px;
+}
+.mac.safari #kbPickList {
+	padding: 6px 15px;
+}
+#kbPickList:hover {
+    background-color: #7bbe20;
+    color: #fff;
+}
+#kbPickList select {
+    font-family: Arial,sans-serif;
+    font-weight: bold;
+    border: none;
+    background-color: inherit;
+    color: #fff;
+    width: 70%;
+    font-size: 12px;
+}
+.mac.safari #kbPickList select {
+	width: 85%;
+}
+.ie #kbPickList select, .msedge #kbPickList select {
+	background-color: transparent;
+}
+.ie #kbPickList select option, .msedge #kbPickList select option {
+	background-color: #7bbe20;
+}
+#kbPickList select:active, #kbPickList select:focus {
+    outline: none;
+}
+
+/* Make right column background a light blue color */
+#jive-widget-container_2 {
+    background-color: #e3f2f9;
+}
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #e3f2f9;
+}
+#DisplayProductResources {
+    background-color: #e3f2f9;
+}

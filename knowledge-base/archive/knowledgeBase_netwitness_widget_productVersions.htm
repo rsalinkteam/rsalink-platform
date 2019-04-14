@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="https://www.rsa.com/content/dam/rsalink/css/jive-06302017.css">
+<link rel="stylesheet" type="text/css" href="https://www.rsa.com/content/dam/rsalink/css/jive-custom-06302017.css">
+
+<script src="https://community.rsa.com/resources/statics/129333/jquery-2.1.4.min.js?a=1490119915748" type="text/javascript"></script>
+
+<div id="displayProductVersions"></div>
+
+<script>
+//only when the DOM has been loaded
+$(document).ready(function() {
+	//populate div id="myDiv" with specific div (div id="someDiv") from another page            
+	$('#displayProductVersions').load('/community/products/netwitness #productVersions');
+});
+
+var text = $('#productVersions').text();
+text = text.replace('<a ', '<a target="_parent" ');
+$('#productVersions').text(text);
+
+setTimeout(resizeMe,2000);
+setTimeout(resizeMe,4000);
+</script>

@@ -1,0 +1,19 @@
+<link rel="stylesheet" type="text/css" href="https://www.rsa.com/content/dam/rsalink/css/rsalink-iframe-gray.css">
+
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+
+<div id="displayProductResources"></div>
+
+<script>
+$(document).ready(function() {
+	// Populate div id="displayProductResources" with specific div (div id="productResources") from another page (update the URL below)
+	$('#displayProductResources').load('/community/products/PRODUCTURL #productResources');
+});
+
+var text = $('#productResources').text();
+text = text.replace('<a ', '<a target="_parent" ');
+$('#productResources').text(text);
+
+setTimeout(resizeMe,2000);
+setTimeout(resizeMe,4000);
+</script>
