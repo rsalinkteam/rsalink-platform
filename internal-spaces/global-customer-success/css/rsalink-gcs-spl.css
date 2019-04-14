@@ -1,0 +1,41 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Dependencies:   rsalink-gcs-projects.css
+Scope:          RSA Global Services Product Leads
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   03 Apr 2019
+*/
+
+/* Style the buttons */
+#quickLinksTable {
+    width: 100%;
+    border: 0px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+#quickLinksTable td {
+    width: 23.5%;
+    text-align: center;
+}
+#quickLinksTable td.spacerCol {
+    width: 2%;
+}
+
+/* Change the color of every other Watch a Tag header in the left column not styled by the rsalink-gcs-projects.css stylesheet */
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Style the Communications widget */
+.jive-table tr.jive-table-row-even td {
+    background-color: #eeeff0;
+}
+.jive-box-footer {
+    display: none;
+}

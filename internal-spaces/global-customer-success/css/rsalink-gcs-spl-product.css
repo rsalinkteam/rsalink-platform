@@ -1,0 +1,75 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Dependencies:   rsalink-gcs-projects.css
+Scope:          RSA Global Services Product Leads
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   03 Apr 2019
+*/
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 45px;
+    padding: 12px 44px;
+    font-family: Arial,sans-serif;
+    font-weight: 100;
+}
+h1#mainBanner-title sup {
+    font-size: 28px;
+}
+#mainBanner-title .prefaceText {
+    font-size: 28px;
+}
+#mainBanner-title .companyText {
+    font-size: 50px;
+}
+
+/* Hide the completed projects list by default */
+#jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget {
+    display: none;
+}
+
+/*Center the text in the widget banners in the large section */
+#jive-widget-container_2 h4.jive-widget-handle {
+    text-align: center;
+}
+
+/* Style the Communications widget (Recent Content or Watch a Tag) */
+#jive-widget-container_2 .jive-widget-recentcontentwidget .jive-widget-filter, 
+#jive-widget-container_2 .jive-widget-recentcontentwidget .jive-box-footer {
+    display: none;
+}
+#jive-widget-container_2 .jive-widget-recentcontentwidget .jive-widget-body,
+#jive-widget-container_2 .jive-widget-recentcontentwidget .jive-table-row-odd td,
+#jive-widget-container_2 .jive-widget-recentcontentwidget .jive-table-row-even td,
+#jive-widget-container_2 .jive-widget-tagwidget .jive-widget-body,
+#jive-widget-container_2 .jive-widget-tagwidget .jive-table-row-odd td,
+#jive-widget-container_2 .jive-widget-tagwidget .jive-table-row-even td {
+    background-color: #eeeff0;
+}
+
+/* Force Watch a Tag widget to display Sarah Kahler as the author even for shared content */
+#jive-widget-container_2 .jive-widget-tagwidget .jive-table-cell-author span {
+    color: #eeeff0;
+}
+#jive-widget-container_2 .jive-widget-tagwidget a.jive-username-link {
+    visibility: hidden;
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+}
+#jive-widget-container_2 .jive-widget-tagwidget a.jive-username-link::after {
+    content: 'Sarah Kahler';
+    color: #666;
+    visibility: visible;
+}
+#jive-widget-container_2 .jive-widget-tagwidget img.jive-avatar {
+    content: url(https://community.rsa.com/people/MDZa2sHhy5A1iMQsrea0o6oF7ziTxlzIKvy1UoYHN6M%3D/avatar/22.png);
+}
+
+/* Change the shared content icon to be a blog post icon in Watch a Tag widget */
+#jive-widget-container_2 .jive-widget-tagwidget img.jive-icon-med.jive-icon-doctype-generic {
+    background-position: -16px -144px;
+}

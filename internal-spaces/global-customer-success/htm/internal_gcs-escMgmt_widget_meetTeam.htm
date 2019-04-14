@@ -1,0 +1,723 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+
+
+
+<!-- TOGGLE SWITCH SECTION -->
+<div id="regionToggle" class="switch-toggle switch-3 switch-candy">
+    <input id="AMER" name="state-d" class="radio" type="radio" checked="">
+    <label for="AMER" onclick="regionFilter()">AMER</label>
+
+    <input id="EMEA" name="state-d" class="radio" type="radio">
+    <label for="EMEA" onclick="regionFilter()">EMEA</label>
+	
+	<input id="APJ" name="state-d" class="radio" type="radio">
+    <label for="APJ" onclick="regionFilter()">APJ</label>
+
+    <a></a>
+</div>
+
+<style>
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-iframe.gray.css');
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-gcs-projects.css');
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-project-toggle.css');
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-gcs-csm.css');
+	
+	/* Hide the EMEA and APJ teams by default */
+	#teamEMEA, #teamAPJ { display: none; }
+</style>
+
+<br />
+
+<!-- JAVASCRIPT TO CONTROL THE REGION TOGGLE -->
+<script type="text/javascript">
+function regionFilter() {
+	$('.radio').change(function() {
+	  if ($('#AMER').is(':checked')) {
+		console.log('Meet the Team: Americas Team is Displaying');
+		jQuery('#teamAMER').css("display", "inherit");
+		jQuery('#teamEMEA').css("display", "none");
+		jQuery('#teamAPJ').css("display", "none");
+	  } else if ($('#EMEA').is(':checked')) {
+		console.log('Meet the Team: EMEA Team is Displaying');
+		jQuery('#teamAMER').css("display", "none");
+		jQuery('#teamEMEA').css("display", "inherit");
+		jQuery('#teamAPJ').css("display", "none");
+	  }	else if ($('#APJ').is(':checked')) { // three only
+		console.log('Meet the Team: APJ Team is Displaying');
+		jQuery('#teamAMER').css("display", "none");
+		jQuery('#teamEMEA').css("display", "none");
+		jQuery('#teamAPJ').css("display", "inherit");
+	  }
+	});	
+	setTimeout(resizeMe,0);
+}
+regionFilter();
+</script>
+
+
+<!-- MEET THE TEAM SECTION -->
+<div id="meetTheTeam">
+
+	<!-- AMERICAS TEAM -->
+	<div id="teamAMER">
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/01MeN4LItDHn3U8pgZq5S8W0RAbSiMtRJyLgw33s2ag=" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/143178/avatar_mike_small.jpg?a=1548347341094" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Michael Svihra</div>
+						<div class="memberLocation">Reston, VA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Sr Director, Customer Success</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+        <hr class="bioSplit" />
+        <table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/QAiKHDJGscVnoZQPOQaY4BjytSrTcgpA9TQTvhtw8ig%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/143178/avatar_luke_small.jpg?a=1553021651851" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Thomas Luke</div>
+						<div class="memberLocation">Reston, VA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Director, Success Services | Escalation and Technical Account Management</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/4fenLh5hBm3PRk5EdqAg1JxefQf8aldllqXFFwlFC2k=" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/143178/avatar_donahue_small.png?a=1507824122079" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Josh Donahue</div>
+						<div class="memberLocation">Bedford, MA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Manager, Global Services North America</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/MYNqaLeFAI8XArGNuYXbxB9LEajRzUHIM7jO9ZqMY2s=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_ashe_small.jpg?a=1513284705167" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Matt Ashe</div>
+						<div class="memberLocation">Bedford, MA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/O8xHfsKSATcUbwFh5VXiIV1CUzUFOdgJI7p4KQL641k%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_timBrown_small.png?a=1507824433465" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Tim Brown</div>
+						<div class="memberLocation">Fayetteville, AK</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/UweFajAPcqfA0XM0PrRqrSUTrYpyAA0V9c51LM9dTMg=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_ginaDavidson_small.png?a=1495830473932" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Gina Davidson</div>
+						<div class="memberLocation">Home Office, MA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/GKKxwgBy9sU0nCbYviD6G5r7VXv0d4jsoi0NgriKbn4=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_dickerson_small.jpg?a=1539898230518" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Michael Dickerson</div>
+						<div class="memberLocation">Home Office, PA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/0bCsYaK19uvfoevPtfGMC8fAtpkDFU5uOo0f7CBhd8Y=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_robHolzel_small.png?a=1495830538311" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Rob Holzel</div>
+						<div class="memberLocation">Bedford, MA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>				
+						<a href="/people/pDer6W35UXeyoekXRfbTwuIJhY8ngWvGzljCt4uc2U4%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_hagney_small.png?a=1507826799604" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Frank Hagney</div>
+						<div class="memberLocation">Home Office, NH</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/FU53aCBBkmGzKQT7YIw1vrmsG1aNdMVB5A0lSUtxXX4%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_isatta_small.png?a=1507827023939" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px;">Isatta Kuyatah</div>
+						<div class="memberLocation">Charlotte, NC</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/clDaPuWgRwQ37G6RMaCR38fQfZs3lsMvYsd7TwrSlMU%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_leger_small.png?a=1507827262013" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Michael Leger</div>
+						<div class="memberLocation">Bedford, MA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/a9U7APw6PwY2IBuDdUtWG8DzeLtAlZZpDp4oCQfwFAY=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_joeMarch_small.png?a=1495830585392" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Joe March</div>
+						<div class="memberLocation">Home Office, VA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/BsZkUT3Ei5BDGdC5kbeHYh8ZOakBCGs3roqIFFFvLmM=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_johnMcDonough_small.png?a=1495830623986" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">John McDonough</div>
+						<div class="memberLocation">Home Office, FL</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/rR4A5F8tfMeA1ZtSKMGhjRsDVewfacN5iiYcKJAYObM=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_tomRickenbacker_small.png?a=1495830665182" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Tom Rickenbacker</div>
+						<div class="memberLocation">Bedford, MA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/mAuNrB0reOzkTBKRABCgQv1vxWPNbBrMKJOkMoIpjak=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_brian_schaefer_small.jpg?a=1546505561720" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Brian Schaefer</div>
+						<div class="memberLocation">Home Office, NJ</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/LGpGLNA3jERQz07cGQqd9Mqv1NvLL3quhE1lqkjmrFA=" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/143178/RobertaStaniewicz.jpg?a=1510250716921" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Roberta Staniewicz</div>
+						<div class="memberLocation">Bedford, MA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- EMEA TEAM -->
+	<div id="teamEMEA">			
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/01MeN4LItDHn3U8pgZq5S8W0RAbSiMtRJyLgw33s2ag=" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/143178/avatar_mike_small.jpg?a=1548347341094" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Michael Svihra</div>
+						<div class="memberLocation">Reston, VA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Sr Director, Global Services EMEA</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+        <hr class="bioSplit" />
+        <table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/QAiKHDJGscVnoZQPOQaY4BjytSrTcgpA9TQTvhtw8ig%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/143178/avatar_luke_small.jpg?a=1553021651851" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Thomas Luke</div>
+						<div class="memberLocation">Reston, VA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Director, Success Services | Escalation and Technical Account Management</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/87iG8gFFO1Z8wdDNTVyB4sBX3wlG7N9BazJHTg4mTEk=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_supriya_kanakatte_small.jpg?a=1546504936861" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Supriya Kanakatte</div>
+						<div class="memberLocation">Bracknell, UK</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/vhwQSq31oBd12kA0mqvOw8ioKdkYIvjkO1F6GyCiB70%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_tony_small.jpg?a=1513281340025" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Tony Nicholson</div>
+						<div class="memberLocation">Bracknell, UK</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<img class="bioPic" src="/resources/statics/143178/avatar_generic_small.png?a=1495829137844" />
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Gagandeep Bhogal</div>
+						<div class="memberLocation">Bracknell, UK</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/0akHawQSRJ3pp4eWfzPrJvPfCYjpED3t7kRG0wHCq4Y%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_mohamed_small.jpg?a=1513280561389" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Mohamed Elzareaa</div>
+						<div class="memberLocation">Cairo, Egypt</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/hB4JzapTZFHyZjY9aLorVuD3x0oHiZmin1YRIIiANTQ%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_aya_small.jpg?a=1513280687078" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Aya Ezzat</div>
+						<div class="memberLocation">Cairo, Egypt</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/NeBwYCZlChXeL3892GSZYlNDvuCBiVmbhrx3LuzyZCM%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_yomna_small.jpg?a=1513280804231" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Yomna Khalil</div>
+						<div class="memberLocation">Cairo, Egypt</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<img class="bioPic" src="https://community.rsa.com/resources/statics/143178/avatar_zaki_small.jpg?a=1553022099093" />
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Nada Zaki</div>
+						<div class="memberLocation">Cairo, Egypt</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<img class="bioPic" src="https://community.rsa.com/resources/statics/143178/avatar_elborollossy_small.jpg?a=1553022095090" />
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Menna ElBorollossy</div>
+						<div class="memberLocation">Cairo, Egypt</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- APJ TEAM -->
+	<div id="teamAPJ">
+		<div class="mgrDisclaimer"><i>APJ teammates are matrixed &amp; managed by their regional director.</i></div><br />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/p1gon93pai2jrxfyzc8fnqgaatfmvuy63doa6h8hahy%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/Luther.jpg?a=1529334791601" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Luther Teo</div>
+						<div class="memberLocation">Singapore</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Director, Global Services APJ</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/sUWOeIQVAG9nBsmDtGlTrAQqwaGvtaVqi3E6q7ixLyg%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_pawan_small.jpg?a=1513284219857" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Pawan Palaparti</div>
+						<div class="memberLocation">Bangalore, India</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/5XIiiIA099XloSxAmZgDanOQhBAlOle8aq0vycHyLcU=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_paul_small.jpg?a=1513283985674" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Paul Thornton</div>
+						<div class="memberLocation">North Ryde, Australia</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

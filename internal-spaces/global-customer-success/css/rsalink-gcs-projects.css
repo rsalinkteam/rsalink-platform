@@ -1,0 +1,206 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Global Customer Success Projects Pages
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   3 Jan 2019
+*/
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_gray_1128x172.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 195px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 50px;
+    padding: 30px 44px;
+	font-family: inherit;
+    font-weight: 100;
+}
+@media only screen and (min-width: 1080px) and (max-width: 1165px) {
+	h1#mainBanner-title {
+		font-size: 40px;
+	}
+}
+@media only screen and (max-width: 1079px) {
+	h1#mainBanner-title {
+		font-size: 35px;
+		padding: 20px 44px;
+	}
+}
+
+/* Style the Missions and Objectives section */
+#missionTable {
+	border: 0px;
+	width: 100%;
+}
+.imgCol {
+	width: 20%;
+	vertical-align: middle;
+}
+.textColTop,
+.textColBottom {
+	width: 70%;
+	border-top: 2px solid #be3a34;
+	vertical-align: middle;
+	padding: 22px;
+	font-size: 15px;
+}
+.textColBottom {
+	border-bottom: 2px solid #be3a34;
+}
+.spacingCol {
+	width: 10%;
+}
+.arrowImg {
+	display: block;
+	margin-right: 25px;
+	margin-left: auto;
+}
+#objList {
+	margin-left: 15px;
+}
+
+/* Style the buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    width: 88%;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #fff;
+    text-decoration: none;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+a[data-role=button]:hover {
+    background-color: #fff;
+    border: 1px solid #802629;
+    color: #802629;
+}
+
+/* Change the color of every other Watch a Tag header in the left column */
+#jive-widget-container_2 .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+#jive-widget-container_2 .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Change the background of subsequent View Document widgets back to normal */
+#jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget {
+    background-color: #fff;
+}
+
+/* Hide the place icons for the table of contents */
+.tableOfContents > .jive-link-community-small {
+    background: none;
+    padding: 0px 0px 0px 1px;
+}
+
+/* Hide the completed projects list by default */
+#jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget {
+    display: none;
+}
+
+/* Hide the document, space and profile icons */
+a.jive-link-wiki-small,
+a.jive-link-community-small,
+a.jive-link-profile-small {
+    background-image: none;
+    padding-left: 0px;
+}
+
+/* Hide any external link icons */
+.jive-link-external-small:after {
+    background: none;
+    margin: 0 -12px 0 -12px;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Change the background of the right column to be gray */
+#jive-widget-container_3,
+#jive-widget-container_3 .jive-widget .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change the color of every other Watch a Tag header in the left column */
+#jive-widget-container_3 .jive-widget .jive-widget-header,
+#jive-widget-container_3 .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_3 .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_3 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Style the Meet the Team widget */
+.bioTable {
+	width: 100%;
+	border: 0px;
+}
+.nameCell {
+	text-align: left;
+	vertical-align: middle;
+	padding-left: 15px;
+	font-weight: bold;
+}
+.memberName {
+	font-size: 15px;
+}
+.memberLocation {
+	font-size: 10px;
+}
+ul.bioList {
+	font-size: 11px;
+	margin-left: 20px;
+}
+
+/* Remove the blog icons from the Recent Communication widget */
+#jive-widget-container_3 .jive-widget-recentcontentwidget span.jive-icon-med.jive-icon-blog {
+    display: none;
+}
+#jive-widget-container_3 .jive-widget-recentcontentwidget ul.j-icon-list li {
+    padding: 0 0 15px 5px;
+}
+
+/* Hide the space location, filters and RSS feed link for blog posts */
+#jive-widget-container_3 .jive-widget-recentcontentwidget ul.j-icon-list li a ~ span,
+#jive-widget-container_3 .jive-widget-recentcontentwidget a.jive-content-filter-toggle.jive-content-filter-show,
+#jive-widget-container_3 .jive-widget-recentcontentwidget .jive-widget-filter,
+#jive-widget-container_3 .jive-widget-recentcontentwidget a.statusrss {
+    display: none;
+}
+
+/* Adjust margins around "More" button in blog posts widget */
+#jive-widget-container_3 .jive-widget-recentcontentwidget .jive-more-content {
+    margin: -5px 0;
+}
+
+/* Change font size in the Manage Projects widget */
+#projectAdmin a {
+    font-size: 13px;
+}

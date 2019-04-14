@@ -1,0 +1,449 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+
+
+
+<!-- TOGGLE SWITCH SECTION -->
+<div id="regionToggle" class="switch-toggle switch-3 switch-candy">
+	<input id="AMER" name="state-d" class="radio" type="radio" checked="">
+	<label for="AMER" onclick="regionFilter()">AMER</label>
+
+	<input id="EMEA" name="state-d" class="radio" type="radio">
+	<label for="EMEA" onclick="regionFilter()">EMEA</label>
+
+	<input id="APJ" name="state-d" class="radio" type="radio">
+	<label for="APJ" onclick="regionFilter()">APJ</label>
+
+	<a></a>
+</div>
+
+<style>
+	@import url('/resources/statics/143178/toggle-switch.css?a=1513178300668');
+
+	/* Hide the EMEA and APJ teams by default */
+
+	#teamEMEA,
+	#teamAPJ {
+		display: none;
+	}
+</style>
+
+<br />
+
+<!-- JAVASCRIPT TO CONTROL THE REGION TOGGLE -->
+<script type="text/javascript">
+	function regionFilter() {
+		$('.radio').change(function () {
+			if ($('#AMER').is(':checked')) {
+				console.log('Meet the Team: Americas Team is Displaying');
+				jQuery('#teamAMER').css("display", "inherit");
+				jQuery('#teamEMEA').css("display", "none");
+				jQuery('#teamAPJ').css("display", "none");
+			} else if ($('#EMEA').is(':checked')) {
+				console.log('Meet the Team: EMEA Team is Displaying');
+				jQuery('#teamAMER').css("display", "none");
+				jQuery('#teamEMEA').css("display", "inherit");
+				jQuery('#teamAPJ').css("display", "none");
+			} else if ($('#APJ').is(':checked')) { // three only
+				console.log('Meet the Team: APJ Team is Displaying');
+				jQuery('#teamAMER').css("display", "none");
+				jQuery('#teamEMEA').css("display", "none");
+				jQuery('#teamAPJ').css("display", "inherit");
+			}
+		});
+		setTimeout(resizeMe, 0);
+	}
+	regionFilter();
+</script>
+
+
+<!-- MEET THE TEAM SECTION -->
+<div id="meetTheTeam">
+
+	<!-- AMERICAS TEAM -->
+	<div id="teamAMER">
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/01MeN4LItDHn3U8pgZq5S8W0RAbSiMtRJyLgw33s2ag=" target="_blank">
+							<img class="bioPic" src="/resources/statics/157752/avatar_doug_small.png?a=1505236961384" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Doug Howard</div>
+						<div class="memberLocation">Reston, VA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>VP of Global Services</li>
+							<li>Executive Sponsor of the Global Customer Success 50 Program and GCS50 Executive Sponsorship Initiative</li>
+							<li>Provides leadership support for RSA’s strategic vision and global operational execution across the business</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/01MeN4LItDHn3U8pgZq5S8W0RAbSiMtRJyLgw33s2ag=" target="_blank">
+							<img class="bioPic" src="/resources/statics/140039/avatar_mike_small.jpg?a=1495215646026" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Michael Svihra</div>
+						<div class="memberLocation">Reston, VA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Sr Director, Customer Success</li>
+							<li>Leads governance and initiatives that leverages Global Services resources to improve client interactions while enhancing
+								our customer’s ability to fully operationalize RSA’s solutions and services</li>
+							<li>Utilizes the Customer Success Teams to implement changes that initially focus on our largest customers first, but
+								can scale and provide benefit to the entire customer base over time</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<a href="https://community.rsa.com/docs/DOC-84752" style="font-weight: bold; color: #000; text-decoration: none;">GCS50 Customer Success Managers</a>
+
+
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/6obqLkthHHI6xxmva08GhXkWZBoafmQ7Hddr7iFfpQA=" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/avatar_jasmineCattanach_small.png?a=1495821713657"
+							/>
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Jasmin Cattanach, CISM, PMP</div>
+						<div class="memberLocation">Houston, TX</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>
+								<a href="https://community.rsa.com/docs/DOC-84752">
+									GCS50 Success Manager
+								</a>
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/gUypESJlLyXrngV0zzBfPo5t3ZWMovMJ2QiFi8TPuCs=" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/avatar_rogerEggleston_small.png?a=1499272877465"
+							/>
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Roger Eggleston, CISM, PMP</div>
+						<div class="memberLocation">Louisville, KY
+						</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>
+								<a href="https://community.rsa.com/docs/DOC-84752">
+									GCS50 Success Manager
+								</a>
+							</li>
+
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/sAigWsvQolO2fWMJFMn1AeeBxhEwFg8DuWXRgFbQK3Q=" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/avatar_mahmoudGomaa_small.png?a=1495821914110"
+							/>
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Mahmoud Gomaa, CISM, ITIL V3, PMP</div>
+						<div class="memberLocation">Bedford, MA
+						</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>
+								<a href="https://community.rsa.com/docs/DOC-84752">
+									GCS50 Success Manager
+								</a>
+							</li>
+
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/vOGOb3RVfc16hz5N6p668ZOxWLpSygpXbRrdRvF2Be8=" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/avatar_scottRippee_small.png?a=1495821734942"
+							/>
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Scott Rippee, CISSP, PMP
+						</div>
+						<div class="memberLocation">Columbia, SC</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>
+								<a href="https://community.rsa.com/docs/DOC-84752">
+									GCS50 Success Manager
+								</a>
+							</li>
+
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/NEYJrI83VPDZ9JE9TwsJEUntdHmVaFtMdiUlzoXleyo=" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/avatar_rellaStone_small.png?a=1495821846502"
+							/>
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Rella Stone, PMP, CISM, CRISC</div>
+						<div class="memberLocation">Las Vegas, NV
+						</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>
+								<a href="https://community.rsa.com/docs/DOC-84752">
+									GCS50 Success Manager
+								</a>
+							</li>
+
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/d1d4GgvqQAnBKffdrAR65NymyatgCATsNbAjTN2gAjI%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/157752/avatar_connor_small.png?a=1504804104215" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Connor Ryan</div>
+						<div class="memberLocation">Reston, VA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>GCS50 Project Coordinator & Executive Sponsorship</li>
+
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- EMEA TEAM -->
+	<div id="teamEMEA">
+		<div class="mgrDisclaimer">
+			<i>The EMEA &amp; APJ teammates are matrixed &amp; managed by their regional directors.</i>
+		</div>
+		<br />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/EvdVsKHi4DWcD9apxBuC2YdKGyo0yzBLPNX7IsuppgQ=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/Sarah%252Bp.png?a=1529335446615" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Sarah Kahler</div>
+						<div class="memberLocation">Overland Park, KS * Bracknell, UK</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Director, Global Services EMEA</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/vhwQSq31oBd12kA0mqvOw8ioKdkYIvjkO1F6GyCiB70%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_tony_small.jpg?a=1513281340025" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Tony Nicholson</div>
+						<div class="memberLocation">Bracknell, UK</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>GCS50 Success Manager</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+	<!-- APJ TEAM -->
+	<div id="teamAPJ">
+		<div class="mgrDisclaimer">
+			<i>The EMEA &amp; APJ teammates are matrixed &amp; managed by their regional directors.</i>
+		</div>
+		<br />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/p1gon93pai2jrxfyzc8fnqgaatfmvuy63doa6h8hahy%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/Luther.jpg?a=1529334791601" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Luther Teo</div>
+						<div class="memberLocation">Singapore</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Director, Global Services APJ</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/5XIiiIA099XloSxAmZgDanOQhBAlOle8aq0vycHyLcU=" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_paul_small.jpg?a=1513283985674" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Paul Thornton</div>
+						<div class="memberLocation">North Ryde, Australia</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>GCS50 Success Manager</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<style>
+	#meetTheTeam {
+		font-family: "Open Sans", arial, sans-serif;
+
+	}
+
+	#meetTheTeam ul li {
+		list-style-type: disc;
+	}
+
+	.bioTable {
+		width: 100%;
+		border: 0px;
+	}
+
+	.nameCell {
+		text-align: left;
+		vertical-align: middle;
+		padding-left: 15px;
+		font-weight: bold;
+	}
+
+	.memberName {
+		font-size: 15px;
+	}
+
+	.memberLocation {
+		font-size: 10px;
+	}
+
+	ul.bioList {
+		font-size: 11px;
+		margin-left: -20px;
+	}
+
+	ul.bioList li {
+		padding-bottom: 5px;
+	}
+
+	hr.bioSplit {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+
+	.mgrDisclaimer {
+		font-size: 13px;
+	}
+</style>

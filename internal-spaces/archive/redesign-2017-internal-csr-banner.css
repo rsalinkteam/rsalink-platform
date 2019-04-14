@@ -1,0 +1,46 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			Corporate Social Responsibility (Banner)
+Author:			Jeff Shurtliff
+Published:		01 Sep 2017
+*/
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://community.rsa.com/resources/statics/1040/L2-Products-header-1128x172.jpg?a=1501007515296);
+    background-repeat: no-repeat;
+    background-size: 100% 75%;
+    background-position-y: top;
+    height: 195px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 45px;
+    padding: 33px 44px;
+}
+.mac h1#mainBanner-title {
+	font-family:"Lucida Sans",Arial,sans-serif;
+	font-weight: 100;
+}
+@media only screen and (min-width: 1056px) {
+	h1#mainBanner-title {
+		font-size: 45px;
+	}
+}
+h1#mainBanner-title.twoLineTitle {	/* If the title has two lines then add the .twoLineTitle class to the <h1> tag */
+    padding-top: 22px;
+}
+h1#mainBanner-title span {
+	font-family: "Open Sans Light",Arial,sans-serif;
+	font-weight: 600;
+}
+
+/* Adjust spacing between banner and other widgets */
+#jive-widget-container_1 .jive-widget-htmltextwidget {
+    margin-bottom: -30px;
+}
+#jive-widget-container_1 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-bottom: 30px;
+}

@@ -1,0 +1,143 @@
+<!-- START QUICK LINKS SECTION -->
+<table id="quickLinksTable" border="0" style="border: 0px solid rgb(198, 198, 198); margin-left: auto; margin-right: auto;">
+	<tbody>
+		<tr class="withoutTool">	
+			<td style="text-align: center;" class="greenButtonFourCell"><a data-role="button" target="_top" href="https://community.rsa.com/docs/DOC-85535">Sample CGS50 Kick Off Presentation</a></td>
+			<td style="text-align: center;" class="greenButtonFourCell"><a data-role="button" target="_top" href="https://community.rsa.com/community/internal/global-services/customer-success/gcs50/executive-sponsorship">GCS50 Executive Sponsorship</a></td>
+			<td style="text-align: center;" class="greenButtonFourCell"><a data-role="button" target="_top" href="https://community.rsa.com/docs/DOC-84752">Customers Engaged</a></td>
+			<td style="text-align: center;" class="greenButtonFourCell" id="toolButton"><a data-role="button" target="_top" href="https://community.rsa.com/community/internal/global-services/customer-success/blog">Directors Messages</a></td>
+		</tr>
+		<tr class="withTool">	
+			<td style="text-align: center;" class="greenButtonThreeCell"><a data-role="button" target="_top" href="https://community.rsa.com/docs/DOC-85535">Sample CGS50 Kick Off Presentation</a></td>
+			<td style="text-align: center;" class="greenButtonThreeCell"><a data-role="button" target="_top" href="https://community.rsa.com/community/internal/global-services/customer-success/gcs50/executive-sponsorship">GCS50 Executive Sponsorship</a></td>
+			<td style="text-align: center;" class="greenButtonThreeCell"><a data-role="button" target="_top" href="https://community.rsa.com/docs/DOC-84752">Customers Engaged</a></td>
+		</tr>
+		<tr class="withTool">
+			<td style="text-align: center;" class="greenButtonThreeCell" id="toolButton"><a data-role="button" target="_blank" href="http://10.239.201.11/gcs50/GCS50%20Six%20Month%20Summary.xlsm">GCS50 Case Summaries</a></td>
+			<td style="text-align: center;" class="greenButtonThreeCell" id="toolButton"><a data-role="button" target="_top" href="https://community.rsa.com/docs/DOC-93335">Customer Success Overview</a></td>
+			<td style="text-align: center;" class="greenButtonThreeCell" id="toolButton"><a data-role="button" target="_top" href="https://community.rsa.com/community/internal/global-services/customer-success/blog">Directors Messages</a></td>
+		</tr>
+	</tbody>
+</table>
+<!-- END QUICK LINKS SECTION -->
+
+<!-- START CUSTOM STYLING SECTION -->
+<style>
+@import url('https://www.rsa.com/content/dam/rsalink/css/jive-06302017.css');
+@import url('https://www.rsa.com/content/dam/rsalink/css/jive-custom-06302017.css');
+
+.withTool {
+	display: none;
+}
+
+.greenButtonThreeCell {
+	width: 33%;
+}
+.greenButtonFourCell {
+	width: 25%;
+}
+
+
+a[data-role=button] {
+    border-radius: 0px;
+    font-size: 11px;
+    line-height: 14px;
+    line-height: 1.4rem;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: OpenSans-Bold,Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 7px 0px;
+    position: relative;
+    text-transform: uppercase;
+    background-color: #509e2e;
+    border: 1px solid #509e2e;
+    color: #fff;    
+	text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+	width: 95%;
+}
+@media only screen and (min-width: 1194px) {
+	a[data-role=button] {
+		border-radius: 0px;
+		font-size: 12px;
+		line-height: 14px;
+		line-height: 1.4rem;
+		line-height: 1rem;
+		font-weight: bold;
+		display: inline-block;
+		vertical-align: middle;
+		font-family: OpenSans-Bold,Arial,sans-serif;
+		margin-bottom: 10px;
+		padding: 7px 6px;
+		position: relative;
+		text-transform: uppercase;
+		background-color: #509e2e;
+		border: 1px solid #509e2e;
+		color: #fff;    
+		text-decoration: none;
+		transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+		width: 95%;
+	}
+}
+
+a[data-role=button]:hover {
+    background-color: #7bbe20;
+    border: 1px solid #7bbe20;
+    color: #fff;    
+}
+
+#quickLinksTable {
+    width: 100%;
+}
+</style>
+<!-- END CUSTOM STYLING SECTION -->
+
+<!-- START JAVASCRIPT SECTION -->
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+<script>
+window.onload = function() {
+	//Mike requested that access to this button no longer be restricted (6/6/2018).  
+	//Commented out existing code to preserve a record in case we need to fall back to it.
+	console.log("Tool button has been activated.");
+	jQuery('.withTool').css("display", "table-row");
+	jQuery('.withoutTool').css("display", "none");
+	setTimeout(resizeMe,0);
+	
+	//var userID = window.parent._jive_current_user.ID;
+	//var svihraID = "54392";
+	//var shurtliffID = "2055";
+	//var ledbetterID = "50524";
+	//var howardID = "54039";
+	//var egglestonID = "19513";
+	//var gomaaID = "2599";
+	//var pooreID = "2972";
+	//var rippeeID = "51091";
+	//var sarfarazID = "11415";
+	//var rellaID = "11458";
+	//var kahlerID = "17202";
+	//var pryerID = "4776";
+	//var dorvalID = "12221";
+	//var donahueID = "2705";
+	//var robertaID = "8144";
+	//var connorID = "17777";
+	//var adrianAdolphoBagleyID = "11873";
+	//var islamElhamzawiID = "59576";
+	//var mohamedElzareaaID = "58285";
+	//var ayaEzzatID = "7759";
+	//var yomnaKhalilID = "14422";
+	//var anthonyNicholsonID = "58385";
+	//var markPedleyID = "2718"; -->
+	
+	//if (userID == svihraID || userID == shurtliffID || userID == ledbetterID || userID == egglestonID || userID == gomaaID || userID == pooreID || userID == rippeeID || userID == sarfarazID || userID == rellaID || userID == kahlerID || userID == pryerID || userID == dorvalID || userID == donahueID || userID == robertaID || userID == connorID || userID == adrianAdolphoBagleyID || userID == islamElhamzawiID || userID == mohamedElzareaaID || userID == ayaEzzatID || userID == yomnaKhalilID || userID == anthonyNicholsonID || userID == markPedleyID) {
+	//	console.log("Tool button has been activated.");
+	//	jQuery('.withTool').css("display", "table-row");
+	//	jQuery('.withoutTool').css("display", "none");
+	//	setTimeout(resizeMe,0);
+	//}
+};
+</script>
+<!-- END JAVASCRIPT SECTION -->

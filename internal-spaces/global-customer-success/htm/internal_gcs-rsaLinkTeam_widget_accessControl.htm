@@ -1,0 +1,64 @@
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<style>
+/* Hide the Manage Projects widget by default */
+#jive-widget-container_3 .jive-widget-htmltextwidget:nth-child(2) {
+    visibility: hidden;
+}
+</style>
+
+<script>
+// Start by hiding the widget
+window.parent.$('#jive-widget-container_3 .jive-widget-htmltextwidget:nth-child(2)').css('visibility','hidden'); 
+</script>
+
+<div id="adminVisibility"></div>
+<script>
+var $j = jQuery.noConflict();
+    $j.ajax({
+        type: 'GET',
+        url: '/api/core/v3/people/@me/securityGroups',
+        dataType: 'text',
+        cache: false,
+        success: function (data) {
+            var cleanedJSON = JSON.parse(data.replace("throw 'allowIllegalResourceCall is false.';", ""));
+            listJiveGroups = []; // Global array
+            $j(cleanedJSON.list).each(function () {
+                listJiveGroups.push(this.name);
+            });
+            console.log(listJiveGroups);            
+			
+			var teamName = 'RSA Link Team';	
+			
+			function examineGroups ( id ) {
+				for(i=0; i < listJiveGroups.length; i++) {
+					console.log('Checking: ' + listJiveGroups[i]);
+					if ( listJiveGroups[i] == teamName ) {
+						console.log('Found the RSA Link Team group in array.');
+						return true;						
+					}
+				}
+				console.log('Did not find RSA Link Team group in array.');
+				return false;
+			}
+			
+			
+			var checkMember = examineGroups(teamName);
+			
+			console.log('This is the checkMember value: ' + checkMember);
+			
+			if (checkMember === true) {
+				// document.getElementById("adminVisibility").innerHTML = '<style>#jive-widget-container_3 .jive-widget-htmltextwidget:nth-child(2) { visibility: visible; }</style>';
+				window.parent.$('#jive-widget-container_3 .jive-widget-htmltextwidget:nth-child(2)').css('visibility','visible'); 
+				console.log('User is a member of the RSA Link team');
+			} else {				
+				console.log('User is NOT a member of the RSA Link team');
+			}
+        },
+        error: function (data) {
+            console.log('Error getting listJiveGroups!');
+        }
+    });
+
+setTimeout(resizeMe,2000);
+</script>

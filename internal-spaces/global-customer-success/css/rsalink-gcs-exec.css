@@ -1,0 +1,33 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Dependencies:   rsalink-gcs-projects.css
+Scope:          RSA GCS50 Executive Sponsorship
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   03 Apr 2019
+*/
+
+/* Display the active projects widgets */
+#jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget {
+    display: inherit;
+}
+
+/* Change the color of every other Watch a Tag header in the left column not styled by the rsalink-gcs-projects.css stylesheet */
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Force all projects tables to be full width */
+#jive-widget-container_2 .jive-widget-documentviewwidget .j-rte-table table {
+    width: 100% !important;
+}
+
+/* Fix broken bullet list in View Document widget */
+.jive-widget-documentviewwidget ul {
+    padding: 0 0 0 30px !important;
+}

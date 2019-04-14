@@ -1,0 +1,63 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Dependencies:   rsalink-gcs-projects.css
+Scope:          RSA GCS50 Program
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   5 Jan 2019
+*/
+
+/* Change the spacing after the heading in the introductory text */
+.jive-widget-documentviewwidget h1 {
+    margin-bottom: 10px;
+}
+
+/* Change the color of every other Watch a Tag header in the left column not styled by the rsalink-gcs-projects.css stylesheet */
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Set the minimum width of the Meet the Team widget */
+#jive-widget-container_1 .htmlWidgetIframe {
+    min-height: 70px;
+}
+
+/* Style the Meet the Team widget */
+#meetTheTeam {
+    font-family: Arial, sans-serif;
+}
+#meetTheTeam ul li {
+    list-style-type: disc;
+}
+ul.bioList {
+	font-size: 11px;
+	margin-left: -20px;
+}
+ul.bioList li {
+    padding-bottom: 5px;
+}
+hr.bioSplit {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.mgrDisclaimer {
+	font-size: 13px;
+}
+
+/* Style the hyperlinks in the Meet the Team bios */
+.bioList a, 
+.bioList a:visited {
+    color: #006ba6;
+    text-decoration: none;
+}
+.bioList a:hover,
+.bioList a:focus {
+    color: #006ba6;
+    text-decoration: none;
+    font-weight: bold;
+}

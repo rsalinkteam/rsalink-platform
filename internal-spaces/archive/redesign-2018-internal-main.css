@@ -1,0 +1,176 @@
+/* 
+ *	MAIN BANNER 
+ */
+ 
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/L2-Products-header-1128x172.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 195px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 30px;
+    padding: 40px 44px;
+	font-family: inherit;
+    font-weight: 100;
+}
+.mac h1#mainBanner-title {
+	font-family:"Lucida Sans",Arial,sans-serif;
+	font-weight: 100;
+}
+@media only screen and (min-width: 1056px) {
+	h1#mainBanner-title {
+		font-size: 55px;
+	}
+}
+h1#mainBanner-title.twoLineTitle {	/* If the title has two lines then add the .twoLineTitle class to the <h1> tag */
+    padding-top: 22px;
+}
+h1#mainBanner-title span {
+	font-family: "Open Sans Light",Arial,sans-serif;
+	font-weight: 600;
+}
+
+/*
+ *	SEARCH BAR
+ */
+
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 15px;
+    margin-top: -50px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 0;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+    color: #fefefe;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/*
+ *	GRADIENT BANNERS
+ */
+ 
+/* Base styling for gradient banners */
+.gradient-vertical-light {
+	background-image: linear-gradient(rgba(0,0,0,0.08) 0,rgba(0,0,0,0) 100%);
+}
+
+.gradient-banner-padding {
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
+.gradient-banner-text {
+	text-align: center;
+	font-size: 2.3rem;
+	color: #fff;
+	font-family: 'Open Sans Semi-Bold',Helvetica,Arial,sans-serif;
+	text-rendering: optimizelLegibility;
+	margin-top: 0;
+	margin-bottom: .5rem;
+	line-height: 1.4;
+}
+
+/* Color-specific styling for gradient banners */
+.blue-gradient-banner {
+	background-color: #006ba6;
+	background: linear-gradient(to right, #006ba6, #62b5e5);
+}
+
+.orange-gradient-banner {
+	background-color: #e87722;
+	background: linear-gradient(to right, #e87722,#eaaa00);
+}
+
+.green-gradient-banner {
+	background-color: #509e2f;
+	background: linear-gradient(to right, #509e2f,#78be20);
+}
+
+
+/*
+ *	COMMUNITY GRID
+ */
+ 
+/* Community grid table to be full width */
+.community-grid {
+	width: 100%;
+}
+
+/* Set each column in the grid to be half width */
+.community-grid td {
+	width: 50%;	
+	padding: 15px;
+}
+
+/* Style the hyperlinks in the grid */
+.community-grid a {
+	color: #2199e8;
+	cursor: pointer;
+	background-color: transparent;
+	font-family: "Lato",Arial,sans-serif;
+	font-size: 16px;
+	line-height: 25.6px;
+}
+.community-grid a:hover,
+.community-grid a:focus {
+	color: #1585cf;
+	text-decoration: none;
+}
+
+/* Style the description text in the grid */
+.community-grid p {
+	color: #0a0a0a;
+	font-family: "Lato",Arial,sans-serif;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Style the section headings in the grid */
+h4.comm-grid-heading {
+	color: #0a0a0a;
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 22px;
+	margin-bottom: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Dependencies:   rsalink-gcs-projects.css
+Scope:          RSA Customer Success & Escalation Management
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   5 Jan 2019
+*/
+
+/* Adjust the banner title */
+#mainBanner-title.twoLineTitle {
+    font-size: 45px;
+    padding: 10px 44px;
+}
+
+/* Display the active projects widgets */
+#jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget {
+    display: inherit;
+}
+
+/* Change the color of every other Watch a Tag header in the left column not styled by the rsalink-gcs-projects.css stylesheet */
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Force all projects tables to be full width */
+#jive-widget-container_2 .jive-widget-documentviewwidget .j-rte-table table {
+    width: 100% !important;
+}
+
+/* Style the Meet the Team widget */
+#meetTheTeam {
+    font-family: Arial, sans-serif;
+}
+#meetTheTeam ul li {
+    list-style-type: disc;
+}
+ul.bioList {
+	font-size: 11px;
+	margin-left: -20px;
+}
+ul.bioList li {
+    padding-bottom: 5px;
+}
+hr.bioSplit {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.mgrDisclaimer {
+	font-size: 13px;
+}

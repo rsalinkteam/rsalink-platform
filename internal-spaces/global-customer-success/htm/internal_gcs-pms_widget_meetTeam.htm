@@ -1,0 +1,583 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+
+
+
+<!-- TOGGLE SWITCH SECTION -->
+<div id="regionToggle" class="switch-toggle switch-3 switch-candy">
+	<input id="AMER" name="state-d" class="radio" type="radio" checked="">
+	<label for="AMER" onclick="regionFilter()">AMER</label>
+
+	<input id="EMEA" name="state-d" class="radio" type="radio">
+	<label for="EMEA" onclick="regionFilter()">EMEA</label>
+
+	<a></a>
+</div>
+
+<style>
+	@import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-iframe.gray.css');
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-gcs-projects.css');
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-project-toggle.css');
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-gcs-csm.css');
+	
+	/* Hide the EMEA and APJ teams by default */
+	#teamEMEA, #teamAPJ { display: none; }
+</style>
+
+<br />
+
+<!-- JAVASCRIPT TO CONTROL THE REGION TOGGLE -->
+<script type="text/javascript">
+	function regionFilter() {
+		$('.radio').change(function () {
+			if ($('#AMER').is(':checked')) {
+				console.log('Meet the Team: Americas Team is Displaying');
+				jQuery('#teamAMER').css("display", "inherit");
+				jQuery('#teamEMEA').css("display", "none");
+				jQuery('#teamAPJ').css("display", "none");
+			} else if ($('#EMEA').is(':checked')) {
+				console.log('Meet the Team: EMEA Team is Displaying');
+				jQuery('#teamAMER').css("display", "none");
+				jQuery('#teamEMEA').css("display", "inherit");
+				jQuery('#teamAPJ').css("display", "none");
+			} else if ($('#APJ').is(':checked')) { // three only
+				console.log('Meet the Team: APJ Team is Displaying');
+				jQuery('#teamAMER').css("display", "none");
+				jQuery('#teamEMEA').css("display", "none");
+				jQuery('#teamAPJ').css("display", "inherit");
+			}
+		});
+		setTimeout(resizeMe, 0);
+	}
+	regionFilter();
+</script>
+
+
+<!-- MEET THE TEAM SECTION -->
+<div id="meetTheTeam">
+
+	<!-- AMERICAS TEAM -->
+	<div id="teamAMER">
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/01MeN4LItDHn3U8pgZq5S8W0RAbSiMtRJyLgw33s2ag=" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/143178/avatar_mike_small.jpg?a=1548347341094" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Michael Svihra</div>
+						<div class="memberLocation">Reston, VA</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Sr Director, Customer Success</li>
+							<li>Leads strategy and initiatives that leverages Global Services resources to improve client interactions while
+								enhancing our customer’s ability to fully operationalize RSA’s solutions and services</li>
+							<li>Utilizes the Customer Success Teams to implement changes that initially focus on our largest customers
+								first, but can scale and provide benefit to the entire customer base over time</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/6obqLkthHHI6xxmva08GhXkWZBoafmQ7Hddr7iFfpQA=" target="_blank">
+							<img class="bioPic" src="/resources/statics/140037/avatar_jasmineCattanach_small.png?a=1495821713657" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Jasmin Cattanach</div>
+                        <div class="memberLocation">Houston, TX</div>
+                        <div class="memberCertification">CISM, PMP</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Certified Project Management Professional with experience working with Fortune 100 Companies.</li>
+							<li>Seasoned information security and project management expert with 15+ years of experience.</li>
+							<li>As a result of her skills, extensive industry best practice, experience, and education she is capable of
+								running complex programs and significantly increasing net revenue by delivering on time, scope and budget
+								projects.</li>
+							<li>In her current role as Sr Project Manager she is responsible for providing Project Management leadership and
+								best practices to the various solutions teams. This includes executing complex, confidential enterprise
+								projects while building business partnerships.</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/gUypESJlLyXrngV0zzBfPo5t3ZWMovMJ2QiFi8TPuCs=" target="_blank">
+							<img class="bioPic" src="/resources/statics/140037/avatar_rogerEggleston_small.png?a=1499272877465" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Roger Eggleston</div>
+                        <div class="memberLocation">Louisville, KY</div>
+                        <div class="memberCertification">CISM, PMP</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Certified Project Management Professional since 2002, with over 20+ years in the technology sector spanning
+								areas such as application development, system integration and data center operations.</li>
+							<li>Currently aligned with the RSA NetWitness Practice to provide Project Management leadership and guidance
+								within the Practice, as well as managing key NetWitness projects.</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/hZ9WfJVCZBHowzilRrcZerKnjJCBmSYJwBql4k9X5mU=" target="_blank">
+							<img class="bioPic" src="/resources/statics/140037/avatar_jamesEvans_small.png?a=1495821896463" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">James Evans</div>
+						<div class="memberLocation">Dallas, TX</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Been with RSA for 4 years and 6.5 years overall with DELL EMC. RSA project product portfolio includes but
+								not limited to RSA Identity Governance & Lifecycle and RSA SecurID, RSA Archer and SecOps.</li>
+							<li>Over 17 years of experience working in the IT industry with focus on managing end to end system integration
+								projects, large scale infrastructure projects, mission-critical system upgrades, Risk Management, Project
+								Management, Process Management and IT Security & Governance.</li>
+							<li>Over 15 years in the military and was deployed to the Middle East on two separate occasions. After leaving
+								the military James spent time contracting with the Department of Defense. James spent six years contacting in
+								Iraq and two years in Afghanistan.</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/sAigWsvQolO2fWMJFMn1AeeBxhEwFg8DuWXRgFbQK3Q=" target="_blank">
+							<img class="bioPic" src="/resources/statics/140037/avatar_mahmoudGomaa_small.png?a=1495821914110" />
+						</a>
+					</td>
+					<td class="nameCell">
+                        <div class="memberName">Mahmoud Gomaa</div>
+                        <div class="memberLocation">Bedford, MA</div>
+                        <div class="memberCertification">CISM, ITIL V3, PMP</div>
+                        <div class="memberCertification">English, Arabic, Italian</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Has been with RSA for 3 years and 7.5 years overall with DELL EMC. RSA project product portfolio includes
+								but not limited to RSA Identity Governance & Lifecycle and RSA SecurID.</li>
+							<li>Over 12 years of experience working in the IT industry with focus on managing end to end system integration
+								projects, large scale infrastructure projects, mission-critical system upgrades, Risk Management, Project
+								Management, Process Management and IT Security & Governance.</li>
+							<li>Mahmoud brings an international experience where he managed projects across EMEA region for 5 years, last
+								assignment was in South Africa where he spent 2.5 years on-site managing mission critical infrastructure
+								projects for the government and banking sectors in South Africa.</li>
+
+							<li>Mahmoud is fluent in 3 languages, English, Arabic and Italian.</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/TsmKGaPfekWIskZzSbgpGJlBPz8HXvQHk8gTtvkCdpc=" target="_blank">
+							<img class="bioPic" src="/resources/statics/140037/avatar_jonathanPoore_small.png?a=1495821881155" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Jonathan Poore</div>
+                        <div class="memberLocation">Atlanta, GA</div>
+                        <div class="memberCertification">PMP, CISM</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Over seven years at RSA; RSA project product portfolio includes RSA SecurID, RSA Access Manager, RSA
+								Federated Identity Manager, RSA Archer, RSA Identity Management, RSA Data Loss Prevention and RSA Data
+								Protection Manager.</li>
+							<li>Over 18 years of experience working in the technology sector in areas of software development process
+								management, systems integration, Business Analysis, Enterprise Systems Planning, and Project Management.</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/vOGOb3RVfc16hz5N6p668ZOxWLpSygpXbRrdRvF2Be8=" target="_blank">
+							<img class="bioPic" src="/resources/statics/140037/avatar_scottRippee_small.png?a=1495821734942" />
+						</a>
+					</td>
+					<td class="nameCell">
+                        <div class="memberName">Scott Rippee</div>
+                        <div class="memberLocation">Columbia, SC</div>
+                        <div class="memberCertification">CISSP, PMP</div>
+                        <div class="memberCertification">English, German</div>
+						
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Over two years at RSA specializing on eGRC/Archer projects for the Americas.</li>
+							<li>Executes complex, confidential enterprise projects while building business partnerships.</li>
+							<li>Over fourteen years of professional experience supporting the Federal government and commercial clients as a
+								hands on, lead from the front manager possessing valuable technical skills spanning network engineering to
+								cybersecurity.</li>
+							<li>Performs as an effective change agent demonstrating creativity and innovation, external awareness,
+								flexibility and resiliency.</li>
+							<li>Has built a career around my ability to evaluate and enhance the efficiency and effectiveness of programs
+								and processes. I create solutions, build teams and produce results.</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/NEYJrI83VPDZ9JE9TwsJEUntdHmVaFtMdiUlzoXleyo=" target="_blank">
+							<img class="bioPic" src="/resources/statics/140037/avatar_rellaStone_small.png?a=1495821846502" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName">Rella Stone</div>
+                        <div class="memberLocation">Las Vegas, NV</div>
+                        <div class="memberCertification">PMP, CISM, CRISC</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Approximately six years at RSA; RSA project product portfolio includes multi-product delivery for RSA
+								Archer, RSA NetWitness Packets and Logs, and RSA ACD. As well as delivery of RSA SecurID Access, RSA Identity
+								Governance & Lifecycle Management projects.</li>
+							<li>Over 25 years of management experience including Program, Project, Information Security, Compliance, and
+								General Management in technology, finance and telecommunications industries.</li>
+							<li>Six Sigma Black Belt certified.</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="/people/2qQdfpk4JOfRZhmM6N6EvsLeRBO4AfUQAbiJM8rgW04=" target="_blank">
+							<img class="bioPic" src="/resources/statics/140037/avatar_joseMendozaZertuche_small.png?a=1495821928541" />
+						</a>
+					</td>
+					<td class="nameCell">
+                        <div class="memberName">Jose Mendoza Zertuche</div>
+                        <div class="memberLocation">Santa Fe, Mexico</div>
+                        <div class="memberCertification">CISM, PMP, ITIL</div>
+                        <div class="memberCertification">English, Spanish</div>
+						
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Focuses on projects in the Latin America region.</li>
+							<li>Has over 17 years of IT experience and more than ten of those years as a project manager.</li>
+							<li>Has managed large complex customers throughout Latin America, such as, Telefonica, Telcel, Telmex, Telecom
+								Argentina and Banco de la Republica in Colombia.</li>
+							<li>Has managed large cross-functional teams to solve customer challenges around IT and Security to include RSA
+								SecurID, RSA Security Analytics, RSA Data Loss Prevention, RSA Archer and Incident Response/SecOps.</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- EMEA TEAM -->
+	<div id="teamEMEA">
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/R3KvWlIrVtMBPHmmadsAZqpjpAMrNRarfdfYtcz4cZs%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/julie_maddison_avatar.png?a=1550682584697" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Julie Maddison</div>
+						<div class="memberLocation">Bracknell, UK</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+							<li>Sr. Manager</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/yZD1X06NKmFWLBZYLeRCE5RZMHpAoNms5B4VedODnu4%3D" target="_blank">
+							<img class="bioPic" src="/resources/statics/143178/avatar_generic_small.png?a=1495829137844" />
+						</a>
+					</td>
+					<td class="nameCell">
+                        <div class="memberName" style="font-size: 14px !important;">Monica Scaldaferri</div>
+                        <div class="memberLocation">Remote - Italy</div>
+                        <div class="memberCertification">English, Italian</div>
+						
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/zevZMFzhap4jLg3FsMYy71QAvvPNrhVTu6zODdEfajM%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/avatar_xavier_small.jpg?a=1548456953393" />
+						</a>
+					</td>
+					<td class="nameCell">
+                        <div class="memberName" style="font-size: 14px !important;">Xavier Granell</div>
+                        <div class="memberLocation">Location</div>
+                        <div class="memberCertification">English, French, Spanish</div>
+						
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/ow1FsvwNEG6mThgrXTtj4L3wo7ewEgjmPXFDqM1P6qY%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/avatar_yasser_small.jpg?a=1548457219517" />
+						</a>
+					</td>
+					<td class="nameCell">
+                        <div class="memberName" style="font-size: 14px !important;">Yasser Shafik</div>
+                        <div class="memberLocation">Cairo, Egypt</div>
+                        <div class="memberCertification">English, Arabic, Italian</div>
+						
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/NNSrhrCGpYClJsNWsVm8yAhSmtwcSYiDec7jeMMBnwI%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/Mohamed_ElGarf_avatar.png?a=1550682622392" />
+						</a>
+					</td>
+					<td class="nameCell">
+                        <div class="memberName" style="font-size: 14px !important;">Mohamed ElGarf</div>
+                        <div class="memberLocation">Cairo, Egypt</div>
+                        <div class="memberCertification">English, Arabic, French</div>
+						
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/CAO1L3BV5tqpR3kBhZtm83FuG60Zexmly3A7Wijfzu4%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/alia_taher_avatar.png?a=1550682649875" />
+						</a>
+					</td>
+					<td class="nameCell">
+                        <div class="memberName" style="font-size: 14px !important;">Alia Taher</div>
+                        <div class="memberLocation">Cairo, Egypt </div>
+                        <div class="memberCertification">English, Arabic, German</div>
+						
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/pBoi7aOoydsEnTAcIYKyMZubaHPCFP1u96cXs0x4mlI%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/paul_agbley_avatar.png?a=1550682687968" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Paul Agbley</div>
+						<div class="memberLocation">Bracknell, UK</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/hDVLLXEA2b6eJ0AAfYm0JAR46C4nIWJaTyI2KYaBvpI%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/Michael_norcutt_avatar.png?a=1550682727926" />
+						</a>
+					</td>
+					<td class="nameCell">
+						<div class="memberName" style="font-size: 14px !important;">Mike Norcutt</div>
+						<div class="memberLocation">Bracknell, UK</div>
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/KpkG2APAhpjd3VlPAVkYDkmtD2fnSurnRAn69eJyGnw%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/mohamed_mokhtar_avatar.png?a=1550682764081" />
+						</a>
+					</td>
+					<td class="nameCell">
+                        <div class="memberName" style="font-size: 14px !important;">Mohamed Mokhtar</div>
+                        <div class="memberLocation">Dubai, United Arab Emirates</div>
+                        <div class="memberCertification">English, Arabic</div>
+						
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr class="bioSplit" />
+		<table class="bioTable">
+			<tbody>
+				<tr class="titleRow">
+					<td>
+						<a href="https://community.rsa.com/people/0a2W320mBOLCMfplPtMYF2DOKi4k11GcVBvHVRicRBY%3D" target="_blank">
+							<img class="bioPic" src="https://community.rsa.com/resources/statics/140037/avatar_abdullah_small.jpg?a=1548457839668" />
+						</a>
+					</td>
+					<td class="nameCell">
+                        <div class="memberName" style="font-size: 14px !important;">Abdullah Hajjar</div>
+                        <div class="memberLocation">Riyadh, Saudi Arabia</div>
+                        <div class="memberCertification">English, Arabic</div>
+						
+					</td>
+				</tr>
+				<tr class="bodyRow">
+					<td class="bioBody" colspan="2">
+						<ul class="bioList">
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<style>
+.memberLocation {
+	font-size: 12px;
+    padding-bottom: 3px;
+}
+
+.memberCertification {
+	font-size: 10px;
+}
+
+</style>

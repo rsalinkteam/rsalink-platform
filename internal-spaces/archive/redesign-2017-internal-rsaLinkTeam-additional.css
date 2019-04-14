@@ -1,0 +1,35 @@
+/* Hide the filter at the top of the Discussions widget */
+.jive-widget-filter.jive-content-filter {
+    display: none;
+}
+
+/* Hide the More button on the Discussions Widget */
+.jive-widget-recentcontentwidget .more-status-content {
+    display: none;
+}
+
+/* Hide the RSS feed footer on the Discussions widget */
+.jive-widget-recentcontentwidget .jive-box-footer {
+    display: none;
+}
+
+/* Adjust spacing between Discussions widget and next widget */
+.jive-widget-recentcontentwidget {
+	margin-bottom: 20px;
+}
+
+/* Adjust height of green buttons */
+a[data-role=button] {
+    padding: 7px 15px;
+}
+
+/* Adjust spacing between search bar and green buttons */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 15px;
+    margin-top: -25px;
+}
+
+/* Adjust spacing between green buttons and next widget */
+.jive-widget-searchwidget ~ .jive-widget-htmltextwidget {
+    margin-bottom: 20px;
+}

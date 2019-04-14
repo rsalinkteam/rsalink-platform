@@ -1,0 +1,235 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          Internal Communities (Default Styling)
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   03 Apr 2019
+*/
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_red_920x156.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 156px;
+}
+
+/* Style the main banner text */
+#mainBanner-title {
+    color: #fff;    
+    font-size: 40px;
+    padding: 12px 44px;
+    font-family: Arial,sans-serif;
+    font-weight: 100;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 0px;
+    margin-top: -25px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Customize the Ask a Question button */
+.ask-a-question-container button {
+    display: block;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	transition: background-color .25s ease-out;
+}
+.ask-a-question-container button:hover, 
+.ask-a-question-container button:focus {
+    background-color: #d86a16;
+}
+
+/* Style the buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    width: 88%;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out;
+}
+a[data-role=button]:hover {
+    color: #802629;
+	background-color: #fff;
+    border: 1px solid #802629;
+}
+
+/* Adjust the size of the large green buttons */
+a.internalButton.largeButton {
+	width: 90%;
+}
+a.internalButton.largeButton.singleLine {
+	line-height: 29px;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Change the color of every other header in the left column */
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+	background-color: #415464;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Change the color of the even rows in the content widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentblogpostswidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-featuredcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Hide any external link icons */
+.jive-link-external-small:after {
+    background: none;
+    margin: 0 -12px 0 -12px;
+}
+
+/* Make right column background a gray color (PMS 427, +30% White, +0.5 Opacity) */
+#jive-widget-container_2,
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Make right column widget banners blue/gray */
+#jive-widget-container_2 .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Style the Categories widget */
+#jive-widget-container_2 .jive-widget-taggroupwidget .j-icon-list li {
+    padding: 0px 0px 5px 0px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+#jive-widget-container_2 .jive-widget-taggroupwidget .j-icon-list li:last-child {
+    border-bottom: 0px;
+}
+#jive-widget-container_2 .jive-widget-taggroupwidget .jive-icon-med.jive-icon-folder {
+    background-image: none;
+}
+
+/* Global Services Product Blocks code */
+#productBlocks {
+	width: 100%;
+	border: 0px;
+	padding-top: 15px;
+}
+#productBlocks td.imageCol {
+	width: 16%;
+   
+}
+
+#productBlocks td.spacerCol {
+	width: 3%;
+	
+}
+
+#productBlocks td img {
+	max-width: 100%;
+	-webkit-transition: filter .25s ease-out;	/* Safari */
+	transition: filter .25s ease-out;
+}
+	
+td.textCol {
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 15px;
+	color: #414042;
+	font-family: "Lucida Sans",Arial,sans-serif;
+}
+td.textCol span {
+	font-family: "Open Sans",Arial,sans-serif;
+}
+
+td.textCol a {
+	color: #414042;
+	text-decoration: none;
+	-webkit-transition: color .25s ease-out;	/* Safari */
+	transition: color .25s ease-out;
+}
+td.textCol a:hover {
+	color: #000;
+}
+/*** Code for RSALINK-5521 ***/
+.productIconBox:hover {
+	filter: brightness(110%);
+	cursor: pointer;
+}
+.vsdCol{width: 19%;}
+.productIconBox{
+	height: 60px;
+	background-color: #802629;
+	padding: 10px;
+	background-repeat: no-repeat;
+	background-position:center center;
+	background-size: 50%;
+	display: block;
+}
+.professionalServicesIcon{
+	background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsProfessional_services.png?a=1553674564183');
+}
+.customerSuccessIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsCustomer_success.png?a=1553675146590');}
+.customerSuppportIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsCustomer_support.png?a=1553675819426');}
+.communicationsIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsCommunications.png?a=1553675783661');}
+.educationServicesIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsEducation_services.png?a=1553675841099');}
+.itOperationsIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsIt_operations.png?a=1553675856844');}
+.vsdIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsVSD.png?a=1553675871020');}

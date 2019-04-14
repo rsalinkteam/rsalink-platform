@@ -1,0 +1,127 @@
+<!-- START QUICK LINKS SECTION -->
+<table id="managementTable" border="0">
+	<tbody>
+		<tr class="mgmtTableRow">	
+			<td style="text-align: center; width: 33%;"><a data-role="button" target="_top" href="https://community.rsa.com/document/create.jspa?containerType=14&containerID=2983&ID=&tags=&subject=">Create a Document</a></td>
+			<td style="text-align: center; width: 33%;"><a data-role="button" target="_top" href="https://community.rsa.com/document/upload.jspa?containerType=14&containerID=2983&tags=&subject=">Upload a Document</a></td>
+			<td style="text-align: center; width: 33%;"><a data-role="button" target="_top" href="https://community.rsa.com/docs/DOC-94142/edit">Update the Timeline</a></td>
+		</tr>
+	</tbody>
+</table>
+<!-- END QUICK LINKS SECTION -->
+
+<!-- START CUSTOM STYLING SECTION -->
+<style>
+@import url('https://www.rsa.com/content/dam/rsalink/css/jive-06302017.css');
+@import url('https://www.rsa.com/content/dam/rsalink/css/jive-custom-06302017.css');
+
+#managementTable {
+	border: 0px solid rgb(198, 198, 198); 
+	margin-left: auto; 
+	margin-right: auto;
+	margin-top: 30px;
+	width: 100%;
+}
+
+.mgmtTableRow {
+	display: none;
+}
+
+a[data-role=button] {
+    border-radius: 0px;
+    font-size: 11px;
+    line-height: 14px;
+    line-height: 1.4rem;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: OpenSans-Bold,Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 7px 0px;
+    position: relative;
+    text-transform: uppercase;
+    background-color: #be3a34;
+    border: 1px solid #be3a34;
+    color: #fff;    
+	text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+	width: 95%;
+}
+@media only screen and (min-width: 1194px) {
+	a[data-role=button] {
+		border-radius: 0px;
+		font-size: 12px;
+		line-height: 14px;
+		line-height: 1.4rem;
+		line-height: 1rem;
+		font-weight: bold;
+		display: inline-block;
+		vertical-align: middle;
+		font-family: OpenSans-Bold,Arial,sans-serif;
+		margin-bottom: 10px;
+		padding: 7px 6px;
+		position: relative;
+		text-transform: uppercase;
+		background-color: #be3a34;
+		border: 1px solid #be3a34;
+		color: #fff;    
+		text-decoration: none;
+		transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+		width: 95%;
+	}
+}
+
+a[data-role=button]:hover {
+    background-color: #a0322c;
+    border: 1px solid #a0322c;
+    color: #fff;    
+}
+
+#quickLinksTable {
+    width: 100%;
+}
+</style>
+<!-- END CUSTOM STYLING SECTION -->
+
+<!-- START JAVASCRIPT SECTION -->
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+<script>
+window.onload = function() {
+	jQuery('.mgmtTableRow').css("display", "none");
+	setTimeout(resizeMe,0);
+	
+	var userID = window.parent._jive_current_user.ID;
+	var svihraID = "54392";
+	var shurtliffID = "2055";
+	var ledbetterID = "50524";
+	var howardID = "54039";
+	var egglestonID = "19513";
+	var gomaaID = "2599";
+	var pooreID = "2972";
+	var rippeeID = "51091";
+	var sarfarazID = "11415";
+	var rellaID = "11458";
+	var kahlerID = "17202";
+	var pryerID = "4776";
+	var dorvalID = "12221";
+	var donahueID = "2705";
+	var robertaID = "8144";
+	var connorID = "17777";
+	var adrianAdolphoBagleyID = "11873";
+	var islamElhamzawiID = "59576";
+	var mohamedElzareaaID = "58285";
+	var ayaEzzatID = "7759";
+	var yomnaKhalilID = "14422";
+	var anthonyNicholsonID = "58385";
+	var markPedleyID = "2718";
+	
+	if (userID == svihraID || userID == shurtliffID || userID == ledbetterID || userID == egglestonID || userID == gomaaID || userID == pooreID || userID == rippeeID || userID == sarfarazID || userID == rellaID || userID == kahlerID || userID == pryerID || userID == dorvalID || userID == donahueID || userID == robertaID || userID == connorID || userID == adrianAdolphoBagleyID || userID == islamElhamzawiID || userID == mohamedElzareaaID || userID == ayaEzzatID || userID == yomnaKhalilID || userID == anthonyNicholsonID || userID == markPedleyID) {
+		console.log("Management buttons have been activated.");
+		jQuery('.mgmtTableRow').css("display", "table-row");
+		setTimeout(resizeMe,0);
+	}
+};
+</script>
+<!-- END JAVASCRIPT SECTION -->
