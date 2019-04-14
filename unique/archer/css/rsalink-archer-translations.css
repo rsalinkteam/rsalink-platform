@@ -1,0 +1,312 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Archer Platform Translations Spaces
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   27 March 2019
+*/
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_gray_1128x172.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 195px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 45px;
+    padding: 30px 44px;
+	font-family: inherit;
+    font-weight: 100;
+}
+@media only screen and (min-width: 1080px) and (max-width: 1165px) {
+	h1#mainBanner-title {
+		font-size: 40px;
+	}
+}
+@media only screen and (max-width: 1079px) {
+	h1#mainBanner-title {
+		font-size: 35px;
+		padding: 20px 44px;
+	}
+}
+
+/* Adjust spacing between title banner and search widget */
+#jive-widget-container_1 .jive-widget-htmltextwidget {
+    margin-bottom: 0px;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Style the View All buttons */
+a.darkButton[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    width: 88%;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #415464;
+    border: 1px solid #415464;
+    color: #fff;
+    text-decoration: none;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+a.lightButton[data-role=button] {
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #fff;
+}
+a[data-role=button]:hover {
+    background-color: #fff;
+    color: #415464;
+}
+a.lightButton[data-role=button]:hover {
+    background-color: #fff;
+    color: #802629;
+}
+
+/*
+   =======================
+      Older Style Pages   
+   =======================
+ */
+
+/* Change the second button colors even if the lightButton class isn't being used */
+.jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget a[data-role=button] {
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #fff;
+}
+.jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget a[data-role=button]:hover {
+    background-color: #fff;
+    color: #802629;
+}
+
+/* Hide author and avatar */
+td.jive-table-cell-author,
+img.jive-avatar {
+    display: none;
+}
+
+/* Change the color of the even rows in the content widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentblogpostswidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-featuredcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Hide the content type icons */
+.jive-table-cell-type, .jive-icon-med {
+    display: none;
+}
+.jive-widget-tagwidget .content-small .j-icon-list {
+    margin-left: -25px;
+}
+
+/* Move View All buttons closer to content widgets */
+.viewAllMarginTop30{margin-top: -30px;}
+#jive-widget-container_2 .jive-widget-htmltextwidget {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+/* Correct widget spacing for subsequent widgets */
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget {
+    margin-bottom: 10px;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-bottom: 30px;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-top: 30px;
+}
+
+/* Change the color of every other Watch a Tag header in the left column */
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-htmltextwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-tagwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Change the background of the Documentation widget to be gray */
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-htmltextwidget {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change subsequent widget backgrounds back to normal */
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: #fff;
+}
+
+/* Hide any external link icons */
+.jive-link-external-small:after {
+    background: none;
+    margin: 0 -12px 0 -12px;
+}
+
+/* Adjust widget spaces in right column */
+#jive-widget-container_3 .jive-widget-tagwidget,
+#jive-widget-container_3 .jive-widget-htmltextwidget {
+    margin-bottom: 20px;
+}
+
+/* Style the Product Resources widget */
+#jive-widget-container_3 .jive-widget-htmltextwidget {
+    background-color: #eeeff0;
+}
+#jive-widget-container_3 .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_3 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Change the color of every other Watch a Tag header in the right column */
+#jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/*
+   =======================
+      Newer Style Pages   
+   =======================
+ */
+
+/* Style the formatted text widgets */
+#jive-widget-container_2 .jive-widget-formattedtextwidget .jive-rendered-content p,
+#jive-widget-container_3 .jive-widget-formattedtextwidget .jive-rendered-content p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#jive-widget-container_2 .jive-widget-formattedtextwidget .jive-rendered-content p:first-child,
+#jive-widget-container_3 .jive-widget-formattedtextwidget .jive-rendered-content p:first-child {
+    padding-top: 0px;
+}
+#jive-widget-container_2 .jive-widget-formattedtextwidget .jive-rendered-content p:nth-child(even),
+#jive-widget-container_3 .jive-widget-formattedtextwidget .jive-rendered-content p:nth-child(even) {
+    background-color: #eeeff0;
+}
+
+/* Move View All buttons closer to content widgets */
+#jive-widget-container_2 .jive-widget-formattedtextwidget {
+    margin-bottom: -30px;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+/* Correct widget spacing for subsequent widgets */
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget {
+    margin-bottom: 30px;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-bottom: 30px;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-top: 30px;
+}
+
+/* Change the color of every other Watch a Tag header in the left column */
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-htmltextwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget-formattedtextwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header,
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Change the color of every other Watch a Tag header in the right column */
+#jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_3 .jive-widget-formattedtextwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Change background of Documentation widget to gray */
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-body, 
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-body {
+    background-color: #eeeff0;
+}
+
+/* Change background of subsequent widgets back to normal */
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .jive-widget-body, 
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-body {
+    background-color: #fff;
+}
+
+/* Hide the document icon */
+#jive-widget-container_2 .jive-widget-formattedtextwidget .jive-link-wiki-small,
+#jive-widget-container_3 .jive-widget-formattedtextwidget .jive-link-wiki-small {
+    background-image: none;
+    padding-left: 5px;
+}

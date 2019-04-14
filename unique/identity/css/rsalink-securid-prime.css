@@ -1,0 +1,31 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          Recent Discussions & Questions Widget on RSA SecurID Access Prime page
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   03 Apr 2019
+*/
+
+/* Update the empty Recent Discussions widget message */
+.chrome #jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body-empty,
+.ff #jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body-empty,
+.opera #jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body-empty,
+.safari #jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body-empty {
+    visibility: hidden;
+}
+.chrome #jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body-empty:after,
+.ff #jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body-empty:after,
+.opera #jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body-empty:after,
+.safari #jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body-empty:after {
+    visibility: visible;
+    display: block;
+    content: 'There are currently no discussions or questions available. Start a new thread using the buttons above.';
+    margin-top: -30px;
+    margin-bottom: 10px;
+}
+
+/* Hide the Recent Content filters */
+.jive-widget-filter.jive-content-filter {
+    display: none;
+}

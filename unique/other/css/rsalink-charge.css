@@ -1,0 +1,93 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Charge 2017 Overview Page
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   29 Dec 2018
+*/
+
+/* Style the banner image */
+#chargeBanner {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+@media only screen and (min-width: 1046px) {
+    #chargeBanner {
+        /* margin-bottom: -25px; */
+    }
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Hide author and avatar */
+#jive-widget-container_2 td.jive-table-cell-author,
+#jive-widget-container_3 td.jive-table-cell-author,
+#jive-widget-container_2 img.jive-avatar,
+#jive-widget-container_3 img.jive-avatar {
+    display: none;
+}
+
+/* Hide the widget headers for the Watch a Tag widgets */
+#jive-widget-container_2 .jive-widget-tagwidget .jive-widget-header, 
+#jive-widget-container_3 .jive-widget-tagwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust spacing between headings and Watch a Tag widgets */
+#jive-widget-container_2 .jive-widget-tagwidget, 
+#jive-widget-container_3 .jive-widget-tagwidget {
+    margin-top: -40px;
+}
+
+/* Change the color of the even rows in the content widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change the color of the content widget headers in the left-column section */
+#jive-widget-container_2 .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #415464;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #415464;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #415464;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Change the color of the content widget headers in the right-column section */
+#jive-widget-container_3 .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Change the background of the Keynote Presentation widgets in the left-column to be gray */
+#jive-widget-container_2 .jive-widget-htmltextwidget,
+#jive-widget-container_2 .jive-widget-tagwidget,
+#jive-widget-container_2 .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change subsequent widget backgrounds back to normal */
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+#jive-widget-container_2 .jive-widget-tagwidget ~ .jive-widget-htmltextwidget {
+    background-color: #fff;
+}

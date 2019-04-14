@@ -1,0 +1,10 @@
+﻿/* Enlarge the first letter of the paragraph */
+p.capitalizeFirst:first-child:first-letter {
+    font-size: 54px;
+    font-weight: 200;
+    line-height: 40px;
+    float: left;
+    margin: 6px 8px 0 0;
+    padding: 0;
+    text-transform: uppercase;
+}

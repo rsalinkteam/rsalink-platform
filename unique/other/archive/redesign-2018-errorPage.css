@@ -1,0 +1,95 @@
+/*	
+Stylesheet:		RSA Link 2018 Redesign
+Scope:			Error Paqe
+Author:			Jeff Shurtliff
+Published:		10 Aug 2018
+*/
+
+/* Adjust margins on either side of the page body */
+.jiveSSOError {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+/* Remove the breadcrumbs and action buttons */
+.j-placeHeaderWrap {
+    display: none;
+}
+
+/* Raise the red banner higher */
+.j-body-place .j-contained #jive-widget-container {
+    padding: 0px 20px;
+}
+#jive-widget-container {
+    margin-top: -40px;
+}
+
+/*  =================
+ *	GRADIENT BANNERS
+ *  =================
+ */
+ 
+/* Base styling for gradient banners */
+.gradient-vertical-light {
+	background-image: linear-gradient(rgba(0,0,0,0.08) 0,rgba(0,0,0,0) 100%);
+}
+
+.gradient-banner-padding {
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+.gradient-banner-padding.two-line-banner {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.gradient-banner-text {
+	text-align: center;
+	font-size: 2.3rem;
+	color: #fff;
+	font-family: 'Open Sans Semi-Bold',Helvetica,Arial,sans-serif;
+	text-rendering: optimizelLegibility;
+	margin-top: 0;
+	margin-bottom: .5rem;
+	line-height: 1.4;
+}
+.gradient-banner-text.two-line-banner {
+	line-height: 1.2;
+}
+.gradient-banner-text .prefaceText {
+	font-size: 1.5rem;
+}
+.gradient-banner-text .companyText {
+	font-size: 2.5rem;
+}
+
+/* Color-specific styling for gradient banners */
+.blue-gradient-banner {
+	background-color: #006ba6;
+	background: linear-gradient(to right, #006ba6, #62b5e5);
+}
+
+.orange-gradient-banner {
+	background-color: #e87722;
+	background: linear-gradient(to right, #e87722,#eaaa00);
+}
+
+.green-gradient-banner {
+	background-color: #509e2f;
+	background: linear-gradient(to right, #509e2f,#78be20);
+}
+
+.red-gradient-banner {
+	background-color: #be3a34;
+	background: linear-gradient(to right, #81312f,#be3a34);
+}
+
+.black-gradient-banner {
+	background-color: #707372;
+	background: linear-gradient(to right, #232222,#707372);
+}
+
+.gray-gradient-banner {
+	background-color: #9ea2a2;
+	background: linear-gradient(to right, #707372,#9ea2a2);
+}

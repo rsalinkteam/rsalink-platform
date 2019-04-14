@@ -1,0 +1,92 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+
+<table id="mobileButtons" border="0" style="border: 0px solid rgb(198, 198, 198); width: 100%; margin-left: auto; margin-right: auto; margin-top: 20px;">
+	<tbody>
+		<tr>
+			<td class="greenBtnContainer"><a class="mobileButton" data-role="button" target="_top" href="https://www.rsa.com/en-us/products/threat-detection-response/security-automation-orchestration" target="_blank">Overview</a></td>
+		</tr>
+		<tr>
+			<td class="greenBtnContainer"><a class="mobileButton" data-role="button" target="_top" href="https://community.rsa.com/community/products/netwitness/orchestrator/documentation">Documentation</a></td>
+		</tr>
+		<tr>
+			<td class="greenBtnContainer"><a class="mobileButton" data-role="button" target="_top" href="https://community.rsa.com/community/products/netwitness/orchestrator-advisories">Advisories</a></td>
+		</tr>
+		<tr>
+			<td class="greenBtnContainer"><a class="mobileButton" data-role="button" target="_top" href="https://community.rsa.com/community/products/netwitness/orchestrator-knowledge-base">Knowledge Base</a></td>
+		</tr>
+		<tr>
+			<td class="greenBtnContainer"><a class="mobileButton" data-role="button" target="_top" href="https://community.rsa.com/orchestrator/release-notes">Release Notes</a></td>
+		</tr>
+		<tr id="warningBannerRow">
+			<td>
+				<p class="jiveWarningBox" id="orchestratorWarning">
+					The product documentation and release notes are currently accessible only to users with active maintenance contracts for RSA NetWitness&reg; Orchestrator.<br />
+					For more information please visit the <a target="_top" href="https://www.rsa.com/en-us/products/threat-detection-response/security-automation-orchestration" target="_blank">Security Automation and Orchestration</a> page on RSA.com or contact your account manager.
+				</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<script>
+var rsaEmployee = "Employee";
+if (window.parent.userType == rsaEmployee) {
+	console.log("Hiding the warning banner as user is RSA employee.");
+} else {
+	console.log("Displaying the warning banner as user is not an RSA employee.");
+	jQuery('#warningBannerRow').css("display", "table-row");
+}
+</script>
+
+
+<style>
+@import url('https://community.rsa.com/2016.3.9.b96715f/styles/jive-font-face.css');
+@import url('https://www.rsa.com/content/dam/rsalink/css/redesign-2017-downloads.css');
+@import url('https://community.rsa.com/resources/statics/37741/redesign-2017-jive-alerts.css');
+@import url('https://www.rsa.com/content/dam/rsalink/css/redesign-2017-mobile-buttons.css');
+	
+	.greenBtnContainer{
+		padding-left: 10px; 
+		padding-right: 10px;
+		text-align:center;
+	}
+	.introText{
+		text-align:center;
+		margin:10px 0;
+		font-size:14px;
+	}
+	body{
+		font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+	}
+	
+	#warningBannerRow {
+		display:none;
+	}
+
+	#orchestratorWarning {
+		font-size: 12px;
+		font-family: Arial,sans-serif;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.jiveWarningBox:before {
+		top: 13px;
+	}
+
+	#orchestratorWarning a,
+	#orchestratorWarning a:visited {
+		color: #b05b06;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	#orchestratorWarning a:active,
+	#orchestratorWarning a:focus,
+	#orchestratorWarning a:hover {
+		color: #b05b06;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+</style>

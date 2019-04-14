@@ -1,0 +1,69 @@
+/*	
+Website:        Wufoo
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Ready Application Form
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   20 Feb 2019
+*/
+
+/* Adjust the padding around the logo */
+#logo {
+    padding: 10px 20px;
+    margin-bottom: -15px;
+}
+
+/* Replace the header text */
+.info h2 {
+    visibility: hidden;
+}
+.info h2::after {
+    visibility: visible;
+    content: 'Application Form';
+    margin-left: -217px;
+    font-family: Arial;
+}
+
+/* Modify hover instructions box */
+.wufoo .instruct {
+    background-color: #eeeff0;
+}
+
+/* Adjust focus hover colors */
+.wufoo li.focused {
+    background-color: #415464 !important;
+}
+.wufoo li.focused label,
+.wufoo li.focused legend,
+.wufoo li.focused span.choice__text {
+    color: #fff !important;
+}
+/*
+form ul li.focused:nth-child(odd) {
+    background-color: #415464 !important;
+}
+*/
+
+
+/* Style the submit button */
+.wufoo input#saveForm {
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #fff;
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    position: relative;
+    text-transform: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .25s ease-out, color .25s ease-out;
+}
+.wufoo input#saveForm:hover {
+    background-color: #fff;
+    color: #802629;
+}

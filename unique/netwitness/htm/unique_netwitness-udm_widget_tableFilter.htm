@@ -1,0 +1,149 @@
+<h1 style="text-align: center; margin-bottom: 15px; margin-top: 15px;"><span style="text-decoration: underline;"><strong><a name="meta"></a>The Unified Data Model</strong></span></h1>
+<table id="filterFeature" width="100%">
+	<tr>
+		<td id="filterSearchCol"><input type="text" id="tableFilter" onkeyup="enableTableFilters()" placeholder="Apply Filter..."></td>
+		
+		<td id="filterSelectCol">
+			<select id="filterOptionList" onchange="updateFilterType()">
+				<option class="filterOption" value="default">-- Select Filter --</option>
+				<option class="filterOption" value="metaClass">Meta Class</option>
+				<option class="filterOption" value="metaConcept">Meta Concept</option>
+				<option class="filterOption optionalCol" value="parserKey">Log Parser Key</option>
+				<option class="filterOption optionalCol" value="keyFlag">Log Parser Key Flag</option>
+				<option class="filterOption" value="metaKey" selected>Meta Key</option>
+				<option class="filterOption" value="metaType">Meta Type</option>
+				<option class="filterOption" value="metaIndex">Meta Index</option>
+				<option class="filterOption" value="notes">Notes</option>
+			</select>
+		</td>
+
+		<td id="filterShowCols">
+			<label class="container">Show All<br /> Columns
+				<input id="showAllCols" type="checkbox" onchange="colDisplay()">
+				<span class="checkmark"></span>
+			</label>
+		</td>
+	</tr>
+</table>
+
+
+<style>
+#filterSearchCol {
+	width: 65%;
+}
+
+#filterShowCols {
+	width: 12%;
+	padding-left: 40px;
+	vertical-align: top;
+}
+
+#filterSelectCol {
+	width: 22%;
+}
+
+#tableFilter {
+    float: left;
+	background-image: url('https://community.rsa.com/resources/statics/23068/searchicon.png?a=1519844102601'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 92%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    /* margin-bottom: 12px; */
+}
+
+#filterOptionList {
+	float: right;
+	font-size: 16px;
+	padding: 12px 0px 12px 40px;
+	border: 1px solid #ddd;
+	/* margin-bottom: 12px; */
+}
+
+.filterOption {
+	text-align: center;
+}
+
+/*  
+    ##########################
+    #  Styling for Checkbox  #
+    ##########################
+*/
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 53px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: Arial,sans-serif;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 44px;
+    width: 44px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #006ba6;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 17px;
+    top: 6px;
+    width: 10px;
+    height: 20px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+</style>
+
+
+
+
+
+
+
+

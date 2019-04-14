@@ -1,0 +1,181 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			RSA Exchange for RSA Archer
+Author:			Jeff Shurtliff
+Published:		16 May 2018
+*/
+
+/* Adjust column width */
+#jive-body-layout-ls .jive-body-layout-l {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: calc(87%);
+    margin-right: -100%;
+}
+@media only screen and (min-width: 1091px) and (max-width: 1240px) {
+	#jive-body-layout-ls .jive-body-layout-l {
+		width: calc(89%);
+	}
+}
+@media only screen and (max-width: 1090px) {
+	#jive-body-layout-ls .jive-body-layout-l {
+		width: calc(92%);
+	}
+}
+#jive-body-layout-ls .jive-body-layout-s {
+    float: right;
+    padding-left: 0;
+    width: 30%;
+}
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/L3-Header-920x156-Red.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 156px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 24px;
+    padding: 30px 44px;
+	font-family: inherit;
+    font-weight: 100;
+}
+.mac h1#mainBanner-title {
+	font-family:"Lucida Sans",Arial,sans-serif;
+	font-weight: 100;
+}
+h1#mainBanner-title.twoLineTitle {	/* If the title has two lines then add the .twoLineTitle class to the <h1> tag */
+    padding-top: 22px;
+	font-size: 20px;
+}
+@media only screen and (min-width: 1050px) and (max-width: 1240px) {
+	h1#mainBanner-title {
+		font-size: 30px;
+	}
+	h1#mainBanner-title.twoLineTitle {
+		font-size: 26px;
+	}
+}
+@media only screen and (min-width: 1241px) {
+	h1#mainBanner-title {
+		font-size: 40px;
+	}
+	h1#mainBanner-title.twoLineTitle {
+		font-size: 29px;
+	}
+}
+h1#mainBanner-title span {
+	font-family: "Open Sans Light",Arial,sans-serif;
+	font-weight: 600;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 10px;
+    margin-top: -50px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+    color: #fefefe;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Change the color of every other header in the left column */
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #006ba6;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+
+/* Make right column background a light blue color */
+#jive-widget-container_2 {
+    background-color: #e3f2f9;
+}
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #e3f2f9;
+}
+#DisplayProductResources {
+    background-color: #e3f2f9;
+}
+
+/* Hide author and avatar */
+#jive-widget-container_1 td.jive-table-cell-author {
+    display: none;
+}
+#jive-widget-container_1 img.jive-avatar {
+    display: none;
+}
+
+/* Style the buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 14px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #509e2e;
+    border: 1px solid #509e2e;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+}
+a.exchangeButton {
+    padding: 8px 15px;
+    width: 88%;
+    font-size: 12px;
+}
+a[data-role=button]:hover {
+    background-color: #7bbe20;
+    border: 1px solid #7bbe20;
+    color: #FFF;
+}
+
+/* Adjust spacing between intro text and button */
+.jive-widget-searchwidget + .jive-widget-htmltextwidget {
+	margin-bottom: 0px;
+}
+}

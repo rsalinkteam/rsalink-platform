@@ -1,0 +1,93 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			RSA Charge 2017
+Author:			Jeff Shurtliff
+Published:		16 May 2018
+*/
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 15px;
+    margin-top: -50px;
+}
+
+/* Customize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+    color: #fefefe;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Hide author and avatar */
+#jive-widget-container_2 td.jive-table-cell-author,
+#jive-widget-container_3 td.jive-table-cell-author {
+    display: none;
+}
+#jive-widget-container_2 img.jive-avatar,
+#jive-widget-container_3 img.jive-avatar {
+    display: none;
+}
+
+/* Hide the widget headers for the Watch a Tag widgets */
+#jive-widget-container_2 .jive-widget-tagwidget .jive-widget-header, 
+#jive-widget-container_3 .jive-widget-tagwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust spacing between headings and Watch a Tag widgets */
+#jive-widget-container_2 .jive-widget-tagwidget, 
+#jive-widget-container_3 .jive-widget-tagwidget {
+    margin-top: -40px;
+}
+
+/* Change the color of every other header in the two-column section */
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #006ba6;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #006ba6;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header,
+#jive-widget-container_3 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #006ba6;
+}

@@ -1,0 +1,66 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+
+<table id="downloadButtons" border="0" style="border: 0px; width: 100%; margin-left: auto; margin-right: auto; margin-top: 20px;">
+	<tbody>
+		<tr>
+			<td style="padding-left: 10px; padding-right: 10px; text-align: center; width: 20%;"><a class="dlButton" data-role="button" target="_top" href="https://www.rsa.com/en-us/products/threat-detection-response/security-automation-orchestration" target="_blank">Overview</a></td>
+            <td style="padding-left: 10px; padding-right: 10px; text-align: center; width: 20%;"><a class="dlButton" data-role="button" target="_top" href="/community/products/netwitness/orchestrator/documentation">Documentation</a></td>
+            <td style="padding-left: 10px; padding-right: 10px; text-align: center; width: 20%;"><a class="dlButton" data-role="button" target="_top" href="/community/products/netwitness/orchestrator-advisories">Advisories</a></td>
+			<td style="padding-left: 10px; padding-right: 10px; text-align: center; width: 20%;"><a class="dlButton" data-role="button" target="_top" href="/community/products/netwitness/orchestrator-knowledge-base">Knowledge Base</a></td>
+			<td style="padding-left: 10px; padding-right: 10px; text-align: center; width: 20%;"><a class="dlButton" data-role="button" target="_top" href="https://community.rsa.com/docs/DOC-99574">Release Notes</a></td>
+		</tr>
+		<tr id="warningBannerRow">
+			<td colspan="5">
+				<p class="jiveWarningBox" id="orchestratorWarning">
+					The product documentation and release notes are currently accessible only to users with active maintenance contracts for RSA NetWitness&reg; Orchestrator.<br />
+					For more information please visit the <a target="_top" href="https://www.rsa.com/en-us/products/threat-detection-response/security-automation-orchestration" target="_blank">Security Automation and Orchestration</a> page on RSA.com or contact your account manager.
+				</p></td>
+		</tr>
+	</tbody>
+</table>
+
+<script>
+var rsaEmployee = "Employee";
+if (window.parent.userType == rsaEmployee) {
+	console.log("Hiding the warning banner as user is RSA employee.");
+} else {
+	console.log("Displaying the warnin banner as user is not an RSA employee.");
+	jQuery('#warningBannerRow').css("display", "table-row");
+}
+</script>
+
+
+<style>
+@import url('https://community.rsa.com/resources/statics/184424/rsalink-orchestrator.css?a=1545434186062');
+@import url('https://community.rsa.com/resources/statics/37741/redesign-2017-jive-alerts.css');
+
+/* Style the warning message */
+#warningBannerRow {
+	display:none;
+}
+#orchestratorWarning {
+	font-size: 12px;
+	font-family: Arial,sans-serif;
+	text-align: center;
+	width: 93%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.jiveWarningBox:before {
+    top: 13px;
+}
+#orchestratorWarning a,
+#orchestratorWarning a:visited {
+	color: #b05b06;
+	font-weight: bold;
+	text-decoration: none;
+}
+#orchestratorWarning a:active,
+#orchestratorWarning a:focus,
+#orchestratorWarning a:hover {
+	color: #b05b06;
+	font-weight: bold;
+	text-decoration: underline;
+}
+</style>
