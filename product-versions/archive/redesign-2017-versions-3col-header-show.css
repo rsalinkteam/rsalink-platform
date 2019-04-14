@@ -1,0 +1,11 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			Product Version (Three Column) Watch a Tag Widgets
+Description:		When this stylesheet is referenced the widget header for the Watch a Tag widgets on the right column will be hidden.
+Author:			Jeff Shurtliff1
+Published:		27 Jul 2017
+*/
+
+#jive-widget-container_4 .jive-widget-tagwidget .jive-widget-header {
+    display: inherit;
+}

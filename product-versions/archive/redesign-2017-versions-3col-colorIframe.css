@@ -1,0 +1,14 @@
+/* Make right column background a light blue color */
+#jive-widget-container_4 {
+    background-color: #e3f2f9;
+}
+#jive-widget-container_4 .jive-widget-body {
+    background-color: #e3f2f9;
+}
+#DisplayProductResources {
+    background-color: #e3f2f9;
+}
+#jive-widget-container_4 .jive-widget-htmltextwidget body {
+    background-image: none;
+    background-color: #e3f2f9;
+}

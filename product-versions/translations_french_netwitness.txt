@@ -1,0 +1,30 @@
+﻿French						Français
+Documentation					Documentation
+Table of Contents				Table des Matières
+Table of Contents				Table des Matières Principale
+HTML Guides					Guides HTML
+Feedback					Retour d'Information
+Installation & Upgrade				Installation et Mise à Niveau
+Downloads					Téléchargements
+Upgrade Guides					Mettre à Niveau
+Getting Started Guides				Guides de Mise en Route
+Planning and Setup Guides			Guides de Planification et de Configuration
+User Guides					Guides de l'Utilisateur
+Hosts & Services Configuration Guides		Guides de Configuration des Hôtes et des Services
+System Configuration and Management Guides	Guides de Configuration et de Gestion du Système
+System Configuration, Mgmt, and API Guides	Configuration Système, Gestion et Guides d'API
+Security Configuration Guides			Guides de Configuration de Sécurité (Contrat de Maintenance Requis)
+Integration Guides for Other Products		Guides d'Intégration pour d'Autres Produits
+RSA Content for the RSA NetWitness Platform	Contenu RSA pour la Plate-forme RSA NetWitness
+Release Notes					Notes de Version
+Installation & Upgrade Guides			Guides d'Installation et de Mise à Niveau
+View By Category				Voir par Catégorie
+PDF Documents					Documents PDF
+Product Resources				Ressources de Produit
+	Advisories					Avis
+	Downloads					Téléchargements
+	Knowledge Base					Base de Connaissances
+	Support						Service Client
+	Training					Entraînement
+Additional Resources				Autres Ressources
+Latest Downloads				Téléchargements (Contrat de Maintenance Requis)

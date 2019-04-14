@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="https://www.rsa.com/content/dam/rsalink/css/rsalink-iframe-gray.css">
+
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+
+<div id="displayAboutTraining" style="max-width:210px;"></div>
+
+<script>
+//only when the DOM has been loaded
+$(document).ready(function() {
+	//populate div id="myDiv" with specific div (div id="someDiv") from another page            
+	$('#displayAboutTraining').load('/community/products/netwitness #aboutTraining');
+});
+
+var text = $('#aboutTraining').text();
+text = text.replace('<a ', '<a target="_parent" ');
+$('#aboutTraining').text(text);
+
+setTimeout(resizeMe,2000);
+setTimeout(resizeMe,4000);
+</script>

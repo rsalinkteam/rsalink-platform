@@ -1,0 +1,27 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			Product Version (Three Column) - Adjustments
+Author:			Jeff Shurtliff1
+Published:		30 Aug 2017
+*/
+
+/* Adjust width of left content column */
+#jive-body-layout-tsss .jive-body-layout-s1 {
+    width: calc(32%);
+}
+
+/* Adjust width of right content column */
+#jive-body-layout-tsss .jive-body-layout-s2 {
+    width: calc(32%);
+}
+
+/* Adjust width of far right column */
+#jive-body-layout-tsss .jive-body-layout-s3 {
+    width: calc(30%);
+	margin-left: 9px;
+}
+
+/* Adjust spacing between both content columns */
+#jive-widget-container_3 {    
+    margin-left: 75px;
+}

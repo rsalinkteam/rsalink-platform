@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="https://www.rsa.com/content/dam/rsalink/css/rsalink-iframe-gray.css">
+
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+
+<div id="displayProductResources"></div>
+
+<script>
+//only when the DOM has been loaded
+$(document).ready(function() {
+	//populate div id="myDiv" with specific div (div id="someDiv") from another page            
+	$('#displayProductResources').load('/community/products/netwitness #productResources');
+});
+
+var text = $('#productResources').text();
+text = text.replace('<a ', '<a target="_parent" ');
+$('#productResources').text(text);
+
+setTimeout(resizeMe,2000);
+setTimeout(resizeMe,4000);
+</script>
+
+<style>
+/* Remove the Hardware Guides option from the widget */
+#productResources a:first-child,
+#productResources #hardwareSub {
+    display: none;
+}
+#productResources br:nth-child(2), 
+#productResources br:nth-child(4) {
+    display: none;
+}
+</style>

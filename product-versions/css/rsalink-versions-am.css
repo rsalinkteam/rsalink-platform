@@ -1,0 +1,127 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Dependencies:   rsalink-versions.css
+Scope:          RSA Authentication Manager
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   3 Apr 2019
+*/
+
+/* Adjust two line banner text position */
+#mainBanner-title.twoLineTitle {
+    padding: 14px 44px;
+}
+
+/* Style the documentation tables */
+.docTable {
+    width: 100%;
+}
+.docTable td {
+    width: 33%;
+    padding: 6px;
+    text-align: center;
+    vertical-align: middle;
+}
+.docTable tr:nth-child(odd) td {
+    border-top: 1px solid #eeeff0;
+    border-left: 1px solid #eeeff0;
+    border-bottom: 1px solid #eeeff0;
+}
+.docTable tr:nth-child(even) td {
+    border-left: 1px solid #eeeff0;
+}
+.docTable tr:nth-child(odd) td:last-child,
+.docTable tr:nth-child(even) td:last-child {
+    border-right: 1px solid #eeeff0;
+}
+.docTable a:hover,
+.linkWrapper:hover,
+#anchorTable a:hover,
+#jive-widget-container_2 a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13.5px;
+}
+.docTable a:hover,
+.linkWrapper:hover {
+    font-size: 14px;
+}
+
+
+/* Remove padding around documentation tables */
+#jive-widget-container_1 .jive-widget-htmltextwidget .jive-widget-body {
+    padding: 0px;
+}
+
+/* Adjust spacing below the red buttons */
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget-htmltextwidget {
+    margin-bottom: 15px;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-top: 30px;
+}
+
+/* Change the styling of the red buttons */
+a[data-role=button] {
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #fff;
+}
+a[data-role=button]:hover {
+    background-color: #fff;
+    border: 1px solid #802629;
+    color: #802629;
+    font-size: 12px;
+}
+#documentationButtons {
+    width: 45%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 20px;
+}
+#documentationButtons td {
+    padding-left: 10px; 
+    padding-right: 10px; 
+    text-align: center;
+    width: 33%;
+}
+
+/* Change spacing below red Downloads buttons */
+.docTable.versionTable a[data-role=button] {
+    margin-bottom: 5px;
+}
+
+/* Force all widget headers in the left column to be blue/gray */
+#jive-widget-container_1 .jive-widget .jive-widget-header {
+    background-color: #415464 !important;
+}
+
+/* Style the anchors table */
+#anchorTable {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+#anchorTable td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+/* Fix border issues in version tables */
+.docTable.versionTable tr:first-child td:nth-child(2), 
+.docTable.versionTable tr:first-child td:nth-child(3) {
+    border-left: 0px;
+}
+.docTable tr:last-child td {
+    border-bottom: 1px solid #eeeff0;
+}
+
+/* Hide the document icons in Lastest Downloads widget */
+#jive-widget-container_2 .jive-widget-tagwidget .jive-icon-med.jive-icon-document {
+    display: none;
+}
+#jive-widget-container_2 .jive-widget-tagwidget .j-icon-list li {
+    padding: 0 0 15px 0px;
+}

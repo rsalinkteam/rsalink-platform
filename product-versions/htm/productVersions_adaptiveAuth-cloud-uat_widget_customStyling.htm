@@ -1,0 +1,21 @@
+<style>
+@import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-versions.css');
+
+/* Adjust the banner text position */
+#mainBanner-title.twoLineTitle {
+    padding: 12px 44px;
+}
+
+/* Update the Watch a Tag widget text when nothing is listed */
+#jive-widget-container_1 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p {
+    visibility: hidden;
+}
+#jive-widget-container_1 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p:after {
+    visibility: visible;
+    display: block;
+    content: 'No documentation is currently available in this category.';
+    margin-top: -24px;
+    margin-bottom: -10px;
+    margin-left: 30px;
+}
+</style>
