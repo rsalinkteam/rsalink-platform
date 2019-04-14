@@ -1,0 +1,19 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA FraudAction Services Overview Page
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   13 Dec 2018  
+*/
+
+/* Fix spacing between blog posts and recent documents */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget {
+    margin-top: 25px;
+    margin-bottom: -20px;
+}
+
+/* Make the Recent Documents widget header red (PMS 1815) */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-header {
+    background-color: #802629;
+}

@@ -1,0 +1,49 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			RSA Web Threat Detection Page (Additional Styling)
+Authors:		Jeff Shurtliff
+Last Updated:	31 Aug 2017
+*/
+
+/* Hide the Recent Discussions Filter */
+.jive-content-filter {    
+    display: none;
+}
+
+/* Make the CAB Discussions widget green */
+.jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-header {
+    background-color: #509e2e;
+}
+
+/* Change background of CAB Discussions widget to gray */
+.jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body {
+    background-color: #f2f2f2;
+}
+.jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-odd td {
+    background-color: #f2f2f2;
+}
+.jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #f2f2f2;
+}
+#jive-widget-container_1 .jive-html-text-widget {
+    background-color: #f2f2f2;
+}
+
+/* Update the empty CAB widget when not authorized to view content */
+.chrome .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body-empty,
+.ff .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body-empty,
+.opera .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body-empty,
+.safari .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body-empty {
+    visibility: hidden;
+	padding-bottom: 20px;
+}
+.chrome .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body-empty:after,
+.ff .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body-empty:after,
+.opera .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body-empty:after,
+.safari .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body-empty:after {
+    visibility: visible;
+    display: block;
+    content: 'These discussions are only accessible by Customer Advisory Board members. Please log in with a valid account to view.';
+    margin-top: -17px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,79 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          High-level Product Menu Base Configuration
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   09 Dec 2018  
+*/
+
+/* Generic CSS */
+.headerContainerWrapper { background: #FFF; }
+.center { max-width: 960px; margin: 0 auto; }
+.headerContainer, .bodyContainer, .footerContainer { max-width: 960px; margin: 0 auto; background: #FFF; }
+.padding {	padding: 20px; }
+.bodyContainer { min-height: 500px; }
+
+/* General Styles for Menu  */
+.menuBackground {
+	background: #415464;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: Arial,sans-serif;
+	width: 100%;
+	margin-left: 4px;
+	margin-bottom: -3px;
+}
+.dropDownMenu ul {
+    box-shadow: 2px 2px 15px 0 rgba(0,0,0, 0.5);
+    text-align: left;
+	display: none;
+	background: #FFF;
+    position: absolute;
+    z-index: 999999;
+}
+.dropDownMenu,
+.dropDownMenu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.dropDownMenu li {
+	position: relative;
+}
+.dropDownMenu a {
+	padding: 3px 9px;
+	display: block;
+	text-decoration: none;
+	font-size: 16px;
+	color: #fff;
+}
+@media only screen and (min-width: 731px) {
+	.dropDownMenu a {
+		padding: 3px 20px;
+	}
+}
+.dropDownMenu a:hover {
+	background: #7a8893;
+	color: #FFF;
+}
+.dropDownMenu li li a {
+    font-size: 13px;
+	color: #000;
+}
+@media only screen and (min-width: 731px) {
+	.dropDownMenu li li a {
+		font-size: 14px;
+	}
+}
+
+/* Level 1 Drop Down */
+.dropDownMenu > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: -4px; /* solve the 4 pixels spacing between list-items */
+}
+.dropDownMenu > li:first-child {
+	margin-left: 0;
+}

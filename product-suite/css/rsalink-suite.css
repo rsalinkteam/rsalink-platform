@@ -1,0 +1,233 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          High-level Product Overview Pages
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   21 Dec 2018  
+*/
+
+/* Forcefully define the width of the menu/banner widget to avoid jerking page load */
+#jive-widget-container_1 iframe.htmlWidgetIframe {
+    height: 274px !important;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 3px;
+    margin-top: -25px;
+}
+
+/* Customize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Style the RSA Navigator tool reference under the search widget */
+#navigatorPromoText {
+    text-align: center;
+    font-family: Arial,sans-serif;
+    color: #232222;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+/* Adjust spacing between Navigator reference and Recent Discussions widget */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget {
+    margin-top: 25px;
+}
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget {
+    margin-top: 0px;
+}
+
+/* Hide the Watch a Tag label */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Adjust the starting location of the custom menu */
+#jive-widget-container_1 .jive-widget-htmltextwidget:first-child {
+    margin-top: -2px;
+}
+
+/* Make the first Recent Content widget red (PMS 1815) */
+.jive-widget-recentcontentwidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Make the second Recent Content widget blue/gray (PMS 7545) */
+.jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Change background of first Recent Content widget to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-recentcontentwidget .jive-widget-body,
+#jive-widget-container_1 .jive-html-text-widget,
+.jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-odd td,
+.jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change background of second Recent Content widget to default */
+.jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body,
+.jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-odd td {
+    background-color: #fff;
+}
+.jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Style the first Top Knowledge Articles widget */
+#jive-widget-container_1 .jive-widget-featuredcontentwidget {
+    margin-top: 30px;
+}
+#jive-widget-container_1 .jive-widget-featuredcontentwidget .jive-widget-header {
+    background-color: #802629;  /* PMS 1815 */
+}
+.jive-widget-featuredcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Style the second Top Knowledge Articles widget */
+#jive-widget-container_1 .jive-widget-featuredcontentwidget ~ .jive-widget-featuredcontentwidget {
+    margin-top: 0px;
+}
+#jive-widget-container_1 .jive-widget-featuredcontentwidget ~ .jive-widget-featuredcontentwidget .jive-widget-header {
+    background-color: #415464;
+}
+.jive-widget-featuredcontentwidget ~ .jive-widget-featuredcontentwidget .jive-widget-body,
+.jive-widget-featuredcontentwidget ~ .jive-widget-featuredcontentwidget .jive-widget-body .jive-table-row-odd td,
+.jive-widget-featuredcontentwidget ~ .jive-widget-featuredcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Remove avatar and author from Top Knowledge Articles widget */
+.jive-widget-featuredcontentwidget td.jive-table-cell-author,
+.jive-widget-featuredcontentwidget img.jive-avatar {
+    display: none;
+}
+
+/* Change color of widget hyperlinks to black */
+.jive-widget-recentcontentwidget a,
+.jive-widget-featuredcontentwidget a,
+.jive-widget-tagwidget a {
+    color: #232222;
+}
+
+/* Style the discussion buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 14px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out;
+}
+a.discButton {
+    padding: 8px 15px;
+    width: 88%;
+    font-size: 12px;
+}
+a[data-role=button]:hover {
+    background-color: rgba(115,34,37,1);
+    border: 1px solid rgba(115,34,37,1);
+}
+#discButtonTable td {
+    width: 33%;
+}
+
+/* Adjust whitespace between Recent Discussions and buttons */
+.jive-widget-recentcontentwidget {
+    margin-bottom: -37px;
+}
+a.jive-icon-link-forward-content.jive-more-content {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.jive-box-footer .statusrss {
+    display: none;
+}
+
+/* Make right column background a gray color (PMS 427, +30% White, +0.5 Opacity) */
+#jive-widget-container_2,
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Make right column widget banners blue/gray */
+#jive-widget-container_2 .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Style the "View All Events" button */
+a.allEventsButton[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+	line-height: 1rem;
+	font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 5px 15px;
+    position: relative;
+    text-transform: uppercase;
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+    border: 1px solid #0075B0;
+    color: #0075B0;    
+	text-decoration: none;
+}
+a.allEventsButton[data-role=button]:hover {
+    background-color: #FFF;
+    border: 1px solid #0075B0;
+    color: #0075B0;
+}
+
+/* Move View All Events widget closer to Upcoming Events widget */
+.jive-widget-upcomingeventswidget {
+    margin-bottom: -5px;
+}
+
+/* Hide the Recent Discussions Filter */
+.jive-content-filter {    
+    display: none;
+}
+
+/* Add spacing between links and "View All" links in Product Versions widget */
+.viewAllLink {
+    padding-top: 10px;
+ }

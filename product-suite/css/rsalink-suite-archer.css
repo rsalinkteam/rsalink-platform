@@ -1,0 +1,39 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          Recent Discussions Widget on RSA Archer Suite page
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   14 Dec 2018  
+*/
+
+/* Update the empty Recent Discussions widget when not logged in */
+.chrome .jive-widget-recentcontentwidget .jive-widget-body-empty,
+.ff .jive-widget-recentcontentwidget .jive-widget-body-empty,
+.opera .jive-widget-recentcontentwidget .jive-widget-body-empty,
+.safari .jive-widget-recentcontentwidget .jive-widget-body-empty {
+    visibility: hidden;
+}
+.chrome .jive-widget-recentcontentwidget .jive-widget-body-empty:after,
+.ff .jive-widget-recentcontentwidget .jive-widget-body-empty:after,
+.opera .jive-widget-recentcontentwidget .jive-widget-body-empty:after,
+.safari .jive-widget-recentcontentwidget .jive-widget-body-empty:after {
+    visibility: visible;
+    display: block;
+    content: 'These discussions are only accessible by verified RSA Archer customers and partners. Please log in with a valid account to view.';
+    margin-top: -17px;
+    margin-bottom: 10px;
+}
+
+/* Style the newsletter section */
+#newsletterIcon {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+#newsletterLink {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: -10px;
+    font-size: 15px;
+}

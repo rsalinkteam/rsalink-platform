@@ -1,0 +1,71 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Adaptive Authentication Overview Page
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   09 Dec 2018
+*/
+
+/* Adjust spacing of the Recent Blog Posts widget */
+.jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-recentcontentwidget {
+    margin-top: 10px;
+    margin-bottom: -20px;
+}
+
+/* Adjust spacing between Recent Documents and Top Knowledge Articles */
+.jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget {
+    margin-bottom: -10px;
+}
+.jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .more-status-content {
+    margin-bottom: -20px;
+}
+
+/* Make the Recent Documents widget header red (PMS 1815) */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Make the Top Knowledge Articles header blue/gray (PMS 7545) */
+#jive-widget-container_1 > .jive-widget-featuredcontentwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Change background of Recent Documents widget to gray (PMS 427, +30% White, +0.5 Opacity) */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body,
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-odd td,
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Adjust height of the first hover text for versions */
+#productVersions-wtd .accessHover, #topVersion .accessHoverText {
+    margin-top: -48px !important;
+}
+
+/* Style hover text for restricted subspaces */
+.accessHover {
+    position: relative;
+    display: inline-block;
+}
+.accessHover .accessHoverText {
+    visibility: hidden;
+    width: 110px;
+    background-color: #415464;
+    color: #fff;
+    font-family: Arial;
+	font-size: 10px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0px;
+    opacity: 1;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 999;
+    margin-left: 93px;
+    margin-top: -33px;
+}
+.accessHover:hover .accessHoverText {
+    visibility: visible;
+}

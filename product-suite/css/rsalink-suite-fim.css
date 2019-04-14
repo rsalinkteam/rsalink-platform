@@ -1,0 +1,13 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Federated Identity Manager Overview Page
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   13 Dec 2018
+*/
+
+/* Make the Top Knowledge Articles header blue/gray (PMS 7545) */
+#jive-widget-container_1 > .jive-widget-featuredcontentwidget .jive-widget-header {
+    background-color: #415464;
+}

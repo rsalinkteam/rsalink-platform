@@ -1,0 +1,122 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          Rotating Banner on High-level Product Pages
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   08 Dec 2018  
+*/
+
+/* jquerysripttop.css */
+
+#jquery-script-menu {
+	position: fixed;
+	height: 90px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	border-top: 5px solid #415464;
+	background: #fff;
+	-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	z-index: 999999;
+	padding: 10px 0;
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	box-sizing:content-box;
+}
+
+.jquery-script-center {
+	width: 960px;
+	margin: 0 auto;
+}
+.jquery-script-center ul {
+	width: 212px;
+	float:left;
+	line-height:45px;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.jquery-script-center a {
+	text-decoration:none;
+}
+.jquery-script-ads {
+	width: 728px;
+	height:90px;
+	float:right;
+}
+.jquery-script-clear {
+	clear:both;
+	height:0;
+}
+
+/* jquerysripttop.css */
+	
+	
+/* zSlider.css */		
+* {
+	margin: 1;
+	padding: 0;
+}
+
+#slide-box {
+	position: relative;
+	overflow: hidden;
+	z-index: 888;
+	margin:0 auto;
+}
+
+#slide-box ul {
+	list-style: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#slide-box ul li {
+	float: left;
+	position: relative;
+}
+
+#slide-box ul li img {
+	width: 75%;
+	height: auto%;
+}
+
+@media only screen and (min-width: 731px) {
+	#slide-box ul li img {
+		width: 99%;
+		height: 97%;
+	}
+}
+
+/* This is for the navigation dots position */
+
+#slide-box ol {
+	position: absolute;
+	bottom: 215px;
+	right: 20px;
+	list-style: none;
+	z-index: 999;
+}
+
+
+/* This is for the navigation dots */
+
+#slide-box ol li {
+	width: 10px;
+	height: 10px;
+	float: left;
+	margin: 5px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #fff;
+	border: 1px solid #d0d3d4;
+}
+
+#slide-box ol li.on { 
+	background: #802629;
+	border: 1px solid #802629;
+}

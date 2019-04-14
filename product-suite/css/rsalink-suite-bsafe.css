@@ -1,0 +1,51 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA BSAFE Overview Page
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   27 Mar 2019
+*/
+
+/* Adjust spacing of the Recent Blog Posts widget */
+.jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-recentcontentwidget {
+    margin-top: 10px;
+    margin-bottom: -20px;
+}
+
+/* Adjust spacing between Recent Documents and Top Knowledge Articles */
+.jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget {
+    margin-bottom: -10px;
+}
+.jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .more-status-content {
+    margin-bottom: -20px;
+}
+
+/* Make the Recent Advisories widget header red (PMS 1815) */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Hide the author name and avatar from the Recent Advisories widget */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-author, 
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-avatar {
+    display: none;
+}
+
+/* Change the shared icon to normal document icon for Recent Advisories widget */
+/* Changed shared content icon to look like the normal document icons */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-icon-doctype-generic {
+    background-position: -16px -80px;
+}
+
+/* Make the Top Knowledge Articles header blue/gray (PMS 7545) */
+#jive-widget-container_1 > .jive-widget-featuredcontentwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Change background of Recent Documents widget to gray (PMS 427, +30% White, +0.5 Opacity) */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-body,
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}

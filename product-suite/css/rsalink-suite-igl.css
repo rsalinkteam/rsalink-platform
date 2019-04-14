@@ -1,0 +1,21 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          Recent Videos widget on RSA Identity Governance & Lifecycle page
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   09 Dec 2018  
+*/
+
+/* Adjust spacing above and below the Recent Videos widget */
+#jive-widget-container_1 > .jive-widget-featuredcontentwidget ~ .jive-widget-recentcontentwidget {
+    margin-top: -15px;
+    margin-bottom: 0px;
+}
+
+/* Style the Recent Videos widget */
+#jive-widget-container_1 > .jive-widget-featuredcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body,
+#jive-widget-container_1 > .jive-widget-featuredcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-odd td,
+#jive-widget-container_1 > .jive-widget-featuredcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}

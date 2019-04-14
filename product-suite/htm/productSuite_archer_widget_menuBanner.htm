@@ -1,0 +1,298 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/zSlider-doubleLength.js"></script>
+
+<div class="menuBackground">
+    <div class="center myMenu">
+        <ul class="dropDownMenu">
+            <li>
+                <a target="_parent" href="/community/products/archer-grc/advisories">Advisories</a>
+                <ul class="firstLevel advisoriesMenu">
+                    <li>
+                        <a target="_parent" href="/community/products/archer-grc/advisories">Product Advisories</a>
+                    </li>
+                    <li>
+                        <a target="_parent" href="/community/products/archer-grc/advisories/security-advisories">Security Advisories</a>
+                    </li>
+                    <li>
+                        <a target="_parent" href="/community/products/archer-grc/advisories#technical">Technical Advisories</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a style="cursor: pointer;">Documentation</a>
+                <ul class="firstLevel documentationMenu">
+                    <li>
+                        <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform">RSA Archer Platform</a>
+                        <ul class="secondLevel documentationMenu-platform">
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/65">Version 6.5</a>
+                            </li>
+						<li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/641">Version 6.4 SP1</a>
+                            </li>
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/64">Version 6.4</a>
+                            </li>
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/63">Version 6.3</a>
+                            </li>
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform">View All Versions</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a target="_parent" href="/docs/DOC-40093">Solutions & Use Cases</a>
+                        <ul class="secondLevel documentationMenu-solutions">
+                            <li>
+                                <a target="_parent" href="/docs/DOC-40093">Overview</a>
+                            </li>
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/solutions">Versions 6.1 and above</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/modules">Legacy Modules</a>
+                    </li>
+                    <li>
+                        <a target="_parent" href="/community/products/archer-grc/navigator">Additional Resources</a>
+                        <ul class="secondLevel additionalResourcesMenu">
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/ideas">Submit Enhancement Requests</a>
+                            </li>
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/navigator">RSA Archer Navigator</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a target="_parent" href="/community/products/archer-grc/knowledge-base">Knowledge Base</a>
+            </li>
+            <li>
+                <a style="cursor: pointer;">Downloads</a>
+                <ul class="firstLevel downloadsMenu">
+                    <li>
+                        <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform">RSA Archer Platform</a>
+                        <ul class="secondLevel downloadsMenu-platform">
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/65">Version 6.5</a>
+                            </li>
+						<li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/641">Version 6.4 SP1</a>
+                            </li>
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/64">Version 6.4</a>
+                            </li>
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/63">Version 6.3</a>
+                            </li>
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform">View All Versions</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a target="_parent" href="/docs/DOC-40093">Solutions & Use Cases</a>
+                        <ul class="secondLevel downloadsMenu-solutions">
+                            <li>
+                                <a target="_parent" href="/docs/DOC-40093">Overview</a>
+                            </li>
+                            <li>
+                                <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/solutions">Versions 6.1 and above</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/modules">Legacy Modules</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a target="_parent" href="/community/training/archer">Training</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    /* Load base configuration styling for menu and rotating banner */
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-suite-menu-base.css');
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-suite-menu-banner.css');
+    
+    /* Base styling for the drop down sections */
+    .dropDownMenu ul {
+        box-shadow: 2px 2px 15px 0 rgba(0,0,0, 0.5);
+        text-align: left;
+    	display: none;
+    	background: #FFF;
+        position: absolute;
+        z-index: 999999;
+    }
+    
+    /* Advisories Menu */
+    .dropDownMenu > li > ul.advisoriesMenu {
+        top: 28px;
+        left: 0;
+        width: 230px;
+    }
+    
+    /* Documentation Menu */
+    .dropDownMenu ul {
+        box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.5);
+    }
+    .dropDownMenu > li > ul.documentationMenu {
+        top: 28px;
+        left: 0px;
+        width: 234px;
+    }
+	@media only screen and (min-width: 854px) {
+		.dropDownMenu > li > ul.documentationMenu {
+			width: 320px;
+		}
+		/* Downloads Menu */
+		.dropDownMenu > li > ul.downloadsMenu {
+			left: -115px;
+			width: 335px;
+		}
+	}
+    @media only screen and (min-width: 731px) {
+        .dropDownMenu > li > ul.documentationMenu {
+            width: 235px;
+        }
+        .mac .dropDownMenu > li > ul.documentationMenu {
+            width: 236px;
+        }
+        .ie .dropDownMenu > li > ul.documentationMenu {
+            width: 238px;
+        }
+    }
+    
+    /* Documentation Menu - Platform */
+    .dropDownMenu > li > ul > li > ul.documentationMenu-platform {
+        left: 233px;
+        top: 0px;
+        width: 190px;
+    }
+    
+    /* Documentation Menu - Solutions & Use Cases */
+    .dropDownMenu > li > ul > li > ul.documentationMenu-solutions {
+        left: 233px;
+        top: -2px;
+        width: 233px;
+    }
+    
+    /* Documentation Menu - Additional Resources */
+    .dropDownMenu > li > ul > li > ul.additionalResourcesMenu {
+        left: 233px;
+        top: -2px;
+        width: 295px;
+    }
+    .mac .dropDownMenu > li > ul > li > ul.additionalResourcesMenu {
+        width: 296px;
+    }
+    .ie .dropDownMenu > li > ul > li > ul.additionalResourcesMenu {
+        width: 297px;
+    }
+    
+    /* Downloads Menu */
+    .dropDownMenu > li > ul.downloadsMenu {
+        top: 28px;
+        left: -4px;
+        width: 235px;
+    }
+    @media only screen and (min-width: 731px) {
+        .dropDownMenu > li > ul.downloadsMenu {
+            left: -78px;
+            width: 228px;
+        }
+        .mac .dropDownMenu>li>ul.downloadsMenu {
+            width: 229px;
+        }
+        .ie .dropDownMenu>li>ul.downloadsMenu {
+            width: 230px;
+        }
+    }
+    
+    /* Downloads Menu - Platform */
+    .dropDownMenu > li > ul > li > ul.downloadsMenu-platform {
+        left: -163px;
+        top: -1px;
+        width: 163px;
+    }
+    
+    /* Downloads Menu - Solutions & Use Cases */
+    .dropDownMenu > li > ul > li > ul.downloadsMenu-solutions {
+        left: -233px;
+        top: -1px;
+        width: 233px;
+    }
+</style>
+
+<!-- BEGIN ROTATING BANNER -->
+<script>
+	$(function () {
+		$('#slide-box').zSlider({width:920,height:244});
+	})
+</script>
+
+<div id="slide-box">
+    <ul>
+		<li>
+            <a href="https://www.rsa.com/charge" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1889/197867-wb-nw-RSA-Charge-2019-Link-banner-920x244.jpg?a=1544506817636" />
+            </a>
+		</li>
+        <li>
+            <a href="https://community.rsa.com/videos/33726" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1853/150646-wb-myRSA-Banners-Coming-Soon-Home-Page-920x244-new-brand.jpg?a=1550613497834" />
+            </a>
+        </li>
+		<li>
+            <a href="https://community.rsa.com/community/products/archer-grc/blog/2019/02/05/rsa-charge-2019-call-for-speakers-now-open-for-submissions" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1853/banner_rsaCharge19_callForSpeakers_920x244.jpg?a=1550555860048" />
+            </a>
+        </li>
+        <li>
+            <a href="https://community.rsa.com/community/training/certification" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1044/88740-wb-RSA-Archer-Certified-920x244.jpg?a=1521129866078" />
+            </a>
+        </li>
+        <!--
+        <li>
+            <a href="https://community.rsa.com/community/products/archer-grc/exchange" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1044/RSA-Exchange-Offerings-Available-rsacutout-920x244.jpg?a=1543313530983" />
+            </a>
+        </li>    
+       -->
+        <li>
+            <a href="https://community.rsa.com/survey" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/3014/RSA-Link-Better-Experience-banners-920x244.jpg?a=1502210820867" />
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Script to activate the drop down menu -->
+<script type="text/javascript">
+	$('.myMenu ul.dropDownMenu li').hover(function() {
+		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
+	});
+	$('.myMenu ul.dropDownMenu li ul.firstLevel li').hover(function() {
+		$(this).find('ul.secondLevel').stop(true, false, true).slideToggle(300);
+	});
+</script>
+
+<!-- Google Analytics activation script -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+    ga('create', 'UA-72926342-1', 'auto');
+    ga('send', 'pageview');
+</script>

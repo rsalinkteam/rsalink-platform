@@ -1,0 +1,71 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			Product Suite (L1) Menu
+Author:			Jeff Shurtliff
+Last Updated:		08 Aug 2017
+*/
+
+@import url('https://www.rsa.com/content/dam/rsalink/css/redesign-2017-global-fonts.css');
+
+/* Generic CSS */
+.headerContainerWrapper { background: #FFF; }
+.center { max-width: 960px; margin: 0 auto; }
+.headerContainer, .bodyContainer, .footerContainer { max-width: 960px; margin: 0 auto; background: #FFF; }
+.padding {	padding: 20px; }
+.bodyContainer { min-height: 500px; }
+
+/* General Styles for Menu  */
+.menuBackground {
+	background: #006ba6;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: 'Lato',Arial,sans-serif;
+	width: 100%;
+	margin-left: 4px;
+	margin-bottom: -3px;
+}
+.dropDownMenu,
+.dropDownMenu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.dropDownMenu li {
+	position: relative;
+}
+.dropDownMenu a {
+	padding: 3px 9px;
+	display: block;
+	text-decoration: none;
+	font-size: 16px;
+	color: #fff;
+}
+@media only screen and (min-width: 731px) {
+	.dropDownMenu a {
+		padding: 3px 20px;
+	}
+}
+.dropDownMenu a:hover {
+	background: #63b5e5;
+	color: #FFF;
+}
+.dropDownMenu li li a {
+    font-size: 13px;
+	color: #000;
+}
+@media only screen and (min-width: 731px) {
+	.dropDownMenu li li a {
+		font-size: 14px;
+	}
+}
+
+/* Level 1 Drop Down */
+.dropDownMenu > li {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: -4px; /* solve the 4 pixels spacing between list-items */
+}
+.dropDownMenu > li:first-child {
+	margin-left: 0;
+}

@@ -1,0 +1,269 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+<link href="https://www.rsa.com/content/dam/rsalink/css/redesign-2017-global-fonts-local.css" rel="stylesheet" type="text/css">
+
+<div class="menuBackground">
+	<div class="center myMenu">
+		<ul class="dropDownMenu">
+			<li><a target="_parent" href="/community/products/envision/advisories">Advisories</a>
+				<ul class="firstLevel shortMenu">
+					<li><a target="_parent" href="/community/products/envision/advisories">Product Advisories</a></li>
+					<li><a target="_parent" href="/community/products/envision/advisories/security-advisories">Security Advisories</a></li>
+					<li><a target="_parent" href="/community/products/envision/advisories#technical">Technical Advisories</a></li>
+				</ul>
+			</li>
+			<li><a style="cursor: pointer;">Documentation</a>
+				<ul class="firstLevel normalMenu-env">
+					<li><a target="_parent" href="/community/products/envision/41">RSA enVision 4.1</a></li>
+					<li><a style="cursor: pointer;">RSA enVision Event Explorer</a>
+						<ul class="secondLevel normalThirdMenu-env">
+							<li><a target="_parent" href="/community/products/envision/event-explorer-41">RSA enVision Event Explorer 4.1</a></li>
+							<li><a target="_parent" href="/community/products/envision/event-explorer-35">RSA enVision Event Explorer 3.5</a></li>							
+						</ul>
+					</li>
+					<li><a style="cursor: pointer;">RSA enVision EventSource Integrator</a>
+						<ul class="secondLevel rightMenuBottom-env">
+							<li><a target="_parent" href="/community/products/envision/esi-12">RSA enVision EventSource Integrator 1.2</a></li>
+							<li><a target="_parent" href="/community/products/envision/esi-11">RSA enVision EventSource Integrator 1.1</a></li>
+						</ul>
+					</li>
+					<li><a target="_parent" href="/community/products/envision/content-updates">Content Updates</a></li>
+					<li><a target="_parent" href="/community/products/envision/device-configurations">Device Configuration</a></li>
+				</ul>
+			</li>			
+			<li><a target="_parent" href="/community/products/envision/knowledge-base">Knowledge Base</a></li>
+			<li><a style="cursor: pointer;">Downloads</a>
+				<ul class="firstLevel slideLeftMenu-env">
+					<li><a target="_parent" href="/community/products/envision/41/downloads">RSA enVision 4.1</a></li>
+					<li><a target="_parent" href="/community/products/envision/event-explorer-41/downloads">RSA enVision Event Explorer 4.1</a></li>
+					<li><a target="_parent" href="/community/products/envision/esi-12/downloads">RSA enVision EventSource Integrator 1.2</a></li>
+				</ul>
+			</li>
+			<li><a target="_parent" href="/community/training">Training</a></li>
+		</ul>
+	</div>
+</div>
+
+<style>
+@import url('https://www.rsa.com/content/dam/rsalink/css/redesign-2017-suite-menu-base.css');
+
+/* Level 2 Short Menu - Advisories */
+.dropDownMenu > li > ul.shortMenu {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 230px;
+	z-index: 999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+}
+
+/* Level 2 - RSA enVision */
+.dropDownMenu ul {
+	box-shadow: 2px 2px 15px 0 rgba(0,0,0, 0.5);
+}
+.dropDownMenu > li > ul.normalMenu-env {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	top: 100%;
+	left: -60%;
+	width: 335px;
+	z-index: 999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+}
+@media only screen and (min-width: 731px) {
+	.dropDownMenu > li > ul.normalMenu-env {
+		text-align: left;
+		display: none;
+		background: #FFF;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 350px;
+		z-index: 999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+	}
+	.ie .dropDownMenu > li > ul.normalMenu-env {
+		width: 352px;
+	}
+}
+
+/* Level 2 Shifted Left - RSA enVision */
+.dropDownMenu > li > ul.slideLeftMenu-env {
+    text-align: left;
+    display: none;
+    background: #FFF;
+    position: absolute;
+    top: 100%;
+    left: -205px;
+    width: 330px;
+    z-index: 999999;
+}
+@media only screen and (min-width: 731px) {
+	.dropDownMenu > li > ul.slideLeftMenu-env {
+		text-align: left;
+		display: none;
+		background: #FFF;
+		position: absolute;
+		top: 100%;
+		left: -207px;
+		width: 372px;
+		z-index: 999999;
+	}
+	.mac .dropDownMenu > li > ul.slideLeftMenu-env {
+		left: -210px;
+		width: 374px;		
+	}
+	.ie .dropDownMenu > li > ul.slideLeftMenu-env {
+		left: -211px;
+		width: 375px;		
+	}
+}
+
+/* Level 3 - RSA enVision */
+.dropDownMenu > li > ul > li > ul.normalThirdMenu-env {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	left: 100%;
+	top: 0%;
+	width: 285px;
+	z-index: 9999999;
+}
+@media only screen and (min-width: 731px) {
+	.dropDownMenu > li > ul > li > ul.normalThirdMenu-env {
+		text-align: left;
+		display: none;
+		background: #FFF;
+		position: absolute;
+		left: 100%;
+		top: 0%;
+		width: 300px;
+		z-index: 9999999;
+	}
+}
+
+/* Level 3 Bottom Menu - RSA enVision */
+.dropDownMenu > li > ul > li > ul.rightMenuBottom-env {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	left: 100%;
+	top: 0%;
+	width: 330px;
+	z-index: 9999999;
+}
+@media only screen and (min-width: 731px) {
+	.dropDownMenu > li > ul > li > ul.rightMenuBottom-env {
+		text-align: left;
+		display: none;
+		background: #FFF;
+		position: absolute;
+		left: 100%;
+		top: 0%;
+		width: 372px;
+		z-index: 9999999;
+	}
+	.mac .dropDownMenu > li > ul > li > ul.rightMenuBottom-env {
+		width: 374px;
+	}
+	.ie .dropDownMenu > li > ul > li > ul.rightMenuBottom-env {
+		width: 375px;
+	}
+}
+
+/* Level 3 Left Menu - RSA enVision */
+.dropDownMenu > li > ul > li > ul.leftMenu-env {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	left: -100%;
+	top: -100%;
+	width: 315px;
+	z-index: 9999999;
+}
+
+/* Level 3 Left Bottom Menu - RSA enVision */
+.dropDownMenu > li > ul > li > ul.leftMenuBottom-env {
+	text-align: left;
+	display: none;
+	background: #FFF;
+	position: absolute;
+	left: -100%;
+	top: -175%;
+	width: 315px;
+	z-index: 9999999;
+}
+</style>
+
+<!-- BEGIN ROTATING BANNER -->
+<style>@import url('https://www.rsa.com/content/dam/rsalink/css/redesign-2017-suite-menu-banner.css');</style>
+    
+<script src="https://community.rsa.com/resources/statics/1875/jquery-1.12.0.min.js?a=1461083665489"></script>
+<script src="https://community.rsa.com/resources/statics/1040/jQuery.zSlider-doubleLength.js?a=1479754332274"></script>
+
+<script>
+    $(function () {
+        $('#slide-box').zSlider({width:920,height:244});
+    })
+</script>
+
+<div id="slide-box">
+	<ul>
+		<li>
+            <a href="https://information.rsa.com/Netwitness-Gartner-Magic-Quadrant" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1889/197867-wb-nw-Gartner-MQ-RSA-Link-Banners-920x244.jpg?a=1544506898694" />
+            </a>
+        </li>
+		<li>
+            <a href="https://rsa.com/charge" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1889/197867-wb-nw-RSA-Charge-2019-Link-banner-920x244.jpg?a=1544506817636" />
+            </a>
+        </li>
+		<li>
+            <a href="https://community.rsa.com/community/products/netwitness/blog/2018/04/05/rsa-netwitness-platform-evolved-siem-expanding-ueba-capabilities-with-intent-to-acquire-fortscale" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1875/Link-banner-Netwitness-SIEM-Do-This-920x244.jpg?a=1522937201543" />
+            </a>
+        </li>
+		<li>
+            <a href="https://community.rsa.com/docs/DOC-85208" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1875/RSA-Link-banner-Parser-Tool-920x244.jpg?a=1512574702331" />
+            </a>
+        </li>
+		<!--
+        <li>
+            <a href="https://community.rsa.com/survey" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/3014/RSA-Link-Better-Experience-banners-920x244.jpg?a=1502210820867" />
+            </a>
+        </li>
+        -->
+	</ul>
+</div>
+
+<!-- Script to activate the drop down menu -->
+<script type="text/javascript">
+	$('.myMenu ul.dropDownMenu li').hover(function() {
+		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
+	});
+	$('.myMenu ul.dropDownMenu li ul.firstLevel li').hover(function() {
+		$(this).find('ul.secondLevel').stop(true, false, true).slideToggle(300);
+	});
+    $('.myMenu ul.dropDownMenu li ul.secondLevel li').hover(function() {
+		$(this).find('ul.thirdLevel').stop(true, false, true).slideToggle(300);
+	});
+</script>
+
+<!-- Google Analytics activation script -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+    ga('create', 'UA-72926342-1', 'auto');
+    ga('send', 'pageview');
+</script>

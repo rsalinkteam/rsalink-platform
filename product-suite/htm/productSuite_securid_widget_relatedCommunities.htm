@@ -1,0 +1,56 @@
+<script src='https://code.jquery.com/jquery-3.2.1.js'></script>
+<style>
+	.selectBox{cursor:pointer;width:88%;height:10px;padding:10px;display: flex;align-items: center;font-size: 13px;background: #fff;border: 1px solid #ccc;margin-top: 10px;}
+	.selectOptionsBox{max-height: 330px;overflow-x: auto;width:98%;background: #fff;border: 1px solid #ccc;margin-top: 20px;font-size: 12px;}
+	.selectOptionsBox:before{content: '';vertical-align: middle;margin: auto;position: absolute;left: 0;right: 0;bottom: 82%;width: 15px;height: 15px;background: #fff;border-top: 1px solid #ccc;border-right: 1px solid #ccc;transform: rotate(-45deg);-moz-transform: rotate(-45deg);-webkit-transform: rotate(-45deg);}
+	i{border: solid black;border-width: 0 3px 3px 0;display: inline-block;padding: 3px;transform: rotate(-135deg);-webkit-transform: rotate(-135deg);}
+	.down{transform: rotate(45deg);-webkit-transform: rotate(45deg);margin-left: 40px;top: -2px;position:relative;}
+	.selectOptionsBox{display:none;}
+	body{font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;}
+	.selectGroupHeader{border-bottom: 1px solid;margin: 10px;color: #006ba6;}
+	.selectOptionsContainer{margin-top: 5px;padding: 10px;border-bottom: 1px solid #000;}
+	.selectOptionsContainer:last-child{border:0;}
+	.selectOptions{display:block;cursor:pointer;color:#000;text-decoration:none;}
+	.selectOptions::after {content: '';display: block;width: 0;height: 2px;background: #006ba6;transition: width .3s;}
+	.selectOptions:hover::after {width: 100%;}
+	.selectOptions:hover{color:#006ba6;}
+	</style>
+<div class="dropDownContainer">
+	<div class="selectBox">Select Community<i class="arrow down"></i></div>
+	<div class="selectOptionsBox">
+		<div class="selectGroupHeader">RSA SecurID Access</div>
+		<div class="selectOptionsContainer">
+			<a class="selectOptions" target="_parent" href="/community/products/securid">Public Community</a>
+			<a class="selectOptions" target="_parent" href="/community/rsa-internal/securid">RSA Employee Community</a>
+			<a class="selectOptions" target="_parent" href="/community/products/securid/ideas">RSA Ideas (Enhancement Requests)</a>
+            <a class="selectOptions" target="_parent" href="/community/products/securid/securid-access/integrations">RSA SecurID Access Integrations</a>
+            <a class="selectOptions" target="_parent" href="/community/products/securid/prime">RSA SecurID Access Prime</a>
+		</div>
+		<div class="selectGroupHeader">RSA Identity Governance & Lifecycle</div>
+		<div class="selectOptionsContainer">
+			<a class="selectOptions" target="_parent" href="/community/products/governance-and-lifecycle">Public Community</a>
+			<a class="selectOptions" target="_parent" href="/community/products/governance-and-lifecycle/client-partner-community">Clients & Partners Community</a>
+			<a class="selectOptions" target="_parent" href="/community/rsa-internal/governance-and-lifecycle">RSA Employees Community</a>
+			<a class="selectOptions" target="_parent" href="/community/products/governance-and-lifecycle/client-partner-community/technical-design-validation">Technical Design Validation</a>
+			<a class="selectOptions" target="_parent" href="/community/products/governance-and-lifecycle/client-partner-community/repository">Partner Documentation</a>
+			<a class="selectOptions" target="_parent" href="/community/products/governance-and-lifecycle/ideas">RSA Ideas (Enhancement Requests)</a>
+			<a class="selectOptions" target="_parent" href="/community/products/governance-and-lifecycle/client-partner-community/recommended-practices">Recommended Practices</a>
+			<a class="selectOptions" target="_parent" href="/community/products/governance-and-lifecycle/blueprints">IAM Assurance Blueprints</a>
+			<a class="selectOptions" target="_parent" href="/community/products/governance-and-lifecycle/blueprints/submission">Blueprint Submissions</a>
+		</div>
+		<div class="selectGroupHeader">RSA University</div>
+		<div class="selectOptionsContainer">
+			<a class="selectOptions" target="_parent" href="/community/training/securid-access">RSA SecurID Suite Training</a>
+		</div>
+	</div>
+</div>
+<script>
+	var jq = jQuery.noConflict();
+	jq('.selectBox').click(function(){
+		jq('.selectOptionsBox').toggle();
+		resizeWidget();
+	});
+	function resizeWidget() {
+		setTimeout( resizeMe, 50);
+	}
+</script>
