@@ -1,0 +1,11 @@
+/* Hide the Document and Files options in Actions menu */
+#jive-place-link-actions-document,
+#jive-place-link-actions-document-upload {
+    display: none;
+}
+.j-place-actions-links.j-icon-list li:nth-child(1), .j-place-actions-links.j-icon-list li:nth-child(2) {
+    display: none;
+}
+.j-place-actions-links.j-icon-list ~ .j-place-actions-links.j-icon-list li:nth-child(1), .j-place-actions-links.j-icon-list ~ .j-place-actions-links.j-icon-list li:nth-child(2) {
+    display: inherit;
+}

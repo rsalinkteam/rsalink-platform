@@ -1,0 +1,217 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			RSA Ideas
+Author:			Jeff Shurtliff
+Published:		16 May 2018
+*/
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/L3-Header-920x156-Red.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 156px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 40px;
+    padding: 33px 44px;
+	font-family: inherit;
+    font-weight: 100;
+}
+.mac h1#mainBanner-title {
+	font-family:"Lucida Sans",Arial,sans-serif;
+	font-weight: 100;
+}
+@media only screen and (min-width: 1080px) and (max-width: 1165px) {
+	h1#mainBanner-title {
+		font-size: 35px;
+	}
+}
+@media only screen and (max-width: 1079px) {
+	h1#mainBanner-title {
+		font-size: 27px;
+		padding: 20px 44px;
+	}
+}
+h1#mainBanner-title.twoLineTitle {	/* If the title has two lines then add the .twoLineTitle class to the <h1> tag */
+    padding-top: 22px;
+}
+h1#mainBanner-title span {
+	font-family: "Open Sans Light",Arial,sans-serif;
+	font-weight: 600;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 15px;
+    margin-top: -25px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+    color: #fefefe;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Style the discussion buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 14px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #509e2e;
+    border: 1px solid #509e2e;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+}
+a.ideaButton {
+    padding: 8px 15px;
+    width: 88%;
+    font-size: 12px;
+}
+a[data-role=button]:hover {
+    background-color: #7bbe20;
+    border: 1px solid #7bbe20;
+    color: #FFF;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Create a manual downloads header */
+#manualDoubleHeader {
+    background-color: #006ba6;
+    border-style: solid none;
+    border-top-color: #eeeeee;
+    border-top-width: 0px;
+    border-bottom-color: #eeeeee;
+    border-bottom-width: 0px;
+	width: 100%;
+	height: 33px;
+	color: #FFF; 
+	font-size: 13px; 
+	font-weight: bold;
+	font-family: Arial,sans-serif;
+	text-transform: uppercase; 
+	display: block;
+	padding-top: 5px;
+	padding-left: 14px;
+	padding-right: 7px;
+	margin-left: -7px;
+}
+
+/* Style the other manual headers */
+#manualHeader {
+    background-color: #006ba6;
+    border-style: solid none;
+    border-top-color: #eeeeee;
+    border-top-width: 0px;
+    border-bottom-color: #eeeeee;
+    border-bottom-width: 0px;
+	width: 100%;
+	height: 25px;
+	color: #FFF; 
+	font-size: 13px; 
+	font-weight: bold; 
+	font-family: Arial,sans-serif;
+	text-transform: uppercase; 
+	display: block;
+	padding-top: 5px;
+	padding-left: 7px;
+}
+
+/* Move the Downloads widget next to the new header*/
+#jive-widget-container_2 .jive-widget-tagwidget {
+    margin-top: -30px;
+}
+
+/* Update the Latest Downloads message when not logged in */
+#jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p {
+    visibility: hidden;
+}
+#jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p:after {
+    visibility: visible;
+    display: block;
+    content: 'RSA product downloads are only accessible to users with active maintenance contracts.';
+    margin-top: -34px;
+    margin-bottom: -10px;
+}
+
+/* Change the color of every other header in the left column */
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #006ba6;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #006ba6;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+	background-color: #006ba6;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+	background-color: #5eb4e3;
+}
+/* Make right column background a light blue color */
+#jive-widget-container_2 {
+    background-color: #e3f2f9;
+}
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #e3f2f9;
+}
+#DisplayProductResources {
+    background-color: #e3f2f9;
+}
+
+/* Hide author and avatar */
+#jive-widget-container_1 td.jive-table-cell-author {
+    display: none;
+}
+#jive-widget-container_1 img.jive-avatar {
+    display: none;
+}
+
+/* Add slight spacing between filter options in right column */
+a.filterItem {
+	line-height: 20px;
+}
