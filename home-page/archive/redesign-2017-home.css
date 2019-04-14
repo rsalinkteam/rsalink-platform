@@ -1,0 +1,258 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			Home Page
+Author:			Jeff Shurtliff
+Published:		29 Aug 2017
+*/
+
+
+/* Add the background image of the home page banner */
+#homePageBanner {
+	background-image: url(https://community.rsa.com/resources/statics/1002/L1-Home-Banner-1128x300.jpg?a=1500524222856);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 300px;
+}
+
+/* Raise the main page body closer to the main menu */
+#jive-widget-container_1 {
+    margin-top: -30px;
+}
+
+/* Style the home page banner text */
+h1#homePageBanner-title {
+    color: #fff;
+    font-family: "Open Sans",Arial,sans-serif;
+    font-size: 45px;
+    padding: 55px 45px;
+}
+p#homePageBanner-text {
+    color: #fff;
+    font-family: "Open Sans",Arial,sans-serif;
+    font-size: 14px;
+    padding-left: 45px;
+    margin-top: -40px;
+    width: 470px;
+}
+
+/* Style the Search Widget */
+.jive-widget-searchwidget {
+    width: 50%;
+	height: 54px;
+    /* float: left; */
+	margin-left: -10px;
+}
+#j-search-widget .j-spotlight-search input {
+    padding: 6px;
+    font-size: 13px;
+    font-family: "Open Sans",Arial,sans-serif;
+	width: 74%;
+}
+#j-search-widget button {
+    display: block;
+    margin-top: -37px;
+    margin-left: 79%;
+	background: #ffad01;
+    border: none;
+    border-radius: 0px;
+    color: #fff;
+    width: 22%;
+	height: 32px;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #cc8b00;
+    color: #fff;
+}
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Style the Ask a Question widget */
+.jive-widget-askaquestionwidget {
+    width: 50%;
+    float: right;
+}
+.ask-a-question-container input.ask-a-question-search {
+    padding: 6px;
+    font-size: 13px;
+	font-family: "Open Sans",Arial,sans-serif;
+	width: 76%;
+	margin-left: 5px;
+}
+.ask-a-question-container button {
+    display: block;
+    margin-top: -32px;
+    margin-left: 79%;
+    background: #ffad01;
+    border: none;
+    border-radius: 0px;
+    color: #fff;
+    width: 22%;
+	height: 32px;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+.ask-a-question-container button:hover, .ask-a-question-container button:focus {
+    background-color: #cc8b00;
+    color: #fff;
+}
+.jive-widget-askaquestionwidget .jive-widget-header {
+    display: none;
+}
+
+/* Style the products section */
+#productsTable td.leftCol {
+    vertical-align: top;
+}
+#productsTable td.middleCol {
+    vertical-align: top;
+}
+#productsTable td.rightCol {
+    width: 144px;
+	vertical-align: top;
+}
+@media only screen and (max-width: 1105px) {
+	#productsTable td.rightCol {
+		width: 25%;
+	}
+	.productIconCell img {
+		width: 90%;
+	}	
+}
+.productSuiteCell {
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 5px;
+	padding-left: 5px;
+}
+.productSuiteCell a {
+    color: #414042;
+}
+.productSuiteCell span {
+    font-family: "Open Sans",Arial,sans-serif;
+}
+.productNameCell {
+    padding-top: 10px;
+}
+.productNameItem {
+    padding-bottom: 10px;
+    font-size: 12px;
+    padding-left: 5px;
+}
+.productNameItem span {
+    font-family: "Open Sans",Arial,sans-serif;
+}
+.productNameItem a {
+    color: #414042;
+}
+
+/* Adjust styling for Safari to fix float issues */
+.mac.safari .jive-widget-askaquestionwidget {
+	float: none;
+	margin-left: -10px;
+}
+.mac.safari .ask-a-question-container button {
+	margin-top: -34px;
+}
+.mac.safari .jive-widget-searchwidget {	
+	margin-left: calc(90% - 362px);
+	margin-top: -82px;
+}
+@media only screen and (min-width: 1037px) and (max-width: 1151px) {
+	.mac.safari .jive-widget-searchwidget {	
+		margin-left: calc(90% - 392px);	
+	}
+}
+@media only screen and (min-width: 1152px) {
+	.mac.safari .jive-widget-searchwidget {	
+		margin-left: calc(90% - 445px);	
+	}
+}
+
+/* Style the RSS Feed Widget for the SoS Blog */
+.jive-widget-rssfeed a {
+    font-size: 16px;
+	font-family: "Open Sans",Arial,sans-serif;
+}
+.jive-widget-rssfeed-entry-body {
+    color: #414042;
+    font-size: 13px;
+	font-family: "Open Sans",Arial,sans-serif;
+}
+.jive-widget-rss .jive-widget-body {
+    margin-top: -10px;
+}
+
+/* Remove avatar and author from Top Knowledge Articles Featured Content widget */
+.jive-widget-popularcontentwidget td.jive-table-cell-author {
+    display: none;
+}
+.jive-widget-popularcontentwidget img.jive-avatar {
+    display: none;
+}
+
+/* Style the Popular Topics widget */
+.popularTopics-productHeader {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Open Sans",Arial,sans-serif;
+}
+.jive-widget-popularcontentwidget td.jive-table-cell-title span {
+    display: none;	/* This hides the timestamp */
+}
+.jive-table td.jive-table-cell-title a {
+    font-size: 16px;
+    float: left;
+    font-weight: 400;
+    line-height: 1.1;
+    display: block;
+    margin: 0 0 .2em;
+}
+#jive-widget-container_2 .jive-table.jive-table-widget.jive-table-recentcontent a {
+    font-family: "Open Sans",Arial,sans-serif;
+}
+
+/* Register Now Button Styling */
+#registerNowTable {
+	border: 0px solid rgb(198, 198, 198);
+    width: 20%;
+    margin-left: auto;
+    margin-right: -25px;	
+}
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 14px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #ce352d;
+    border: 1px solid #ce352d;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+}
+a.registerButton {
+    padding: 8px 0px;
+    width: 85%;
+    font-size: 12px;
+}
+a[data-role=button]:hover {
+    background-color: rgba(188,49,41,1);
+    border: 1px solid rgba(188,49,41,1);
+    color: #FFF;
+}
+
+/* Hide the Register Now button by default */
+#jive-widget-container_1 .jive-widget-htmltextwidget {	
+	display: none;
+}
+#jive-widget-container_1 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+	display: inherit;
+}
