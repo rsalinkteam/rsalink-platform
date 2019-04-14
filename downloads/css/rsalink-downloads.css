@@ -1,0 +1,249 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          Product Downloads Spaces
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   03 Apr 2019
+*/
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_red_920x156.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 156px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 40px;
+    padding: 15px 44px;
+	font-family: inherit;
+    font-weight: 100;
+}
+@media only screen and (min-width: 1080px) and (max-width: 1165px) {
+	h1#mainBanner-title {
+		font-size: 35px;
+	}
+}
+@media only screen and (max-width: 1079px) {
+	h1#mainBanner-title {
+		font-size: 27px;
+		padding: 20px 44px;
+	}
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 0px;
+    margin-top: -25px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Style the main download buttons table */
+#downloadButtons {
+    border: 0px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+#downloadButtons td {
+    padding-left: 10px; 
+    padding-right: 10px; 
+    text-align: center;
+}
+
+/* Style the main download buttons */
+a[data-role=button] {
+    width: 88%;
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #FFF;
+    text-decoration: none;
+    transition: background-color .25s ease-out,
+                border .25s ease-out,
+                color .25s ease-out;
+}
+a[data-role=button]:hover {
+    background-color: #fff;
+    border: 1px solid #802629;
+    color: #802629;
+}
+
+/* Style the View All Buttons */
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget a[data-role=button] {
+    background-color: #415464;
+    border: 1px solid #415464;
+    color: #fff;
+    padding: 8px 15px;
+	width: 35%;
+    transition: background-color .25s ease-out,color .25s ease-out;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget a[data-role=button]:hover {
+    background-color: #fff;
+    color: #415464;
+}
+
+/* Adjust spacing between View All buttons and Watch a Tag widgets */
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-top: -25px;
+}
+
+/* Change the color of every other Watch a Tag header */
+.jive-widget-tagwidget .jive-widget-header,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #415464;
+}
+.jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Update the Watch a Tag widget text when nothing is listed */
+#jive-widget-container_1 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p {
+    visibility: hidden;
+}
+#jive-widget-container_1 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p:after {
+    visibility: visible;
+    display: block;
+    content: 'No downloads are currently available in this category.';
+    margin-top: -24px;
+    margin-bottom: -10px;
+    margin-left: 30px;
+}
+
+/* Change the color of the even rows in the Watch a Tag widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change background of the second Watch a Tag widget to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+.jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change styling of the third Watch a Tag widget back to normal */
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+.jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: #fff;
+}
+
+/* Change background of the fourth Watch a Tag widget to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+.jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change styling of the fifth Watch a Tag widget back to normal */
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+.jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: #fff;
+}
+
+/* Change background of the sixth Watch a Tag widget to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body,
+.jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
+.jive-widget-tagwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Adjust spacing between Watch a Tag widgets and "View All" buttons */
+#jive-widget-container_1 .jive-widget-tagwidget {
+    margin-bottom: 25px;
+}
+
+/* Hide author and avatar */
+#jive-widget-container_1 td.jive-table-cell-author,
+#jive-widget-container_1 img.jive-avatar {
+    display: none;
+}
+
+/* Make right column widget banners blue/gray */
+#jive-widget-container_2 .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Make right column background a gray color (PMS 427, +30% White, +0.5 Opacity) */
+#jive-widget-container_2,
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Increase the font size of the hyperlinks in the right column */
+#jive-widget-container_2 a {
+    font-size: 15px;
+}
+
+/* Style the Categories widget when in use */
+#jive-widget-container_2 .j-icon-list li {
+    padding: 0;
+}
+#jive-widget-container_2 .jive-icon-med.jive-icon-folder {
+    background-image: none;
+}
+
+/* Hide any external link icons */
+.jive-link-external-small:after {
+    background: none;
+    margin: 0 -12px 0 -12px;
+}
+
+/* Adjust the "info" widget on spaces where all downloads are on myRSA */
+.jive-widget-documentviewwidget {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
