@@ -1,0 +1,363 @@
+<script src="https://community.rsa.com/resources/statics/129333/jquery-2.1.4.min.js?a=1490119915748" type="text/javascript"></script>
+<script src="https://community.rsa.com/resources/statics/1040/css_browser_selector_v2.js?a=1481298634521"></script>
+
+<!-- Begin Select Boxes -->
+<!--
+  ** Style a Select Box Using Only CSS
+  ** Source: http://bavotasan.com/2011/style-select-box-using-only-css/
+  ** Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/
+  ** Source: http://stackoverflow.com/a/5809186
+-->
+<table id="navigatorTable" width="100%" border="0">
+	<tr>
+		<th>Role</th>
+		<th>Expertise</th>
+		<th>Focus</th>
+		<th>Language</th>	
+	</tr>
+	<tr>
+		<td>
+			<div class="styled-select blue semi-square">
+				<select id="role" onchange="updateFilters()">
+					<option value="%7C">Select All</option>
+					<option value="soc+manager%7C" title="Manages SOC readiness, coordinates the team, responds to incidents and data breaches, and reports on activities.">
+						SOC Manager
+					</option>
+					<option value="data+privacy+officer%7C" title="Manages privacy-sensitive data, data obfuscation, data retention enforcement, and audit logs.">
+						Data Privacy Officer
+					</option>
+					<option value="incident+responder%7C" title="Reviews incidents and alerts and mitigates or escalates incidents.">
+						Incident Responder (Level 1 Analyst)
+					</option>
+					<option value="threat+hunter%7C" title="Conducts forensic investigation of identified threats, recommends incidents for remediation, remediates issues, and conducts malware analysis.">
+						Threat Hunter (Level 2 Analyst)
+					</option>
+					<option value="content+expert%7C" title="Gathers threat intelligence and tracks new attack patterns using content from industry and government sources; creates feeds, parsers, and correlation rules.">
+						Content Expert (Level 3 Analyst)
+					</option>
+					<option value="admin%7C" title="Administers the RSA NetWitness Suite environment; installs and configures equipment and software, manages user access and security, monitors and fine tunes performance, and backs up and restores data. ">
+						Administrator
+					</option>
+				</select>
+			</div>      
+		</td>
+		<td>
+			<div class="styled-select blue semi-square">
+				<select id="expertise" onchange="updateFilters()">
+					<option value="%7C">Select All</option>
+					<option value="getting+started%7C">Basic</option>
+					<option value="expanding%7C">Intermediate</option>
+					<option value="advanced%7C">Advanced</option>
+				</select>
+			</div>      
+		</td>
+		<td>
+			<div class="styled-select blue semi-square">
+				<select id="focus" onchange="updateFilters()">
+					<option value="%7C">Select All</option>
+					<option value="administration%7C">Administration</option>
+					<option value="configuration%7C">Configuration</option>
+					<option value="hardware%7C">Hardware</option>
+					<option value="integration%7C">Integration</option>
+					<option value="release+notes%7C">Release Notes</option>
+					<option value="rsa+live+content%7C">RSA Live Content</option>
+					<option value="installation+%26+upgrade%7C">Software Installation and Upgrade</option>
+					<option value="troubleshooting%7C">Troubleshooting</option>
+					<option value="user+guide%7C">User Guide</option>
+				</select>
+			</div>      
+		</td>
+		<td>
+			<div class="styled-select blue semi-square">
+				<select id="language" onchange="updateFilters()">
+					<option value="english%7C">English</option>
+					<option value="french%7C">French</option>
+					<option value="german%7C">German</option>
+					<option value="japanese%7C">Japanese</option>
+					<option value="spanish%7C">Spanish</option>
+				</select>
+			</div>      
+		</td>
+	</tr>
+	<tr>
+		<th style="padding-top: 10px;">Product</th>
+		<th style="padding-top: 10px;">Version</th>
+		<th style="padding-top: 10px;">Content Type</th>
+		<th style="padding-top: 10px;">Cost</th>
+	</tr>
+	<tr>
+		<td>
+			<div class="styled-select blue semi-square">
+				<select id="product" onchange="updateFilters()">
+					<option value="%7C">
+						Select All
+					</option>
+					<option value="endpoint%7C" title="RSA NetWitness Endpoint (formerly RSA ECAT)">
+						RSA NetWitness Endpoint
+					</option>
+					<option value="logs+and+packets%7C" title="RSA NetWitness Logs & Network (formerly RSA Security Analytics)">
+						RSA NetWitness Logs &amp; Network
+					</option>
+					<option value="investigator%7C" title="RSA NetWitness Investigator desktop client">
+						RSA NetWitness Investigator
+					</option>
+					<option value="orchestrator%7C" title="RSA NetWitness Orchestrator (Automation & Orchestration)">
+						RSA NetWitness Orchestrator
+					</option>
+				</select>
+			</div>
+		</td>
+		<td>
+			<div class="styled-select blue semi-square">
+				<select id="version" onchange="updateFilters()">
+					<option value="%7C">Select All</option>
+					<option value="11.x%7C" title="RSA NetWitness Logs & Network">11.x</option>
+					<option value="11.2%7C" title="RSA NetWitness Logs & Network">11.2</option>
+					<option value="11.1%7C" title="RSA NetWitness Logs & Network">11.1</option>
+					<option value="11.0%7C" title="RSA NetWitness Logs & Network">11.0</option>
+					<option value="10.6.4%7C" title="RSA NetWitness Logs & Network">10.6.4</option>
+					<option value="10.6.3%7C" title="RSA NetWitness Logs & Network">10.6.3</option>
+					<option value="10.6.2%7C" title="RSA NetWitness Logs & Network">10.6.2</option>
+					<option value="10.6.1%7C" title="RSA NetWitness Logs & Network">10.6.1</option>
+					<option value="10.6.0%7C" title="RSA NetWitness Logs & Network">10.6.0</option>
+					<option value="10.6%7C" title="RSA NetWitness Logs & Network">10.6.x</option>
+					<option value="10.5%7C" title="RSA NetWitness Logs & Network">10.5.x</option>
+					<option value="10.4%7C" title="RSA NetWitness Logs & Network">10.4.x</option>
+					<option value="10.3%7C" title="RSA NetWitness Logs & Network">10.3.x</option>
+					<option value="10.2%7C" title="RSA NetWitness Logs & Network">10.2.x</option>
+					<option value="10.1%7C" title="RSA NetWitness Logs & Network">10.1.x</option>
+					<option value="9.8%7C" title="RSA NetWitness Legacy (NextGen)">9.8.x</option>
+					<option value="4.3%7C" title="RSA NetWitness Endpoint">4.3.x</option>
+					<option value="4.2%7C" title="RSA NetWitness Endpoint">4.2.x</option>
+					<option value="4.1%7C" title="RSA NetWitness Endpoint">4.1.x</option>
+					<option value="4.0%7C" title="RSA NetWitness Endpoint">4.0.x</option>
+				</select>
+			</div>      
+		</td>
+		<td>
+			<div class="styled-select blue semi-square">
+				<select id="contentType" onchange="updateFilters()">
+					<option value="%7C">Select All</option>
+					<option value="documentation%7C">User Documentation</option>
+					<option value="on+demand+learning%7C">On-Demand Training</option>
+					<option value="on+demand+classroom%7C">On-Demand Classroom</option>
+					<option value="on+demand+lab%7C">On-Demand Lab</option>
+					<option value="in+person+training%7C">Instructor-Led Training</option>
+					<option value="download%7C">Download / Tool</option>
+					<option value="knowledge+base%7C">Knowledge Base</option>
+					<option value="blog+post%7C">Blog Post</option>
+					<option value="video%7C">Video</option>
+				</select>
+			</div>      
+		</td>
+		<td>
+			<div class="styled-select blue semi-square">
+				<select id="cost" onchange="updateFilters()">
+					<option value="%7C">Select All</option>
+					<option value="free%7C">Free</option>
+					<option value="fee%7C">Fee Required</option>
+				</select>
+			</div>      
+		</td>
+	</tr>
+</table>
+<br />
+<!-- End Select Boxes -->
+
+<!-- Begin Search Button Area -->
+<table border="0" style="border: 0px solid rgb(198, 198, 198); width: 35%; margin-left: auto; margin-right: auto; margin-top: 10px;">
+	<tbody>
+		<tr>
+			<td style="padding-left: 10px; padding-right: 10px; text-align: center;">
+				<a style="cursor: pointer;" data-role="button" class="searchButton" onclick="resetOptions()">Reset Options</a>				
+			</td>
+			<td style="padding-left: 10px; padding-right: 10px; text-align: center;">				
+				<div id="submitArea"></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+<!-- End Search Button Area -->
+
+<!-- Begin Debug Area -->
+<div id="debugFilter" style="text-align:center;"></div>
+<!-- End Debug Area -->
+
+<!-- Begin Navigator JavaScript Code -->
+<script type="text/javascript">
+var debugValue = "none";
+	
+function updateFilters() {
+	var productValue = document.getElementById("product").value;
+	var versionValue = document.getElementById("version").value;
+	var contentTypeValue = document.getElementById("contentType").value;
+	var focusValue = document.getElementById("focus").value;
+	var roleValue = document.getElementById("role").value;
+	var expertiseValue = document.getElementById("expertise").value;	
+	var languageValue = document.getElementById("language").value;	
+	var costValue = document.getElementById("cost").value;
+
+	
+	if (contentTypeValue == "knowledge+base%7C") {
+		if (productValue == "endpoint%7C") {
+			debugValue = "Knowledge Base: Endpoint";
+			$('#submitArea').empty();
+			$('#submitArea').append('<a href=\"/community/products/netwitness/endpoint-knowledge-base/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + versionValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+			setTimeout(resizeMe,2000);	
+		} else if (productValue == "investigator%7C") {
+			debugValue = "Knowledge Base: Investigator";
+			$('#submitArea').empty();
+			$('#submitArea').append('<a href=\"/community/products/netwitness/knowledge-base/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + productValue + versionValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+			setTimeout(resizeMe,2000);
+		} else {
+			debugValue = "Knowledge Base: Logs and Packets";
+			$('#submitArea').empty();
+			$('#submitArea').append('<a href=\"/community/products/netwitness/knowledge-base/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + versionValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+			setTimeout(resizeMe,2000);
+		}		
+	} else if (focusValue == "hardware%7C" || focusValue == "rsa+live+content%7C") {
+		debugValue = "Ignore Version and Cost";
+		$('#submitArea').empty();
+		$('#submitArea').append('<a href=\"/community/products/netwitness/navigator/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + productValue + contentTypeValue + focusValue + roleValue + expertiseValue + languageValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+		setTimeout(resizeMe,2000);
+	} else if (contentTypeValue == "on+demand+learning%7C" || contentTypeValue == "on+demand+classroom%7C" || contentTypeValue == "on+demand+lab%7C" || contentTypeValue == "in+person+training%7C") {
+		debugValue = "Include Cost";
+		$('#submitArea').empty();
+		$('#submitArea').append('<a href=\"/community/products/netwitness/navigator/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + productValue + versionValue + contentTypeValue + focusValue + roleValue + expertiseValue + languageValue + costValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+		setTimeout(resizeMe,2000);
+	} else if (contentTypeValue == "download%7C") {
+		debugValue = "Downloads";
+		$('#submitArea').empty();
+		$('#submitArea').append('<a href=\"/community/products/netwitness/navigator/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + productValue + versionValue + contentTypeValue + focusValue + roleValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+		setTimeout(resizeMe,2000);
+	} else {	
+		debugValue = "Ignore Cost";
+		$('#submitArea').empty();
+		$('#submitArea').append('<a href=\"/community/products/netwitness/navigator/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + productValue + versionValue + contentTypeValue + focusValue + roleValue + expertiseValue + languageValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+		setTimeout(resizeMe,2000);
+	}
+	
+	// debugText();
+}
+
+// debugText();
+updateFilters();
+
+function resetOptions() {
+	document.getElementById("product").selectedIndex = "0";
+	document.getElementById("version").selectedIndex = "0";
+	document.getElementById("contentType").selectedIndex = "0";
+	document.getElementById("focus").selectedIndex = "0";
+	document.getElementById("role").selectedIndex = "0";
+	document.getElementById("expertise").selectedIndex = "0";
+	document.getElementById("language").selectedIndex = "0";
+	document.getElementById("cost").selectedIndex = "0";
+	
+	updateFilters();
+}
+
+function debugText() {
+	document.getElementById("debugFilter").innerHTML = "Special Filters: " + debugValue;
+}
+
+</script>
+<!-- End Navigator JavaScript Code -->
+
+<!-- Begin Google Analytics Tracking Code -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2931917-31', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics Tracking Code -->
+
+
+<!-- Begin Stylesheet -->
+<style>
+/* -------------------- Select Box Styles: bavotasan.com Method (with special adaptations by ericrasch.com) */
+/* -------------------- Source: http://bavotasan.com/2011/style-select-box-using-only-css/ */
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 165px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 178px; /* Original: 268px */
+}
+.ie .styled-select select {
+	width: 190px;
+}
+
+.styled-select select option {
+  background: #006ba6;
+}
+
+/* -------------------- Rounded Corners */
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+/* -------------------- Colors: Background */
+.blue { 
+  background-color: #3b8ec2; 
+}
+
+/* -------------------- Colors: Text */
+.blue select { 
+  color: #fff; 
+}
+
+/* Style the search button */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 14px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #3b8ec0;
+    border: 1px solid #3b8ec0;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+}
+a.searchButton {
+    padding: 8px 15px;
+    width: 88%;
+    font-size: 12px;
+}
+a[data-role=button]:hover {
+    background-color: #006ba6;
+    border: 1px solid #006ba6;
+    color: #FFF;
+}
+
+/* Set the font family for the Navigator table */
+#navigatorTable {
+	font-family: Lato,Arial,sans-serif;
+}
+</style>
+<!-- End Stylesheet -->
