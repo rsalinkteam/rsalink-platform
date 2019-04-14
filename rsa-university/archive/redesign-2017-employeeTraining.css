@@ -1,0 +1,168 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			RSA Employee Training
+Author:			Jeff Shurtliff
+Published:		26 Oct 2017
+*/
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://community.rsa.com/resources/statics/27601/L3-Header-920x156-Blue.jpg?a=1501107624900);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 156px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 24px;
+    padding: 17px 44px;
+	font-family: inherit;
+    font-weight: 100;
+}
+@media only screen and (min-width: 1050px) and (max-width: 1240px) {
+	h1#mainBanner-title {
+		font-size: 30px;
+	}
+}
+@media only screen and (min-width: 1241px) {
+	h1#mainBanner-title {
+		font-size: 40px;
+	}
+}
+h1#mainBanner-title span {
+	font-family: "Open Sans",Arial,sans-serif;
+	font-weight: 400;
+}
+h1#mainBanner-title span.japaneseText {
+    font-weight: 200;
+}
+
+/* Style the buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #509e2e;
+    border: 1px solid #509e2e;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+}
+a.empButton {
+    padding: 10px 15px;
+    width: 88%;
+    font-size: 12px;
+}
+a[data-role=button]:hover {
+    background-color: #7bbe20;
+    border: 1px solid #7bbe20;
+    color: #FFF;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Create a manual downloads header */
+#manualDoubleHeader {
+    background-color: #006ba6;
+    border-style: solid none;
+    border-top-color: #eeeeee;
+    border-top-width: 0px;
+    border-bottom-color: #eeeeee;
+    border-bottom-width: 0px;
+	width: 100%;
+	height: 33px;
+	color: #FFF; 
+	font-size: 13px; 
+	font-weight: bold;
+	font-family: Arial,sans-serif;
+	text-transform: uppercase; 
+	display: block;
+	padding-top: 5px;
+	padding-left: 14px;
+	padding-right: 7px;
+	margin-left: -7px;
+}
+
+/* Move the Downloads widget next to the new header*/
+#jive-widget-container_2 .jive-widget-tagwidget {
+    margin-top: -30px;
+}
+
+/* Update the Latest Downloads message when not logged in */
+#jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p {
+    visibility: hidden;
+}
+#jive-widget-container_2 .jive-widget-htmltext ~ .jive-widget-tagwidget .jive-widget-body-empty p:after {
+    visibility: visible;
+    display: block;
+    content: 'RSA product downloads are only accessible to users with active maintenance contracts.';
+    margin-top: -34px;
+    margin-bottom: -10px;
+}
+
+/* Change the color of every other header in the left column */
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #006ba6;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #006ba6;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #5eb4e3;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+	background-color: #006ba6;
+}
+#jive-widget-container_1 .jive-widget-searchwidget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+	background-color: #5eb4e3;
+}
+/* Make right column background a light blue color */
+#jive-widget-container_2 {
+    background-color: #e3f2f9;
+}
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #e3f2f9;
+}
+#DisplayProductResources {
+    background-color: #e3f2f9;
+}
+
+/* Hide author and avatar */
+#jive-widget-container_1 td.jive-table-cell-author {
+    display: none;
+}
+#jive-widget-container_1 img.jive-avatar {
+    display: none;
+}
+
+/* Adjust spacing between banner and buttons */
+#jive-widget-container_1 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-top: -30px;
+}
+
+/* Adjust the line height of the single line green buttons */
+a.empButton.singleLine {
+	line-height: 28px;
+}
+
+/* Hide the table of contents within the rendered document */
+.jive-rendered-content .tableOfContents {
+    display: none;
+}

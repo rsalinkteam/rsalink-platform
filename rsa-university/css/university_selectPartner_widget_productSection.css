@@ -1,0 +1,45 @@
+/* Style the products section */
+#productsTable td.leftCol {
+    vertical-align: top;
+}
+#productsTable td.middleCol {
+    vertical-align: top;
+}
+#productsTable td.rightCol {
+    width: 144px;
+	vertical-align: top;
+}
+@media only screen and (max-width: 1105px) {
+	#productsTable td.rightCol {
+		width: 25%;
+	}
+	.productIconCell img {
+		width: 90%;
+	}	
+}
+.productSuiteCell {
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 5px;
+	padding-left: 5px;
+}
+.productSuiteCell a {
+    color: #414042;	
+}
+.productSuiteCell span {
+    font-family: "Open Sans",Arial,sans-serif;
+}
+.productNameCell {
+    padding-top: 10px;
+}
+.productNameItem {
+    padding-bottom: 10px;
+    font-size: 12px;
+    padding-left: 5px;
+}
+.productNameItem span {
+    font-family: "Open Sans",Arial,sans-serif;
+}
+.productNameItem a {
+    color: #414042;
+}

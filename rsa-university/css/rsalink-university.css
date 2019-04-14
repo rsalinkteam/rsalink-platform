@@ -1,0 +1,177 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA University Overview Page
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   03 Apr 2019  
+*/
+
+/* Forcefully define the width of the menu/banner widget to avoid jerking page load */
+#jive-widget-container_1 iframe.htmlWidgetIframe:first-child {
+    /* height: 274px !important; */
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_1 >.jive-widget-searchwidget {
+    margin-bottom: 3px;
+    margin-top: -25px;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Style the introduction text */
+#jive-widget-container_1 .jive-widget-formattedtextwidget {
+    margin-top: 20px;
+    padding: 0px 10px;
+}
+
+/* Hide the Watch a Tag label */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Adjust the starting location of the custom menu */
+#jive-widget-container_1 .jive-widget-htmltextwidget:first-child {
+    margin-top: -2px;
+}
+
+/* Change color of widget hyperlinks to black */
+.jive-widget-recentcontentwidget a,
+.jive-widget-featuredcontentwidget a {
+    color: #232222;
+}
+
+/* Style the discussion buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    width: 88%;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out;
+}
+@media only screen and (max-width: 1020px) {
+	a.rsauButton {
+		height: 40px;		/* Make the buttons the same height if the screen size gets too small */
+	}
+}
+a[data-role=button]:hover {
+    background-color: rgba(115,34,37,1);
+    border: 1px solid rgba(115,34,37,1);
+}
+
+/* Change the color of the even rows in the content widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentblogpostswidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentvideoswidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-featuredcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change the Recent Blog Posts widget banner to blue/gray */
+.jive-widget-recentblogpostswidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Change the Recent Videos widget banner to red */
+.jive-widget-recentvideoswidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Hide any external link icons */
+.jive-link-external-small:after {
+    background: none;
+    margin: 0 -12px 0 -12px;
+}
+
+/* Make right column background a gray color (PMS 427, +30% White, +0.5 Opacity) */
+#jive-widget-container_2,
+#jive-widget-container_2 .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Make right column widget banners blue/gray */
+#jive-widget-container_2 .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Style the "View Full Calendar" button */
+#eventsButtonTable {
+    border: 0px solid rgb(198, 198, 198);
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 0px; 
+    width: 100%;
+}
+#eventsButtonTable td {
+    padding-left: 10px; 
+    padding-right: 10px; 
+    text-align: center;
+}
+a.allEventsButton[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+	line-height: 1rem;
+	font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    position: relative;
+    text-transform: uppercase;
+    background-color: #eeeff0;
+    border: 1px solid #0075B0;
+    color: #0075B0;    
+	text-decoration: none;
+}
+a.allEventsButton[data-role=button]:hover {
+    background-color: #FFF;
+    border: 1px solid #0075B0;
+    color: #0075B0;
+}
+
+/* Move View All Events widget closer to Upcoming Events widget */
+.jive-widget-upcomingeventswidget {
+    margin-bottom: -5px;
+}
