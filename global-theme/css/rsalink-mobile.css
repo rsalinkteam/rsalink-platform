@@ -1,0 +1,157 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          Global (Entire Website - Mobile Devices)
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   27 Mar 2019
+*/
+
+/****************************
+ *  @media legend:          *
+ *  ==============          *
+ *  iPhone 8 and below:     *
+ *     max-width: 40em      *
+ *     max-width: 375px     *
+ ****************************/
+
+/* Fix the mobile display */
+@media screen and (max-width: 40em) {
+	.j-placeHeaderInner {
+		padding-top: 0px;		
+	}
+}
+@media screen and (max-width: 40em) {
+	body.j-body-place #j-main .j-layout {		
+		padding-top: 20px;
+	}
+}
+
+/* Hide the Recent Activity section of the Activity Page for Mobile */
+@media screen and (max-width: 40em) {
+	#j-dynamic-pane {
+		 /* display: none; */
+	}
+	.j-tile .j-act-header {
+		display: none !important;
+		margin: 0px;
+	}
+	.j-act-stream {
+		display: none;
+	}
+}
+
+/* Hide blue menu bar on mobile devices */
+@media screen and (max-width: 40em) {
+	.j-placeNav {
+		display: none !important;
+	}
+}
+
+/* Fix the website footer on mobile */
+@media screen and (max-width: 40em) {
+	#footerTable td {
+		display: block;
+		width: 100% !important;
+	}
+}
+
+/* Display knowledge article vertically on iPhone 6 and below */
+@media screen and (max-width: 375px) {
+	table.kb-article td {
+		display: block;
+		max-width: 320px !important;
+	}
+	table.kb-article pre.ckeditor_codeblock {
+		margin: 10px 0 10px -1px !important;
+	}
+}
+
+/* Style the space title for mobile devices */
+@media screen and (max-width: 40em) {
+	.j-column #j-browse-filters {
+		margin-top: 20px;
+	}
+	#jive-body .j-page-header .j-placeName {
+		margin-top: 0;
+		color: #fff !important;
+		white-space: pre-wrap;
+	}
+	.j-placeTitle {
+		width: 98%;
+		height: 50px;
+		background: linear-gradient(to right, #81312f, #be3a34);
+		text-shadow: none;
+		text-transform: uppercase;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	#datablock-content {
+		margin-top: -25px !important;
+	}
+}
+/* Style the background color for tile header */
+@media screen and (max-width: 40em) {
+    .j-body-home .j-tile .j-tile-header h4 {
+        /* background: #006ba6; */
+        background: #415464;
+	}
+}
+
+/* Remove white space between green buttons and other content */
+.js-tile.j-tile.j-tileType-iframe {
+	margin-bottom: -20px;
+}
+
+/* Style the formatted text tables in tiles -- RSALINK-4761 */
+/* Fix for RSALINK-3449 */
+@media screen and (max-width: 40em) {
+    .j-rte-table table{
+		table-layout: fixed;
+		width: 98% !important;
+	}
+	table.kb-article td {
+		padding-bottom: 20px;
+		float: left;
+		width: 100% !important;
+	}
+
+	table.kb-article pre.ckeditor_codeblock {
+		width: 95% !important;
+		margin: 0 !important;
+	}
+
+	.jive-rendered-content td, .jive-rendered-content th{
+		width: 100% !important;
+	}
+}
+
+/* Styling from rsa-mobile-view-global.css file */
+.jive-widget .j-tile-header, .j-tile .j-tile-header{
+	background-color: #415464;
+}
+.viewHeader{
+	background-color: #006ba6;
+	position: relative;
+	border-bottom: none;
+	padding: 0;
+	height: 33px;
+}
+.viewHeader h4{
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-transform: uppercase;
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+	white-space: nowrap;
+	max-width: 280px;
+	text-overflow: ellipsis;
+	margin: 0px 0 5px;
+	line-height: 1.1em;
+	padding: 5px 10px;
+	margin-top: 5px;
+	font-family: arial;
+} 

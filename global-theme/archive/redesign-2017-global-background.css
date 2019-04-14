@@ -1,0 +1,14 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign
+Scope:			Main Website Background
+Author:			Jeff Shurtliff
+Published:		10 Aug 2017
+*/
+
+body {
+    background-color: #FFF;
+    background-image: url(https://community.rsa.com/resources/statics/1002/background-new.jpg?a=1502387464630);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

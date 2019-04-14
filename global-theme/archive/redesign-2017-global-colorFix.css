@@ -1,0 +1,14 @@
+/*	
+Stylesheet:		RSA Link 2017 Redesign Color Fix
+Scope:			Global (Entire Website)
+Author:			Jeff Shurtliff
+Last Updated:		27 Sep 2017
+*/
+
+/* Fix Space Button Colors -- RSALINK-3184 */
+.j-place-button {
+    background-color: #BE3A34;
+}
+.j-place-button:hover, .j-place-button:focus {
+    background: rgba(160,50,44,1);    
+}

@@ -1,0 +1,129 @@
+/* Styling for the Jive Information Box */
+.jiveInfoBox {
+	line-height: normal;
+	border-color: #cce1eb;
+	color: #0f7198;
+	background: transparent;
+	border: solid 1px;
+	border-radius: 4px;
+	overflow-x: auto;
+	padding: 10px 10px 10px 32px;
+	margin: 1em 0;
+	font-family: inherit;
+	white-space: normal;
+	position: relative;
+	word-wrap: break-word;
+}
+.jiveInfoBox:before {
+	font-family: jiveglyphs;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\e362";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+/* Styling for the Jive Warning Box */
+.jiveWarningBox {
+	line-height: normal;
+	border-color: #f3e1dd;
+	color: #b05b06;
+	background: transparent;
+	border: solid 1px;
+	border-radius: 4px;
+	overflow-x: auto;
+	padding: 10px 10px 10px 32px;
+	margin: 1em 0;
+	font-family: inherit;
+	white-space: normal;
+	position: relative;
+	word-wrap: break-word;
+}
+.jiveWarningBox:before {
+	top: 9px;
+	font-family: jiveglyphs;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\e356";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.jiveWarningBox span {
+	background-color: transparent !important;
+}
+
+/* Styling for the Jive Danger Box */
+.jiveDangerBox {
+	line-height: normal;
+	border-color: #ebb;
+	color: #d74444;
+	background: transparent;
+	border: solid 1px;
+	border-radius: 4px;
+	overflow-x: auto;
+	padding: 10px 10px 10px 32px;
+	margin: 1em 0;
+	font-family: inherit;
+	white-space: normal;
+	position: relative;
+	word-wrap: break-word;
+}
+.jiveDangerBox:before {
+	font-family: jiveglyphs;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\26a1";
+}
+
+/* Styling for the Jive Success Box */
+.jiveSuccessBox {
+	line-height: normal;
+	border-color: #cde8ce;
+	color: #377a39;
+	background: transparent;
+	border: solid 1px;
+	border-radius: 4px;
+	overflow-x: auto;
+	padding: 10px 10px 10px 32px;
+	margin: 1em 0;
+	font-family: inherit;
+	white-space: normal;
+	position: relative;
+	word-wrap: break-word;
+}
+.jiveSuccessBox:before {
+	top: 9px;
+	font-family: jiveglyphs;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\e370";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}

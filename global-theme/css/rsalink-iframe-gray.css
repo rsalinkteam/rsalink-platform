@@ -1,0 +1,202 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          Used with iframes to apply base styling (gray background)
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   21 Dec 2018
+*/
+
+body {
+	color: #232222;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    margin: 0 auto;
+    background-color: #eeeff0;
+}
+.font-color-normal, a.font-color-normal:link, a.font-color-normal:visited, .j-tabbar > li > a, .j-tabbar > li .inside, 
+.mce-floatpanel.mce-window .mce-tabs .mce-tab, .j2-pages-mitui-profile-header .j2-profile-nav ul li a {
+	color: #232222;
+	fill: #232222;
+}
+a, a:visited, a:link, .j-impact-list .j-metric .j-count, .font-color-link, .j-tabbar li a:hover, .j-tabbar > li.active > a,
+.j-tabbar > li.j-active > a, .j-tabbar > li.j-tab-selected > a, .j-tabbar > li.active .inside, .mce-floatpanel.mce-window .mce-tabs .mce-tab:hover, 
+.mce-floatpanel.mce-window .mce-tabs .mce-tab.mce-active, .j2-pages-mitui-profile-header .j2-profile-nav ul li a:hover, 
+.j2-pages-mitui-profile-header .j2-profile-nav ul li a.active, .j2-pages-mitui-profile-fields .j2-edit-link, 
+.j2-pages-mitui-profile-layout .j2-main-column section footer a, .j2-pages-mitui-profile-content .j2-location a:hover, 
+.j2-base-components-global-tag-picker-popover-tag .j2-suggestion-header li.active button:hover, .j2-base-components-global-tag-picker-popover-tag .j2-list-tag li a,
+.j2-pages-mitui-profile-header .j2-profile-info .j2-presence li.j2-editable a:after, .j-page-customizable-message .j-box-dismiss-container button,
+.jive-widget-menu-btn .jive-widget-menu-btn-link {
+	color: #006ba6;
+    fill: #006ba6;
+    text-decoration: none;
+}
+.j-globalNavLink {
+	text-shadow: none;
+}
+.j-impact-list .j-bar .j-bar-index {
+	background-color: #006ba6;
+}
+.j-tabbar > li.active > a, .j-tabbar > li.j-active > a, .j-tabbar > li.j-tab-selected > a, .j-tabbar > li.active .inside, 
+.mce-floatpanel.mce-window .mce-tabs .mce-tab.mce-active, .j2-pages-mitui-profile-header .j2-profile-nav ul li a.active, 
+.j2-base-components-global-tag-picker-popover-tag .j2-suggestion-header li.active button {
+	border-bottom: 3px solid #006ba6;
+}
+a:hover, .font-color-link:hover, .j-page-customizable-message .j-box-dismiss-container button:hover, .jive-widget-menu-btn .jive-widget-menu-btn-link {
+	color: #006095;
+    fill: #006095;
+    text-decoration: underline;
+}
+.font-color-meta, .j-main-mb-entry .jive-js-statusinput-default:focus {
+	color: #8b8b8b;
+	fill: #8b8b8b;
+}
+.font-color-meta a:link, .font-color-meta a:visited, .font-color-meta-light a:link, 
+.font-color-meta-light a:visited, a.font-color-meta:link, a.font-color-meta:visited {
+	color: #3d3d3d;
+	fill: #3d3d3d;
+}
+.font-color-meta a:hover, .font-color-meta a:focus, .font-color-meta a:active, .font-color-meta-light a:hover, .font-color-meta-light a:focus, 
+.font-color-meta-light a:active a.font-color-meta:hover, a.font-color-meta:focus, a.font-color-meta:active {
+	color: #be3a34;
+	fill: #be3a34;
+}
+.font-color-meta-light, a.font-color-meta-light:link, a.font-color-meta-light:visited, .jive-js-statusinput-default.jive-statusinput, 
+.j-main-mb-entry .jive-js-statusinput-default {
+	color: #a9a9a9;
+	fill: #a9a9a9;
+}
+a.font-color-meta-light:hover, a.font-color-meta-light:active {
+	color: #8b8b8b;
+	fill: #8b8b8b;
+}
+.j-rc3, .j-rc4, .j-rc5, .j-rc6, .j-rc7, .j-tile, .j-box.j-enhanced, .j-box.j-enhanced header, .j-box.j-enhanced .j-box-body, 
+.jive-widget, .jive-widget .jive-box-header, .jive-widget .jive-widget-body, .j-popover, .j-pop {
+	border-radius: 0;
+}
+.j-globalNavLink:link, .j-globalNavLink:visited, .j-globalNavLink:hover, .j-globalNavLink:active, .j-globalNav .j-globalNav-li.j-nav-create a.j-globalNavLink, 
+#j-compact-header a .j-user-name, #j-compact-header a.login, #j-compact-header a.register {
+	color: #232222;
+}
+#j-globalNav #mobile-menu > a > span i {
+	background: #232222;
+}
+.j-globalNav > li.j-globalNav-li > a.j-globalNavLink:hover, .j-globalNav > li.j-globalNav-li > a.j-globalNavLink:focus, 
+.j-globalNav li.j-globalNav-li.active .j-globalNavLink, #j-compact-header a:hover .j-user-name, #j-compact-header a:hover.login, 
+#j-compact-header a:hover.register, #j-compact-header a:focus .j-user-name, #j-compact-header a:focus.login, #j-compact-header a:focus.register, 
+#j-compact-header li.active .j-user-name, #j-compact-header li.active.login, #j-compact-header li.active.register {
+	color: #232222;
+}
+#j-globalNav #mobile-menu > a:hover > span i, #j-globalNav #mobile-menu > a:focus > span i {
+	background: #232222;
+}
+.j-navbadge-count, .j-nav-indicator-unread {
+	background-color:#415464;
+}
+nav.j-news-menu.affix {
+	background-color:#FFF;
+}
+#j-globalNav-bg {
+	background-color: #FFF;
+	background-image: none;
+	border-style: solid;	
+}
+#j-header, #j-compact-header{
+	background-color: #FFF;
+	background-image: none;
+}
+h1#jive-global-header-title a.j-header-logo {
+	color: #fafafa;
+}
+#j-satNav-wrap .j-navLabel, #j-satNav-wrap .login, #j-satNav-wrap .register, #j-satNav-wrap li a.j-globalNavLink, #j-basic-wrap .j-header-logo {
+	color: #ffffff;
+}
+button, input[type="button"], input[type="reset"], input[type="submit"], .j-btn-global, a.j-btn-global:link, a.j-btn-global:visited, a.j-btn-global:hover, 
+a.j-btn-global:focus, a.j-btn-global:active, .j-btn-global-color, div .mce-btn-has-text[role="button"]:not([aria-haspopup]):not([aria-label]) button, 
+.j2-pages-mitui-profile-skills .j2-tag-picker-controls a, .j2-pages-mitui-profile-skills .j2-tag-picker-controls button, 
+.j2-base-components-global-modal-rewards .j2-modal-footer .j2-close-button {
+	color: #232222;
+}
+a.j-btn-callout:link, a.j-btn-callout:visited, a.j-btn-callout:hover, a.j-btn-callout:focus, a.j-btn-callout:active, 
+div .mce-primary[role="button"]:not([aria-haspopup]):not([aria-label]) button {
+	color: #fff
+}
+div .mce-primary[role="button"]:not([aria-haspopup]):not([aria-label]) button, button.j-btn-callout, input[type="button"].j-btn-callout, 
+input[type="reset"].j-btn-callout, input[type="submit"].j-btn-callout, .j-btn-callout, a#jive-nav-link-logout:link, 
+.j2-pages-mitui-profile-skills .j2-tag-picker-controls a.j2-callout, .j2-pages-mitui-profile-skills .j2-tag-picker-controls button.j2-callout {
+	color: #fff;
+	background-color: #415464;
+}
+div .mce-primary[role="button"]:not([aria-haspopup]):not([aria-label]) button:hover, 
+div .mce-primary[role="button"]:not([aria-haspopup]):not([aria-label]) button:focus, 
+div .mce-primary[role="button"]:not([aria-haspopup]):not([aria-label]) button:active, button.j-btn-callout:hover, button.j-btn-callout:focus, 
+button.j-btn-callout:active, input[type="button"].j-btn-callout:hover, input[type="button"].j-btn-callout:focus, input[type="button"].j-btn-callout:active, 
+input[type="reset"].j-btn-callout:hover, input[type="reset"].j-btn-callout:focus, input[type="reset"].j-btn-callout:active, input[type="submit"].j-btn-callout:hover, 
+input[type="submit"].j-btn-callout:focus, input[type="submit"].j-btn-callout:active, .j-btn-callout:hover, .j-btn-callout:focus, .j-btn-callout:active, 
+a#jive-nav-link-logout:link:hover, a#jive-nav-link-logout:link:focus, a#jive-nav-link-logout:active, button.j-btn-callout[disabled], 
+input[type="button"].j-btn-callout[disabled], input[type="reset"].j-btn-callout[disabled], input[type="submit"].j-btn-callout[disabled], 
+button.j-btn-callout[disabled]:hover, button.j-btn-callout[disabled]:focus, input.j-btn-callout[type="button"][disabled]:hover, 
+input.j-btn-callout[type="button"][disabled]:focus, input.j-btn-callout[type="reset"][disabled]:hover, input.j-btn-callout[type="reset"][disabled]:focus, 
+input.j-btn-callout[type="submit"][disabled]:hover, input.j-btn-callout[type="submit"][disabled]:focus, .j-btn-callout[disabled]:hover, 
+.j-btn-callout[disabled]:focus, .j-btn-callout[class*="j-btn-"]:link.disabled, .j2-pages-mitui-profile-skills .j2-tag-picker-controls a.j2-callout, 
+.j2-pages-mitui-profile-skills .j2-tag-picker-controls button.j2-callout, .j2-pages-mitui-profile-skills .j2-tag-picker-controls a.j2-callout:hover, 
+.j2-pages-mitui-profile-skills .j2-tag-picker-controls button.j2-callout:hover {
+	background-color: #2d3b46;
+}
+.jive-widget-header, .jive-widget-body {
+	padding-left: 7px;
+	padding-right: 7px;
+}
+.content-small img.featured-user-img, .content-small .j-place-overview img.j-place-photo {
+	max-width: 194px;
+	min-width: 194px;
+}
+.jive-widget-header div.j-act-filter-controls {
+	top: 5px;
+	right: 5px;
+}
+.j-box.j-enhanced, .jive-widget {
+	background: #fff;
+}
+.jive-widget .n4jive_header_button {
+	margin: 0;
+}
+.jive-widget .n4jive_header_button:nth-of-type(1) {
+	margin: 0 2px 0 0;
+}
+.j-box.j-enhanced header, .jive-widget .jive-widget-header h4, .jive-widget .jive-widget-header .j-filters-showing, .j-box header h4, .j-tile header h4, 
+.j-home-featured-places h4, .j-box header h3, .j-menu .font-color-meta, .j-pop h2, .jive-modal > header:first-child h2, .jive-modal header.j-modal-header h2, 
+.jive-modal > div > header:first-child h2, div .mce-window-head .mce-title, .j2-pages-mitui-profile-layout .j2-sidebar section h2, 
+.j2-pages-mitui-profile-layout .j2-main-column section h2 {
+	color: #FFF;
+}
+.j-box.j-enhanced header, .jive-widget .jive-box-header {
+	background-color: #415464;
+	border-style: solid none;
+	border-top-color: #eeeeee;
+	border-top-width: 0px;
+	border-bottom-color: #eeeeee;
+	border-bottom-width: 0px;
+}
+.j-box header h4, .j-tile header h4, .j-box header h3, .j-menu .font-color-meta, .j-pop h2, .jive-modal > header:first-child h2, 
+.jive-modal header.j-modal-header h2, .jive-modal > div > header:first-child h2, div .mce-window-head .mce-title, 
+.j2-pages-mitui-profile-layout .j2-sidebar section h2, .j2-pages-mitui-profile-layout .j2-main-column section h2 {
+	color: #232222;
+}
+.j-banner-img-main {
+	max-width: 1200px;
+}
+.j-design-latest.j-content-document:not(.j-fullscreen-view) .defaultSkin table.mceLayout tr.mceFirst .mceToolbar.mceLeft.mceFirst.mceLast #wysiwygtext_toolbargroup.affix {
+	max-width: calc(1200px - 42px) !important;
+	width: calc(86% - 2px) !important;
+}
+.j-design-latest.j-content-document.j-fullscreen-view .defaultSkin table.mceLayout tr.mceFirst .mceToolbar.mceLeft.mceFirst.mceLast #wysiwygtext_toolbargroup.affix {
+	max-width: none !important;
+	width: 100% !important;
+}
+
+/* Adjust margins around paragraphs in the Training Resources widget on RSA University subspaces */
+#aboutTraining p {
+    margin-block-start: 0;
+    margin-block-end: 5px;
+}

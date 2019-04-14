@@ -1,0 +1,10 @@
+/* Style the Decision badge for the structured outcome */
+.j-outcome-badge.js-outcome-type-decision {
+	background-color: #509e2f;
+	color: #fff;
+	font-size: 16px;
+	transition: background-color .25s ease-out;
+}
+.j-outcome-badge.js-outcome-type-decision:hover, .j-outcome-badge.js-outcome-type-decision:active {
+	background-color: #7bbe20;
+}

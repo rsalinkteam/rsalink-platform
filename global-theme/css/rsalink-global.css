@@ -1,0 +1,578 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          Global (Entire Website)
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   19 Dec 2018
+*/
+
+/*
+ *      TABLE OF CONTENTS
+ *      - Primary Theme Changes
+ *      - Content Tab
+ *      - Widgets
+ *      - Space Settings
+ *      - Overview Page Edit Mode
+ *      - Idea Exchange
+ *      - Jive Content
+ *      - Gradient Banners
+ *      - Jive Alert Formatting
+ *      - Events
+ */
+
+
+/*
+===========================
+   PRIMARY THEME CHANGES
+===========================
+*/
+
+/* Remove the white background of the header */
+#j-header, #j-compact-header {
+    background: none !important;
+}
+
+/* Hide the space icon */
+.j-placeHdImg {
+    visibility: hidden;
+}
+
+/* Adjust location of breadcrumbs and buttons */
+.j-placeHeaderWrap {
+    line-height: 50px;
+    vertical-align: top;
+    position: relative;
+}
+.j-placeHeaderInner {
+    margin-left: 10px;
+}
+
+/* Hide the space banner image and adjust height */
+.j-body-place #jive-body .j-page-header {
+    background: none;
+    height: 35px !important;		/* Added !important to override any residual custom styling -- RSALINK-3057 */
+}
+
+/* Change breadcrumb color */
+.j-page-header #jive-breadcrumb a {
+    color: #232222;
+    opacity: .7;
+}
+
+/* Adjust spacing between breadcrumbs and place name */
+.j-placeHeaderWrap #jive-breadcrumb {
+    padding-bottom: 8px;
+}
+
+/* Change breadcrumb ">" character color */
+div#jive-breadcrumb span {
+    color: #232222;
+}
+
+/* Extend the Products drop down in the main menu */
+.j-custom-link .j-pop .j-menu ul {
+    min-width: 265px;
+    max-width: 400px;
+}
+
+/* Change place title color */
+.j-placeTitle a {
+    color: #232222 !important;
+}
+
+/* Hide the log in message when users aren't logged in */
+.j2-base-components-global-guest-call-to-action {
+    display: none;
+}
+
+/* Hide the 'page is customizable' box for admin users */
+.j-page-customizable-message {
+    display: none;
+}
+
+/* Make breadcrumbs and place name left-aligned */
+.j-body-place #jive-body .j-page-header {
+    padding-left: 20px !important;
+}
+
+/* Make action buttons right-aligned */
+.j-page-header .j-placeHdActions {
+    right: 20px;
+}
+
+/* Adjust place title size and location */
+.j-page-header .j-placeName {
+    font-size: 15px;
+    vertical-align: top;
+    margin-top: -10px;
+    line-height: 20px;
+}
+
+/* Hide the About button */
+#jive-place-link-about {
+    display: none;
+}
+
+/* Change background color of action buttons */
+.j-place-button {
+    background-color: #802629;
+}
+
+/* Change hover color of action buttons */
+.j-place-button:hover, .j-place-button:focus {
+    background: rgba(115,34,37,1);
+    text-decoration: none;
+}
+
+/* Move breadcrumbs even with main menu */
+.j-body-place #jive-body .j-page-header {
+    padding: 0 0 0 20px;
+}
+
+/* Remove box shadow from header section and set overflow */
+.j-placeNav {
+    box-shadow: none;
+    overflow: hidden;
+}
+
+/* Raise Jive buttons slightly */
+#j-place-header-actions {
+    margin-top: -5px;
+}
+
+/* Add fade effect to action buttons */
+.j-page-header .j-placeHdActions>div, .j-page-header .j-placeHdActions a.j-place-button {
+    display: inline-block;
+    transition: background-color .25s ease-out;
+}
+
+/* Raise widget container to be just below the condensed space header */
+#jive-widget-container {
+    margin-top: -85px;
+}
+
+/* Exclude the home page when raising the widget container */
+.j-home-welcome > #jive-widget-container {
+    margin-top: 0px;
+}
+
+/* Change font family of breadcrumbs and place title to Arial */
+#jive-breadcrumb {
+    font-family: Arial, sans-serif;
+}
+.j-placeTitle {
+    font-family: Arial, sans-serif;
+}
+
+
+/* 
+=================
+   CONTENT TAB 
+=================
+*/
+
+/* Lower the navigation menu */
+.j-placeNav {
+    bottom: -45px;
+}
+
+/* Lower the page body */
+.j-layout-sl > .j-column-wrap-s {
+    margin-top: 60px;
+}
+
+/* Change background color of space navigation menu */
+.j-placeNav .j-placeNavBg {
+    background: #415464;
+    opacity: 1;
+}
+
+/* Change color of selected tab */
+.j-placeNav .j-placeLinks li.j-tab-selected a, .j-placeNav .j-placeLinks li.active a {
+    opacity: 1;
+    background: #7a8893;
+}
+
+/* Adjust the top margin for Jive container */
+#jive-widget-container {
+    margin-top: -20px;
+}
+
+/* Hide the navigation bar */
+.j-placeNav { 
+	display: none; 
+}
+
+
+/*
+=============
+   WIDGETS
+=============
+*/
+
+/* Change the size of widget headers */
+.jive-widget-header {
+    height: 21px;
+}
+h4.jive-widget-handle {
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: bold;
+    font-family: Arial,sans-serif;
+}
+
+/* Custmize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -38px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+}
+
+/* Customize the Ask a Question button */
+.ask-a-question-container button {
+    display: block;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	transition: background-color .25s ease-out;
+}
+.ask-a-question-container button:hover, 
+.ask-a-question-container button:focus {
+    background-color: #d86a16;
+}
+
+/* Style the space-specific buttons (default) */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    width: 88%;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out;
+}
+a[data-role=button]:hover {
+    background-color: #732225;
+    border: 1px solid #732225;
+}
+
+/*
+======================
+   SPACE SETTINGS   
+======================
+ */
+
+/* Adjust position of the "Place Image" button on the Space Settings view */
+.j-applyTemplate ~ .j-page-header .j-placeImageDisplayContainer {
+    margin-top: -130px;
+    margin-left: 87%;
+}
+
+/* Add spacing between header and body on the Space Settings view */
+#jive-body .j-applyTemplate {
+    margin-bottom: 10px;
+}
+
+
+/*
+=============================
+   OVERVIEW PAGE EDIT MODE
+=============================
+*/
+
+/* Hide the Restore Defaults button when editing Overview Pages */
+.jive-widgets-buttons button#reset-defaults {
+    display: none;
+}
+
+
+/*
+===================
+   IDEA EXCHANGE
+===================
+*/
+
+/* Hide the ability to downvote ideas */
+button.js-vote-button.js-vote-down {
+    display: none;
+}
+.j-idea-vote-history .j-participant-buttons ul li:nth-child(2) {
+    display: none !important;
+}
+
+
+/* 
+==================
+   JIVE CONTENT
+==================
+*/
+ 
+/* Apply same styling as KB article code snippets - RSALINK-4636 */
+pre.kbCodeSnippet {
+	background: #efefef;
+	display: block;
+	padding: 8px;
+	border: 1px solid #ccc;
+	overflow-x: auto;
+	margin: 10px 0 10px 20px;
+	word-wrap: normal;
+	width: 96% !important;
+	font-family: monospace;
+}
+
+
+/* 
+======================
+   GRADIENT BANNERS
+======================
+*/
+ 
+ /* Base styling for gradient banners */
+.gradient-vertical-light {
+	background-image: linear-gradient(rgba(0,0,0,0.08) 0,rgba(0,0,0,0) 100%);
+}
+
+.gradient-banner-padding {
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+.gradient-banner-padding.two-line-banner {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.gradient-banner-text {
+	text-align: center;
+	font-size: 2.3rem;
+	color: #fff;
+	font-family: Arial,sans-serif;
+	text-rendering: optimizelLegibility;
+	margin-top: 0;
+	margin-bottom: .5rem;
+	line-height: 1.4;
+}
+.gradient-banner-text.two-line-banner {
+	line-height: 1.2;
+}
+.gradient-banner-text .prefaceText {
+	font-size: 1.5rem;
+}
+.gradient-banner-text .primaryText {
+	font-size: 2.5rem;
+}
+ 
+/* Style the small disclaimer text under the banner title */
+.bannerDisclaimer {
+    color: #fff;
+    font-weight: 100;
+    text-align: center;
+    margin-top: -10px;
+}
+
+/* Color-specific styling for gradient banners */
+.blue-gradient-banner {
+	background-color: #415464;
+	background: linear-gradient(to right, #2d3b46, #415464);
+}
+
+.orange-gradient-banner {
+	background-color: #e87722;
+	background: linear-gradient(to right, #e87722,#eaaa00);
+}
+
+.green-gradient-banner {
+	background-color: #509e2f;
+	background: linear-gradient(to right, #509e2f,#78be20);
+}
+
+.rsa-red-gradient-banner {
+	background-color: #be3a34;
+	background: linear-gradient(to right, #852824,#be3a34);
+}
+
+.red-gradient-banner {
+	background-color: #802629;
+	background: linear-gradient(to right, #591b1d,#802629);
+}
+
+.purple-gradient-banner {
+	background-color: #753bbd;
+	background: linear-gradient(to right, #4b2f7c,#753bbd);
+}
+
+.black-gradient-banner {
+	background-color: #707372;
+	background: linear-gradient(to right, #232222,#707372);
+}
+
+.gray-gradient-banner {
+	background-color: #d0d3d4;
+	background: linear-gradient(to right, #919394,#d0d3d4);
+}
+
+
+/* 
+ *  JIVE ALERT FORMATTING
+ */
+
+/* Styling for the Jive Information Box */
+.jiveInfoBox {
+	line-height: normal;
+	border-color: #cce1eb;
+	color: #0f7198;
+	background: transparent;
+	border: solid 1px;
+	border-radius: 4px;
+	overflow-x: auto;
+	padding: 10px 10px 10px 32px;
+	margin: 1em 0;
+	font-family: inherit;
+	white-space: normal;
+	position: relative;
+	word-wrap: break-word;
+}
+.jiveInfoBox:before {
+	font-family: jiveglyphs;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\e362";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+/* Styling for the Jive Warning Box */
+.jiveWarningBox {
+	line-height: normal;
+	border-color: #f3e1dd;
+	color: #b05b06;
+	background: transparent;
+	border: solid 1px;
+	border-radius: 4px;
+	overflow-x: auto;
+	padding: 10px 10px 10px 32px;
+	margin: 1em 0;
+	font-family: inherit;
+	white-space: normal;
+	position: relative;
+	word-wrap: break-word;
+}
+.jiveWarningBox:before {
+	top: 9px;
+	font-family: jiveglyphs;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\e356";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.jiveWarningBox span {
+	background-color: transparent !important;
+}
+
+/* Styling for the Jive Danger Box */
+.jiveDangerBox {
+	line-height: normal;
+	border-color: #ebb;
+	color: #d74444;
+	background: transparent;
+	border: solid 1px;
+	border-radius: 4px;
+	overflow-x: auto;
+	padding: 10px 10px 10px 32px;
+	margin: 1em 0;
+	font-family: inherit;
+	white-space: normal;
+	position: relative;
+	word-wrap: break-word;
+}
+.jiveDangerBox:before {
+	font-family: jiveglyphs;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\26a1";
+}
+
+/* Styling for the Jive Success Box */
+.jiveSuccessBox {
+	line-height: normal;
+	border-color: #cde8ce;
+	color: #377a39;
+	background: transparent;
+	border: solid 1px;
+	border-radius: 4px;
+	overflow-x: auto;
+	padding: 10px 10px 10px 32px;
+	margin: 1em 0;
+	font-family: inherit;
+	white-space: normal;
+	position: relative;
+	word-wrap: break-word;
+}
+.jiveSuccessBox:before {
+	top: 9px;
+	font-family: jiveglyphs;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\e370";
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+/* Style Events */
+.j-event-details-block {
+    background-color: #eeeff0;
+}
+.j-design-latest .j-event-details-block .j-event-rsvp .j-event-rsvp-buttons input[type=radio]:checked+label {
+    background: #802629;
+    color: #fff;
+    border: none;
+}

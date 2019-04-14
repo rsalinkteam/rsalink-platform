@@ -1,0 +1,770 @@
+#j-basic-wrap, .j-body-place #j-main {max-width: 1240px;}#j-globalNav-bg, #j-main, .j-breadcrumb-bar .j-wrap, .j-content-document .j-content-r2-wrap, .j-body-place #j-main #jive-alert, .j-body-place #j-main .j-layout, #j-footer-wrap, nav.j-news-menu.affix .j-homenav, .j2-pages-mitui-profile-banner .j2-width{box-sizing: border-box; max-width: 1200px;}.j-design-latest .j-guided-nav .j-navbar, .j-design-latest.jive-body-formpage.j-content-document:not(.j-fullscreen-view) .jive-content, .j-design-latest.jive-body-formpage.j-content-document .j-publishbar, .j-design-latest.jive-body-formpage.j-content-document .j-minor-edit, .j-design-latest.jive-body-formpage.j-content-document .j-compose-buttons, .j-design-latest.jive-body-formpage.j-content-document .jive-warn-box, .j-design-latest.jive-body-content.j-content-document:not(.j-fullscreen-view) .j-content, .j-design-latest.jive-body-content.j-content-document .j-content-comments-container .j-content-comments-display-section, .j-design-latest.j-content-document .j-content-r2-wrap {max-width: 1160px;}.j-support-section {margin-left: 20px; margin-right: 20px;}@media screen and (min-width: 0) {#j-basic-wrap, .j-body-place #j-main, .j-support #j-main {max-width: 1200px;}#j-globalNav-bg {max-width: 1200px;}.j-body-place #j-main .j-layout {margin: auto;}.j-body-place #j-main #jive-alert {margin: auto auto 20px;}.j-support-section {margin-left: auto; margin-right: auto;}}@media screen and (max-width: 1240px) {#j-basic-wrap, .j-body-place #j-main, .j-support #j-main{max-width: 1240px;}#j-globalNav-bg, .j-breadcrumb-bar .j-wrap, .j-content-document .j-content-r2-wrap {max-width: 1200px;}.j-body-place #j-main #jive-alert {margin: auto 20px 20px;}.j-body-place #j-main .j-layout {margin: auto 20px;}.j-support-section {margin-left: 20px; margin-right: 20px;}}.j-content-event .j-banner-module-header, .j-content-post .j-banner-module-header, .j-content-blogpost .j-banner-module-header {margin: auto; max-width: 1200px;}/* BEGIN RSA LINK HEADER CSS */
+.l-mountain-container {
+  width: 96%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.l-mountain-row {
+  margin-left: -15px;
+  margin-right: -15px;
+  *zoom: 1;
+}
+.l-mountain-row:before,
+.l-mountain-row:after {
+  content: " ";
+  display: table;
+  line-height: 0;
+}
+.l-mountain-row:after {
+  clear: both;
+}
+.c-custom-header {
+  background: transparent;
+  height: 60px;
+  padding-top: 6px;
+  padding-bottom: 10px;
+  background-color: #FFF;
+}
+.c-custom-header .c-custom-header__brand {
+  float: left;
+  width: 50%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.c-custom-header .c-custom-header__brand img {
+  margin-bottom: -20px;
+}
+.c-custom-header .c-custom-header__nav {
+  float: left;
+  width: 50%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: right;
+}
+.c-custom-header .c-custom-header__nav ul {
+  list-style: none;
+}
+.c-custom-header .c-custom-header__nav ul li {
+  display: inline-block;
+  padding: 0;
+}
+.c-custom-header .c-custom-header__nav ul li {
+  margin-left: 12px;
+  margin-top: -5px;
+}
+.c-custom-header .c-custom-header__nav ul li a {
+  color: #696767;
+}
+.c-custom-header .c-custom-header__nav ul li a img {
+  position: relative;
+  top: 2px;
+}
+.c-custom-header .c-custom-header__nav ul li.u-brick-logo {
+  position: relative;
+  top: 5px;
+}
+.c-custom-header .c-custom-header__nav ul li.u-brick-logo img {
+  width: 55px;
+}
+span[code1]
+{
+font-family : "Courier New"
+}
+
+#j-header, #j-compact-header {
+    background-color: #FFF;
+    background-image: none;
+}
+/* END RSA LINK HEADER CSS */
+
+
+/* BEGIN CUSTOM CSS */
+
+/* ============================= */
+/* Knowledge Base Customizations */
+/* ============================= */
+
+/* Change the height of <br> tags brought over from Salesforce */  
+table.kb-article br {  
+    margin: 2em;  
+    display: block;  
+    font-size: 24%;  
+    content: "";  
+}  
+/* Keep the 'Applies To' field at the normal <br> width */
+table.kb-article tr:nth-child(2) br {
+    margin: 0em;
+}
+/* Keep the code snippets at the normal <br> width */
+table.kb-article pre.ckeditor_codeblock br {
+    margin: 0em;
+}
+
+/* Add padding between knowledge base article table rows */  
+table.kb-article td {  
+    padding-bottom: 20px;  
+}  
+
+/* Expand code snippets to full width in Jive */
+table.kb-article pre.ckeditor_codeblock {
+    width: 96% !important;
+}
+
+/* =========================== */
+/* Jive Content Customizations */
+/* =========================== */
+
+/* Fix the Jive Content footer to conform to background dimensions */
+@media only screen and (min-width: 1263px) {
+	#jive-footer-region {
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	}
+}
+
+/* Invert the place icon in the Publish Location box */
+#js-publishbar-place-selection .j-place-image-container {
+    filter: invert(100%);
+}
+/* Invert the place icon in the hover card */
+.j-mini-modal-place .j-modal-content .j-place-photo {
+    filter: invert(100%);
+}
+
+/* Invert the place icon in the global search */
+.j-search-place-image {
+    filter: invert(100%);
+}
+
+/* Hide the Space Administrators tile on the People tab */
+.j-browse-people .j-box.j-box-owners {
+    display: none;
+}
+
+/* Change the "Unauthorized" message in Jive */
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+	/* Chrome 29+ */
+	.j2-base-components-global-unauthorized p {
+		visibility: hidden;
+	}
+	.j2-base-components-global-unauthorized p:after {
+		content: 'This place or content does not exist or access to it is restricted. If you think this is a mistake, please confirm that you are logged in and that the URL is correct, then contact RSA Customer Support for assistance.';
+		display: block;
+		visibility: visible;
+		margin-top: -50px;
+	}
+}
+
+/* Hide the ability to create subspaces via the UI */
+.j-place-actions-links #jive-place-link-actions-space {
+    display: none;
+}
+.j-place-actions-links #jive-place-link-actions-video {
+    /* margin-top: -15px; */
+}
+.jive-widget-actions #jive-link-createSub {
+    display: none;
+}
+
+/* Hide ability to change space banner */
+.j-page-header a.j-placeBgImageDisplay.j-placeElementEditable {
+    display: none;
+}
+
+/* BEGIN RSA LINK HEADER CSS */
+.l-mountain-container {
+  width: 96%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.l-mountain-row {
+  margin-left: -15px;
+  margin-right: -15px;
+  *zoom: 1;
+}
+.l-mountain-row:before,
+.l-mountain-row:after {
+  content: " ";
+  display: table;
+  line-height: 0;
+}
+.l-mountain-row:after {
+  clear: both;
+}
+.c-custom-header {
+  background: transparent;
+  height: 60px;
+  padding-top: 6px;
+  padding-bottom: 10px;
+  background-color: #FFF;
+}
+.c-custom-header .c-custom-header__brand {
+  float: left;
+  width: 50%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.c-custom-header .c-custom-header__brand img {
+  margin-bottom: -20px;
+}
+.c-custom-header .c-custom-header__nav {
+  float: left;
+  width: 50%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: right;
+}
+.c-custom-header .c-custom-header__nav ul {
+  list-style: none;
+}
+.c-custom-header .c-custom-header__nav ul li {
+  display: inline-block;
+  padding: 0;
+}
+.c-custom-header .c-custom-header__nav ul li {
+  margin-left: 12px;
+  margin-top: -5px;
+}
+.c-custom-header .c-custom-header__nav ul li a {
+  color: #696767;
+}
+.c-custom-header .c-custom-header__nav ul li a img {
+  position: relative;
+  top: 2px;
+}
+.c-custom-header .c-custom-header__nav ul li.u-brick-logo {
+  position: relative;
+  top: 5px;
+}
+.c-custom-header .c-custom-header__nav ul li.u-brick-logo img {
+  width: 55px;
+}
+span[code1]
+{
+font-family : "Courier New"
+}
+
+#j-header, #j-compact-header {
+    background-color: #FFF;
+    background-image: none;
+}
+/* END RSA LINK HEADER CSS */
+
+
+/* BEGIN CUSTOM CSS */
+
+/* ============================= */
+/* Knowledge Base Customizations */
+/* ============================= */
+
+/* Change the height of <br> tags brought over from Salesforce */  
+table.kb-article br {  
+    margin: 2em;  
+    display: block;  
+    font-size: 24%;  
+    content: "";  
+}  
+/* Keep the 'Applies To' field at the normal <br> width */
+table.kb-article tr:nth-child(2) br {
+    margin: 0em;
+}
+/* Keep the code snippets at the normal <br> width */
+table.kb-article pre.ckeditor_codeblock br {
+    margin: 0em;
+}
+
+/* Add padding between knowledge base article table rows */  
+table.kb-article td {  
+    padding-bottom: 20px;  
+}  
+
+/* Expand code snippets to full width in Jive */
+table.kb-article pre.ckeditor_codeblock {
+    width: 96% !important;
+}
+
+/* =========================== */
+/* Jive Content Customizations */
+/* =========================== */
+
+/* Fix the Jive Content footer to conform to background dimensions */
+@media only screen and (min-width: 1263px) {
+	#jive-footer-region {
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	}
+}
+
+/* Invert the place icon in the Publish Location box */
+#js-publishbar-place-selection .j-place-image-container {
+    filter: invert(100%);
+}
+/* Invert the place icon in the hover card */
+.j-mini-modal-place .j-modal-content .j-place-photo {
+    filter: invert(100%);
+}
+
+/* Invert the place icon in the global search */
+.j-search-place-image {
+    filter: invert(100%);
+}
+
+/* Hide the Space Administrators tile on the People tab */
+.j-browse-people .j-box.j-box-owners {
+    display: none;
+}
+
+/* Change the "Unauthorized" message in Jive */
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+	/* Chrome 29+ */
+	.j2-base-components-global-unauthorized p {
+		visibility: hidden;
+	}
+	.j2-base-components-global-unauthorized p:after {
+		content: 'This place or content does not exist or access to it is restricted. If you think this is a mistake, please confirm that you are logged in and that the URL is correct, then contact RSA Customer Support for assistance.';
+		display: block;
+		visibility: visible;
+		margin-top: -50px;
+	}
+}
+
+/* Hide the ability to create subspaces via the UI */
+.j-place-actions-links #jive-place-link-actions-space {
+    display: none;
+}
+.j-place-actions-links #jive-place-link-actions-video {
+    /* margin-top: -15px; */
+}
+.jive-widget-actions #jive-link-createSub {
+    display: none;
+}
+
+/* Hide ability to change space banner */
+.j-page-header a.j-placeBgImageDisplay.j-placeElementEditable {
+    display: none;
+}
+
+/* Apply styling to the Jive Announcements */
+.jive-alert-announcement-label {
+    color: #be3a34;
+	font-weight: bold !important;
+}
+.jive-alert-header .jive-alert-title {
+    font-size: 1.2em;	
+}
+#jive-alert-details-show-1 a.font-color-meta-light {
+    display: none;
+}
+/* END CUSTOM CSS *//* BEGIN RSA LINK HEADER CSS */
+.l-mountain-container {
+  width: 96%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.l-mountain-row {
+  margin-left: -15px;
+  margin-right: -15px;
+  *zoom: 1;
+}
+.l-mountain-row:before,
+.l-mountain-row:after {
+  content: " ";
+  display: table;
+  line-height: 0;
+}
+.l-mountain-row:after {
+  clear: both;
+}
+.c-custom-header {
+  background: transparent;
+  height: 60px;
+  padding-top: 6px;
+  padding-bottom: 10px;
+  background-color: #FFF;
+}
+.c-custom-header .c-custom-header__brand {
+  float: left;
+  width: 50%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.c-custom-header .c-custom-header__brand img {
+  margin-bottom: -20px;
+}
+.c-custom-header .c-custom-header__nav {
+  float: left;
+  width: 50%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: right;
+}
+.c-custom-header .c-custom-header__nav ul {
+  list-style: none;
+}
+.c-custom-header .c-custom-header__nav ul li {
+  display: inline-block;
+  padding: 0;
+}
+.c-custom-header .c-custom-header__nav ul li {
+  margin-left: 12px;
+  margin-top: -5px;
+}
+.c-custom-header .c-custom-header__nav ul li a {
+  color: #696767;
+}
+.c-custom-header .c-custom-header__nav ul li a img {
+  position: relative;
+  top: 2px;
+}
+.c-custom-header .c-custom-header__nav ul li.u-brick-logo {
+  position: relative;
+  top: 5px;
+}
+.c-custom-header .c-custom-header__nav ul li.u-brick-logo img {
+  width: 55px;
+}
+span[code1]
+{
+font-family : "Courier New"
+}
+
+#j-header, #j-compact-header {
+    background-color: #FFF;
+    background-image: none;
+}
+/* END RSA LINK HEADER CSS */
+
+
+/* BEGIN CUSTOM CSS */
+
+/* ============================= */
+/* Knowledge Base Customizations */
+/* ============================= */
+
+/* Change the height of <br> tags brought over from Salesforce */  
+table.kb-article br {  
+    margin: 2em;  
+    display: block;  
+    font-size: 24%;  
+    content: "";  
+}  
+/* Keep the 'Applies To' field at the normal <br> width */
+table.kb-article tr:nth-child(2) br {
+    margin: 0em;
+}
+/* Keep the code snippets at the normal <br> width */
+table.kb-article pre.ckeditor_codeblock br {
+    margin: 0em;
+}
+
+/* Add padding between knowledge base article table rows */  
+table.kb-article td {  
+    padding-bottom: 20px;  
+}  
+
+/* Expand code snippets to full width in Jive */
+table.kb-article pre.ckeditor_codeblock {
+    width: 96% !important;
+}
+
+/* =========================== */
+/* Jive Content Customizations */
+/* =========================== */
+
+/* Fix the Jive Content footer to conform to background dimensions */
+@media only screen and (min-width: 1263px) {
+	#jive-footer-region {
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	}
+}
+
+/* Invert the place icon in the Publish Location box */
+#js-publishbar-place-selection .j-place-image-container {
+    filter: invert(100%);
+}
+/* Invert the place icon in the hover card */
+.j-mini-modal-place .j-modal-content .j-place-photo {
+    filter: invert(100%);
+}
+
+/* Invert the place icon in the global search */
+.j-search-place-image {
+    filter: invert(100%);
+}
+
+/* Hide the Space Administrators tile on the People tab */
+.j-browse-people .j-box.j-box-owners {
+    display: none;
+}
+
+/* Change the "Unauthorized" message in Jive */
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+	/* Chrome 29+ */
+	.j2-base-components-global-unauthorized p {
+		visibility: hidden;
+	}
+	.j2-base-components-global-unauthorized p:after {
+		content: 'This place or content does not exist or access to it is restricted. If you think this is a mistake, please confirm that you are logged in and that the URL is correct, then contact RSA Customer Support for assistance.';
+		display: block;
+		visibility: visible;
+		margin-top: -50px;
+	}
+}
+
+/* Hide the ability to create subspaces via the UI */
+.j-place-actions-links #jive-place-link-actions-space {
+    display: none;
+}
+.j-place-actions-links #jive-place-link-actions-video {
+    /* margin-top: -15px; */
+}
+.jive-widget-actions #jive-link-createSub {
+    display: none;
+}
+
+/* Hide ability to change space banner */
+.j-page-header a.j-placeBgImageDisplay.j-placeElementEditable {
+    display: none;
+}
+
+/* BEGIN RSA LINK HEADER CSS */
+.l-mountain-container {
+  width: 96%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.l-mountain-row {
+  margin-left: -15px;
+  margin-right: -15px;
+  *zoom: 1;
+}
+.l-mountain-row:before,
+.l-mountain-row:after {
+  content: " ";
+  display: table;
+  line-height: 0;
+}
+.l-mountain-row:after {
+  clear: both;
+}
+.c-custom-header {
+  background: transparent;
+  height: 60px;
+  padding-top: 6px;
+  padding-bottom: 10px;
+  background-color: #FFF;
+}
+.c-custom-header .c-custom-header__brand {
+  float: left;
+  width: 50%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.c-custom-header .c-custom-header__brand img {
+  margin-bottom: -20px;
+}
+.c-custom-header .c-custom-header__nav {
+  float: left;
+  width: 50%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: right;
+}
+.c-custom-header .c-custom-header__nav ul {
+  list-style: none;
+}
+.c-custom-header .c-custom-header__nav ul li {
+  display: inline-block;
+  padding: 0;
+}
+.c-custom-header .c-custom-header__nav ul li {
+  margin-left: 12px;
+  margin-top: -5px;
+}
+.c-custom-header .c-custom-header__nav ul li a {
+  color: #696767;
+}
+.c-custom-header .c-custom-header__nav ul li a img {
+  position: relative;
+  top: 2px;
+}
+.c-custom-header .c-custom-header__nav ul li.u-brick-logo {
+  position: relative;
+  top: 5px;
+}
+.c-custom-header .c-custom-header__nav ul li.u-brick-logo img {
+  width: 55px;
+}
+span[code1]
+{
+font-family : "Courier New"
+}
+
+#j-header, #j-compact-header {
+    background-color: #FFF;
+    background-image: none;
+}
+/* END RSA LINK HEADER CSS */
+
+
+/* BEGIN CUSTOM CSS */
+
+/* ============================= */
+/* Knowledge Base Customizations */
+/* ============================= */
+
+/* Change the height of <br> tags brought over from Salesforce */  
+table.kb-article br {  
+    margin: 2em;  
+    display: block;  
+    font-size: 24%;  
+    content: "";  
+}  
+/* Keep the 'Applies To' field at the normal <br> width */
+table.kb-article tr:nth-child(2) br {
+    margin: 0em;
+}
+/* Keep the code snippets at the normal <br> width */
+table.kb-article pre.ckeditor_codeblock br {
+    margin: 0em;
+}
+
+/* Add padding between knowledge base article table rows */  
+table.kb-article td {  
+    padding-bottom: 20px;  
+}  
+
+/* Expand code snippets to full width in Jive */
+table.kb-article pre.ckeditor_codeblock {
+    width: 96% !important;
+}
+
+/* =========================== */
+/* Jive Content Customizations */
+/* =========================== */
+
+/* Fix the Jive Content footer to conform to background dimensions */
+@media only screen and (min-width: 1263px) {
+	#jive-footer-region {
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	}
+}
+
+/* Invert the place icon in the Publish Location box */
+#js-publishbar-place-selection .j-place-image-container {
+    filter: invert(100%);
+}
+/* Invert the place icon in the hover card */
+.j-mini-modal-place .j-modal-content .j-place-photo {
+    filter: invert(100%);
+}
+
+/* Invert the place icon in the global search */
+.j-search-place-image {
+    filter: invert(100%);
+}
+
+/* Hide the Space Administrators tile on the People tab */
+.j-browse-people .j-box.j-box-owners {
+    display: none;
+}
+
+/* Change the "Unauthorized" message in Jive */
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+	/* Chrome 29+ */
+	.j2-base-components-global-unauthorized p {
+		visibility: hidden;
+	}
+	.j2-base-components-global-unauthorized p:after {
+		content: 'This place or content does not exist or access to it is restricted. If you think this is a mistake, please confirm that you are logged in and that the URL is correct, then contact RSA Customer Support for assistance.';
+		display: block;
+		visibility: visible;
+		margin-top: -50px;
+	}
+}
+
+/* Hide the ability to create subspaces via the UI */
+.j-place-actions-links #jive-place-link-actions-space {
+    display: none;
+}
+.j-place-actions-links #jive-place-link-actions-video {
+    /* margin-top: -15px; */
+}
+.jive-widget-actions #jive-link-createSub {
+    display: none;
+}
+
+/* Hide ability to change space banner */
+.j-page-header a.j-placeBgImageDisplay.j-placeElementEditable {
+    display: none;
+}
+
+/* Apply styling to the Jive Announcements */
+.jive-alert-announcement-label {
+    color: #be3a34;
+	font-weight: bold !important;
+}
+.jive-alert-header .jive-alert-title {
+    font-size: 1.2em;	
+}
+#jive-alert-details-show-1 a.font-color-meta-light {
+    display: none;
+}
+.jive-alert-header {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.jive-icon-med.jive-icon-announcement {
+    display: none;
+}
+.j-body-place #j-main #jive-alert {
+    margin: auto auto 0px;
+}
+
+/* Center embedded videos in Jive documents */
+.j-content-body .jive-rendered-content iframe#mediaFrame {
+    margin-left: 50%;
+    margin-right: 50%;
+}
+/* END CUSTOM CSS */.j-globalNavLink {text-shadow: none;}body {background-color: #e3f2f9; color: #414042;font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;margin: 0 auto;}
+h1, h2, h3, h4, h5, h6, .mce-window-head .mce-title {}.font-color-normal, a.font-color-normal:link, a.font-color-normal:visited, .j-tabbar > li > a, .j-tabbar > li .inside, .mce-floatpanel.mce-window .mce-tabs .mce-tab, .j2-pages-mitui-profile-header .j2-profile-nav ul li a {color: #414042; fill: #414042;}a, a:visited, a:link, .j-impact-list .j-metric .j-count, .font-color-link, .j-tabbar li a:hover, .j-tabbar > li.active > a, .j-tabbar > li.j-active > a, .j-tabbar > li.j-tab-selected > a, .j-tabbar > li.active .inside, .mce-floatpanel.mce-window .mce-tabs .mce-tab:hover, .mce-floatpanel.mce-window .mce-tabs .mce-tab.mce-active, .j2-pages-mitui-profile-header .j2-profile-nav ul li a:hover, .j2-pages-mitui-profile-header .j2-profile-nav ul li a.active, .j2-pages-mitui-profile-fields .j2-edit-link, .j2-pages-mitui-profile-layout .j2-main-column section footer a, .j2-pages-mitui-profile-content .j2-location a:hover, .j2-base-components-global-tag-picker-popover-tag .j2-suggestion-header li.active button:hover, .j2-base-components-global-tag-picker-popover-tag .j2-list-tag li a, .j2-pages-mitui-profile-header .j2-profile-info .j2-presence li.j2-editable a:after, .j-page-customizable-message .j-box-dismiss-container button, .jive-widget-menu-btn .jive-widget-menu-btn-link {color: #006ba6; fill: #006ba6;}.j-impact-list .j-bar .j-bar-index {background-color: #006ba6;}.j-tabbar > li.active > a, .j-tabbar > li.j-active > a, .j-tabbar > li.j-tab-selected > a, .j-tabbar > li.active .inside, .mce-floatpanel.mce-window .mce-tabs .mce-tab.mce-active, .j2-pages-mitui-profile-header .j2-profile-nav ul li a.active, .j2-base-components-global-tag-picker-popover-tag .j2-suggestion-header li.active button {border-bottom: 3px solid #006ba6;}a:hover, .font-color-link:hover, .j-page-customizable-message .j-box-dismiss-container button:hover, .jive-widget-menu-btn .jive-widget-menu-btn-link {color: #006095; fill: #006095;}.font-color-meta, .j-main-mb-entry .jive-js-statusinput-default:focus {color: #8b8b8b; fill: #8b8b8b;}.font-color-meta a:link, .font-color-meta a:visited, .font-color-meta-light a:link, .font-color-meta-light a:visited, a.font-color-meta:link, a.font-color-meta:visited {color: #3d3d3d; fill: #3d3d3d;}.font-color-meta a:hover, .font-color-meta a:focus, .font-color-meta a:active, .font-color-meta-light a:hover, .font-color-meta-light a:focus, .font-color-meta-light a:active a.font-color-meta:hover, a.font-color-meta:focus, a.font-color-meta:active {color: #be3a34; fill: #be3a34;}.font-color-meta-light, a.font-color-meta-light:link, a.font-color-meta-light:visited, .jive-js-statusinput-default.jive-statusinput, .j-main-mb-entry .jive-js-statusinput-default {color: #a9a9a9; fill: #a9a9a9;}a.font-color-meta-light:hover, a.font-color-meta-light:active {color: #8b8b8b; fill: #8b8b8b;}.j-rc3, .j-rc4, .j-rc5, .j-rc6, .j-rc7, .j-tile, .j-box.j-enhanced, .j-box.j-enhanced header, .j-box.j-enhanced .j-box-body, .jive-widget, .jive-widget .jive-box-header, .jive-widget .jive-widget-body, .j-popover, .j-pop {border-radius: 0;}.j-globalNavLink:link, .j-globalNavLink:visited, .j-globalNavLink:hover, .j-globalNavLink:active, .j-globalNav .j-globalNav-li.j-nav-create a.j-globalNavLink, #j-compact-header a .j-user-name, #j-compact-header a.login, #j-compact-header a.register {color: #414042;}#j-globalNav #mobile-menu > a > span i {background: #414042;}.j-globalNav > li.j-globalNav-li > a.j-globalNavLink:hover, .j-globalNav > li.j-globalNav-li > a.j-globalNavLink:focus, .j-globalNav li.j-globalNav-li.active .j-globalNavLink, #j-compact-header a:hover .j-user-name, #j-compact-header a:hover.login, #j-compact-header a:hover.register, #j-compact-header a:focus .j-user-name, #j-compact-header a:focus.login, #j-compact-header a:focus.register, #j-compact-header li.active .j-user-name, #j-compact-header li.active.login, #j-compact-header li.active.register {color: #414042;}#j-globalNav #mobile-menu > a:hover > span i, #j-globalNav #mobile-menu > a:focus > span i {background: #414042;}.j-navbadge-count, .j-nav-indicator-unread { background-color:#006ba6; }nav.j-news-menu.affix { background-color:#FFF; }#j-globalNav-bg {background-color: #FFF;background-image: none;border-style: solid;}@media screen and (max-width: 40em) {#j-globalNav-bg {}}#j-header, #j-compact-header{background-color: #FFF;background-image: none;}
+h1#jive-global-header-title a.j-header-logo {color: #fafafa;}#j-satNav-wrap .j-navLabel, #j-satNav-wrap .login, #j-satNav-wrap .register, #j-satNav-wrap li a.j-globalNavLink, #j-basic-wrap .j-header-logo { color: #ffffff; }button, input[type="button"], input[type="reset"], input[type="submit"], .j-btn-global, a.j-btn-global:link, a.j-btn-global:visited, a.j-btn-global:hover, a.j-btn-global:focus, a.j-btn-global:active, .j-btn-global-color, div .mce-btn-has-text[role="button"]:not([aria-haspopup]):not([aria-label]) button, .j2-pages-mitui-profile-skills .j2-tag-picker-controls a, .j2-pages-mitui-profile-skills .j2-tag-picker-controls button, .j2-base-components-global-modal-rewards .j2-modal-footer .j2-close-button {color: #414042;}a.j-btn-callout:link, a.j-btn-callout:visited, a.j-btn-callout:hover, a.j-btn-callout:focus, a.j-btn-callout:active, div .mce-primary[role="button"]:not([aria-haspopup]):not([aria-label]) button {color: #fff}div .mce-primary[role="button"]:not([aria-haspopup]):not([aria-label]) button, button.j-btn-callout, input[type="button"].j-btn-callout, input[type="reset"].j-btn-callout, input[type="submit"].j-btn-callout, .j-btn-callout, a#jive-nav-link-logout:link, .j2-pages-mitui-profile-skills .j2-tag-picker-controls a.j2-callout, .j2-pages-mitui-profile-skills .j2-tag-picker-controls button.j2-callout {color: #fff; background-color: #006ba6;}div .mce-primary[role="button"]:not([aria-haspopup]):not([aria-label]) button:hover, div .mce-primary[role="button"]:not([aria-haspopup]):not([aria-label]) button:focus, div .mce-primary[role="button"]:not([aria-haspopup]):not([aria-label]) button:active, button.j-btn-callout:hover, button.j-btn-callout:focus, button.j-btn-callout:active, input[type="button"].j-btn-callout:hover, input[type="button"].j-btn-callout:focus, input[type="button"].j-btn-callout:active, input[type="reset"].j-btn-callout:hover, input[type="reset"].j-btn-callout:focus, input[type="reset"].j-btn-callout:active, input[type="submit"].j-btn-callout:hover, input[type="submit"].j-btn-callout:focus, input[type="submit"].j-btn-callout:active, .j-btn-callout:hover, .j-btn-callout:focus, .j-btn-callout:active, a#jive-nav-link-logout:link:hover, a#jive-nav-link-logout:link:focus, a#jive-nav-link-logout:active, button.j-btn-callout[disabled], input[type="button"].j-btn-callout[disabled], input[type="reset"].j-btn-callout[disabled], input[type="submit"].j-btn-callout[disabled], button.j-btn-callout[disabled]:hover, button.j-btn-callout[disabled]:focus, input.j-btn-callout[type="button"][disabled]:hover, input.j-btn-callout[type="button"][disabled]:focus, input.j-btn-callout[type="reset"][disabled]:hover, input.j-btn-callout[type="reset"][disabled]:focus, input.j-btn-callout[type="submit"][disabled]:hover, input.j-btn-callout[type="submit"][disabled]:focus, .j-btn-callout[disabled]:hover, .j-btn-callout[disabled]:focus, .j-btn-callout[class*="j-btn-"]:link.disabled, .j2-pages-mitui-profile-skills .j2-tag-picker-controls a.j2-callout, .j2-pages-mitui-profile-skills .j2-tag-picker-controls button.j2-callout, .j2-pages-mitui-profile-skills .j2-tag-picker-controls a.j2-callout:hover, .j2-pages-mitui-profile-skills .j2-tag-picker-controls button.j2-callout:hover {background-color: #006095;}.jive-widget-header, .jive-widget-body {padding-left: 7px; padding-right: 7px;}.content-small img.featured-user-img, .content-small .j-place-overview img.j-place-photo {max-width: 194px; min-width: 194px;}.jive-widget-header div.j-act-filter-controls {top: 5px; right: 5px;}.j-box.j-enhanced, .jive-widget {background: #fff;}.jive-widget .n4jive_header_button {margin: 0;}.jive-widget .n4jive_header_button:nth-of-type(1) {margin: 0 2px 0 0;}.j-box.j-enhanced header, .jive-widget .jive-widget-header h4, .jive-widget .jive-widget-header .j-filters-showing, .j-box header h4, .j-tile header h4, .j-home-featured-places h4, .j-box header h3, .j-menu .font-color-meta, .j-pop h2, .jive-modal > header:first-child h2, .jive-modal header.j-modal-header h2, .jive-modal > div > header:first-child h2, div .mce-window-head .mce-title, .j2-pages-mitui-profile-layout .j2-sidebar section h2, .j2-pages-mitui-profile-layout .j2-main-column section h2 {color: #FFF;}.j-box.j-enhanced, .j-tile, .jive-widget, .jive-widget-recentactivitywidget .j-stream{}.j-box.j-enhanced header, .jive-widget .jive-box-header {background-color: #006ba6;border-style: solid none;border-top-color: #eeeeee;border-top-width: 0px;border-bottom-color: #eeeeee;border-bottom-width: 0px;}.j-box header h4, .j-tile header h4, .j-box header h3, .j-menu .font-color-meta, .j-pop h2, .jive-modal > header:first-child h2, .jive-modal header.j-modal-header h2, .jive-modal > div > header:first-child h2, div .mce-window-head .mce-title, .j2-pages-mitui-profile-layout .j2-sidebar section h2, .j2-pages-mitui-profile-layout .j2-main-column section h2 {color: #000;}.j-banner-img-main {max-width: 1200px;}.j-design-latest.j-content-document:not(.j-fullscreen-view) .defaultSkin table.mceLayout tr.mceFirst .mceToolbar.mceLeft.mceFirst.mceLast #wysiwygtext_toolbargroup.affix {max-width: calc(1200px - 42px) !important; width: calc(86% - 2px) !important;}.j-design-latest.j-content-document.j-fullscreen-view .defaultSkin table.mceLayout tr.mceFirst .mceToolbar.mceLeft.mceFirst.mceLast #wysiwygtext_toolbargroup.affix {max-width: none !important; width: 100% !important;}

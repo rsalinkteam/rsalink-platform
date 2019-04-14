@@ -1,0 +1,66 @@
+/* Base Styling */
+.l-mountain-container {
+  width: 96%;
+  max-width: 1200px;
+  margin: 10px auto;
+}
+.l-mountain-row {
+  margin-left: -15px;
+  margin-right: -15px;
+  *zoom: 1;
+}
+.l-mountain-row:before,
+.l-mountain-row:after {
+  content: " ";
+  display: table;
+  line-height: 0;
+}
+.l-mountain-row:after {
+  clear: both;
+}
+.c-custom-footer .c-custom-footer__nav {
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.c-custom-footer .c-custom-footer__nav ul {
+  list-style: none;
+}
+.c-custom-footer .c-custom-footer__nav ul li {
+  display: inline-block;
+  padding: 0;
+}
+.c-custom-footer .c-custom-footer__nav ul li a {
+  color: #333;
+}
+
+/* Define hyperlink colors */
+#footerTable a {
+  color: #414042;
+}
+#footerTable a:hover {
+  color: #006ba6;
+}
+p#testDataDisplay {
+  display: none;
+}
+
+/* Adjust HTML Tile default margins */
+.js-tile-body iframe.j-tile-iframe body {
+  margin: 0px !important;
+}
+
+/* Make registered trademark symbols in footer smaller */
+sup.rtm {
+  font-size: x-small;
+}
+
+/* Hide the "Powered by Jive" section of the footer */
+#j-footer-poweredBy {
+  display: none;
+}

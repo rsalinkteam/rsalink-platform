@@ -1,0 +1,120 @@
+/*	
+Website:        RSA Link
+Iteration:      2017 Redesign
+Scope:          Global (Entire Website - Mobile Device)
+Author:         Jeff Shurtliff
+Last Editor:    Santhosh V
+Last Updated:   25 Mar 2019
+*/
+
+/* Fix the mobile display */
+@media screen and (max-width: 40em) {
+	.j-placeHeaderInner {
+		padding-top: 0px;		
+	}
+}
+@media screen and (max-width: 40em) {
+	body.j-body-place #j-main .j-layout {		
+		padding-top: 20px;
+	}
+}
+
+/* Hide the Recent Activity section of the Activity Page for Mobile */
+@media screen and (max-width: 40em) {
+	#j-dynamic-pane {
+		 /* display: none; */
+	}
+	.j-tile .j-act-header {
+		display: none !important;
+		margin: 0px;
+	}
+	.j-act-stream {
+		display: none;
+	}
+}
+
+/* Hide blue menu bar on mobile devices */
+@media screen and (max-width: 40em) {
+	.j-placeNav {
+		display: none !important;
+	}
+}
+
+/* Fix the website footer on mobile */
+@media screen and (max-width: 40em) {
+	#footerTable td {
+		display: block;
+		width: 100% !important;
+	}
+}
+
+/* Display knowledge article vertically on iPhone 6 and below */
+@media screen and (max-width: 375px) {
+	table.kb-article td {
+		display: block;
+		max-width: 320px !important;
+	}
+	table.kb-article pre.ckeditor_codeblock {
+		margin: 10px 0 10px -1px !important;
+	}
+}
+
+/* Style the space title for mobile devices */
+@media screen and (max-width: 40em) {
+	.j-column #j-browse-filters {
+		margin-top: 20px;
+	}
+	#jive-body .j-page-header .j-placeName {
+		margin-top: 0;
+		color: #fff !important;
+		white-space: pre-wrap;
+	}
+	.j-placeTitle {
+		width: 98%;
+		height: 50px;
+		background: linear-gradient(to right, #81312f, #be3a34);
+		text-shadow: none;
+		text-transform: uppercase;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	#datablock-content {
+		margin-top: -25px !important;
+	}
+}
+/* Style the background color for tile header */
+@media screen and (max-width: 40em) {
+    .j-body-home .j-tile .j-tile-header h4 {
+        /* background: #006ba6; */
+        background: #415464;
+	}
+}
+
+/* Remove whtie space between green buttons and other content */
+.js-tile.j-tile.j-tileType-iframe {
+	margin-bottom: -20px;
+}
+
+/* Style the formatted text tables in tiles -- RSALINK-4761 */
+@media screen and (max-width: 40em) {
+    .j-rte-table table{
+		table-layout: fixed;
+		width: 98% !important;
+	}
+}
+
+table.kb-article td {
+    padding-bottom: 20px;
+    float: left;
+    width: 100% !important;
+}
+
+table.kb-article pre.ckeditor_codeblock {
+    width: 95% !important;
+    margin: 0 !important;
+}
+
+.jive-rendered-content td, .jive-rendered-content th{
+	width: 100% !important;
+}
