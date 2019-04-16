@@ -3,8 +3,8 @@ Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Scope:          Advisories Spaces/Subspaces
 Author:         Jeff Shurtliff
-Last Editor:    Kamlesh and Santhosh
-Last Updated:   3 Apr 2019
+Last Editor:    Santhosh
+Last Updated:   16 Apr 2019
 */
 
 /* Add the background image of the main banner */
@@ -167,7 +167,7 @@ a.lightButton[data-role=button]:hover {
 .safari .jive-widget-tagwidget .jive-widget-body-empty:after {
     visibility: visible;
     display: block;
-    content: 'These advisories are only accessible to users with active maintenance contracts. Please log in with a valid user to view the content.';
+    content: 'There are currently no advisories at this time. Please check again later or follow this space to be notified of new content.';
     margin-top: -30px;
     margin-bottom: -0px;
 }
