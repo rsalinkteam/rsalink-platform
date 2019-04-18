@@ -4,7 +4,7 @@ Iteration:      Nov 2018 Redesign
 Scope:          RSA University Overview Page
 Author:         Jeff Shurtliff
 Last Editor:    Santhosh V
-Last Updated:   03 Apr 2019  
+Last Updated:   18 Apr 2019  
 */
 
 /* Forcefully define the width of the menu/banner widget to avoid jerking page load */
@@ -94,8 +94,8 @@ a[data-role=button] {
 	}
 }
 a[data-role=button]:hover {
-    background-color: rgba(115,34,37,1);
-    border: 1px solid rgba(115,34,37,1);
+    background-color: #fff;
+    color: #802629;
 }
 
 /* Change the color of the even rows in the content widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
