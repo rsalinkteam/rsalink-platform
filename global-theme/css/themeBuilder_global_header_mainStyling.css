@@ -302,6 +302,29 @@ div[alert=info].jive_macro_alert a {
     font-family: 'Courier New', monospace;
 }
 
+/* left-align captions in Madcap Flare documents */
+.TableStyle-table> caption {
+    text-align: left;
+}
+
+/* Added spacing above sections in Madcap flare documents */
+.MCDropDown.MCDropDown_Closed.dropDown {
+    padding-top: 15px;
+}
+.MCDropDownBody .MCDropDown.MCDropDown_Closed.dropDown {
+    padding-top: 0px;
+}
+
+/* Made Procedure intro text bold in Madcap Flare docs*/
+p.ProcIntro{ 
+    font-weight: bold;
+}
+
+/* unbold Procedure steps under tasks in Madcap Flare docs */
+.dropDownProcedure span {
+    font-weight: normal !important;
+}
+
 /* ===================== */
 /* Events Customizations */
 /* ===================== */
@@ -542,5 +565,12 @@ th.header.headerSortDown span {
     background-repeat: no-repeat;
     display: block;
     background-position: right center;
+}
+
+/* search icon warning on mobile view*/
+@media screen and (max-width: 40em) {
+	.jive-icon-warn {
+        	display: none !important;
+	}
 }
 /* END CUSTOM CSS */
