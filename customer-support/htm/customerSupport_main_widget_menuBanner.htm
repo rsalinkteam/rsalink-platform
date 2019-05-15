@@ -4,7 +4,7 @@
 
 <div class="menuBackground">
     <div class="center myMenu">
-        <ul class="dropDownMenu">
+        <ul class="dropDownMenu" style="display: none;">
             <li><a target="_parent" style="cursor: pointer;">Ask the Community</a>
                 <ul class="firstLevel communityMenu">
                     <li><a target="_parent" href="/discussion/create.jspa?suppressMarkQuestion=true&question=true&containerType=14&containerID=2489">Ask a Question About RSA Link</a></li>
@@ -274,6 +274,10 @@
 
 <!-- Script to activate the drop down menu -->
 <script type="text/javascript">
+$(document).ready(function() {
+	setTimeout(function(){ 
+	 $('.dropDownMenu').css("display",'block');
+	},100);
 	$('.myMenu ul.dropDownMenu li').hover(function() {
 		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
 	});
@@ -283,6 +287,7 @@
     $('.myMenu ul.dropDownMenu li ul.secondLevel li').hover(function() {
 		$(this).find('ul.thirdLevel').stop(true, false, true).slideToggle(300);
 	});
+});
 </script>
 
 <!-- Google Analytics activation script -->
