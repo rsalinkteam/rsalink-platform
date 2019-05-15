@@ -4,7 +4,7 @@
 
 <div class="menuBackground">
     <div class="center myMenu">
-        <ul class="dropDownMenu">
+        <ul class="dropDownMenu" style="display: none;">
             <li>
                 <a target="_parent" href="/community/products/archer-grc/advisories">Advisories</a>
                 <ul class="firstLevel advisoriesMenu">
@@ -25,10 +25,13 @@
                     <li>
                         <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform">RSA Archer Platform</a>
                         <ul class="secondLevel documentationMenu-platform">
+                                <li>
+                                        <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/66">Version 6.6</a>
+                                    </li>
                             <li>
                                 <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/65">Version 6.5</a>
                             </li>
-						<li>
+                            <li>
                                 <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/641">Version 6.4 SP1</a>
                             </li>
                             <li>
@@ -78,10 +81,13 @@
                     <li>
                         <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform">RSA Archer Platform</a>
                         <ul class="secondLevel downloadsMenu-platform">
+                                <li>
+                                        <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/66">Version 6.6</a>
+                                    </li>
                             <li>
                                 <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/65">Version 6.5</a>
                             </li>
-						<li>
+                            <li>
                                 <a target="_parent" href="/community/products/archer-grc/archer-customer-partner-community/platform/641">Version 6.4 SP1</a>
                             </li>
                             <li>
@@ -149,16 +155,16 @@
         left: 0px;
         width: 234px;
     }
-	@media only screen and (min-width: 854px) {
-		.dropDownMenu > li > ul.documentationMenu {
-			width: 320px;
-		}
-		/* Downloads Menu */
-		.dropDownMenu > li > ul.downloadsMenu {
-			left: -115px;
-			width: 335px;
-		}
-	}
+@media only screen and (min-width: 854px) {
+     .dropDownMenu > li > ul.documentationMenu {
+        width: 320px;
+    }
+ /* Downloads Menu */
+    .dropDownMenu > li > ul.downloadsMenu {
+        left: -115px;
+        width: 335px;
+    }
+}
     @media only screen and (min-width: 731px) {
         .dropDownMenu > li > ul.documentationMenu {
             width: 235px;
@@ -234,14 +240,14 @@
 
 <!-- BEGIN ROTATING BANNER -->
 <script>
-	$(function () {
-		$('#slide-box').zSlider({width:920,height:244});
-	})
+    $(function () {
+    		$('#slide-box').zSlider({width:920,height:244});
+    	})
 </script>
 
 <div id="slide-box">
     <ul>
-		<li>
+<li>
             <a href="https://www.rsa.com/charge" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/1889/197867-wb-nw-RSA-Charge-2019-Link-banner-920x244.jpg?a=1544506817636" />
             </a>
@@ -261,13 +267,13 @@
                 <img src="https://community.rsa.com/resources/statics/1044/88740-wb-RSA-Archer-Certified-920x244.jpg?a=1521129866078" />
             </a>
         </li>
-        <!--
-        <li>
+                
+        <!--<li>
             <a href="https://community.rsa.com/community/products/archer-grc/exchange" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/1044/RSA-Exchange-Offerings-Available-rsacutout-920x244.jpg?a=1543313530983" />
             </a>
-        </li>    
-       -->
+        </li>   --> 
+      
         <li>
             <a href="https://community.rsa.com/survey" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/3014/RSA-Link-Better-Experience-banners-920x244.jpg?a=1502210820867" />
@@ -278,12 +284,17 @@
 
 <!-- Script to activate the drop down menu -->
 <script type="text/javascript">
-	$('.myMenu ul.dropDownMenu li').hover(function() {
-		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
-	});
+$(document).ready(function() {
+	setTimeout(function(){ 
+	 $('.dropDownMenu').css("display",'block');
+	},100);
+    $('.myMenu ul.dropDownMenu li').hover(function() {
+    		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
+    	});
 	$('.myMenu ul.dropDownMenu li ul.firstLevel li').hover(function() {
 		$(this).find('ul.secondLevel').stop(true, false, true).slideToggle(300);
 	});
+});
 </script>
 
 <!-- Google Analytics activation script -->

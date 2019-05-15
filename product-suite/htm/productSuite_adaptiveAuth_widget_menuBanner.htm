@@ -4,7 +4,7 @@
 
 <div class="menuBackground">
 	<div class="center myMenu">
-		<ul class="dropDownMenu">
+		<ul class="dropDownMenu" style="display: none;">
 			<li><a style="cursor: pointer;">Advisories</a>
 				<ul class="firstLevel advisoriesMenu">
 					<li><a target="_parent" href="/community/products/adaptive-authentication/cloud-advisories/">RSA Adaptive Authentication (Cloud)</a>
@@ -223,6 +223,10 @@
 
 <!-- Script to activate the drop down menu -->
 <script type="text/javascript">
+$(document).ready(function() {
+	setTimeout(function(){ 
+	 $('.dropDownMenu').css("display",'block');
+	},100);
 	$('.myMenu ul.dropDownMenu li').hover(function() {
 		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
 	});
@@ -232,6 +236,7 @@
     $('.myMenu ul.dropDownMenu li ul.secondLevel li').hover(function() {
 		$(this).find('ul.thirdLevel').stop(true, false, true).slideToggle(300);
 	});
+});
 </script>
 
 <!-- Google Analytics activation script -->

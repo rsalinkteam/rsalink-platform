@@ -4,7 +4,7 @@
 
 <div class="menuBackground">
 	<div class="center myMenu">
-		<ul class="dropDownMenu">
+		<ul class="dropDownMenu" style="display: none;">
 			<li><a target="_parent" href="/community/products/bsafe/advisories">Advisories</a>
 				<ul class="firstLevel advisoriesMenu">
 					<li><a target="_parent" href="/community/products/bsafe/advisories">Product Advisories</a></li>
@@ -204,7 +204,7 @@
 
 <div id="slide-box">
 	<ul>
-		<li>
+<li>
             <a href="https://www.rsa.com/charge" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/1889/197867-wb-nw-RSA-Charge-2019-Link-banner-920x244.jpg?a=1544506817636" />
             </a>
@@ -234,6 +234,10 @@
 
 <!-- Script to activate the drop down menu -->
 <script type="text/javascript">
+$(document).ready(function() {
+	setTimeout(function(){ 
+	 $('.dropDownMenu').css("display",'block');
+	},100);
 	$('.myMenu ul.dropDownMenu li').hover(function() {
 		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
 	});
@@ -243,6 +247,7 @@
     $('.myMenu ul.dropDownMenu li ul.secondLevel li').hover(function() {
 		$(this).find('ul.thirdLevel').stop(true, false, true).slideToggle(300);
 	});
+});
 </script>
 
 <!-- Google Analytics activation script -->
