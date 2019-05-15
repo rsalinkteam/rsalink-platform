@@ -3,7 +3,7 @@
 
 <div class="menuBackground">
 	<div class="center myMenu">
-		<ul class="dropDownMenu">
+		<ul class="dropDownMenu" style="display: none;">
 			<li><a target="_parent" style="cursor: pointer;">New Advisory</a>
 				<ul class="firstLevel advisoryMenu">
 					<li><a target="_parent" href="/createacopy/create.jspa?documentID=53393&containerType=14&containerID=2374&conversionType=DOCUMENT">Product Advisory</a></li>
@@ -91,40 +91,45 @@
 </div>
 
 <style>
-        /* Load base configuration styling the for menu and banner */
-        @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-staging-menu-base.css');
-        @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-suite-menu-banner.css');
-        </style>
-        
-        <!-- BEGIN BANNER -->
-        <div id="mainBanner">
-            <h1 id="mainBanner-title">
-                RSA enVision<sup>&reg;</sup><br />
-                Product Staging Area
-            </h1>
-        </div>
-        <!-- END BANNER -->
-        
-        <!-- Script to activate the drop down menu -->
-        <script type="text/javascript">
-            $('.myMenu ul.dropDownMenu li').hover(function() {
-                $(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
-            });
-            $('.myMenu ul.dropDownMenu li ul.firstLevel li').hover(function() {
-                $(this).find('ul.secondLevel').stop(true, false, true).slideToggle(300);
-            });
-            $('.myMenu ul.dropDownMenu li ul.secondLevel li').hover(function() {
-                $(this).find('ul.thirdLevel').stop(true, false, true).slideToggle(300);
-            });
-        </script>
-        
-        <!-- Google Analytics activation script -->
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-          
-            ga('create', 'UA-72926342-1', 'auto');
-            ga('send', 'pageview');
-        </script>
+/* Load base configuration styling the for menu and banner */
+@import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-staging-menu-base.css');
+@import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-suite-menu-banner.css');
+</style>
+
+<!-- BEGIN BANNER -->
+<div id="mainBanner">
+	<h1 id="mainBanner-title">
+		RSA enVision<sup>&reg;</sup><br />
+		Product Staging Area
+	</h1>
+</div>
+<!-- END BANNER -->
+
+<!-- Script to activate the drop down menu -->
+<script type="text/javascript">
+$(document).ready(function() {
+	setTimeout(function(){ 
+	 $('.dropDownMenu').css("display",'block');
+	},100);
+	$('.myMenu ul.dropDownMenu li').hover(function() {
+		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
+	});
+	$('.myMenu ul.dropDownMenu li ul.firstLevel li').hover(function() {
+		$(this).find('ul.secondLevel').stop(true, false, true).slideToggle(300);
+	});
+	$('.myMenu ul.dropDownMenu li ul.secondLevel li').hover(function() {
+		$(this).find('ul.thirdLevel').stop(true, false, true).slideToggle(300);
+	});
+});
+</script>
+
+<!-- Google Analytics activation script -->
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+	ga('create', 'UA-72926342-1', 'auto');
+	ga('send', 'pageview');
+</script>

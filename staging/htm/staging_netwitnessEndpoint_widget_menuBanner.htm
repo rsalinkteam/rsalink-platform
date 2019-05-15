@@ -3,7 +3,7 @@
 
 <div class="menuBackground">
 	<div class="center myMenu">
-		<ul class="dropDownMenu">
+		<ul class="dropDownMenu" style="display: none;">
 			<li><a target="_parent" style="cursor: pointer;">New Advisory</a>
 				<ul class="firstLevel advisoryMenu">
 					<li><a target="_parent" href="/createacopy/create.jspa?documentID=62496&containerType=14&containerID=2389&conversionType=DOCUMENT">Product Advisory</a></li>
@@ -108,6 +108,10 @@
 
 <!-- Script to activate the drop down menu -->
 <script type="text/javascript">
+$(document).ready(function() {
+	setTimeout(function(){ 
+	 $('.dropDownMenu').css("display",'block');
+	},100);
 	$('.myMenu ul.dropDownMenu li').hover(function() {
 		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
 	});
@@ -117,6 +121,7 @@
     $('.myMenu ul.dropDownMenu li ul.secondLevel li').hover(function() {
 		$(this).find('ul.thirdLevel').stop(true, false, true).slideToggle(300);
 	});
+});
 </script>
 
 <!-- Google Analytics activation script -->
