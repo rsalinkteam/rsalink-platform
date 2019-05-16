@@ -5,6 +5,7 @@
 //  Last Modified:  16 May 2019
 //  Description:    Formats documents created from TAM emails in 360 pages
 function byeP() {
+    console.log("Starting byeP formatting email");
     const pTags = document.getElementsByClassName("jive-rendered-content")[0].getElementsByTagName("p");
     for(ptag of pTags) {
         if(ptag.style.minHeight == "8pt") {
@@ -15,6 +16,7 @@ function byeP() {
 }
 
 function remove_email_garbage() {
+    console.log("Starting remove_email function");
     const pTags = document.getElementsByClassName("jive-rendered-content")[0].getElementsByTagName("p");
     const regex = new RegExp("<span>&lt;[^\s].*?&gt;</span>");
 
