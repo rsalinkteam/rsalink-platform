@@ -2,9 +2,10 @@
 //  Location:       Website Footer
 //  Author:         Victor Laucas
 //  Last Editor:    Victor Laucas
-//  Last Modified:  14 May 19
+//  Last Modified:  16 May 2019
 //  Description:    Formats documents created from TAM emails in 360 pages
 function byeP() {
+    const pTags = document.getElementsByTagName("p");
     for(ptag of pTags) {
         if(ptag.style.minHeight == "8pt") {
             ptag.remove();
