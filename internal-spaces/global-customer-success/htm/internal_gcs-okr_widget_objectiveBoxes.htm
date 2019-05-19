@@ -45,7 +45,7 @@
     <div class="objective" id="objective6">
         <div class="objectivesBox boxHover secondRowBox">
             <div class="objectiveTitle">
-                <p><span class="objectiveNum">OBJECTIVE 6:</span></br>Real time model vs. call back model for 1 product-line – Aspirational</p>
+                <p><span class="objectiveNum">OBJECTIVE 6:</span></br>Real time model vs. call back model for 1 product-line – <span class="aspirational">Aspirational</span></p>
             </div>
             <div class="objectiveFooter objectiveDetails"></div>
         </div>
@@ -108,7 +108,7 @@
     }
     .objectivesBox {
         text-align: center;
-        height: 325px;
+        height: 250px;
         font-family: Arial, sans-serif;
         font-size: 15px;
         padding: 10px;
@@ -120,13 +120,18 @@
         color: #802629;
     }
     .objectiveTitle{
-        height:215px;
+        min-height:150px;
+    }
+    .aspirational {
+        color: #802629;
+        font-weight: bold;
+        font-style: italic;
     }
     .secondRowBox{
         height: 225px;
     }
     .secondRowBox .objectiveTitle{
-        height:115px;
+        min-height:110px;
     }
     .boxHover{
         -webkit-transform: perspective(1px) translateZ(0);
