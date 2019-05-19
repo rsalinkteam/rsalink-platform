@@ -1,0 +1,278 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<div class="tableWrapper">
+    <div class="objective" id="objective1">
+        <div class="objectivesBox boxHover">
+            <div class="objectiveTitle">
+                <p><span class="objectiveNum">OBJECTIVE 1:</span></br>Make Customer Obsession a cornerstone of RSA Culture, as measured by FY20 goal of 70% of field facing team members strongly or fully agreeing with the statement “Providing best in class customer experience is a top priority at RSA” in the VoC-E (FY21 goal of +85%)</p>
+            </div>
+            <div class="objectiveFooter objectiveDetails"></div>
+        </div>
+    </div>
+    <div class="objective" id="objective2">
+        <div class="objectivesBox boxHover">
+            <div class="objectiveTitle">
+                <p><span class="objectiveNum">OBJECTIVE 2:</span></br>Improve customer experience with RSA to achieve cNPS of FY20 goal of +25 (FY21 NPS goal of +40)</p>
+            </div>
+            <div class="objectiveFooter objectiveDetails"></div>
+        </div>
+    </div>
+    <div class="objective" id="objective3">
+        <div class="objectivesBox boxHover">
+            <div class="objectiveTitle">
+                <p><span class="objectiveNum">OBJECTIVE 3:</span></br>Improve quality, governance and access to Customer Master Data</p>
+            </div>
+            <div class="objectiveFooter objectiveDetails"></div>
+        </div>
+    </div>
+</div>
+<div class="tableWrapper">
+    <div class="objective" id="objective4">
+        <div class="objectivesBox boxHover secondRowBox">
+            <div class="objectiveTitle">
+                <p><span class="objectiveNum">OBJECTIVE 4:</span></br>Transition 20 AA Hosted install base to AA Cloud or AAoP platform</p>
+            </div>
+            <div class="objectiveFooter objectiveDetails"></div>
+        </div>
+    </div>
+    <div class="objective" id="objective5">
+        <div class="objectivesBox boxHover secondRowBox">
+            <div class="objectiveTitle">
+                <p><span class="objectiveNum">OBJECTIVE 5:</span></br>Implement programs to improve pNPS for RFRI and RSID Access for who are taking the next step in their journey</p>
+            </div>
+            <div class="objectiveFooter objectiveDetails"></div>
+        </div>
+    </div>
+    <div class="objective" id="objective6">
+        <div class="objectivesBox boxHover secondRowBox">
+            <div class="objectiveTitle">
+                <p><span class="objectiveNum">OBJECTIVE 6:</span></br>Real time model vs. call back model for 1 product-line – Aspirational</p>
+            </div>
+            <div class="objectiveFooter objectiveDetails"></div>
+        </div>
+    </div>
+</div>
+<!--<div class="courseContentContainer">
+    <div class="course displayNone boxSecurId" id="secureId">
+        <h3 class="courseHeader">RSA SecurID<sup>®</sup> Access & RSA Authentication Manager Course Offerings</h3>
+        <div class="courseImgContainer securIdBoxImage"></div>
+        <div class="courseDescription">RSA SecurID Access & RSA Authentication Manager safeguard critical applications and other resources by providing assurance that the people seeking access to them really are who they claim to be (identity management) and that they’re authorized to use specific resources (access management). In an era when applications are as likely to be in the cloud as on premises, and users are as eager to access them from mobile devices as desktops, successful identity and access management demands more than passwords. It requires analytics-driven insights into identities, a keen awareness of cyber threats, and business context to prioritize identity risks and protect assets accordingly.</div>
+    </div>
+    <div class="course displayNone boxIgl" id="identityGovernance">
+        <h3 class="courseHeader">RSA<sup>®</sup> Identity Governance and Lifecycle Course Offerings</h3>
+        <div class="courseImgContainer iglBoxImage"></div>
+        <div class="courseDescription">RSA Identity Governance and Lifecycle is a comprehensive, business-driven identity management and governance product aimed to solve both identity access and access governance needs. The product's user-friendly web interface allows a business to reliably and efficiently automate key activities across the identity and access management lifecycle. The process ensures users can connect to applications, perform activities within those applications, and only access corporate data that is both appropriate to their job function and compliant with policies.</div>
+    </div>
+</div>-->
+</script>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .course .circle {
+        float: left;
+    }
+    
+    .displayNone {
+        display: none
+    }
+    .courseOfferingsContainer{
+        width: 100%;
+        float: left;
+        margin-bottom: 15px;
+    }
+    .trainingCrsOfferingsTitle,.courseSubHead{
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        color: #868789;
+    }
+    .trainingCrsOfferingsTitle{font-weight: bold;margin-bottom: 5px;}
+    .container h1,
+    h2 {
+        text-align: center;
+    }
+    .courseHeader{
+        font-weight: normal;
+        padding-left: 5px;
+        padding-bottom: 5px;
+        border-bottom: 0.5px solid #aa373b;
+        margin-bottom: 15px
+    }
+    .courseImgContainer{
+        height: 120px;
+        width: 120px;
+        background-size: 80%;
+        float: left;
+    }
+    .objectivesBox {
+        text-align: center;
+        height: 325px;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        padding: 10px;
+        background-color: #dee0e1;
+    }
+    .objectiveNum {
+        font-weight: bold;
+        font-size: 18px;
+        color: #802629;
+    }
+    .objectiveTitle{
+        height:215px;
+    }
+    .secondRowBox{
+        height: 225px;
+    }
+    .secondRowBox .objectiveTitle{
+        height:115px;
+    }
+    .boxHover{
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        position: relative;
+        overflow: hidden;
+    }    
+    .boxHover:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border-color: #802629;
+      border-style: solid;
+      border-width: 0;
+      -webkit-transition-property: border-width;
+      transition-property: border-width;
+      -webkit-transition-duration: 0.1s;
+      transition-duration: 0.3s;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+    }
+    .boxHover:hover:before, .boxHover:focus:before, .boxHover:active:before {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      border-width: 4px;
+    }
+    .tableWrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        float: left;
+        margin-bottom: 30px;
+    }
+    
+    .objective {
+        width: 33%;
+        float: left;
+        margin: 0 20px;
+        cursor: pointer;
+    }
+    
+    .objectiveFooter {
+        width: 100%;
+        height: 80px;
+        border-top: 1px solid #415464;
+        margin-top: 10px;
+    }
+    .secureId_Access {
+        margin-top: 30px
+    }
+    
+    .identity_Governance {
+        margin-top: 40px
+    }
+    
+    #secureId,#identityGovernance {
+        background-color: #eeeff0;
+        border: 1px solid #be3a34;
+        border-radius: 4px;
+        float: left;
+        width: 95%;
+    }
+        
+    .course {
+        padding: 20px
+    }
+    
+    .secureId_AccessLeft {
+        margin-left: 30px
+    }
+    
+    .identity_GovernanceLeft {
+        margin-left: 30px
+    }
+    
+    .courseDescription {
+        text-align: justify;
+        width: 86%;
+        float: left;
+        margin: 15px;
+    }
+       
+    .courseContentContainer{
+        width: 100%;
+        float: left;
+    }    
+    .boxHighlight{
+        border: 3px solid #802629;
+    }
+    .shrinkBox {
+        transition:all 0.3s ease;
+        cursor: pointer;
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+    }  
+</style>
+<script>
+    var jq = jQuery.noConflict();
+    /*jq(window).load(function(){
+        setTimeout(function(){
+            jq('.jive-widget').each(function(){
+                if(jq(this).find('table').hasClass('iglCourseTable')){
+                    jq(this).hide();
+                    jq(this).addClass('hiddenContent');
+                }
+                if(jq(this).find('table').attr('id') === 'trainingFilterFeature'){
+                    jq(this).hide();
+                    jq(this).addClass('hiddenContent');
+                }
+            });
+        }, 1000);
+    });*/
+
+    jq('.objective').each(function(){
+        jq(this).click(function(){
+            var boxClass = jq(this).attr('id');
+            if(jq(this).hasClass('boxHighlight')){
+                jq('.objective').removeClass('boxHighlight').removeClass('shrinkBox');
+                jq('.objectivesBox').addClass('boxHover');
+            }else{
+                jq(this).find('.objectivesBox').removeClass('boxHover');
+                jq('.objective').addClass('shrinkBox').removeClass('boxHighlight');
+                jq(this).removeClass('shrinkBox');
+                jq(this).addClass('boxHighlight');
+            }
+            /*if(jq('.'+boxClass).is(":visible") === true){
+                jq('.'+boxClass).hide();
+                jq(this).removeClass('boxHighlight');
+                jq(this).parents('.jive-widget-container').find('.hiddenContent').hide();
+            }else{
+                //jq('.course').hide();
+                //jq('.'+boxClass).show();
+                
+                /*if(boxClass === 'boxSecurId'){
+                    jq(this).next().addClass('shrinkBox');
+                }else{
+                    jq(this).prev().addClass('shrinkBox');
+                }
+                jq(this).parents('.jive-widget-container').find('.hiddenContent').show();
+            }*/
+        });
+    });
+</script>
