@@ -11,7 +11,7 @@
 					<li><a target="_parent" href="/createacopy/create.jspa?documentID=53400&containerType=14&containerID=2046&conversionType=DOCUMENT">Service Notifcations</a>
 						<ul class="secondLevel securityNotificationMenu">
                             <li><a style="cursor: pointer;">Cancled Emergency Maintenance</a>
-                                <ul class="thirdLevel regionDatacenterMenu scheduledMaintenanceMenu">
+                                <ul class="thirdLevel regionDatacenterMenu incidentCancledMenu">
                                         <li><a target="_parent" href="/createacopy/create.jspa?documentID=104875&containerType=14&containerID=2046&conversionType=DOCUMENT">US Prod/Non-Prod</a></li>
                                         <li><a target="_parent" href="/createacopy/create.jspa?documentID=104876&containerType=14&containerID=2046&conversionType=DOCUMENT">US Prod</a></li>
                                         <li><a target="_parent" href="/createacopy/create.jspa?documentID=104877&containerType=14&containerID=2046&conversionType=DOCUMENT">US Non-Prod</a></li>
@@ -51,7 +51,7 @@
 								</ul>
 							</li>
                             <li><a style="cursor: pointer;">Service Incident - Detected and Resolved</a>
-                                <ul class="thirdLevel regionDatacenterMenu incidentDetectedMenu">
+                                <ul class="thirdLevel regionDatacenterMenu incidentDetectedandResolvedMenu">
                                         <li><a target="_parent" href="/createacopy/create.jspa?documentID=104762&containerType=14&containerID=2046&conversionType=DOCUMENT">US Prod/Non-Prod</a></li>
                                         <li><a target="_parent" href="/createacopy/create.jspa?documentID=104763&containerType=14&containerID=2046&conversionType=DOCUMENT">US Prod</a></li>
                                         <li><a target="_parent" href="/createacopy/create.jspa?documentID=104764&containerType=14&containerID=2046&conversionType=DOCUMENT">US Non-Prod</a></li>
@@ -61,7 +61,7 @@
                                     </ul>
                             </li>
                             <li><a style="cursor: pointer;">Service Incident - Ongoing</a>
-                                <ul class="thirdLevel regionDatacenterMenu incidentDetectedMenu">
+                                <ul class="thirdLevel regionDatacenterMenu incidentOngoingMenu">
                                         <li><a target="_parent" href="/createacopy/create.jspa?documentID=104869&containerType=14&containerID=2046&conversionType=DOCUMENT">US Prod/Non-Prod</a></li>
                                         <li><a target="_parent" href="/createacopy/create.jspa?documentID=104870&containerType=14&containerID=2046&conversionType=DOCUMENT">US Prod</a></li>
                                         <li><a target="_parent" href="/createacopy/create.jspa?documentID=104871&containerType=14&containerID=2046&conversionType=DOCUMENT">US Non-Prod</a></li>
@@ -183,8 +183,8 @@
 
 /* Style the Service Notifications Menu */
 .dropDownMenu > li > ul > li> ul.securityNotificationMenu {
-    top: -47px;
-	left: 214px;
+    top: -73px;
+    left: 214px;
     width: 380px;
 }
 @media only screen and (min-width: 705px) {
@@ -246,6 +246,24 @@ ul.regionDatacenterMenu li:nth-child(3) {
     .dropDownMenu > li > ul.docMenu {
         width: 231px;
     }
+}
+
+.dropDownMenu > li > ul > li> ul > li > ul.incidentDetectedandResolvedMenu {
+    top: -125px;
+    left: -210px;
+    width: 210px;
+}
+
+.dropDownMenu > li > ul > li> ul > li > ul.incidentOngoingMenu {
+    top: -98px;
+    left: -210px;
+    width: 210px;
+}
+
+.dropDownMenu > li > ul > li> ul > li > ul.incidentCancledMenu {
+    top: 0px;
+    left: -210px;
+    width: 210px;
 }
 </style>
 
