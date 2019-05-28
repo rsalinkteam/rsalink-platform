@@ -1,0 +1,17 @@
+/* Style the objective boxes */
+.objectivesBox {
+    text-align: center;
+    height: 325px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    padding: 10px;
+    background-color: #dee0e1;
+}
+
+/* Style the objective number (e.g. "OBJECTIVE #1") in the objective boxes */
+.objectiveNum {
+    font-weight: bold;
+    font-size: 18px;
+    color: #802629;
+}
+
