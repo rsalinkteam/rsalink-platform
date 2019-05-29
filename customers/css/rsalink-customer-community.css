@@ -4,7 +4,7 @@ Iteration:      Nov 2018 Redesign
 Scope:          RSA Customers Community
 Author:         Jeff Shurtliff
 Last Editor:    Jeff Shurtliff
-Last Updated:   04 Apr 2019
+Last Updated:   28 May 2019
 */
 
 /* Add the background image of the main banner */
@@ -99,7 +99,7 @@ a[data-role=button]:hover {
 
 /* Hide the Watch a Tag widget labels */
 .jive-widget-watchlabel {
-    display: none;
+    display: none
 }
 
 /* Change the color of every other header in the left column */
