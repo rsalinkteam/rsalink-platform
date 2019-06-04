@@ -1,0 +1,267 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Identity Governance & Lifecycle IAM Assurance Blueprints
+Author:         Charan Rajakumar
+Last Editor:    Charan Rajakumar
+Last Updated:   22 Dec 2018
+*/
+
+/* Add the background image of the main banner */
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_red_920x156.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 120px;
+}
+
+/* Style the main banner text */
+h1#mainBanner-title {
+    color: #fff;    
+    font-size: 29px;
+    padding: 24px 35px;
+	font-family: inherit;
+    font-weight: 100;
+}
+@media only screen and (min-width: 1121px) and (max-width: 1218px) {
+	h1#mainBanner-title {
+		font-size: 24px;
+	}
+}
+@media only screen and (min-width: 1030px) and (max-width: 1120px) {
+	h1#mainBanner-title {
+		font-size: 20px;
+		padding: 20px 27px;
+	}
+}
+@media only screen and (max-width: 1029px) {
+	h1#mainBanner-title {
+		font-size: 18px;
+		padding: 20px 27px;
+	}
+}
+h1#mainBanner-title.twoLineTitle {	/* If the title has two lines then add the .twoLineTitle class to the <h1> tag */
+    padding-top: 9px;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Adjust the position of the search widget */
+#jive-widget-container_2 >.jive-widget-searchwidget {
+    margin-bottom: 5px;
+    margin-top: -25px;
+}
+
+/* Customize the search button */
+#j-search-widget button {
+    display: block;
+    margin-top: -35px;
+    margin-left: 75%;
+    background: #e87722;
+    border: none;
+    border-radius: 0px;
+    color: #fefefe;
+	width: 22%;
+	transition: background-color .25s ease-out,color .25s ease-out;
+}
+#j-search-widget button:hover, #j-search-widget button:focus {
+    background-color: #d86a16;
+    color: #fefefe;
+}
+
+/* Customize the search bar */
+#j-search-widget .j-spotlight-search input {
+    width: 67%;
+    margin-left: 5%;
+}
+
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Style the discussion buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    width: 88%;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out;
+}
+a[data-role=button]:hover {
+    background-color: rgba(115,34,37,1);
+    border: 1px solid rgba(115,34,37,1);
+}
+#discButtonTable td {
+    width: 33%;
+}
+/* Change the color of every other Watch a Tag header in the middle column */
+#jive-widget-container_2 .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+/* Change the background of subsequent View Document widgets back to normal */
+#jive-widget-container_1 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget {
+    background-color: #fff;
+}
+/* Change the background of the right column to be gray */
+#jive-widget-container_2,
+#jive-widget-container_2 .jive-widget .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change background of any subsequent Recent Content and HTML widgets to default */
+#jive-widget-container_2 .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body,
+#jive-widget-container_2 .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-odd td,
+#jive-widget-container_2 .jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: #fff;
+}
+
+/* Change the background of the right column to be gray */
+#jive-widget-container_2,
+#jive-widget-container_2 .jive-widget .jive-widget-body {
+    background-color: #fff;  /* rgba(222,224,225,0.5) */
+}
+
+/* Adjust whitespace between Recent Discussions and buttons */
+.jive-widget-recentcontentwidget {
+    margin-bottom: -37px;
+}
+a.jive-icon-link-forward-content.jive-more-content {
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+.jive-box-footer .statusrss {
+    display: none;
+}
+#jive-widget-container_2 .jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget {
+    margin-top: -50px;
+}
+.jive-widget-recentcontentwidget .content-large .jive-table-recentcontent {
+    margin: 5px 0 18px;
+}
+
+/* Hide author and avatar */
+#jive-widget-container_1 td.jive-table-cell-author,
+#jive-widget-container_1 img.jive-avatar {
+    display: none;
+}
+
+/* Change the color of the even rows in the content widgets to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-recentblogpostswidget .jive-widget-body .jive-table-row-even td,
+.jive-widget-featuredcontentwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Make the side column backgrounds a gray color (PMS 427, +30% White, +0.5 Opacity) */
+#jive-widget-container_1,
+#jive-widget-container_3,
+#jive-widget-container_1 .jive-widget-body,
+#jive-widget-container_3 .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Fix any background color anomalies in the side columns */
+.jive-widget-formattedtextwidget .jive-widget-body span {
+    background-color: #eeeff0 !important;
+}
+
+/* Fix any background color anomalies in the middle column */
+.jive-widget-recentblogpostswidget ~ .jive-widget-formattedtextwidget .jive-widget-body span {
+    background-color: #fff !important;
+}
+
+/* Style the Recent Discussions widget */
+.jive-content-filter, .jive-box-footer {
+    display: none;
+}
+.jive-widget-recentcontentwidget .jive-widget-body {
+    margin-top: -5px;
+}
+.jive-whats-new-more, #jive-whats-new-more {
+    padding: 0;
+}
+
+/* Hide any external link icons */
+.jive-link-external-small:after {
+    background: none;
+    margin: 0 -12px 0 -12px;
+}
+
+/* Style the Categories widget */
+#jive-widget-container_3 .jive-widget-taggroupwidget .j-icon-list li {
+    padding: 0px 0px 5px 0px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+#jive-widget-container_3 .jive-widget-taggroupwidget .j-icon-list li:last-child {
+    border-bottom: 0px;
+}
+#jive-widget-container_3 .jive-widget-taggroupwidget .jive-icon-med.jive-icon-folder {
+    background-image: none;
+}
+
+/* Style the leaderboard widget */
+.jive-widget-individualleaderswidget .n4jive_header {
+    min-height: 33px !important;
+}
+.jive-widget-individualleaderswidget .n4jive_header button {
+    width: 49%;
+    background-color: #415464;
+    border: 1px solid #415464;
+    color: #fff;
+    transition: background-color .25s ease-out, color .25s ease-out;
+}
+.jive-widget-individualleaderswidget .n4jive_header button:hover {
+    background-color: #fff;
+    color: #415464;
+}
+.jive-widget-individualleaderswidget .n4jive_widget .n4jive_sidebar_leader_progress {
+    background: rgba(65,84,100,.1);
+}
+.jive-widget-individualleaderswidget .n4jive_widget .n4jive_sidebar_leader_content h4 {
+    color: #415464;
+}
+.jive-widget-individualleaderswidget .n4jive_widget .n4jive_sidebar_leader_content .j-avatar {
+    background: transparent;
+    border: 0px;
+}
+
+/* Extend the length of the left column */
+.leftColumnSpacer {
+    min-height: 510px;
+}
+
+/* Hide the Custom Styling widget to avoid unauthorized edits */
+#jive-widget-container_1 .jive-widget-popularcontentwidget ~ .jive-widget-htmltextwidget .jive-widget-header {
+    background: none;
+}
+#jive-widget-container_1 .jive-widget-popularcontentwidget ~ .jive-widget-htmltextwidget .jive-widget-header h4 {
+    color: #eeeff0;
+}
