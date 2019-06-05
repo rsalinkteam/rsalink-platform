@@ -1,407 +1,8 @@
 <script src='https://code.jquery.com/jquery-3.2.1.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://community.rsa.com/resources/statics/238998/rsalink-okr-iframe.css?a=1559754623885">
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
-<style type="text/css">
-/* Style for Collapsible begins here */
-.accordion_container {
-  width: auto;
-  margin: 5px;
-  margin-top: 10px;
-}
-.accordion_head {
-    background-color: #ddd;
-    color: #333;
-    cursor: pointer;
-    font-family: arial;
-    font-size: 16px;
-    margin: 0 0 2px 0;
-    padding: 10px 15px;
-    font-weight: normal;
-    margin-top: 0;
-    margin-bottom: 2px;
-    border-radius: 4px;
-}
-.accordion_body {
-    background: white;
-    padding: 15px;
-    border: 1px #dddddd solid;
-}
-.accordion_body p {
-  padding: 18px 5px;
-  margin: 0px;
-}
-/* Style for Collapsible ends here */
-
-.hide{ display: none; }   
-.wrapper {
-    font-family: Arial;    
-    background-color: #fff;
-    position: relative;
-    width: 99%;
-    margin-left: 3px;
-    height: auto;
-    border: 3px #415464 solid;
-    border-radius: 4px;
-    margin-top: 10px;
-    padding: 5px;
-    float: left;
-}   
-.text{text-align: left; margin: 10px 0px 15px 0px;}
-.text a{text-decoration: none;color: #415464; line-height: 1.35em;}
-.text a:hover, 
-.text a:focus, 
-.text a:active {
-    color: #415464;
-    fill: #415464;
-    font-weight: bold;
-    text-decoration: underline;
-    outline: none;
-}
-a[data-role=button] {
-    font-size: 12px;
-    top: 30%;
-    text-align: center;
-    border-radius: 0px;
-    line-height: 25px;
-    width: 88%;
-    font-weight: bold;
-    display: inline-block;
-    vertical-align: middle;
-    font-family: Arial,sans-serif;
-    margin-bottom: 10px;
-    position: relative;
-    text-transform: none;
-    background-color: #802629;
-    border: 1px solid #802629;
-    color: #fff;
-    text-decoration: none;
-    transition: background-color .25s ease-out, color .25s ease-out;
-}
-a[data-role=button]:hover {
-    background-color: #fff;
-    border: 1px solid #802629;
-    color: #802629;
-}
-label{ margin-right: 15px; }     
-.panel {
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-}
-.panel-heading {
-  cursor: pointer;
-  cursor: hand;
-  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
-  background-image:      -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e8e8e8));
-  background-image:         linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
-  background-repeat: repeat-x;
-}
-#accordionobjective1Url h4 #accordionobjective2Url h4 {
-    cursor: pointer;
-}
-.glyphicon{
-    font-size: 12px;
-    float: left;
-}
-.customAccrdnTitle {
-    width: 61%;
-    display: block;
-    float: left;
-    margin-left: 4px;
-}
-.resultsSection .customTrendBox{
-    position: relative;
-    top: 7px;
-}
-.resultsSection .customStatusLevelBox{
-    bottom: 0px;
-}
-.resultsSection .customTrendValueBox{
-    margin-top: 10px;
-}
-.customAccrdnHeaderHeight {
-    min-height: 55px;
-}
-.accordionTableData ol{
-    padding-left: 20px;
-}
-.accordionTableData td{
-    padding:5px;
-    border: 1px solid #C6C6C6;
-}
-.acc-margin{
-    margin: 1px;
-}
-
-/* Style for email image icon in the accordion containing document */
-.jive-link-email-small {
-    background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-email-12x12.png);
-    background-repeat: no-repeat;
-    background-position: 0px 50%;
-    padding: 1px 0 1px 17px;
-}
-
-/************* Objective Box Styles Begins Here ************/
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.objectivesBox {
-    height: 250px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    background-color: #fff;
-    border: 2px solid #415464;
-    padding: 10px;
-}
-.objectiveNum {
-    font-weight: bold;
-    font-size: 18px;
-    color: #415464;
-}
-.objectiveTitle{
-    min-height:150px;
-    text-align: center;
-}
-.objectiveTitle p {
-font-size: large;
-}
-.secondRowBox{
-    height: 225px;
-}
-.secondRowBox .objectiveTitle{
-    min-height:110px;
-}
-.boxHover{
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 3px 3px 3px rgba(65, 84, 100, 0.5);
-    position: relative;
-    overflow: hidden;
-}    
-.boxHover:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border-color: #415464;
-  border-style: solid;
-  border-width: 0;
-  -webkit-transition-property: border-width;
-  transition-property: border-width;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.boxHover:hover:before, .boxHover:focus:before, .boxHover:active:before {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-  border-width: 4px;
-}
-.tableWrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    float: left;
-    margin-bottom: 30px;
-    margin-top: 20px;
-}
-.objective {
-    width: 33%;
-    float: left;
-    margin: 0 20px;
-    cursor: pointer;
-}
-.objectiveFooter {
-    width: 100%;
-    height: 76px;
-    margin-top: -5px;
-}    
-.boxHighlight{
-    border: 3px solid #415464;
-}
-.shrinkBox {
-    transition:all 0.3s ease;
-    cursor: pointer;
-    -webkit-transform: scale(0.8);
-    -ms-transform: scale(0.8);
-    transform: scale(0.8);
-}
-.overallCompletedField{
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-}
-.objectiveStatus{
-    text-align: center;
-    width: 55%;
-    padding: 10px;
-    color: #fff;
-    margin-top: 0px;
-    font-weight: bold;
-    font-size: 18px;
-    float: left;
-}
-.overallTrendContainer{
-    float: left;
-    width: 26%;
-    margin-left: 50px;
-    margin-top: 5px;
-}
-.overallTrendContainer .overallTrend{
-    height: 40px;
-    width: 40px;
-    display: block;
-    float: left;
-}
-.overallTrendValue{
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 5px;
-    margin-top: 13px;
-    display: block;
-    float: left;
-}
-.bottomRowFields{
-    margin-top: 0px;
-}
-.bottomRowFieldslastTwo {
-    margin-bottom: 0px;
-    margin-top: 27px;
-}
-
-/************* Objective Box Styles Ends Here ************/
-    
-/************* Key Results Styles Begins Here *************/
-.corporateGoalContainer{
-    clear: both;
-    width: 100%;
-}
-.okrContainer {
-    clear: both;
-    width: 100%;
-}
-.okrContainerText {
-    font: 18px Arial;
-}
-.leadValueContainer{
-    clear: both;
-    width: 100%;
-}
-.workingTeamContainer{
-    clear: both;
-    width: 100%;
-}
-/* Hide the email icon in the Key Results boxes */
-.jive-link-email-small {
-    background-image: none;
-    padding: 1px 0 1px 0px;
-}
-.resultsSection{float: right;height: 20px; width: 17%;}
-.Yellow{background-color: #FFC90E;}
-.Green{background-color:#22B14C;}
-.Red {background-color:#ED1C24;}
-.Up {
-    background-image:url('https://community.rsa.com/resources/statics/238998/green-up-arrow.png-128px.png?a=1558329986554');
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 20px;
-    background-size: 100%;
-}
-
-.Down {
-    background-image:url('https://community.rsa.com/resources/statics/238998/red-down-arrow-128px.png?a=1558330944180');
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 20px;
-    background-size: 100%;
-}
-
-.Neutral{
-    background-image:url('https://community.rsa.com/resources/statics/238998/neutral.png?a=1558450398552');
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 20px;
-    background-size: 100%;
-}
-.resultStatusLevel{
-    display: block;
-    width: 45%;
-    padding: 10px;
-    height: 35px;
-    position: relative;
-    bottom: 9px;
-    text-align: center;
-    float: left;
-    color: #fff;
-    font-weight: bold;
-}
-.trendBox{
-    display: block;
-    float: left;
-    margin-left: 30px;
-    min-width: 8%;
-    min-height: 10px;
-}
-.trendValueBox{
-    margin-left: 10px;
-    display: block;
-    float: left;
-    margin-top: 3px;
-    font-weight: bold;
-}
-.actionCompletedImage{
-    background-image:url('https://community.rsa.com/resources/statics/238998/action-completed.png?a=1558344666556');
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 20px;
-    background-size: 100%;
-    display: block;
-    float: left;
-    margin-right: 3px;  
-    margin-top: -2px;
-}
-.customWidth21{
-    width: 21% !important;
-}
-.objective1,.objective2,.objective3,.objective4,.objective5,.objective6{display: none;}
-#back-on-top i {
-    color: #fff;
-    margin: 0;
-    position: relative;
-    top: 13px;
-    font-size: 19px;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    background-color: #415464;
-    border-radius: 20px;
-    padding: 10px;
-    float: right;
-    text-decoration: none;
-}
-#back-on-top:hover {
-    background-color: #415464;
-}
-#back-on-top:hover i {
-    color: #fff;
-}
-.disableToTheTop {
-    display: none;
-}
-/************* Key Results Styles Ends Here *************/
-</style>
 
 <script>
 var $j = jQuery.noConflict();
@@ -708,6 +309,20 @@ init();
 function resizeWidget() {
     setTimeout( resizeMe, 500);
 }
+
+/*********** Back On Top Page Script **********/
+$j(window).scroll(function() {
+if ($j(this).scrollTop() >= 50) {    // If page is scrolled more than 50px
+    $j('#back-on-top').fadeIn(200);  // Fade in the arrow
+} else {
+    $j('#back-on-top').fadeOut(200); // Else fade out the arrow
+}
+});
+$j('#back-on-top').click(function() { // When arrow is clicked
+    $j('body,html').animate({
+        scrollTop : 0                // Scroll to top of body
+    }, 500);
+});
 </script>   
 <!--<div class="okrMainTitle">
     <h2>Objectives and Key Results</h2>
@@ -763,7 +378,7 @@ function resizeWidget() {
     <div class="objective" id="objective4">
         <div class="objectivesBox boxHover secondRowBox">
             <div class="objectiveTitle">
-                <p><span class="objectiveNum">OBJECTIVE 4:</span></br>Implement programs to improve the product Net Promoter Score (pNPS) for the RSA Fraud & Risk Intelligence Suite</p>
+                <p><span class="objectiveNum">OBJECTIVE 4:</span></br>Implement programs to improve the product Net Promoter Score (pNPS) within the RSA Fraud & Risk Intelligence Suite</p>
             </div>
             <div class="objectiveFooter objectiveDetails">
                 <div class="overallCompletedField bottomRowFields"></div>
@@ -778,10 +393,10 @@ function resizeWidget() {
     <div class="objective" id="objective5">
         <div class="objectivesBox boxHover secondRowBox">
             <div class="objectiveTitle">
-                <p><span class="objectiveNum">OBJECTIVE 5:</span></br>Implement programs to improve the product Net Promoter Score (pNPS) for RSA SecurID Access</p>
+                <p><span class="objectiveNum">OBJECTIVE 5:</span></br>Implement programs to improve the product Net Promoter Score (pNPS) for RSA SecurID Access and Identity Governance & Lifecycle</p>
             </div>
             <div class="objectiveFooter objectiveDetails">
-                <div class="overallCompletedField bottomRowFieldslastTwo"></div>
+                <div class="overallCompletedField"></div>
                 <div class="objectiveStatus"></div>
                 <div class="overallTrendContainer">
                     <span class="overallTrend"></span>
@@ -796,7 +411,7 @@ function resizeWidget() {
                 <p><span class="objectiveNum">OBJECTIVE 6:</span></br>Launch 4 Solutions/Risk Frameworks & enable sales to drive in strategic accounts</p>
             </div>
             <div class="objectiveFooter objectiveDetails">
-                <div class="overallCompletedField bottomRowFieldslastTwo"></div>
+                <div class="overallCompletedField"></div>
                 <div class="objectiveStatus"></div>
                 <div class="overallTrendContainer">
                     <span class="overallTrend"></span>
@@ -828,6 +443,57 @@ function resizeWidget() {
                 </div>
             </div>
         </div>
+        <div class="meetTheTeamContainer">
+            <div class="teamTitle">Executive Sponsor and Leadership Team</div>
+            <a href="mailto:doug.howard@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DougHoward_RSAcom.png?a=1558704760659" /></div>
+                <div class="teamMemberName">Doug Howard</div>
+            </a>
+            <a href="mailto:robert.haggerty@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/RobHaggerty.png?a=1558705168446" /></div>
+                <div class="teamMemberName">Rob Haggerty</div>
+            </a>
+            <a href="mailto:michael.svihra@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/MikeSvihra.png?a=1558705065051" /></div>
+                <div class="teamMemberName">Mike Svihra</div>
+            </a>
+            <a href="mailto:susan.zwick@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/SusanZwick.png?a=1558705407684" /></div>
+                <div class="teamMemberName">Sue Zwick</div>
+            </a>
+            <a href="mailto:ram.menashe@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/ramMenashe.jpg?a=1558705116719" /></div>
+                <div class="teamMemberName">Ram Menashe</div>
+            </a>
+            <a href="mailto:david.gaik@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DaveGaik.png?a=1558705273961" /></div>
+                <div class="teamMemberName">Dave Gaik</div>
+            </a>
+            <a href="mailto:lisa.zeena@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/LisaZeena.png?a=1558704901010" /></div>
+                <div class="teamMemberName">Lisa Zeena</div>
+            </a>
+            <a href="mailto:mike.ostendorf@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/mikeOstendorf.jpg?a=1559220271670" /></div>
+                <div class="teamMemberName">Mike Ostendorf</div>
+            </a>
+            <a href="mailto:julie.burgoyne@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/JulieBurgoyne%2B.png?a=1558942146237" /></div>
+                <div class="teamMemberName">Julie Burgoyne</div>
+            </a>
+            <a href="mailto:david.spokane@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/daveSpokane.jpg?a=1558704698781" /></div>
+                <div class="teamMemberName">Dave Spokane</div>
+            </a>
+            <a href="mailto:Kelly.Fiedler@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/KellyFiedler.png?a=1558704861104" /></div>
+                <div class="teamMemberName">Kelly Fiedler</div>
+            </a>
+            <a href="mailto:mignonette.silotchang@emc.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/mignonetteSilotChang-edited.jpg?a=1558704960239" /></div>
+                <div class="teamMemberName">Mignonette Silot-Chang</div>
+            </a>
+        </div>
     </div>
     <div class="wrapper objective2">
         <div class="testimonial">
@@ -849,6 +515,45 @@ function resizeWidget() {
                 <div class='panel-group' id='accordionobjective2Url'>
                 </div>
             </div>
+        </div>
+        <div class="meetTheTeamContainer">
+            <div class="teamTitle">Executive Sponsor and Leadership Team</div>
+            <a href="mailto:doug.howard@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DougHoward_RSAcom.png?a=1558704760659" /></div>
+                <div class="teamMemberName">Doug Howard</div>
+            </a>
+            <a href="mailto:robert.haggerty@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/RobHaggerty.png?a=1558705168446" /></div>
+                <div class="teamMemberName">Rob Haggerty</div>
+            </a>
+            <a href="mailto:michael.svihra@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/MikeSvihra.png?a=1558705065051" /></div>
+                <div class="teamMemberName">Mike Svihra</div>
+            </a>
+            <a href="mailto:ram.menashe@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/ramMenashe.jpg?a=1558705116719" /></div>
+                <div class="teamMemberName">Ram Menashe</div>
+            </a>
+            <a href="mailto:david.gaik@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DaveGaik.png?a=1558705273961" /></div>
+                <div class="teamMemberName">Dave Gaik</div>
+            </a>
+            <a href="mailto:tom.luke@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/TomLuke.png?a=1558940276558" /></div>
+                <div class="teamMemberName">Tom Luke</div>
+            </a>
+            <a href="mailto:lisa.zeena@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/LisaZeena.png?a=1558704901010" /></div>
+                <div class="teamMemberName">Lisa Zeena</div>
+            </a>
+            <a href="mailto:mike.ostendorf@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/mikeOstendorf.jpg?a=1559220271670" /></div>
+                <div class="teamMemberName">Mike Ostendorf</div>
+            </a>
+            <a href="mailto:julie.burgoyne@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/JulieBurgoyne%2B.png?a=1558942146237" /></div>
+                <div class="teamMemberName">Julie Burgoyne</div>
+            </a>
         </div>
     </div>
     <div class="wrapper objective3">
@@ -872,6 +577,45 @@ function resizeWidget() {
                 </div>
             </div>
         </div>
+        <div class="meetTheTeamContainer">
+            <div class="teamTitle">Executive Sponsor and Leadership Team</div>
+            <a href="mailto:doug.howard@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DougHoward_RSAcom.png?a=1558704760659" /></div>
+                <div class="teamMemberName">Doug Howard</div>
+            </a>
+            <a href="mailto:gail.burns@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/gailBurns.jpg?a=1558704808857" /></div>
+                <div class="teamMemberName">Gail Burns</div>
+            </a>
+            <a href="mailto:robert.haggerty@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/RobHaggerty.png?a=1558705168446" /></div>
+                <div class="teamMemberName">Rob Haggerty</div>
+            </a>
+            <a href="mailto:michael.svihra@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/MikeSvihra.png?a=1558705065051" /></div>
+                <div class="teamMemberName">Mike Svihra</div>
+            </a>
+            <a href="mailto:ram.menashe@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/ramMenashe.jpg?a=1558705116719" /></div>
+                <div class="teamMemberName">Ram Menashe</div>
+            </a>
+            <a href="mailto:david.gaik@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DaveGaik.png?a=1558705273961" /></div>
+                <div class="teamMemberName">Dave Gaik</div>
+            </a>
+            <a href="mailto:lisa.zeena@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/LisaZeena.png?a=1558704901010" /></div>
+                <div class="teamMemberName">Lisa Zeena</div>
+            </a>
+            <a href="mailto:mike.ostendorf@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/mikeOstendorf.jpg?a=1559220271670" /></div>
+                <div class="teamMemberName">Mike Ostendorf</div>
+            </a>
+            <a href="mailto:robert.carey@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/RobCarey.png?a=1558940636625"/></div>
+                <div class="teamMemberName">Rob Carey</div>
+            </a>
+        </div>
     </div>
     <div class="wrapper objective4">
         <div class="testimonial">
@@ -894,6 +638,21 @@ function resizeWidget() {
                 </div>
             </div>
         </div>
+        <div class="meetTheTeamContainer">
+            <div class="teamTitle">Executive Sponsor and Leadership Team</div>
+            <a href="mailto:doug.howard@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DougHoward_RSAcom.png?a=1558704760659" /></div>
+                <div class="teamMemberName">Doug Howard</div>
+            </a>
+            <a href="mailto:ram.menashe@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/ramMenashe.jpg?a=1558705116719" /></div>
+                <div class="teamMemberName">Ram Menashe</div>
+            </a>
+            <a href="mailto:lisa.zeena@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/LisaZeena.png?a=1558704901010" /></div>
+                <div class="teamMemberName">Lisa Zeena</div>
+            </a>
+        </div>
     </div>
     <div class="wrapper objective5">
         <div class="testimonial">
@@ -902,7 +661,7 @@ function resizeWidget() {
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj5"></span></h4>
             </div>
             <div class="okrContainer">
-                <h4><b>Objective and Key Results: </b><span class="okrContainerText">Implement programs to improve the product Net Promoter Score (pNPS) for RSA SecurID Access</span></h4>
+                <h4><b>Objective and Key Results: </b><span class="okrContainerText">Implement programs to improve the product Net Promoter Score (pNPS) for RSA SecurID Access and Identity Governance & Lifecycle</span></h4>
             </div>
             <div class="leadValueContainer">
                 <h4><b>Executive Sponsor: </b><span id="leadValueObj5"></span></h4>
@@ -915,6 +674,25 @@ function resizeWidget() {
                 <div class='panel-group' id='accordionobjective5Url'>
                 </div>
             </div>
+        </div>
+        <div class="meetTheTeamContainer">
+            <div class="teamTitle">Executive Sponsor and Leadership Team</div>
+            <a href="mailto:doug.howard@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DougHoward_RSAcom.png?a=1558704760659" /></div>
+                <div class="teamMemberName">Doug Howard</div>
+            </a>
+            <a href="mailto:James.Ducharme@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/jimDucharme-edited.jpg?a=1558704839024" /></div>
+                <div class="teamMemberName">Jim Ducharme</div>
+            </a>
+            <a href="mailto:lisa.zeena@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/LisaZeena.png?a=1558704901010" /></div>
+                <div class="teamMemberName">Lisa Zeena</div>
+            </a>
+            <a href="mailto:Kelly.Fiedler@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/KellyFiedler.png?a=1558704861104" /></div>
+                <div class="teamMemberName">Kelly Fiedler</div>
+            </a>
         </div>
     </div>
     <div class="wrapper objective6">
@@ -938,24 +716,23 @@ function resizeWidget() {
                 </div>
             </div>
         </div>
+        <div class="meetTheTeamContainer">
+            <div class="teamTitle">Executive Sponsor and Leadership Team</div>
+            <a href="mailto:doug.howard@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DougHoward_RSAcom.png?a=1558704760659" /></div>
+                <div class="teamMemberName">Doug Howard</div>
+            </a>
+            <a href="mailto:Steve.Bergman@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/SteveBergman.png?a=1558705336687" /></div>
+                <div class="teamMemberName">Steve Bergman</div>
+            </a>
+            <a href="mailto:gail.burns@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/gailBurns.jpg?a=1558704808857" /></div>
+                <div class="teamMemberName">Gail Burns</div>
+            </a>
+        </div>
     </div>
 </div>
-
-<script>
-    /*********** Back On Top Page Script **********/
-    $j(window).scroll(function() {
-    if ($j(this).scrollTop() >= 50) {    // If page is scrolled more than 50px
-        $j('#back-on-top').fadeIn(200);  // Fade in the arrow
-    } else {
-        $j('#back-on-top').fadeOut(200); // Else fade out the arrow
-    }
-    });
-    $j('#back-on-top').click(function() { // When arrow is clicked
-        $j('body,html').animate({
-            scrollTop : 0                // Scroll to top of body
-        }, 500);
-    });
-</script>
 <div id="toTheTop" class="disableToTheTop">
     <a href="#" id="back-on-top"><i class="icon-chevron-up"></i></a>
 </div>

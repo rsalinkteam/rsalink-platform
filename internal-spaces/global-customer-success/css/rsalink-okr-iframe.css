@@ -1,17 +1,442 @@
-/* Style the objective boxes */
-.objectivesBox {
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Dependencies:   rsalink-okr-iframe.css
+Scope:          RSA Global Services OKR Widget (iframe)
+Author:         Santhosh V / Charan Rajakumar / Mohit Verman / Kamlesh Gupta
+Last Editor:    Jeff Shurtliff
+Last Updated:   05 Jun 2019
+*/
+
+/* Style for Collapsible begins here */
+.accordion_container {
+    width: auto;
+    margin: 5px;
+    margin-top: 10px;
+  }
+.accordion_head {
+    background-color: #ddd;
+    color: #333;
+    cursor: pointer;
+    font-family: arial;
+    font-size: 16px;
+    margin: 0 0 2px 0;
+    padding: 10px 15px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 2px;
+    border-radius: 4px;
+}
+.accordion_body {
+    background: white;
+    padding: 15px;
+    border: 1px #dddddd solid;
+}
+.accordion_body p {
+padding: 18px 5px;
+margin: 0px;
+}
+/* Style for Collapsible ends here */
+
+.hide{ display: none; }   
+.wrapper {
+    font-family: Arial;    
+    background-color: #fff;
+    position: relative;
+    width: 99%;
+    margin-left: 3px;
+    height: auto;
+    border: 3px #415464 solid;
+    border-radius: 4px;
+    margin-top: 10px;
+    padding: 5px;
+    float: left;
+}   
+.text{text-align: left; margin: 10px 0px 15px 0px;}
+.text a{text-decoration: none;color: #415464; line-height: 1.35em;}
+.text a:hover, 
+.text a:focus, 
+.text a:active {
+    color: #415464;
+    fill: #415464;
+    font-weight: bold;
+    text-decoration: underline;
+    outline: none;
+}
+a[data-role=button] {
+    font-size: 12px;
+    top: 30%;
     text-align: center;
-    height: 325px;
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    padding: 10px;
-    background-color: #dee0e1;
+    border-radius: 0px;
+    line-height: 25px;
+    width: 88%;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color .25s ease-out, color .25s ease-out;
+}
+a[data-role=button]:hover {
+    background-color: #fff;
+    border: 1px solid #802629;
+    color: #802629;
+}
+label{ margin-right: 15px; }     
+.panel {
+-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+.panel-heading {
+cursor: pointer;
+cursor: hand;
+background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+background-image:      -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e8e8e8));
+background-image:         linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
+background-repeat: repeat-x;
+}
+#accordionobjective1Url h4 #accordionobjective2Url h4 {
+    cursor: pointer;
+}
+.glyphicon{
+    font-size: 12px;
+    float: left;
+}
+.customAccrdnTitle {
+    width: 61%;
+    display: block;
+    float: left;
+    margin-left: 4px;
+}
+.resultsSection .customTrendBox{
+    position: relative;
+    top: 7px;
+}
+.resultsSection .customStatusLevelBox{
+    bottom: 0px;
+}
+.resultsSection .customTrendValueBox{
+    margin-top: 10px;
+}
+.customAccrdnHeaderHeight {
+    min-height: 55px;
+}
+.accordionTableData ol{
+    padding-left: 20px;
+}
+.accordionTableData td{
+    padding:5px;
+    border: 1px solid #C6C6C6;
+}
+.acc-margin{
+    margin: 1px;
 }
 
-/* Style the objective number (e.g. "OBJECTIVE #1") in the objective boxes */
+/* Style for email image icon in the accordion containing document */
+.jive-link-email-small {
+    background-image: url(https://community.rsa.com/resources/statics/238998/jive-icon-email-12x12.png?a=1559754443145);
+    background-repeat: no-repeat;
+    background-position: 0px 50%;
+    padding: 1px 0 1px 17px;
+}
+
+/************* Objective Box Styles Begins Here ************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.objectivesBox {
+    height: 260px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-color: #fff;
+    border: 2px solid #415464;
+    padding: 10px;
+}
 .objectiveNum {
     font-weight: bold;
     font-size: 18px;
-    color: #802629;
+    color: #415464;
+}
+.objectiveTitle{
+    min-height:150px;
+    text-align: center;
+}
+.objectiveTitle p {
+font-size: large;
+}
+.secondRowBox{
+    height: 235px;
+}
+.secondRowBox .objectiveTitle{
+    min-height:126px;
+}
+.boxHover{
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 3px 3px 3px rgba(65, 84, 100, 0.5);
+    position: relative;
+    overflow: hidden;
+}    
+.boxHover:before {
+content: "";
+position: absolute;
+z-index: -1;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+border-color: #415464;
+border-style: solid;
+border-width: 0;
+-webkit-transition-property: border-width;
+transition-property: border-width;
+-webkit-transition-duration: 0.1s;
+transition-duration: 0.3s;
+-webkit-transition-timing-function: ease-out;
+transition-timing-function: ease-out;
+}
+.boxHover:hover:before, .boxHover:focus:before, .boxHover:active:before {
+-webkit-transform: translateY(0);
+transform: translateY(0);
+border-width: 4px;
+}
+.tableWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    float: left;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.objective {
+    width: 33%;
+    float: left;
+    margin: 0 20px;
+    cursor: pointer;
+}
+.objectiveFooter {
+    width: 100%;
+    height: 76px;
+    margin-top: -5px;
+}    
+.boxHighlight{
+    border: 3px solid #415464;
+}
+.shrinkBox {
+    transition:all 0.3s ease;
+    cursor: pointer;
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+}
+.overallCompletedField{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.objectiveStatus{
+    text-align: center;
+    width: 55%;
+    padding: 10px;
+    color: #fff;
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 18px;
+    float: left;
+}
+.overallTrendContainer{
+    float: left;
+    width: 26%;
+    margin-left: 50px;
+    margin-top: 5px;
+}
+.overallTrendContainer .overallTrend{
+    height: 40px;
+    width: 40px;
+    display: block;
+    float: left;
+}
+.overallTrendValue{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 13px;
+    display: block;
+    float: left;
+}
+.bottomRowFields{
+    margin-top: 0px;
+}
+/************* Objective Box Styles Ends Here ************/
+    
+/************* Key Results Styles Begins Here *************/
+.corporateGoalContainer{
+    clear: both;
+    width: 100%;
+}
+.okrContainer {
+    clear: both;
+    width: 100%;
+}
+.okrContainerText {
+    font: 18px Arial;
+}
+.leadValueContainer{
+    clear: both;
+    width: 100%;
+}
+.workingTeamContainer{
+    clear: both;
+    width: 100%;
+}
+/* Hide the email icon in the Key Results boxes */
+.jive-link-email-small {
+    background-image: none;
+    padding: 1px 0 1px 0px;
+}
+.resultsSection{float: right;height: 20px; width: 17%;}
+.Yellow{background-color: #FFC90E;}
+.Green{background-color:#22B14C;}
+.Red {background-color:#ED1C24;}
+.Up {
+    background-image:url('https://community.rsa.com/resources/statics/238998/green-up-arrow.png-128px.png?a=1558329986554');
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+    background-size: 100%;
 }
 
+.Down {
+    background-image:url('https://community.rsa.com/resources/statics/238998/red-down-arrow-128px.png?a=1558330944180');
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+    background-size: 100%;
+}
+
+.Neutral{
+    background-image:url('https://community.rsa.com/resources/statics/238998/neutral.png?a=1558450398552');
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+    background-size: 100%;
+}
+.resultStatusLevel{
+    display: block;
+    width: 45%;
+    padding: 10px;
+    height: 35px;
+    position: relative;
+    bottom: 9px;
+    text-align: center;
+    float: left;
+    color: #fff;
+    font-weight: bold;
+}
+.trendBox{
+    display: block;
+    float: left;
+    margin-left: 30px;
+    min-width: 8%;
+    min-height: 10px;
+}
+.trendValueBox{
+    margin-left: 10px;
+    display: block;
+    float: left;
+    margin-top: 3px;
+    font-weight: bold;
+}
+.actionCompletedImage{
+    background-image:url('https://community.rsa.com/resources/statics/238998/action-completed.png?a=1558344666556');
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+    background-size: 100%;
+    display: block;
+    float: left;
+    margin-right: 3px;  
+    margin-top: -2px;
+}
+.customWidth21{
+    width: 21% !important;
+}
+.objective1,.objective2,.objective3,.objective4,.objective5,.objective6{display: none;}
+#back-on-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: #415464;
+    border-radius: 20px;
+    padding: 10px;
+    float: right;
+    text-decoration: none;
+}
+#back-on-top:hover {
+    background-color: #415464;
+}
+#back-on-top:hover i {
+    color: #fff;
+}
+.disableToTheTop {
+    display: none;
+}
+
+/* Ensure that all bullet lists in Action Comments cells have proper margins - RSALINK-6643 */
+td.actionComments ul {
+    margin-left: 20px;
+}
+/************* Key Results Styles Ends Here *************/
+
+/************* Meet the team Styles Starts Here *********/
+.teamTitle{
+    background: #415464;
+    padding: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.teamMemberHolder{
+    width: 14%;
+    float: left;
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #000;
+}
+.teamMemberHolder:hover{
+    text-decoration: none;
+}
+.teamMemberImage img{
+    max-width: 100%;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+.teamMemberName{
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+/************* Meet the team Styles Ends Here *********/
