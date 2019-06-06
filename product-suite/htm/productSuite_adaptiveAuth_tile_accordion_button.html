@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- Height 350px -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url('https://www.rsa.com/content/dam/rsalink/css/rsa-mobile-buttons-global.css');
+
+.htmlTile {
+	margin-left: -8px;
+	margin-right: -8px;
+}
+
+.accordion {
+    background-color: #415464;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #7a8893;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+#productVersions {
+	padding-top: 10px;
+    padding-left: 11px;
+	padding-right: 7px;
+    padding-bottom: 20px;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+}
+
+.productComponent {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 17.5px;
+}
+
+#productVersions a, #productVersions a:visited {
+	font-family: "Open Sans",Arial,sans-serif;
+	color: #415464;
+	text-decoration: none;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 17.5px;
+	transition: color .1s linear;
+}
+
+#productVersions a:hover, 
+#productVersions a:focus, 
+#productVersions a:active {
+	color: #006095;
+	fill: #006095;
+	text-decoration: underline;
+	outline: none;
+}
+</style>
+</head>
+<body>
+<!-- Accordion -->
+<div class="htmlTile">
+	<button class="accordion">Advisories</button>
+	<div class="panel">
+		<div id="productVersions">
+			<span class="productComponent">RSA Adaptive Authentication (Cloud)</span><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/cloud-advisories">Product Advisories</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/cloud-advisories/security-advisories">Security Advisories</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/cloud-advisories/service-notifications">Service Notification</a>	<br />						
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/cloud-advisories/technical-advisories">Technical Advisories</a><br />
+			<span class="productComponent">RSA Adaptive Authentication (Hosted)</span><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/hosted-advisories">Product Advisories</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/hosted-advisories/security-advisories">Security Advisories</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/hosted-advisories/service-notifications">Service Notification</a><br />						
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/hosted-advisories/technical-advisories">Technical Advisories</a><br />
+			<span class="productComponent">RSA Adaptive Authentication (On-Premise)</span><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/advisories/">Product Advisories</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/advisories/security-advisories">Security Advisories</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/advisories/service-notifications">Service Notification</a><br />						
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/advisories/technical-advisories">Technical Advisories</a><br />
+		</div>
+	</div>
+	<button class="accordion">Documentation</button>
+	<div class="panel">
+		<div id="productVersions">
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/cloud">RSA Adaptive Authentication (Cloud)</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/aah-110">RSA Adaptive Authentication (Hosted)</a><br />
+			<span class="productComponent">RSA Adaptive Authentication (On Premise)</span><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/aaop-137">Version 13.7</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/aaop-131">Version 13.1</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/aaop-73">Version 7.3</a><br />
+			<a target="_top" href="https://community.rsa.com/docs/DOC-40597#aaop">All Versions</a><br />
+		</div>
+	</div>
+	<button class="accordion">Knowledge Base</button>
+	<div class="panel">
+		<div id="productVersions">
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/knowledge-base">Browse the Knowledge Base</a><br />
+		</div>
+	</div>
+
+	<button class="accordion">Downloads</button>
+	<div class="panel">
+		<div id="productVersions">
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/cloud/downloads">RSA Adaptive Authentication (Cloud)</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/aah-110/downloads">RSA Adaptive Authentication (Hosted)</a><br />
+			<span class="productComponent">RSA Adaptive Authentication (On Premise)</span><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/aaop-137/downloads">Version 13.7</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/aaop-131/downloads">Version 13.1</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/adaptive-authentication/aaop-73/downloads">Version 7.3</a><br />
+			<a target="_top" href="https://community.rsa.com/docs/DOC-40597#aaop">All Versions</a><br />
+		</div>
+	</div>
+	
+	<button class="accordion">Training</button>
+	<div class="panel">
+		<div id="productVersions">
+			<a target="_top" href="https://community.rsa.com/community/training">Training</a>
+		</div>
+	</div>
+</div>
+	
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+<!-- Discussion Buttons -->
+<table id="mobileButtons" border="0" style="border: 0px solid rgb(198, 198, 198); width: 100%; margin-left: auto; margin-right: auto; margin-top: 20px;">
+	<tbody>
+		<tr>
+			<td style="padding-left: 10px; padding-right: 10px; text-align: center;"><a class="mobileButton" data-role="button" href="https://community.rsa.com/discussion/create.jspa?suppressMarkQuestion=true&question=true&containerType=14&containerID=2041" target="_top">Ask a Question</a></td>
+		</tr>
+		<tr>
+			<td style="padding-left: 10px; padding-right: 10px; text-align: center;"><a class="mobileButton" data-role="button" href="https://community.rsa.com/discussion/create!input.jspa?containerType=14&containerID=2041" target="_top">Start a Discussion</a></td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>
