@@ -258,7 +258,7 @@ border-width: 4px;
 }
 .overallTrendContainer{
     float: left;
-    width: 26%;
+    width: auto;
     margin-left: 50px;
     margin-top: 5px;
 }
