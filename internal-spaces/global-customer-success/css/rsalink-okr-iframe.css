@@ -405,6 +405,11 @@ border-width: 4px;
 td.actionComments ul {
     margin-left: 20px;
 }
+
+/* Ensure that all bullet lists in Action Title cells have proper margins */
+td.actionTitle ul {
+    margin-left: 5px;
+}
 /************* Key Results Styles Ends Here *************/
 
 /************* Meet the team Styles Starts Here *********/
