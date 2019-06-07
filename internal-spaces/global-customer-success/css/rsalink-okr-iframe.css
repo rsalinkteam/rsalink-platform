@@ -1,4 +1,4 @@
-/*	
+/*  
 Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Dependencies:   rsalink-okr-iframe.css
@@ -409,11 +409,17 @@ border-width: 4px;
 td.actionComments ul {
     margin-left: 20px;
 }
-
-/* Ensure that all bullet lists in Action Title cells have proper margins */
+/* Ensure that all bullet lists in Action Title, Action Owner, and Action Completed cells have proper margins */
 td.actionTitle ul {
-    margin-left: 5px;
+    margin-left: 25px;
 }
+td.actionOwner ul {
+    margin-left: 25px;
+}
+td.actionCompleted ul {
+    margin-left: 25px;
+}
+
 /************* Key Results Styles Ends Here *************/
 
 /************* Meet the team Styles Starts Here *********/
