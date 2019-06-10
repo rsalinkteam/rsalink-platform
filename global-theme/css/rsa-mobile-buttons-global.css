@@ -1,0 +1,38 @@
+/*	
+Stylesheet:		RSA Link Redesign
+Scope:			Buttons (Mobile) - Global
+Authors:		Jeff Shurtliff
+Published:		08 Mar 2018
+*/
+
+/* Style the buttons */
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 14px 15px;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #FFF;
+    text-decoration: none;
+	transition: background-color .25s ease-out,border .25s ease-out,color .25s ease-out;
+}
+a.mobileButton {
+    padding: 8px 15px;
+    width: 88%;
+    font-size: 12px;
+	text-align:center;
+}
+a[data-role=button]:hover {
+    color: #802629;
+	background-color: #fff;
+    border: 1px solid #802629;
+}
