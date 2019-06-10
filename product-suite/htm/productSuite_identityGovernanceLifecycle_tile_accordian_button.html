@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!-- Height 350px -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url('https://www.rsa.com/content/dam/rsalink/css/rsa-mobile-buttons-global.css');
+
+.htmlTile {
+	margin-left: -8px;
+	margin-right: -8px;
+}
+
+.accordion {
+    background-color: #415464;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #7a8893;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+#productVersions {
+	padding-top: 10px;
+    padding-left: 11px;
+	padding-right: 7px;
+    padding-bottom: 20px;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+}
+
+.productComponent {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 17.5px;
+}
+
+#productVersions a, #productVersions a:visited {
+	font-family: "Open Sans",Arial,sans-serif;
+	color: #006ba6;
+	text-decoration: none;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 17.5px;
+	transition: color .1s linear;
+}
+
+#productVersions a:hover, 
+#productVersions a:focus, 
+#productVersions a:active {
+	color: #006095;
+	fill: #006095;
+	text-decoration: underline;
+	outline: none;
+}
+</style>
+</head>
+<body>
+<!-- Accordion -->
+<div class="htmlTile">
+	<button class="accordion">Advisories</button>
+	<div class="panel">
+		<div id="productVersions">
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/advisories">Product Advisories</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/advisories/security-advisories">Security Advisories</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/advisories#technical">Technical Advisories</a>
+		</div>
+	</div>
+
+	<button class="accordion">Documentation</button>
+	<div class="panel">
+		<div id="productVersions">
+			<span class="productComponent">RSA IDENTITY GOVERNANCE & LIFECYCLE</span><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/71">RSA Identity Governance &amp; Lifecycle 7.1</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/702">RSA Identity Governance &amp; Lifecycle 7.0.2</a><br />
+            <a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/701">RSA Identity Governance &amp; Lifecycle 7.0.1</a><br />
+            <a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/70">RSA Via Lifecycle &amp; Governance 7.0</a><br /><br />
+			<span class="productComponent">RSA IDENTITY MANAGEMENT & GOVERNANCE</span><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/69">RSA Identity Management &amp; Governance 6.9</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/68">RSA Identity Management &amp; Governance 6.8</a><br /><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/data-access-governance"><span class="productComponent" >RSA DATA ACCESS GOVERNANCE</span></a><br /><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/data-access-governance"><span class="productComponent">CONNECTOR & COLLECTOR DATA SHEETS</span></a><br /><br />
+            <span class="productComponent">ADDITIONAL RESOURCES</span><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/ideas">RSA Ideas for RSA Identity</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/securid/navigator">RSA SecurID Suite Navigator</a><br /><br />
+            <a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/client-partner-community/recommended-practices"><span class="productComponent">IAM RECOMMENDED PRACTICES</span></a><br /><br />
+            <a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/blueprints"><span class="productComponent" >IAM BLUEPRINTS</span></a><br />  
+		</div>
+	</div>
+
+	<button class="accordion">Knowledge Base</button>
+	<div class="panel">
+		<div id="productVersions">
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/knowledge-base">Browse the Knowledge Base</a><br />
+			<a target="_blank" href="https://rsalink.wufoo.com/forms/rsa-link-content-request-form/">Request an Article</a>
+		</div>
+	</div>
+
+	<button class="accordion">Downloads</button>
+	<div class="panel">
+		<div id="productVersions">
+			<!-- <span class="productComponent">AUTHENTICATION AGENTS</span><br /> -->
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/71/downloads">RSA Identity Governance &amp; Lifecycle 7.1</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/702/downloads">RSA Identity Governance &amp; Lifecycle 7.0.2</a><br />
+			<a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/701/downloads">RSA Identity Governance &amp; Lifecycle 7.0.1</a><br />
+            <a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/70/downloads">RSA Via Lifecycle &amp; Governance 7.0</a><br />
+            <a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/69/downloads">RSA Identity Management &amp; Governance 6.9</a><br />
+            <a target="_top" href="https://community.rsa.com/community/products/governance-and-lifecycle/68/downloads">RSA Identity Management &amp; Governance 6.8</a><br />
+		</div>
+	</div>
+	
+	<button class="accordion">Product Resources</button>
+	<div class="panel">
+		<div id="productVersions">
+			<div id="productResources">
+				<a target="_top" href="https://community.rsa.com/community/products/securid/navigator">RSA SecurID Navigator</a><br />
+					<div id="navigatorSub" style="font-size: 13px;">
+						Power your way to success by utilizing assets based on role &amp; level of expertise.
+					</div>
+				<br />
+				<a target="_top" href="https://community.rsa.com/community/products/securid/ideas">RSA Ideas for RSA SecurID</a><br />
+					<div id="ideasSub" style="font-size: 13px;">
+						Submit your own product enhancement ideas and vote on other submissions.
+					</div>
+			</div>
+		</div>
+	</div>
+
+	<button class="accordion">Browse the Community</button>
+	<div class="panel">
+		<div id="productVersions">
+			<a href="https://community.rsa.com/community/products/securid/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bblogpost%5D">View all Blog Posts</a><br />
+			<a href="https://community.rsa.com/community/products/securid/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bthread%5D">View all Discussions</a><br />
+			<a href="https://community.rsa.com/community/products/securid/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bdocument%5D">View all Documents</a><br />
+			<a href="https://community.rsa.com/community/products/securid/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bevent%5D~event%5Bupcoming%5D">View all Events</a><br />
+			<a href="https://community.rsa.com/community/products/securid/content?filterID=contentstatus%5Bpublished%5D~objecttype~thread%5Bquestions%5D">View all Questions</a><br />
+			<a href="https://community.rsa.com/community/products/securid/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bvideo%5D">View all Videos</a>
+		</div>
+	</div>
+</div>
+	
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+<!-- Discussion Buttons -->
+<table id="mobileButtons" border="0" style="border: 0px solid rgb(198, 198, 198); width: 90%; margin-left: auto; margin-right: auto; margin-top: 20px;">
+	<tbody>
+		<tr>
+			<td class="greenBtncontainer"><a class="mobileButton" data-role="button" href="https://community.rsa.com/discussion/create.jspa?suppressMarkQuestion=true&question=true&containerType=14&containerID=2348">Ask a Question</a></td>
+		</tr>
+		<tr>
+			<td class="greenBtncontainer"><a class="mobileButton" data-role="button" href="https://community.rsa.com/discussion/create!input.jspa?containerType=14&containerID=2348">Start a Discussion</a></td>
+		</tr>
+		<tr>
+			<td class="greenBtncontainer"><a class="mobileButton" data-role="button" href="https://community.rsa.com/community/products/governance-and-lifecycle/content?filterID=contentstatus%5Bpublished%5D~objecttype~thread%5Bquestions%5D">View All</a></td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>
