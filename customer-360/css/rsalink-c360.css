@@ -3,8 +3,8 @@ Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Scope:          GCS50 Customer 360 Summary Pages
 Author:         Jeff Shurtliff
-Last Editor:    Max Kimball
-Last Updated:   04 Apr 2019
+Last Editor:    Jeff Shurtliff
+Last Updated:   13 Jun 2019
 */
 
 /*******************
@@ -285,10 +285,14 @@ a.jive-link-email-small {
     text-align: right;
 }
 
-/* Style the bi-weekly report hyperlinks */
-#jive-widget-container_3 .jive-widget-tagwidget a:hover {
+/* Style the bi-weekly status and TAM report hyperlinks */
+#jive-widget-container_3 .jive-widget-tagwidget li a {
+    text-decoration: none;
+}
+#jive-widget-container_3 .jive-widget-tagwidget li:hover a {
     text-decoration: none;
     font-weight: bold;
+    font-size: 13.5px;
 }
 
 /* Hide the Watch a Tag widget labels */
@@ -310,6 +314,25 @@ a.jive-link-email-small {
     visibility: visible;
     display: block;
     content: 'No bi-weekly status reports have been uploaded at this time.';
+	text-align: center;
+    margin-top: -40px;
+    margin-bottom: -10px;
+}
+
+/* Update the TAM Reports message when empty */
+.chrome #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
+.ff #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
+.opera #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
+.safari #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p {
+    visibility: hidden;
+}
+.chrome #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
+.ff #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
+.opera #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
+.safari #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after {
+    visibility: visible;
+    display: block;
+    content: 'No TAM reports have been uploaded at this time.';
 	text-align: center;
     margin-top: -40px;
     margin-bottom: -10px;
