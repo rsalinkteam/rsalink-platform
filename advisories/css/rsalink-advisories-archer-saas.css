@@ -3,13 +3,13 @@ Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Scope:          RSA Archer Suite Service Notifications
 Author:         Jeff Shurtliff
-Last Editor:    Santhosh V
-Last Updated:   03 Apr 2019
+Last Editor:    Jeff Shurtliff
+Last Updated:   03 Jul 2019
 */
 
 /* Add the background image of the main banner */
 #mainBanner {
-    background-image: url(https://rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_blue_920x156.jpg);
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_blue_920x156.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 156px;
