@@ -4,15 +4,6 @@
 //  Last Editor:    Victor Laucas
 //  Last Modified:  16 May 2019
 //  Description:    Formats documents created from TAM emails in 360 pages
-function byeP() {
-    const pTags = document.getElementsByClassName("jive-rendered-content")[0].getElementsByTagName("p");
-    for(ptag of pTags) {
-        if(ptag.style.minHeight == "8pt") {
-            ptag.remove();
-        }
-    }
-}
-
 function remove_email_garbage() {
     const pTags = document.getElementsByClassName("jive-rendered-content")[0].getElementsByTagName("p");
     const regex = new RegExp("<span>&lt;[^\s].*?&gt;</span>");
@@ -30,17 +21,15 @@ if(browseIdThreeSixty.indexOf(Number(placeID)) > -1) {
     
     const pTags = document.getElementsByClassName("jive-rendered-content")[0].getElementsByTagName("p");
     if(pTags.length > 0) {
-        let looping = true;
+        let retries = 0;
 
-        while(looping) {
+        while(retries <= 10) {
             for(ptag of pTags) {
-                if(ptag.style.minHeight != "") {
-                    byeP();
-                }
-                else {
-                    looping = false;
+                if(ptag.style.minHeight == "8pt") {
+                    ptag.remove();
                 }
             }
+            retries++
         }
 
         remove_email_garbage();
