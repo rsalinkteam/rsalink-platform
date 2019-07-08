@@ -2,8 +2,9 @@
 //  Location:       Website Footer
 //  Author:         Victor Laucas
 //  Last Editor:    Victor Laucas
-//  Last Modified:  16 May 2019
+//  Last Modified:  08 Jul 2019
 //  Description:    Formats documents created from TAM emails in 360 pages
+
 function remove_email_garbage() {
     const pTags = document.getElementsByClassName("jive-rendered-content")[0].getElementsByTagName("p");
     const regex = new RegExp("<span>&lt;[^\s].*?&gt;</span>");
