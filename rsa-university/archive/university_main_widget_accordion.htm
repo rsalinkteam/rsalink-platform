@@ -1,0 +1,37 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-3.2.1.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/bootstrap/3-3-7/bootstrap.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/accordion-init.js"></script>
+
+<script>
+function resizeWidget() {
+	setTimeout( resizeMe, 100);
+	console.log("resizeMe");
+}
+
+// Color Styles
+// "panel-default" = Silver
+// "panel-primary" = Blue
+// "panel-info" = Sky Blue
+// "panel-success" = Green
+// "panel-warning" = Orange
+// "panel-danger" = Red
+
+var colorStyle='panel-default';
+//var sourceURL='https://community.rsa.com/docs/DOC-93468';
+var sourceURL='https://rsa-preview.jiveon.com/docs/DOC-141098';
+// First panel expanded = "First"
+// All panels collapsed = "Collapsed"
+// All panels expanded = "Expanded"
+var initState='Collapsed';
+init();
+</script>
+
+<div id="AccordionContainer" class="acc-margin">
+    <div class="panel-group" id="accordion"></div>
+</div>
+
+<!-- Apply custom styling to match RSA Link branding -->
+<style>
+    @import url('https://www.rsa.com/content/dam/rsalink/bootstrap/3-3-7/bootstrap.min.css');
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-accordion.css');
+</style>
