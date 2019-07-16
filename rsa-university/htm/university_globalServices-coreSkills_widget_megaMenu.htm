@@ -1,326 +1,609 @@
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!DOCTYPE html>
 
-<table id="rkcIconTable">
-    <tr>
-        <td>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('ngMasterApp', []);
+        var $j = jQuery.noConflict();
+        var jive_widget_container_large = window.parent.$j(".jive-widget-container-large");
+        var noDataFound = '<tr id="noDataFound" style="height: 25px; background-color: #eeeff0;"><td colspan="3" style="width: 18%; height: 89px; font-size: 28px; vertical-align: middle; text-align: center;">NO DATA FOUND</td></tr>';
+        
+        app.controller('ngApp', function($scope) {
+            //$scope.deliveryType = ["ILTc","ILTv","ODC","ODLe","ODLab"];
+            $scope.rsaProduct = [{"value":"arch","text":"RSA Archer Suite"},{"value":"aa","text":"RSA Fraud & Risk Intelligence Suite"},{"value":"igl","text":"RSA Identity Governance & Lifecycle"},{"value":"nw","text":"RSA NetWitness Platform"},{"value":"sida","text":"RSA SecurID Access"}];
+            $scope.getProductRowData = [];            
+            $scope.getAudienceRowByCS = [];
+            $scope.getAudienceRowByPS = [];
+            $scope.getAudienceRowByIT = [];
+            $scope.getAudienceRowByES = []; 
+            $scope.csTab = true;
+            $scope.psTab = false;
+            $scope.itTab = false;
+            $scope.esTab = false;
+            $scope.knowAboutProduct = false;
+            $scope.filterRowDetails = false;
+            $scope.selectedAudienceData = "";
+            $scope.getCourseRowData = "";
+            $scope.arch = false;
+            $scope.aa = false;
+            $scope.nw = false;
+            $scope.igl = false;
+            $scope.sida = false;
+            $scope.learningAcademy = false;
+            $scope.linkSeries = false;
+            $scope.ESjobSkillDesigners = false;
+            $scope.EStoolDesigners = false;
+            $scope.ESjobSkillTrainers = false;
+            $scope.EStoolTrainers = false;
+            $scope.getDataByDeliveryType = [];
+            $scope.getDataByRole = [];
+            $scope.getDataByLevel = [];
+            $scope.courseInput = "";
+            $scope.selectedDeliveryType = null;
+            $scope.selectedRole = null;
+            $scope.selectedLevel = null;
+            
+            angular.element(document).ready(function () {
+                $scope.getAudienceRowByCS = jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(1)").filter(function() {return $(this).text().toLowerCase().split(/[\s,]+/).includes("cs") == true}).parent('tr');
+                $scope.getAudienceRowByPS = jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(1)").filter(function() {return $(this).text().toLowerCase().split(/[\s,]+/).includes("ps") == true}).parent('tr');
+                $scope.getAudienceRowByIT = jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(1)").filter(function() {return $(this).text().toLowerCase().split(/[\s,]+/).includes("it") == true}).parent('tr');
+                $scope.getAudienceRowByES = jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(1)").filter(function() {return $(this).text().toLowerCase().split(/[\s,]+/).includes("es") == true}).parent('tr'); 
+               jive_widget_container_large.find(".masterDocument tbody tr").remove();
+                jive_widget_container_large.find(".masterDocument tbody").html($scope.getAudienceRowByCS);
+                $scope.getCourseRowData = $scope.getAudienceRowByCS;
+                jive_widget_container_large.find(".masterDocument").hide();
+                setTimeout(function(){
+                    jive_widget_container_large.find(".masterDocument thead tr th:nth-child(1)").hide();
+                    jive_widget_container_large.find(".masterDocument thead tr th:nth-child(2)").hide();
+                    jive_widget_container_large.find(".masterDocument thead tr th:nth-child(5)").hide();
+                    jive_widget_container_large.find(".masterDocument thead tr th:nth-child(6)").hide();
+                    jive_widget_container_large.find(".masterDocument thead tr th:nth-child(7)").hide();
+                    jive_widget_container_large.find(".masterDocument thead tr th:nth-child(8)").hide();
+                    
+                    jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(1)").hide();
+                    jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(2)").hide();
+                    jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(5)").hide();
+                    jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(6)").hide();
+                    jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(7)").hide();
+                    jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(8)").hide();                
+                }, 1000);
+                setTimeout(resizeMe,500);
+                
+            });
+
+            $scope.filterByAudience = function(audience){
+                console.log(audience);
+                $scope.selectedProduct = "";
+                $scope.filterRowDetails = false;
+                jive_widget_container_large.find(".masterDocument").hide();
+                if(audience == "cs"){
+                    $scope.csTab = true; $scope.psTab = false; $scope.itTab = false; $scope.esTab = false; $scope.knowAboutProduct = false;
+                    jive_widget_container_large.find(".masterDocument tbody tr").remove();
+                    jive_widget_container_large.find(".masterDocument tbody").html($scope.getAudienceRowByCS);
+                }else if(audience == "ps"){
+                    $scope.csTab = false; $scope.psTab = true; $scope.itTab = false; $scope.esTab = false; $scope.knowAboutProduct = false;
+                    jive_widget_container_large.find(".masterDocument tbody tr").remove();
+                    jive_widget_container_large.find(".masterDocument tbody").html($scope.getAudienceRowByPS);
+                }else if(audience == "it"){
+                    $scope.csTab = false; $scope.psTab = false; $scope.itTab = true; $scope.esTab = false; $scope.knowAboutProduct = false;
+                    jive_widget_container_large.find(".masterDocument tbody tr").remove();
+                    jive_widget_container_large.find(".masterDocument tbody").html($scope.getAudienceRowByIT);
+                }else if(audience == "es"){
+                    $scope.csTab = false; $scope.psTab = false; $scope.itTab = false; $scope.esTab = true; $scope.knowAboutProduct = false;
+                    jive_widget_container_large.find(".masterDocument tbody tr").remove();
+                    jive_widget_container_large.find(".masterDocument tbody").html($scope.getAudienceRowByES);
+                }
+                jive_widget_container_large.find(".masterDocument thead tr th:nth-child(1)").hide();
+                jive_widget_container_large.find(".masterDocument thead tr th:nth-child(2)").hide();
+                jive_widget_container_large.find(".masterDocument thead tr th:nth-child(5)").hide();
+                jive_widget_container_large.find(".masterDocument thead tr th:nth-child(6)").hide();
+                jive_widget_container_large.find(".masterDocument thead tr th:nth-child(7)").hide();
+                jive_widget_container_large.find(".masterDocument thead tr th:nth-child(8)").hide();
+                
+                jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(1)").hide();
+                jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(2)").hide();
+                jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(5)").hide();
+                jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(6)").hide();
+                jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(7)").hide();
+                jive_widget_container_large.find(".masterDocument tbody tr td:nth-child(8)").hide();
+                setTimeout(resizeMe,0);    
+            }
+            $scope.getProductBlock = function(product){
+                    $scope.knowAboutProduct = false;
+                    if(product == "arch"){
+                        $scope.linkSeries = false; $scope.filterRowDetails = true; $scope.arch = true; $scope.aa = false; $scope.nw = false; $scope.igl = false; $scope.sida = false; $scope.learningAcademy = false; $scope.ESjobSkillDesigners = false; $scope.EStoolDesigners = false; $scope.ESjobSkillTrainers = false; $scope.EStoolTrainers = false;
+                    }else if(product == "aa"){
+                        $scope.linkSeries = false; $scope.filterRowDetails = true; $scope.arch = false; $scope.aa = true; $scope.nw = false; $scope.igl = false; $scope.sida = false; $scope.learningAcademy = false; $scope.ESjobSkillDesigners = false; $scope.EStoolDesigners = false; $scope.ESjobSkillTrainers = false; $scope.EStoolTrainers = false;
+                    }else if(product == "nw"){
+                        $scope.linkSeries = false; $scope.filterRowDetails = true; $scope.arch = false; $scope.aa = false; $scope.nw = true; $scope.igl = false; $scope.sida = false; $scope.learningAcademy = false; $scope.ESjobSkillDesigners = false; $scope.EStoolDesigners = false; $scope.ESjobSkillTrainers = false; $scope.EStoolTrainers = false;
+                    }else if(product == "igl"){
+                        $scope.linkSeries = false; $scope.filterRowDetails = true; $scope.arch = false; $scope.aa = false; $scope.nw = false; $scope.igl = true; $scope.sida = false; $scope.learningAcademy = false; $scope.ESjobSkillDesigners = false; $scope.EStoolDesigners = false; $scope.ESjobSkillTrainers = false; $scope.EStoolTrainers = false;
+                    }else if(product == "sida"){
+                        $scope.linkSeries = false; $scope.learningAcademy = false; $scope.filterRowDetails = true; $scope.arch = false; $scope.aa = false; $scope.nw = false; $scope.igl = false; $scope.sida = true; $scope.ESjobSkillDesigners = false; $scope.EStoolDesigners = false; $scope.ESjobSkillTrainers = false; $scope.EStoolTrainers = false;
+                    }
+                    else if(product == "learningAcademy"){
+                        $scope.knowAboutProduct = true;
+                        $scope.linkSeries = false; $scope.learningAcademy = true; $scope.arch = false; $scope.aa = false; $scope.nw = false; $scope.igl = false; $scope.sida = false; $scope.ESjobSkillDesigners = false; $scope.EStoolDesigners = false; $scope.ESjobSkillTrainers = false; $scope.EStoolTrainers = false;
+                        jive_widget_container_large.find(".masterDocument").hide();
+                    }
+
+                    else if(product == "linkSeries"){
+                        $scope.knowAboutProduct = true;
+                        $scope.linkSeries = true; $scope.learningAcademy = false; $scope.arch = false; $scope.aa = false; $scope.nw = false; $scope.igl = false; $scope.sida = false; $scope.ESjobSkillDesigners = false; $scope.EStoolDesigners = false; $scope.ESjobSkillTrainers = false; $scope.EStoolTrainers = false;
+                        jive_widget_container_large.find(".masterDocument").hide();
+                    }
+                    else if(product == "ESjobSkillDesigners"){
+                        $scope.knowAboutProduct = true;
+                        $scope.linkSeries = false; $scope.learningAcademy = false; $scope.arch = false; $scope.aa = false; $scope.nw = false; $scope.igl = false; $scope.sida = false; $scope.ESjobSkillDesigners = true; $scope.EStoolDesigners = false; $scope.ESjobSkillTrainers = false; $scope.EStoolTrainers = false;
+                        jive_widget_container_large.find(".masterDocument").hide();
+                    }else if(product == "EStoolDesigners"){
+                        $scope.knowAboutProduct = true;
+                        $scope.linkSeries = false; $scope.learningAcademy = false; $scope.arch = false; $scope.aa = false; $scope.nw = false; $scope.igl = false; $scope.sida = false; $scope.ESjobSkillDesigners = false; $scope.EStoolDesigners = true; $scope.ESjobSkillTrainers = false; $scope.EStoolTrainers = false;
+                        jive_widget_container_large.find(".masterDocument").hide();
+                    }else if(product == "ESjobSkillTrainers"){
+                        $scope.knowAboutProduct = true;
+                        $scope.linkSeries = false; $scope.learningAcademy = false; $scope.arch = false; $scope.aa = false; $scope.nw = false; $scope.igl = false; $scope.sida = false; $scope.ESjobSkillDesigners = false; $scope.EStoolDesigners = false; $scope.ESjobSkillTrainers = true; $scope.EStoolTrainers = false;
+                        jive_widget_container_large.find(".masterDocument").hide();
+                    }else if(product == "EStoolTrainers"){
+                        $scope.knowAboutProduct = true;
+                        $scope.linkSeries = false; $scope.learningAcademy = false; $scope.arch = false; $scope.aa = false; $scope.nw = false; $scope.igl = false; $scope.sida = false; $scope.ESjobSkillDesigners = false; $scope.EStoolDesigners = false; $scope.ESjobSkillTrainers = false; $scope.EStoolTrainers = true;
+                        jive_widget_container_large.find(".masterDocument").hide();
+                    }
+                    
+            }
+            
+
+
+            $scope.filterByProduct = function(product){
+                $scope.selectedDeliveryType = null;
+                $scope.selectedLevel = null;
+                $scope.selectedRole = null;
+                $scope.filterRowDetails = false;
+                console.log(product);
+                jive_widget_container_large.find(".masterDocument").show();
+                $scope.getProductRowData = [];
+                $scope.getCourseRowData = "";
+                if($scope.csTab == true){
+                    $scope.getProductBlock(product);
+                    $scope.getProductRowData = $scope.getAudienceRowByCS.filter(function() {return $(this).find("td:nth-child(2)").text().toLowerCase() == product.toLowerCase();});
+                    jive_widget_container_large.find(".masterDocument tbody tr").remove();
+                    if($scope.getProductRowData.length == 0){
+                        jive_widget_container_large.find(".masterDocument tbody").html(noDataFound);
+                    }else{
+                        jive_widget_container_large.find(".masterDocument tbody").html($scope.getProductRowData);
+                        $scope.getCourseRowData = $scope.getProductRowData;    
+                    }                    
+                
+                }else if($scope.psTab == true){
+                    $scope.getProductBlock(product);
+                    $scope.getProductRowData = $scope.getAudienceRowByPS.filter(function() {return $(this).find("td:nth-child(2)").text().toLowerCase() == product.toLowerCase();});
+                    jive_widget_container_large.find(".masterDocument tbody tr").remove();
+                    if($scope.getProductRowData.length == 0){
+                        jive_widget_container_large.find(".masterDocument tbody").html(noDataFound);
+                    }else{
+                        jive_widget_container_large.find(".masterDocument tbody").html($scope.getProductRowData);
+                        $scope.getCourseRowData = $scope.getProductRowData;    
+                    }
+
+                
+                }else if($scope.itTab == true){
+                    $scope.getProductBlock(product);
+                    $scope.getProductRowData = $scope.getAudienceRowByIT.filter(function() {return $(this).find("td:nth-child(2)").text().toLowerCase() == product.toLowerCase();});
+                    jive_widget_container_large.find(".masterDocument tbody tr").remove();
+                    if($scope.getProductRowData.length == 0){
+                        jive_widget_container_large.find(".masterDocument tbody").html(noDataFound);
+                    }else{
+                        jive_widget_container_large.find(".masterDocument tbody").html($scope.getProductRowData);
+                        $scope.getCourseRowData = $scope.getProductRowData;    
+                    }
+                }else if($scope.esTab == true){
+                    $scope.getProductBlock(product);
+                    $scope.getProductRowData = $scope.getAudienceRowByES.filter(function() {return $(this).find("td:nth-child(2)").text().toLowerCase() == product.toLowerCase();});
+                    jive_widget_container_large.find(".masterDocument tbody tr").remove();
+                    if($scope.getProductRowData.length == 0){
+                        jive_widget_container_large.find(".masterDocument tbody").html(noDataFound);
+                    }else{
+                        jive_widget_container_large.find(".masterDocument tbody").html($scope.getProductRowData);
+                        $scope.getCourseRowData = $scope.getProductRowData;    
+                    }
+                }
+                $scope.deliveryType = [{"value":"ILTc","text":"Live Instructor Led Training - Classroom"},{"value":"ILTv","text":"Live Instructor Led Training - Virtual"},{"value":"ODC","text":"On-Demand - Self-Paced Classroom"},{"value":"ODLe","text":"On-Demand Learning"},{"value":"ODLab","text":"On-Demand Lab"}];
+                //Declare scope variable for Role drop-down option
+                $scope.roles = [{"value":"ADM","text":"Administrator"},{"value":"AN","text":"Analyst"},{"value":"BU","text":"Business User"},{"value":"CD","text":"Content Developer"},{"value":"EU","text":"End User"},{"value":"CEU","text":"Custom End User"},{"value":"HD","text":"Help Desk Technician"},{"value":"SE","text":"System Engineer"}];
+                //Declare scope variable for Level drop-down option
+                $scope.levels = [{"value":"CA","text":"Certified Associate"},{"value":"CAD","text":"Certified Administrator"},{"value":"CAN","text":"Certified Analyst"},{"value":"CP","text":"Certified Professional"}];
+                $scope.tempDeliveryType = [];
+                $scope.filterDeliveryType = []; 
+                $scope.tempRole = [];
+                $scope.filterRoles = []; 
+                $scope.tempLevels = [];
+                $scope.filterLevels = []; 
+                angular.forEach($scope.getProductRowData.find("td:nth-child(5)"), function (value, key) { 
+                    $scope.tempDeliveryType.push($j(value).text()); 
+                });
+                $.each($scope.tempDeliveryType.toString().split(','), function(i, el){
+                    if($.inArray(el, $scope.filterDeliveryType) === -1) $scope.filterDeliveryType.push(el);
+                });
+                $scope.deliveryType = $scope.deliveryType.filter(function(val) {return $scope.filterDeliveryType.find(function(e){return e == val.value;});});
+                
+                //Filter Role
+                angular.forEach($scope.getProductRowData.find("td:nth-child(6)"), function (value, key) { 
+                    $scope.tempRole.push($j(value).text()); 
+                });
+                $.each($scope.tempRole.toString().split(','), function(i, el){
+                    if($.inArray(el, $scope.filterRoles) === -1) $scope.filterRoles.push(el);
+                });
+                $scope.roles = $scope.roles.filter(function(val) {return $scope.filterRoles.find(function(e){return e == val.value;});});
+                
+                //Filter Levels
+                angular.forEach($scope.getProductRowData.find("td:nth-child(8)"), function (value, key) { 
+                    $scope.tempLevels.push($j(value).text()); 
+                });
+                $.each($scope.tempLevels.toString().split(','), function(i, el){
+                    if($.inArray(el, $scope.filterLevels) === -1) $scope.filterLevels.push(el);
+                });                    
+                $scope.levels = $scope.levels.filter(function(val) {return $scope.filterLevels.find(function(e){return e == val.value;});});
+
+                setTimeout(resizeMe,0);                
+            }
+
+            
+            $scope.filterByColumn = function(){
+                $scope.courseInput = "";
+                $scope.getCourseRowData = [];
+                jive_widget_container_large.find(".masterDocument tbody tr").remove();
+                if(($scope.selectedDeliveryType == null) && ($scope.selectedRole == null) && ($scope.selectedLevel == null)){
+                    $scope.getCourseRowData = $scope.getProductRowData;
+                    if($scope.getCourseRowData.length == 0){
+                        jive_widget_container_large.find(".masterDocument tbody").html(noDataFound);
+                    }else{
+                        jive_widget_container_large.find(".masterDocument tbody").html($scope.getProductRowData);
+                    }
+                }else if(($scope.selectedDeliveryType != null) && ($scope.selectedRole == null) && ($scope.selectedLevel == null)){
+                    $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(5)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedDeliveryType.toLowerCase()) == true)});
+                }else if(($scope.selectedDeliveryType != null) && ($scope.selectedRole != null) && ($scope.selectedLevel == null)){
+                    $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(5)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedDeliveryType.toLowerCase()) == true) && ($(this).find("td:nth-child(6)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedRole.toLowerCase()) == true)});                    
+                }else if(($scope.selectedDeliveryType != null) && ($scope.selectedRole == null) && ($scope.selectedLevel != null)){
+                    $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(5)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedDeliveryType.toLowerCase()) == true) && ($(this).find("td:nth-child(8)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedLevel.toLowerCase()) == true)});                      
+                }else if(($scope.selectedDeliveryType == null) && ($scope.selectedRole == null) && ($scope.selectedLevel != null)){
+                    $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(8)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedLevel.toLowerCase()) == true)});  
+                }else if(($scope.selectedDeliveryType == null) && ($scope.selectedRole != null) && ($scope.selectedLevel == null)){
+                    $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(6)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedRole.toLowerCase()) == true)}); 
+                }else if(($scope.selectedDeliveryType == null) && ($scope.selectedRole != null) && ($scope.selectedLevel != null)){
+                    $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(6)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedRole.toLowerCase()) == true) && ($(this).find("td:nth-child(8)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedLevel.toLowerCase()) == true)}); 
+                }else if(($scope.selectedDeliveryType != null) && ($scope.selectedRole != null) && ($scope.selectedLevel != null)){
+                    $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(5)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedDeliveryType.toLowerCase()) == true) && ($(this).find("td:nth-child(6)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedRole.toLowerCase()) == true) && ($(this).find("td:nth-child(8)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedLevel.toLowerCase()) == true)}); 
+
+                }
+                if($scope.getCourseRowData.length == 0){
+                    jive_widget_container_large.find(".masterDocument tbody").html(noDataFound);
+                }else{
+                    jive_widget_container_large.find(".masterDocument tbody").html($scope.getCourseRowData);
+                }
+
+            };
+            
+            $scope.searchCourse = function (event) {
+                $scope.getCourseRowData.filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf($(event.target).val().toLowerCase()) > -1);
+                });
+            };
+             
+        });
+            
+    </script>
+    <style type="text/css">
+        .RSAArcherSuiteIcon {background-image: url(https://community.rsa.com/resources/statics/231635/RSAArcherSuiteIcon.png?a=1556696933613);background-repeat: no-repeat; background-position: center center; background-size: 80%; height: 120px; width: 120px; float: left;}
+        .RSAFraudRiskIntelligenceSuiteIcon {background-image: url(https://community.rsa.com/resources/statics/231635/RSAFraudRiskIntelligenceSuiteIcon.png?a=1556696925785); background-repeat: no-repeat; background-position: center center; background-size: 80%; height: 120px; width: 120px; float: left;}
+        .RSAIdentityGovernanceLifecycleIcon {background-image: url(https://community.rsa.com/resources/statics/231635/IdentityGovernanceLifecycleIcon.png?a=1556696901865);background-repeat: no-repeat;background-position: center center;background-size: 80%;height: 120px;width: 120px;float: left;}
+        .RSANetWitnessPlatformIcon {background-image: url(https://community.rsa.com/resources/statics/231635/RSANetWitnessPlatformIcon.png?a=1556696919276);background-repeat: no-repeat;background-position: center center;background-size: 80%;height: 120px;width: 120px;float: left;}
+        .RSASecurIDAccessIcon {background-image: url(https://community.rsa.com/resources/statics/231635/RSASecurIDAccessIcon.png?a=1556696910809);background-repeat: no-repeat;background-position: center center;background-size: 80%;height: 120px;width: 120px;float: left;}
+        .poLearningAcademyIcon {background-image: url(https://community.rsa.com/resources/statics/231635/productOperationsLearningAcademyIcon.png?a=1556805577978);background-repeat: no-repeat;background-position: center center;background-size: 80%;height: 120px;width: 120px;float: left;}
+        
+        .wrapper1 {font-family: Arial;background-color: #eeeff0;position: relative;width: 99.3%;margin-left: 3px;margin-top: 10px;height: 230px;border: 1px #be3a34 solid;}
+        a[data-role=button] {font-size: 12px;top: 30%;text-align: center;border-radius: 0px;line-height: 25px;width: 88%;font-weight: bold;display: inline-block;vertical-align: middle;font-family: Arial,sans-serif;margin-bottom: 10px;position: relative;text-transform: none;background-color: #802629;border: 1px solid #802629;color: #fff;text-decoration: none;transition: background-color .25s ease-out, color .25s ease-out;}
+        a[data-role=button]:hover {background-color: #fff;border: 1px solid #802629;color: #802629;}
+
+        .text{text-align: center;margin-top: -5px;font-size: 18px;}
+        .text a{text-decoration: none;color: #337ab7; line-height: 1.7em;}
+        .text a:hover, .text a:focus, .text a:active {color: #337ab7;fill: #337ab7;font-weight: bold;text-decoration: none;outline: none;cursor:pointer;}
+        .wrapper {font-family: Arial;position: relative;width: 99%;margin-left: 3px;height: 240px;margin-top: -0.6%;border: 3px #be3a34 solid;}
+        .name h2{color:#be3a34;font-family: inherit;font-style: inherit;margin-top: 10px;margin-bottom: 5px;font-weight: bold;font-size: 23px}
+        .testimonial {width: 30%;background-color: #eeeff0;margin-right: 1.5%;margin-left: 1.5%;margin-top: 1.5%;float: left;text-align: center;height: 205px;border: solid 1px #eee;cursor: auto;}
+        .testimonial1 {width: 97%;background-color: #eeeff0;margin-right: 1.5%;margin-left: 1.5%;margin-top: 1.5%;float: left;text-align: center;/*height: 205px;*/border: solid 1px #eee;cursor: auto;text-align: left;}
+        .arrow-up {margin-left: 43%;margin-bottom: -5%;width: 0;height: 0;border-left: 25px solid transparent;border-right: 25px solid transparent;border-bottom: 25px solid #be3a34;}
+        /* Float Shadow */
+        .rkcIconLink {display: inline-block;vertical-align: middle;-webkit-transform: perspective(1px) translateZ(0);transform: perspective(1px) translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);position: relative;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform;transition-property: transform;cursor: pointer;}
+        .rkcIconLink:before {pointer-events: none;position: absolute;z-index: -1;content: '';top: 100%;left: 5%;height: 10px;width: 90%;opacity: 0;background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);/* W3C */-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform, opacity;transition-property: transform, opacity;}
+        .rkcIconLink:hover, .rkcIconLink:focus, .rkcIconLink:active {-webkit-transform: translateY(-5px);transform: translateY(-5px);}
+        .rkcIconLink:hover:before, .rkcIconLink:focus:before, .rkcIconLink:active:before {opacity: 1; -webkit-transform: translateY(5px);15 transform: translateY(5px);}
+        .rkcIcon {margin-left: auto;margin-right: auto;display: block;max-width: 100%;vertical-align: top;}
+        .text1 {text-align: justify;padding-top: 10px;font-size: 16px;}
+
+        .selcls { 
+                border: solid 1px #517B97; 
+                outline: 0; 
+                background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #CAD9E3), to(#FFFFFF)); 
+                background: -moz-linear-gradient(top, #FFFFFF, #CAD9E3 1px, #FFFFFF 25px); 
+                box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+                -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+                -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+                display: inline !important;
+                justify-content: center !important;
+                width: 80%;
+                margin-top: 15px;
+                } 
+    </style>
+
+
+    <div ng-app="ngMasterApp" ng-controller="ngApp">
+      <div class="row">
+        <div class="col-sm-3">
             <a class="rkcIconLink">
-                <img onclick="getMenuList('knowledge-base')" class="rkcIcon" src="/resources/statics/231635/Customer%2BSupport.png?a=1554747955623" />
+                <img class="rkcIcon" src="/resources/statics/231635/Customer%2BSupport.png?a=1554747955623" ng-click="filterByAudience('cs')">
             </a><br/>
-            <div class="arrow-up customer-support-tab"></div>
-        </td>
-        <td>
+        </div>
+        <div class="col-sm-3">
             <a class="rkcIconLink">
-                <img onclick="getMenuList('rsa-link')" class="rkcIcon" src="/resources/statics/231635/professional-services.png?a=1554748000436" />
+                <img class="rkcIcon" src="/resources/statics/231635/professional-services.png?a=1554748000436" ng-click="filterByAudience('ps')">
             </a><br/>
-            <div class="arrow-up professional-services-tab"></div>
-        </td>
-        <td>
+        </div>
+        <div class="col-sm-3">
             <a class="rkcIconLink">
-                <img onclick="getMenuList('reports-dashboards')" class="rkcIcon" src="/resources/statics/231635/IT_support.png?a=1554890961870" />
+                <img class="rkcIcon" src="/resources/statics/231635/IT_support.png?a=1554890961870" ng-click="filterByAudience('it')">
             </a><br/>
-            <div class="arrow-up it-operations-tab"></div>
-        </td>
-        <td>
+        </div>
+        <div class="col-sm-3">
             <a class="rkcIconLink">
-                <img onclick="getMenuList('tools-resources')" class="rkcIcon" src="/resources/statics/231635/Education_Services.png?a=1554890965347"/>
+                <img class="rkcIcon" src="/resources/statics/231635/Education_Services.png?a=1554890965347" ng-click="filterByAudience('es')">
             </a><br/>
-            <div class="arrow-up education-services-tab"></div>
-        </td>        
-    </tr>
-</table>
-<!-- Customer Support -->
-<div class="wrapper customer-support-tab">
-    <div class="testimonial">
-      <div class="name">
-        <h2>RSA PRODUCT</h2>
+        </div>
       </div>
-      <div class="text">
-        <a href="#" target="_top">RSA Archer<sup>&reg;</sup> Suite</a><br/>
-        <a href="#" target="_top">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</a><br/>
-        <a href="#" target="_top">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</a><br/>
-        <a href="#" target="_top">RSA NetWitness<sup>&reg;</sup> Platform</a><br />
-        <a href="#" target="_top">RSA SecurID<sup>&reg;</sup> Access</a>
+      
+      
+      <div class="row">
+        <div class="col-sm-3">
+            <div class="arrow-up" ng-show="csTab"></div>
+        </div>
+        <div class="col-sm-3">
+            <div class="arrow-up" ng-show="psTab"></div>
+        </div>
+        <div class="col-sm-3">
+            <div class="arrow-up" ng-show="itTab"></div>
+        </div>
+        <div class="col-sm-3">
+            <div class="arrow-up" ng-show="esTab"></div>
+        </div>
       </div>
-    </div>
-    <div class="bar"></div>
-    <div class="testimonial">
-      <div class="name">
-        <h2>JOB SKILLS</h2>
+      <div class="row"><div class="col-sm-12">&nbsp;</div></div>
+      <div class="row">
+        <!-- csTab -->
+        <div class="col-sm-12" ng-show="csTab">
+            <div class="wrapper customer-support-tab">
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>RSA PRODUCT</h2>
+                  </div>
+                  <div class="text">
+                    <!-- <a ng-click="filterByProduct('arch')">RSA Archer<sup>&reg;</sup> Suite</a><br/>
+                    <a ng-click="filterByProduct('aa')">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</a><br/>
+                    <a ng-click="filterByProduct('igl')">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</a><br/>
+                    <a ng-click="filterByProduct('nw')">RSA NetWitness<sup>&reg;</sup> Platform</a><br />
+                    <a ng-click="filterByProduct('sida')">RSA SecurID<sup>&reg;</sup> Access</a> -->
+                    <select class="form-control selcls" name="roles" ng-options="product.value as product.text for product in rsaProduct" ng-change="filterByProduct(selectedProduct)" ng-model="selectedProduct">
+                            <option value="">--Select Product--</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="bar"></div>
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>JOB SKILLS</h2>
+                  </div>
+                  <div class="text">
+                    <a ng-click="filterByProduct('learningAcademy')">P&O Academy</a><br/>        
+                  </div>
+                </div>
+                <div class="bar"></div>                
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>TOOLS TRAINING</h2>
+                  </div>
+                  <div class="text">
+                    <a ng-click="filterByProduct('linkSeries')">RSA Link Series</a><br/>        
+                  </div>
+                </div>
+            </div>
+        </div>
+        <!-- psTab -->
+        <div class="col-sm-12" ng-show="psTab">
+            <div class="wrapper customer-support-tab">
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>RSA PRODUCT</h2>
+                  </div>
+                  <div class="text">
+                    <select class="form-control selcls" name="roles" ng-options="product.value as product.text for product in rsaProduct" ng-change="filterByProduct(selectedProduct)" ng-model="selectedProduct">
+                            <option value="">--Select Product--</option>
+                    </select>
+                    <!-- <a ng-click="filterByProduct('arch')">RSA Archer<sup>&reg;</sup> Suite</a><br/>
+                    <a ng-click="filterByProduct('aa')">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</a><br/>
+                    <a ng-click="filterByProduct('igl')">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</a><br/>
+                    <a ng-click="filterByProduct('nw')">RSA NetWitness<sup>&reg;</sup> Platform</a><br />
+                    <a ng-click="filterByProduct('sida')">RSA SecurID<sup>&reg;</sup> Access</a> -->
+                  </div>
+                </div>
+                <div class="bar"></div>
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>JOB SKILLS</h2>
+                  </div>
+                  <div class="text">
+                    <a ng-click="filterByProduct('learningAcademy')">P&O Academy</a><br/>        
+                  </div>
+                </div>
+                <div class="bar"></div>                
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>TOOLS TRAINING</h2>
+                  </div>
+                  <div class="text">
+                    <a href="mailto:rsa.gs.training@rsa.com">Submit Training Request</a><br/>        
+                  </div>
+                </div>
+            </div>
+        </div>
+        <!-- itTab -->
+        <div class="col-sm-12" ng-show="itTab">
+                <div class="wrapper customer-support-tab">
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>RSA PRODUCT</h2>
+                  </div>
+                  <div class="text">
+                    <a href="mailto:rsa.gs.training@rsa.com">Submit Training Request</a><br/>        
+                  </div>
+                </div>
+                <div class="bar"></div>
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>JOB SKILLS</h2>
+                  </div>
+                  <div class="text">
+                    <a ng-click="filterByProduct('learningAcademy')">P&O Academy</a><br/>        
+                  </div>
+                </div>
+                <div class="bar"></div>                
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>TOOLS TRAINING</h2>
+                  </div>
+                  <div class="text">
+                    <a href="mailto:rsa.gs.training@rsa.com">Submit Training Request</a><br/>        
+                  </div>
+                </div>
+            </div>
+        </div>
+        <!-- esTab -->
+        <div class="col-sm-12" ng-show="esTab">
+            <div class="wrapper customer-support-tab">
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>RSA PRODUCT</h2>
+                  </div>
+                  <div class="text">
+                    <!-- <a ng-click="filterByProduct('arch')">RSA Archer<sup>&reg;</sup> Suite</a><br/>
+                    <a ng-click="filterByProduct('aa')">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</a><br/>
+                    <a ng-click="filterByProduct('igl')">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</a><br/>
+                    <a ng-click="filterByProduct('nw')">RSA NetWitness<sup>&reg;</sup> Platform</a><br />
+                    <a ng-click="filterByProduct('sida')">RSA SecurID<sup>&reg;</sup> Access</a> -->
+                    <select class="form-control selcls" name="roles" ng-options="product.value as product.text for product in rsaProduct" ng-change="filterByProduct(selectedProduct)" ng-model="selectedProduct">
+                            <option value="">--Select Product--</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="bar"></div>
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>JOB SKILLS</h2>
+                  </div>
+                  <div class="text">
+                    <a ng-click="filterByProduct('ESjobSkillDesigners')">Instructional Designers</a><br/>        
+                  </div>
+                  <div class="text">
+                    <a ng-click="filterByProduct('ESjobSkillTrainers')">Training Facilitators</a><br/>        
+                  </div>
+                </div>
+                <div class="bar"></div>                
+                <div class="testimonial">
+                  <div class="name">
+                    <h2>TOOLS TRAINING</h2>
+                  </div>
+                  <div class="text">
+                    <a ng-click="filterByProduct('EStoolDesigners')">Instructional Designers</a><br/>        
+                  </div>
+                  <div class="text">
+                    <a ng-click="filterByProduct('EStoolTrainers')">Training Facilitators</a><br/>        
+                  </div>
+                </div>
+            </div>
+        </div>
       </div>
-      <!-- <div class="text">
-        <a href="#" target="_top">Articles about RSA Link</a><br/>
-        <a href="#" target="_top">Find a Product Knowledge Base</a><br/>
-        <a href="#" target="_top">Linking Articles to Cases</a><br/>
-        <a href="#" target="_top">Marking Articles as Obsolete</a><br/>
-        <a href="#" target="_top">Search Tips & Tricks</a>
-      </div> -->
-    </div>
-    <div class="bar"></div>
-    <div class="testimonial">
-      <div class="name">
-        <h2>TOOLS TRAINING</h2>
+      <div class="row" ng-show="knowAboutProduct">
+        <div class="col-sm-12">
+            <div class="wrapper1">
+                <div class="testimonial1">
+                    <div class="name">
+                        <h2 ng-show="arch">RSA Archer<sup>&reg;</sup> Suite</h2>
+                        <h2 ng-show="aa">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</h2>
+                        <h2 ng-show="igl">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</h2>
+                        <h2 ng-show="nw">RSA NetWitness<sup>&reg;</sup> Platform</h2>
+                        <h2 ng-show="sida">RSA SecurID<sup>&reg;</sup> Access</h2>
+                        <h2 ng-show="learningAcademy">PRODUCT & OPERATIONS ACADEMY</h2>
+                        <h2 ng-show="linkSeries">RSA Link Series</h2>
+                        <h2 ng-show="ESjobSkillDesigners">Instructional Designers</h2>
+                        <h2 ng-show="EStoolDesigners">Instructional Designers</h2>
+                        <h2 ng-show="ESjobSkillTrainers">Trainers</h2>
+                        <h2 ng-show="EStoolTrainers">Trainers</h2>
+                    </div>
+                    <div class="RSAArcherSuiteIcon" ng-show="arch"></div>
+                    <div class="RSAFraudRiskIntelligenceSuiteIcon" ng-show="aa"></div>
+                    <div class="RSAIdentityGovernanceLifecycleIcon" ng-show="igl"></div>
+                    <div class="RSANetWitnessPlatformIcon" ng-show="nw"></div>
+                    <div class="RSASecurIDAccessIcon" ng-show="sida"></div>
+                    <div class="poLearningAcademyIcon" ng-show="learningAcademy"></div>
+                    <div class="text1" ng-show="arch">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    <div class="text1" ng-show="aa">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    <div class="text1" ng-show="igl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    <div class="text1" ng-show="nw">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    <div class="text1" ng-show="sida">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    <div class="text1" ng-show="learningAcademy" style="font-weight: bold;">The Product & Operations Learning Academy provides structured learning plans defined by Customer Support Leadership. The P&O Learning Academy portal makes it easy for learners and their managers to access learning plans by role. Learning plans cover functional training and backend technologies, business acumen, leadership, and personal/interpersonal skills. Training courses are delivered through on-demand eLearnings, Instructor-led and Virtual Instructor-led modalities. Click the More Details button below to get started. Some restrictions may apply.</div>
+                    <div class="text1" ng-show="linkSeries" style="font-weight: bold;">The RSA Link Series provides training and best practices for knowledge base article writing and customer self-service capabilities.</div>
+                    <div class="text1" ng-show="ESjobSkillDesigners" style="font-weight: bold;">This pathway provides training on job skills used for instructional designers of RSA education services</div>
+                    <div class="text1" ng-show="EStoolDesigners" style="font-weight: bold;">This pathway provides training on tools used for instructional designers of RSA education service.</div>
+                    <div class="text1" ng-show="ESjobSkillTrainers" style="font-weight: bold;">This pathway provides training on job skills used for training facilitators of RSA education services.</div>
+                    <div class="text1" ng-show="EStoolTrainers" style="font-weight: bold;">This pathway provides training on tools used for training facilitators of RSA education services.</div>
+                    <a ng-show="learningAcademy" class="discButton" data-role="button" style="float: right;width: 8%;"  target="_parent" href="https://community.rsa.com/community/internal/global-services/ed-services/rsa-link-workshop">More Details</a>
+                    <a ng-show="linkSeries" class="discButton" data-role="button" style="float: right;width: 8%;margin-top:8%"  target="_parent" href="https://community.rsa.com/community/internal/global-services/ed-services/rsa-link-workshop">More Details</a>
+                    <a ng-show="ESjobSkillDesigners" class="discButton" data-role="button" style="float: right;width: 8%;top: 50px;"  target="_parent" href="https://learningstudio.dell.com/pathways/instructional-designer-skills">More Details</a>
+                    <a ng-show="EStoolDesigners" class="discButton" data-role="button" style="float: right;width: 8%;top: 50px;"  target="_parent" href="https://learningstudio.dell.com/pathways/rsa-education-services-instructional-designers">More Details</a>
+                    <a ng-show="ESjobSkillTrainers" class="discButton" data-role="button" style="float: right;width: 8%;top: 50px;"  target="_parent" href="https://learningstudio.dell.com/pathways/training-facilitator-skills">More Details</a>
+                    <a ng-show="EStoolTrainers" class="discButton" data-role="button" style="float: right;width: 8%;top: 50px;"  target="_parent" href="https://learningstudio.dell.com/pathways/training-facilitator-tools">More Details</a>
+                </div>
+            </div>
+        </div>
       </div>
-      <!-- <div class="text">
-        <a href="#" target="_top">Article Best Practices</a><br/>
-        <a href="#" target="_top">Creating an Article</a><br/>
-        <a href="#" target="_top">Performing Technical Reviews</a><br/>
-        <a href="#" target="_top">Updating Existing Articles</a><br/>
-        <a href="#" target="_top">Writing Tips & Tricks</a>
-      </div> -->
-    </div>
-</div>
-<!-- Professional Services -->
-<div class="wrapper professional-services-tab">
-    <div class="testimonial">
-      <div class="name">
-        <h2>RSA PRODUCT</h2>
-      </div>
-      <div class="text">
-        <a href="#" target="_top">RSA Archer<sup>&reg;</sup> Suite</a><br/>
-        <a href="#" target="_top">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</a><br/>
-        <a href="#" target="_top">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</a><br/>
-        <a href="#" target="_top">RSA NetWitness<sup>&reg;</sup> Platform</a><br />
-        <a href="#" target="_top">RSA SecurID<sup>&reg;</sup> Access</a>
-      </div>
-    </div>
-    <div class="bar"></div>
-    <div class="testimonial">
-      <div class="name">
-        <h2>JOB SKILLS</h2>
-      </div>
-      <!-- <div class="text">
-        <a href="#" target="_top">Community Participation</a><br/>
-        <a href="#" target="_top">Blogging & Moderation</a><br/>
-        <a href="#" target="_top">Navigating the Website</a><br/>
-        <a href="#" target="_top">Search Tips & Tricks</a><br/>
-        <a href="#" target="_top">Tutorials & Demonstration</a>
-      </div> -->
-    </div>
-    <div class="bar"></div>
-    <div class="testimonial">
-      <div class="name">
-        <h2>TOOLS TRAINING</h2>
-      </div>
-      <!-- <div class="text">
-        <a href="#" target="_top">Active & Completed Projects</a><br/>
-        <a href="#" target="_top">Provide Feedback</a><br/>
-        <a href="#" target="_top">Submit an Enhancement Request</a><br/>
-        <a href="#" target="_top">Upcoming Events & Workshops</a><br/>
-      </div> -->
-    </div>
-</div>
-<!-- IT Operations -->
-<div class="wrapper it-operations-tab">
-    <div class="testimonial">
-      <div class="name">
-        <h2>RSA PRODUCT</h2>
-      </div>
-      <div class="text">
-        <a href="#" target="_top">RSA Archer<sup>&reg;</sup> Suite</a><br/>
-        <a href="#" target="_top">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</a><br/>
-        <a href="#" target="_top">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</a><br/>
-        <a href="#" target="_top">RSA NetWitness<sup>&reg;</sup> Platform</a><br />
-        <a href="#" target="_top">RSA SecurID<sup>&reg;</sup> Access</a>
-      </div>
-    </div>
-    <div class="bar"></div>
-    <div class="testimonial">
-      <div class="name">
-        <h2>JOB SKILLS</h2>
-      </div>
-      <!-- <div class="text">
-        <a href="#" target="_top">Monthly Metrics</a><br/>
-      </div> -->
-    </div>
-    <div class="bar"></div>
-    <div class="testimonial">
-      <div class="name">
-        <h2>TOOLS TRAINING</h2>
-      </div>
-      <!-- <div class="text">
-        <a href="#" target="_top">Active Users Reports</a><br/>
-        <a href="#" target="_top">Advisory Reports</a><br/>
-        <a href="#" target="_top">Community Reports</a><br/>
-        <a href="#" target="_top">Knowledge Base Reports</a><br/>
-        <a href="#" target="_top">RSA Exchange Reports</a><br/>
-        <a href="#" target="_top">RSA Ready Reports</a><br/>
-        <a href="#" target="_top">User & Group Reports</a>
-      </div> -->
-    </div>
-</div>
-<!-- Education Services -->
-<div class="wrapper education-services-tab">
-    <div class="testimonial">
-      <div class="name">
-        <h2>RSA PRODUCT</h2>
-      </div>
-      <div class="text">
-        <a href="#" target="_top">RSA Archer<sup>&reg;</sup> Suite</a><br/>
-        <a href="#" target="_top">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</a><br/>
-        <a href="#" target="_top">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</a><br/>
-        <a href="#" target="_top">RSA NetWitness<sup>&reg;</sup> Platform</a><br />
-        <a href="#" target="_top">RSA SecurID<sup>&reg;</sup> Access</a>
-      </div>
-    </div>
-    <div class="bar"></div>
-    <div class="testimonial">
-      <div class="name">
-        <h2>JOB SKILLS</h2>
-      </div>
-      <!-- <div class="text">
-        <a href="#" target="_top">Request a New Subspace</a><br/>
-        <a href="#" target="_top">Request a Service Account</a><br/>
-        <a href="#" target="_top">Submit a Rotating Banner</a>
-      </div> -->
-    </div>
-    <div class="bar"></div>
-    <div class="testimonial">
-      <div class="name">
-        <h2>TOOLS TRAINING</h2>
-      </div>
-      <!-- <div class="text">
-        <a href="#" target="_top">Knowledge Base Articles about RSA Link</a><br/>
-        <a href="#" target="_top">RSA Link Admin Portal</a><br/>
-        <a href="#" target="_top">Staging Areas</a>
-      </div> -->
-    </div>
-</div>
+      <div class="row"><div class="col-sm-12"><level>&nbsp;</level></div></div>
+      <div class="row" ng-show="filterRowDetails">
+        <div class="col-sm-3">
+            <label for="usr">COURSE</label>
+            <input ng-keyup="searchCourse($event)" type="text" class="form-control" id="course" placeholder="Enter Search Criteria Here" ng-model="courseInput">
+        </div>
+        <div class="col-sm-3">
+          <label for="sel1">DELIVERY TYPE</label>
+          <select class="form-control" name="deliveryType" ng-options="type.value as type.text for type in deliveryType" ng-change="filterByColumn()" ng-model="selectedDeliveryType">
+                <option value="">--Select Delivery Type--</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <label for="sel2">ROLE</label>
+          <select class="form-control" name="roles" ng-options="role.value as role.text for role in roles" ng-change="filterByColumn()" ng-model="selectedRole">
+                <option value="">--Select Role--</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <label for="sel3">LEVEL</label>
+          <select class="form-control" name="levels" ng-options="level.value as level.text for level in levels" ng-change="filterByColumn()" ng-model="selectedLevel">
+                <option value="">--Select Level--</option>
+          </select>
 
-<script type="text/javascript">
-    var $j = jQuery.noConflict();
-    $j(document).ready(function(){
-      $j('.customer-support-tab, .it-operations-tab, .education-services-tab').addClass("displayNone");
-      setTimeout(resizeMe,0);
-    });
-    function getMenuList(menu) {
-      if(menu == 'knowledge-base'){
-        $j('.customer-support-tab').css('display', "block");
-        $j('.professional-services-tab, .it-operations-tab, .education-services-tab').css('display', "none");
-      } else if(menu == 'rsa-link'){
-        $j('.customer-support-tab, .it-operations-tab, .education-services-tab').css('display', "none");
-        $j('.professional-services-tab').css('display', "block");
-      } else if(menu == 'reports-dashboards'){
-        $j('.customer-support-tab, .professional-services-tab, .education-services-tab').css('display', "none");
-        $j('.it-operations-tab').css('display', "block");
-      } else if(menu == 'tools-resources'){
-        $j('.customer-support-tab, .professional-services-tab, .it-operations-tab').css('display', "none");
-        $j('.education-services-tab').css('display', "block");
-      } 
-      //setTimeout(resizeMe,0);
-    }
-</script>
+        </div>
+      </div>
+    
+ </div>
 
-<style>
-.bar{width: 2px;
-    background-color: #b93833;
-    float: left;
-    height: 200px;
-    margin-top: 1.6%;}
-.arrow-up {
-  margin-left: 43%;
-  margin-bottom: -5%;
-  width: 0; 
-  height: 0; 
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;  
-  border-bottom: 25px solid #be3a34;
-}
-.displayNone{display: none}
-.wrapper {font-family: Arial;
-  position: relative;
-  width: 99%;margin-left: 3px;
-  height: 240px;border: 3px #be3a34 solid;
-}
-.name h2{color:#be3a34;font-family: inherit;font-style: inherit;margin-top: 15px;margin-bottom: 5px;}
-.testimonial {
-    width: 30%;
-    background-color: #eeeff0;
-    margin-right: 1.5%;
-    margin-left: 1.5%;
-    margin-top: 1.5%;
-    float: left;
-    text-align: center;
-    height: 205px;
-    border: solid 1px #eee;
-    cursor: auto;
-}
 
-.text{text-align: center;margin-top: -5px;}
-.text a{text-decoration: none;color: #415464; line-height: 1.35em;}
-.text a:hover, 
-.text a:focus, 
-.text a:active {
-    color: #415464;
-    fill: #415464;
-    font-weight: bold;
-    text-decoration: none;
-    outline: none;
-}
 
-/* Float Shadow */
-.rkcIconLink {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-}
-.rkcIconLink:before {
-  pointer-events: none;
-  position: absolute;
-  z-index: -1;
-  content: '';
-  top: 100%;
-  left: 5%;
-  height: 10px;
-  width: 90%;
-  opacity: 0;
-  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
-  /* W3C */
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform, opacity;
-  transition-property: transform, opacity;
-}
-.rkcIconLink:hover, .rkcIconLink:focus, .rkcIconLink:active {
-  -webkit-transform: translateY(-5px);
-  transform: translateY(-5px);
-  /* move the element up by 5px */
-}
-.rkcIconLink:hover:before, .rkcIconLink:focus:before, .rkcIconLink:active:before {
-  opacity: 1;
-  -webkit-transform: translateY(5px);
-  transform: translateY(5px);
-  /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
-}
-
-#rkcIconTable {
-    width: 100%;
-    border: 0px;
-    margin-bottom: 10px
-}
-#rkcIconTable td {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-#rkcIconTable td:first-child {
-    padding-left: 0px;
-}
-#rkcIconTable td:last-child {
-    padding-right: 0px;
-}
-.rkcIcon {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    max-width: 100%;
-    vertical-align: top;
-}
-</style>
