@@ -266,7 +266,16 @@ tr.rsaIdeas.ideasTableRow:nth-child(5) {
 }
 
 /*
- *  2.5 - Current Events and News Feeds
+ *  2.5 - Active Maintenance Contracts
+ */
+
+/* Reset the background to transparent */
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    background-color: transparent;
+}
+
+/*
+ *  2.6 - Current Events and News Feeds
  */
 
 /* Style the RSS Feed Widget */
