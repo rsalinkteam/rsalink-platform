@@ -1,15 +1,36 @@
 /*	
 Website:        RSA Link
 Iteration:      Nov 2018 Redesign
-Scope:          GCS50 Customer 360 Summary Pages
+Scope:          RSA Select Customer 360 Summary Pages
 Author:         Jeff Shurtliff
 Last Editor:    Jeff Shurtliff
-Last Updated:   13 Jun 2019
+Last Updated:   19 Jul 2019
+
+TABLE OF CONTENTS:
+    1.0 - Title Section
+        1.1 - Main Banner
+        1.2 - Search Bar
+    2.0 - Left Column
+        2.1 - General
+        2.2 - Company Information
+        2.3 - Case Summary Report
+        2.4 - RSA Ideas
+        2.5 - Current Events and News Feeds
+    3.0 - Right Column
+        3.1 - General
+        3.2 - Quick Facts
+        3.3 - Status Reports
+            3.3.1 - Bi-Weekly Status Reports
+            3.3.2 - TAM Status Reports
 */
 
-/*******************
- *   MAIN BANNER   *
- *******************/
+/***************************
+ *   1.0 - TITLE SECTION   *
+ ***************************/
+
+/*
+ *  1.1 - Main Banner
+ */
 
 /* Add the background image of the main banner */
 #mainBanner {
@@ -40,10 +61,9 @@ h1#mainBanner-title sup {
     font-size: 50px;
 }
 
-
-/******************
- *   SEARCH BAR   *
- ******************/
+/*
+ *  1.2 - Search Bar
+ */
 
 /* Hide search widget header */
 .jive-widget-searchwidget .jive-widget-header {
@@ -101,11 +121,15 @@ h1#mainBanner-title sup {
     color: #fefefe;
 }
 
-/*******************
- *   LEFT COLUMN   *
- *******************/
+/*************************
+ *   2.0 - LEFT COLUMN   *
+ *************************/
  
-/* Make widget header text smaller */
+/*
+ *  2.1 - General
+ */
+
+ /* Make widget header text smaller */
 h4.jive-widget-handle {
     font-size: 84%;
 }
@@ -116,35 +140,6 @@ h4.jive-widget-handle {
 }
 #jive-widget-container_2 .jive-widget-formattedtextwidget td a.jive-link-external-small:hover {
     font-weight: bold;
-}
-
-
-/* Style the Company Information section */
-#jive-widget-container_2 .jive-widget-htmltextwidget .jive-widget-header {
-    background-color: #802629;
-}
-#jive-widget-container_2 .jive-widget-htmltextwidget {
-    background-color: #eeeff0;
-}
-#companyInfoTable {
-	border: 0px;
-	width: 100%;
-}
-#companyInfoTable td {
-	vertical-align: middle;
-}
-#companyInfoTable .textCol {
-	margin-top: 20px;
-	min-width: 50%;
-}
-#companyInfoTable a {
-	font-weight: bold;
-	font-size: 14px;
-}
-#companyInfoTable img {
-	float: right;
-	max-height: 200px;
-	max-width: 400px;
 }
 
 /* Change the header color for all subsequent widgets */
@@ -160,16 +155,6 @@ h4.jive-widget-handle {
     background-color: #415464;
 }
 
-/* Add border around case summaries screenshots */
-#jive-widget-container_2 .jive-widget-formattedtextwidget img {
-    border: solid;
-    width: 99%;
-}
-#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget img {
-    border: 0;
-    width: auto;
-}
-
 /* Remove external icon */
 .jive-link-external-small:after {
 	display: none;
@@ -178,31 +163,9 @@ h4.jive-widget-handle {
 	padding-right: 0;
 }
 
-/* Style the RSS Feed Widget */
-.jive-widget-rssfeed-entry {
-    padding: 1px 10px 10px 10px;
-    margin: 0;
-}
-.jive-widget-rssfeed-entry:nth-child(even) {
-    border-top: 1px solid #eeeff0;
-    border-bottom: 1px solid #eeeff0;
-}
-.jive-widget-rssfeed a {
-    font-size: 16px;
-	font-family: Arial, sans-serif;
-}
-.jive-widget-rssfeed-entry-body {
-    color: #232222;
-    font-size: 13px;
-	font-family: Arial, sans-serif;
-}
-.jive-widget-rss .jive-widget-body {
-    margin-top: -10px;
-}
-a.statusrss.font-color-meta-light {
-    display: none;
-}
-.jive-content-filter {
+/* Hide author and avatar */
+#jive-widget-container_2 td.jive-table-cell-author,
+#jive-widget-container_2 img.jive-avatar {
     display: none;
 }
 
@@ -235,9 +198,113 @@ a[data-role=button]:hover {
     color: #802629;
 }
 
-/*******************
- *   RIGHT COLUMN   *
- *******************/
+/*
+ *  2.2 - Company Information
+ */
+
+/* Style the Company Information section */
+#jive-widget-container_2 .jive-widget-htmltextwidget .jive-widget-header {
+    background-color: #802629;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget {
+    background-color: #eeeff0;
+}
+#companyInfoTable {
+	border: 0px;
+	width: 100%;
+}
+#companyInfoTable td {
+	vertical-align: middle;
+}
+#companyInfoTable .textCol {
+	margin-top: 20px;
+	min-width: 50%;
+}
+#companyInfoTable a {
+	font-weight: bold;
+	font-size: 14px;
+}
+#companyInfoTable img {
+	float: right;
+	max-height: 200px;
+	max-width: 400px;
+}
+
+/*
+ *  2.3 - Case Summary Report
+ */
+
+/* Add border around case summary graphics */
+#jive-widget-container_2 .jive-widget-formattedtextwidget img {
+    border: solid;
+    width: 99%;
+}
+#jive-widget-container_2 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget img {
+    border: 0;
+    width: auto;
+}
+
+/*
+ *  2.4 - RSA Ideas
+ */
+
+/* Display only the first 5 ideas in the RSA Ideas widget (automated widgets only) */
+tr.rsaIdeas.ideasTableRow {
+    display: none;
+}
+tr.rsaIdeas.ideasTableRow:nth-child(1), 
+tr.rsaIdeas.ideasTableRow:nth-child(2), 
+tr.rsaIdeas.ideasTableRow:nth-child(3), 
+tr.rsaIdeas.ideasTableRow:nth-child(4), 
+tr.rsaIdeas.ideasTableRow:nth-child(5) {
+    display: table-row;
+}
+
+/* Hide extraneous <span> tags generated from the update_ideas.py script */
+.rsaIdeas.introText ~ span {
+    display: none;
+}
+
+/*
+ *  2.5 - Current Events and News Feeds
+ */
+
+/* Style the RSS Feed Widget */
+.jive-widget-rssfeed-entry {
+    padding: 1px 10px 10px 10px;
+    margin: 0;
+}
+.jive-widget-rssfeed-entry:nth-child(even) {
+    border-top: 1px solid #eeeff0;
+    border-bottom: 1px solid #eeeff0;
+}
+.jive-widget-rssfeed a {
+    font-size: 16px;
+	font-family: Arial, sans-serif;
+}
+.jive-widget-rssfeed-entry-body {
+    color: #232222;
+    font-size: 13px;
+	font-family: Arial, sans-serif;
+}
+.jive-widget-rss .jive-widget-body {
+    margin-top: -10px;
+}
+a.statusrss.font-color-meta-light {
+    display: none;
+}
+.jive-content-filter {
+    display: none;
+}
+
+
+/**************************
+ *   3.0 - RIGHT COLUMN   *
+ **************************/
+
+/*
+ *  3.1 - General
+ */
 
 /* Move View All widget closer to Status Reports widget */
 #jive-widget-container_3 .jive-widget-tagwidget {
@@ -274,6 +341,15 @@ a.jive-link-email-small {
     background-color: #eeeff0;
 }
 
+/* Hide the Watch a Tag widget labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/*
+ *  3.2 - Quick Facts
+ */
+
 /* Change header for Quick Facts table to red */
 #jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget table th,
 #jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-documentviewwidget table th {
@@ -285,6 +361,10 @@ a.jive-link-email-small {
     text-align: right;
 }
 
+/*
+ *  3.3 - Status Reports
+ */
+
 /* Style the bi-weekly status and TAM report hyperlinks */
 #jive-widget-container_3 .jive-widget-tagwidget li a {
     text-decoration: none;
@@ -293,55 +373,6 @@ a.jive-link-email-small {
     text-decoration: none;
     font-weight: bold;
     font-size: 13.5px;
-}
-
-/* Hide the Watch a Tag widget labels */
-.jive-widget-watchlabel {
-    display: none;
-}
-
-/* Update the Bi-Weekly Status Reports message when empty */
-.chrome #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p,
-.ff #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p,
-.opera #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p,
-.safari #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p {
-    visibility: hidden;
-}
-.chrome #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.ff #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.opera #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.safari #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after {
-    visibility: visible;
-    display: block;
-    content: 'No bi-weekly status reports have been uploaded at this time.';
-	text-align: center;
-    margin-top: -40px;
-    margin-bottom: -10px;
-}
-
-/* Update the TAM Reports message when empty */
-.chrome #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
-.ff #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
-.opera #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
-.safari #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p {
-    visibility: hidden;
-}
-.chrome #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.ff #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.opera #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.safari #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after {
-    visibility: visible;
-    display: block;
-    content: 'No TAM reports have been uploaded at this time.';
-	text-align: center;
-    margin-top: -40px;
-    margin-bottom: -10px;
-}
-
-/* Hide author and avatar */
-#jive-widget-container_2 td.jive-table-cell-author,
-#jive-widget-container_2 img.jive-avatar {
-    display: none;
 }
 
 /* Style the "View All" button */
@@ -372,4 +403,50 @@ a.allStatusReportsButton[data-role=button]:hover {
 /* Move View All widget closer to Status Reports widget */
 #jive-widget-container_3 .jive-widget-tagwidget {
     margin-bottom: -5px;
+}
+
+/*
+ *  3.3.1 - Bi-Weekly Status Reports
+ */
+
+/* Update the Bi-Weekly Status Reports message when empty */
+.chrome #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p,
+.ff #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p,
+.opera #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p,
+.safari #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p {
+    visibility: hidden;
+}
+.chrome #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after,
+.ff #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after,
+.opera #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after,
+.safari #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after {
+    visibility: visible;
+    display: block;
+    content: 'No bi-weekly status reports have been uploaded at this time.';
+	text-align: center;
+    margin-top: -40px;
+    margin-bottom: -10px;
+}
+
+/*
+ *  3.3.2 - TAM Status Reports
+ */
+
+/* Update the TAM Reports message when empty */
+.chrome #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
+.ff #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
+.opera #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
+.safari #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p {
+    visibility: hidden;
+}
+.chrome #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
+.ff #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
+.opera #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
+.safari #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after {
+    visibility: visible;
+    display: block;
+    content: 'No TAM reports have been uploaded at this time.';
+	text-align: center;
+    margin-top: -40px;
+    margin-bottom: -10px;
 }
