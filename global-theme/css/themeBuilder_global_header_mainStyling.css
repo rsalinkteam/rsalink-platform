@@ -124,6 +124,11 @@ a#jive-nav-link-logout:hover, a#jive-nav-link-logout:focus, a#jive-nav-link-logo
    background-color:#006095;
 }
 
+/* Increase the width of space breadcrumbs */
+.j-placeHeaderInner {
+    max-width: 770px;
+}
+
 
 /* ================================= */
 /* Jive Announcements Customizations */
