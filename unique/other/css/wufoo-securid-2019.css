@@ -4,8 +4,13 @@ Iteration:      Nov 2018 Redesign
 Scope:          RSA SecurID Suite Product Feedback
 Author:         Jeff Shurtliff
 Last Editor:    Jeff Shurtliff
-Last Updated:   17 Jul 2019
+Last Updated:   30 Jul 2019
 */
+
+/* Stretch the background image to fill the window */
+html {
+    background-size: cover;
+}
 
 /* Adjust the padding around the logo */
 #logo {
