@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module('ngchangeApp', []);
+    var $j = jQuery.noConflict();
+    var jive_widget_container_large = window.parent.$j(".jive-widget-container-large");
+    var noDataFound = '<tr id="noDataFound" style="height: 25px; background-color: #eeeff0;"><td colspan="7" style="width: 18%; height: 89px; font-size: 28px; vertical-align: middle; text-align: center;">NO DATA FOUND</td></tr>';
+    app.controller('ngApp', function($scope) {
+
+        //Declare scope variable for Delivery Type drop-down option 
+        //Filter deviceClasses
+        $scope.deviceClasses = []
+        $scope.tempDeviceClasses = [];
+        $scope.filterDeviceClasses = []; 
+
+        //Declare scope variable for Role drop-down option
+        $scope.categories = [];
+        $scope.tempCategories = [];
+        $scope.filterCategories = []; 
+        $scope.getProductRowData = []; 
+        $scope.getCourseRowData = [];
+        $scope.courseInput = "";
+        $scope.selectedDeviceClass = null;
+        $scope.selectedCategory = null;
+        $scope.selectedLevel = null;
+        $scope.noDataWrapper = true;
+        
+        $scope.init = function () {                
+            
+            $scope.getProductRowData = jive_widget_container_large.find(".nwIntegrationsMasterdocument tbody tr");
+            //Filter deviceClasses
+            angular.forEach($scope.getProductRowData.find("td:nth-child(6)"), function (value, key) { 
+                $scope.tempDeviceClasses.push($j(value).text()); 
+            });
+            $.each($scope.tempDeviceClasses.toString().split(','), function(i, el){
+                if(el != ""){
+                    if($.inArray(el, $scope.filterDeviceClasses) === -1) $scope.filterDeviceClasses.push(el);    
+                }                    
+            });
+            $scope.deviceClasses = $scope.filterDeviceClasses.sort();
+            
+            //Filter categories
+            angular.forEach($scope.getProductRowData.find("td:nth-child(7)"), function (value, key) { 
+                $scope.tempCategories.push($j(value).text()); 
+            });
+            $.each($scope.tempCategories.toString().split(','), function(i, el){
+                //if($.inArray(el, $scope.filterCategories) === -1) $scope.filterCategories.push(el);
+                if(el != ""){
+                    if($.inArray(el, $scope.filterCategories) === -1) $scope.filterCategories.push(el);    
+                }
+                
+            });
+            $scope.categories = $scope.filterCategories.sort();
+                            
+            /*jive_widget_container_large.find(".nwIntegrationsMasterdocument tbody tr").remove();
+            jive_widget_container_large.find(".nwIntegrationsMasterdocument tbody").html($scope.getProductRowData);*/
+            jive_widget_container_large.find(".nwIntegrationsMasterdocument").hide();
+            $scope.getCourseRowData = $scope.getProductRowData;
+            
+            //Hiding unwanted coulmn of nwIntegrationsMasterdocument
+            jive_widget_container_large.find(".nwIntegrationsMasterdocument thead tr th:nth-child(4)").hide();
+            jive_widget_container_large.find(".nwIntegrationsMasterdocument tbody tr td:nth-child(4)").hide();
+            
+            setTimeout(resizeMe,100);
+                            
+        };
+        $scope.init();
+        //Row Filter By ProductName
+        $scope.filterByColumn = function(){
+            $scope.noDataWrapper = false;
+            jive_widget_container_large.find(".nwIntegrationsMasterdocument").show();
+            $scope.courseInput = "";
+            $scope.getCourseRowData = [];
+            jive_widget_container_large.find(".nwIntegrationsMasterdocument tbody tr").remove();
+            if(($scope.selectedDeviceClass == null) && ($scope.selectedCategory == null)){
+                $scope.getCourseRowData = $scope.getProductRowData;
+            }else if(($scope.selectedDeviceClass != null) && ($scope.selectedCategory == null)){
+                $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(6)").text().toLowerCase() == $scope.selectedDeviceClass.toLowerCase())});
+            }else if(($scope.selectedDeviceClass == null) && ($scope.selectedCategory != null)){
+                $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(7)").text().toLowerCase() == $scope.selectedCategory.toLowerCase())});
+                /*$scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(7)").text().toLowerCase().split(/[\s,]+/).includes($scope.selectedCategory.toLowerCase()) == true)});*/
+            }else if(($scope.selectedDeviceClass != null) && ($scope.selectedCategory != null)){
+                $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(6)").text().toLowerCase() ==$scope.selectedDeviceClass.toLowerCase()) && ($(this).find("td:nth-child(7)").text().toLowerCase() == $scope.selectedCategory.toLowerCase())}); 
+            }
+
+            if($scope.getCourseRowData.length == 0){
+                jive_widget_container_large.find(".nwIntegrationsMasterdocument tbody").html(noDataFound);
+            }else{
+                jive_widget_container_large.find(".nwIntegrationsMasterdocument tbody").html($scope.getCourseRowData);
+            }
+            $scope.getCourseRowData.show();
+            setTimeout(resizeMe,0); 
+            //console.log($scope.getCourseRowData.find('td:nth-child(3), td:nth-child(4), td:nth-child(7)'));                             
+        };
+        //Filter row by course, DT and Role
+        $scope.searchCourse = function (event) {
+            $scope.noDataWrapper = false;
+            jive_widget_container_large.find(".nwIntegrationsMasterdocument").show();                
+            $scope.getCourseRowData.filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf($(event.target).val().toLowerCase()) > -1);
+            });
+            setTimeout(resizeMe,0); 
+        };                 
+    });
+</script>
+
+<div ng-app="ngchangeApp" ng-controller="ngApp">
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="usr">SEARCH</label>
+            <input ng-keyup="searchCourse($event)" type="text" class="form-control" id="course" placeholder="Search for an Integration" ng-model="courseInput">
+        </div>
+        <div class="col-sm-4">
+                <label for="sel2">CATEGORY</label>
+                <select class="form-control" name="categories" ng-options="version as version for version in categories" ng-change="filterByColumn()" ng-model="selectedCategory">
+                        <option value="">-- Filter by Category --</option>
+                </select>
+            </div>
+        <div class="col-sm-4">
+            <label for="sel1">EVENT SOURCE CLASS</label>
+            <select class="form-control" name="deviceClasses" ng-options="class as class for class in  deviceClasses" ng-change="filterByColumn()" ng-model="selectedDeviceClass">
+                    <option value="">-- Filter by Event Source Class --</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Hide the search widget labels */
+.col-sm-4 label {
+    display: none;
+}
+</style>

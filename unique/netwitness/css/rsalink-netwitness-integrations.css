@@ -1,0 +1,123 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA NetWitness Platform Integrations Space
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   02 Aug 2019
+*/
+
+/* Fix cropping of title banner */
+#mainBanner {
+    height: 200px;
+}
+
+/* Adjust spacing between search bar and table */
+#jive-widget-container_1 .jive-widget-htmltextwidget {
+    margin-bottom: 15px;
+}
+#jive-widget-container_1 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-bottom: 0px;
+}
+
+/* Define the column width of the search results table */
+.masterDocument td:nth-child(3){
+     width:60% !important;
+}
+.masterDocument td:nth-child(4){
+     width:25% !important;
+}
+.masterDocument th:nth-child(3){
+     width:60% !important;
+}
+.masterDocument th:nth-child(4){
+     width:25% !important;
+}
+
+/* Hide the external link icon */
+.jive-link-external-small:after {
+    background: none;
+}
+
+/* Hide the Jive document icon */
+.jive-link-wiki-small {
+    background-image: none;
+    padding-left: 0px;
+}
+
+/* Hide the space icon */
+.jive-link-community-small {
+     display: none;
+}
+
+/* Change background of even Watch a Tag widget rows to gray (PMS 427, +30% White, +0.5 Opacity) */
+.jive-widget-tagwidget .jive-widget-body .jive-table-row-even td {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change the color of the discussion buttons */
+#jive-widget-container_2 a[data-role=button] {
+    background-color: #415464;
+    border: 1px solid #415464;
+    color: #fff;
+}
+#jive-widget-container_2 a[data-role=button]:hover {
+    background-color: #fff;
+    border: 1px solid #415464;
+    color: #415464;
+}
+
+/* Change the header color of the right column widgets */
+#jive-widget-container_3 .jive-widget-header {
+     background-color: #802629;
+ }
+
+/* Hide Watch a Tag Labels */
+ .jive-widget-watchlabel {
+     display: none;
+ }
+
+ /* Change the header color of the Featured Integrations widget */
+#jive-widget-container_3 .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Hide Watch a Tag Labels */
+.jive-widget-watchlabel {
+    display: none;
+}
+
+/* Hide the idea body content from the Top Ideas widget */
+.jive-widget-viewtopideas .jive-content-body {
+    display: none;
+}
+
+/* Reduce spacing between Top Ideas widget and the Ideas buttons */
+#jive-widget-container_2 .jive-widget-tagwidget,
+#jive-widget-container_3 .jive-widget-viewtopideas {
+    margin-bottom: -20px;
+}
+
+/* Remove the padding in the content widget bodies */
+#jive-widget-container_2 .jive-widget-tagwidget .jive-widget-body,
+#jive-widget-container_3 .jive-widget-viewtopideas .jive-widget-body {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* Adjust spacing and width of Ideas buttons */
+#jive-widget-container_2 a[data-role=button],
+#jive-widget-container_3 a[data-role=button] {
+    width: 80%;
+}
+
+/* Hide the vote down option in the Ideas widgets */
+span.vote-button.vote-down.jive-icon-glyph.icon-arrow-down {
+    display: none;
+}
+.vote-button {
+    height: 28px;
+}
+.vote-button.jive-icon-glyph:before {
+    top: 5px;
+}
