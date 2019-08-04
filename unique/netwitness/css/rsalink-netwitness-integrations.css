@@ -50,6 +50,23 @@ Last Updated:   02 Aug 2019
      display: none;
 }
 
+/* Hide the blog post icon */
+.jive-link-blog-small {
+    background: none;
+    padding-left: 0px;
+}
+
+/* Adjust the header styling in the master table */
+.nwIntegrationsMasterdocument th {
+    border-top-color: #415464;
+}
+.nwIntegrationsMasterdocument th:first-child {
+    border-left-color: #415464;
+}
+.nwIntegrationsMasterdocument th:last-child {
+    border-right-color: #415464;
+}
+
 /* Change background of even Watch a Tag widget rows to gray (PMS 427, +30% White, +0.5 Opacity) */
 .jive-widget-tagwidget .jive-widget-body .jive-table-row-even td {
     background-color: #eeeff0;  /* rgba(222,224,225,0.5) */

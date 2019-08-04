@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module('ngchangeApp', []);
+    var $j = jQuery.noConflict();
+    var jive_widget_container_large = window.parent.$j(".jive-widget-container-large");
+    var noDataFound = '<tr id="noDataFound" style="height: 25px; background-color: #eeeff0;"><td colspan="5" style="width: 18%; height: 89px; font-size: 28px; vertical-align: middle; text-align: center;">NO DATA FOUND</td></tr>';
+    app.controller('ngApp', function($scope) {
+
+        
+        //Declare scope variable for Delivery Type drop-down option 
+        //Filter categories
+        $scope.categories = ["Access Control", "Cloud & SaaS", "Federated SSO", "OS / Platforms", "Privileged Access", "Remote Access"];
+        
+        $scope.getProductRowData = []; 
+        $scope.getCourseRowData = [];
+        $scope.searchInput = "";
+        $scope.selectedCategory = null;
+        $scope.selectedVersion = null;
+        $scope.selectedLevel = null;
+        $scope.noDataWrapper = true;
+        
+        $scope.init = function () {                
+            $scope.noDataWrapper = true;
+            $scope.getProductRowData = jive_widget_container_large.find(".SIDAmasterDocument tbody tr");
+            jive_widget_container_large.find(".SIDAmasterDocument").hide();
+            $scope.getCourseRowData = $scope.getProductRowData;
+            setTimeout(resizeMe,100);
+        };
+        $scope.init();
+        //Row Filter By ProductName
+        $scope.filterByColumn = function(){
+            $scope.noDataWrapper = false;
+            jive_widget_container_large.find(".SIDAmasterDocument").show();
+            $scope.searchInput = "";
+            $scope.getCourseRowData = [];
+            jive_widget_container_large.find(".SIDAmasterDocument tbody tr").remove();
+
+            if($scope.selectedCategory == null){
+                $scope.noDataWrapper = true;
+                jive_widget_container_large.find(".SIDAmasterDocument").hide();
+                $scope.getCourseRowData = $scope.getProductRowData;                   
+            }else{
+                $scope.getCourseRowData = $scope.getProductRowData.filter(function() {return ($(this).find("td:nth-child(4)").text().toLowerCase() == $scope.selectedCategory.toLowerCase())});
+            }
+
+            if($scope.getCourseRowData.length == 0){
+                jive_widget_container_large.find(".SIDAmasterDocument tbody").html(noDataFound);
+            }else{
+                jive_widget_container_large.find(".SIDAmasterDocument tbody").html($scope.getCourseRowData);
+            }
+            $scope.getCourseRowData.show();
+            setTimeout(resizeMe,10);                       
+        };
+
+        
+        //Filter row by course, DT and Role
+        $scope.searchCourse = function (event) {
+            console.log($(event.target).val().toLowerCase());
+            if($scope.selectedCategory == null){
+                if($(event.target).val().toLowerCase() == ""){
+                    $scope.noDataWrapper = true;
+                    jive_widget_container_large.find(".SIDAmasterDocument").hide();
+                }else{
+                    $scope.noDataWrapper = false;
+                    jive_widget_container_large.find(".SIDAmasterDocument").show();
+                    $scope.getCourseRowData.filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf($(event.target).val().toLowerCase()) > -1);
+                    });
+                }
+            }else{
+                $scope.noDataWrapper = false;
+                jive_widget_container_large.find(".SIDAmasterDocument").show();
+                $scope.getCourseRowData.filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf($(event.target).val().toLowerCase()) > -1);
+                });    
+            }
+
+            setTimeout(resizeMe,0); 
+        };             
+    });
+</script>
+
+<div ng-app="ngchangeApp" ng-controller="ngApp">
+    <div class="row" style="padding: 10px !important;">
+    <div class="col-sm-4">
+        <label for="usr">SEARCH</label>
+        <input ng-keyup="searchCourse($event)" type="text" class="form-control" id="course" placeholder="Search for an Integration" ng-model="searchInput">
+    </div>
+    <div class="col-sm-4">
+        <label for="sel1">CATEGORY</label>
+        <select class="form-control" name="categories" ng-options="category as category for category in  categories" ng-change="filterByColumn()" ng-model="selectedCategory">
+            <option value="">-- Filter by Category --</option>
+        </select>
+    </div>
+    </div>
+ </div>
+
+ <style>
+/* Hide the search widget labels */
+.col-sm-4 label {
+    display: none;
+}
+
+/* Double the length of the search bar */
+.col-sm-4:first-child {
+    width: 66.666%;
+}
+</style>

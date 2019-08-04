@@ -25,6 +25,17 @@
 
 /* Hide the space icon */
 .jive-link-community-small {
+    display: none;
+}
+
+/* Hide the blog post icon */
+.jive-link-blog-small {
+    background: none;
+    padding-left: 0px;
+}
+
+/* Hide the space icon */
+.jive-link-community-small {
      display: none;
 }
 
