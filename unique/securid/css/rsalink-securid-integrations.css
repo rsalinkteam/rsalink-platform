@@ -1,3 +1,36 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA SecurID Access Integrations
+Author:         Jeff Shurtliff
+Last Editor:    Jeff Shurtliff
+Last Updated:   05 Aug 2019
+*/
+
+/* Adjust column width */
+#jive-body-layout-tls .jive-body-layout-l2 {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 87%;
+    margin-right: -86%;
+}
+@media only screen and (min-width: 1091px) and (max-width: 1240px) {
+	#jive-body-layout-tls .jive-body-layout-l2 {
+		width: calc(89%);
+	}
+}
+@media only screen and (max-width: 1090px) {
+	#jive-body-layout-tls .jive-body-layout-l2 {
+		width: calc(92%);
+	}
+}
+#jive-body-layout-tls .jive-body-layout-s1 {
+    float: right;
+    padding-left: 0;
+    width: 30%;
+}
+
 /* Define the column width of the search results table */
 .masterDocument td:nth-child(3){
      width:60% !important;
@@ -10,6 +43,16 @@
 }
 .masterDocument th:nth-child(4){
      width:25% !important;
+}
+
+/* Adjust spacing between search bar and table */
+#jive-widget-container_1 .jive-widget-htmltextwidget {
+    margin-bottom: 0px;
+}
+
+/* Fix cropping of title banner */
+#mainBanner {
+    height: 200px;
 }
 
 /* Hide the external link icon */
@@ -40,11 +83,72 @@
 }
 
 /* Change the header color of the Featured Integrations widget */
-#jive-widget-container_3 .jive-widget-header {
+#jive-widget-container_2 .jive-widget-header {
      background-color: #802629;
  }
+
+ #jive-widget-container_3, 
+ #jive-widget-container_3 .jive-widget-body {
+    background-color: #eeeff0;
+}
 
 /* Hide Watch a Tag Labels */
  .jive-widget-watchlabel {
      display: none;
  }
+
+ /* Reduce spacing between Top Ideas widget and the Ideas buttons */
+ #jive-widget-container_3 .jive-widget-tagwidget {
+    margin-bottom: -20px;
+}
+
+/* Style the Discussions and Ideas buttons */
+#discussionButtons,
+#ideasButtons {
+    width: 95%;
+    border: 0px;
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 20px;
+}
+a[data-role=button].discussionButton,
+a[data-role=button].ideaButton {
+    font-size: 11px;
+    padding: 5px 0px;
+    width: 97%;
+}
+#discussionButtons td,
+#ideasButtons td {
+    width: 50%;
+    text-align: center;
+}
+.leftButton {
+    padding-left: 0px;
+    padding-right: 3px;
+}
+.middleButton {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.rightButton {
+    padding-left: 3px;
+    padding-right: 0px;
+}
+
+/* Update the empty Ideas widget when not logged in */
+.chrome .jive-widget-tagwidget .jive-widget-body-empty,
+.ff .jive-widget-tagwidget .jive-widget-body-empty,
+.opera .jive-widget-tagwidget .jive-widget-body-empty,
+.safari .jive-widget-tagwidget .jive-widget-body-empty {
+    visibility: hidden;
+}
+.chrome .jive-widget-tagwidget .jive-widget-body-empty:after,
+.ff .jive-widget-tagwidget .jive-widget-body-empty:after,
+.opera .jive-widget-tagwidget .jive-widget-body-empty:after,
+.safari .jive-widget-tagwidget .jive-widget-body-empty:after {
+    visibility: visible;
+    display: block;
+    content: 'Submitted ideas are only accessible by verified RSA customers, partners and employees. Please log in with a valid account to view.';
+    margin-top: -65px;
+    margin-bottom: 0px;
+}
