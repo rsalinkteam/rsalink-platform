@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://www.rsa.com/content/dam/rsalink/js/university_globalServices-coreSkills_widget_megaMenu.js"></script>
     
@@ -100,14 +99,13 @@
                     <h2>RSA PRODUCT</h2>
                   </div>
                   <div class="text">
-                    <!-- <a ng-click="filterByProduct('arch')">RSA Archer<sup>&reg;</sup> Suite</a><br/>
-                    <a ng-click="filterByProduct('aa')">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</a><br/>
-                    <a ng-click="filterByProduct('igl')">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</a><br/>
-                    <a ng-click="filterByProduct('nw')">RSA NetWitness<sup>&reg;</sup> Platform</a><br />
-                    <a ng-click="filterByProduct('sida')">RSA SecurID<sup>&reg;</sup> Access</a> -->
                     <select class="form-control selcls" name="roles" ng-options="product.value as product.text for product in rsaProduct" ng-change="filterByProduct(selectedProduct)" ng-model="selectedProduct">
                             <option value="">--Select Product--</option>
                     </select>
+                  </div>
+                  <br/>
+                  <div class="text">
+                    <a target="_parent" href="https://community.rsa.com/community/training/internal/npr">New Product Readiness (NPR)</a><br/>        
                   </div>
                 </div>
                 <div class="bar"></div>
@@ -141,11 +139,10 @@
                     <select class="form-control selcls" name="roles" ng-options="product.value as product.text for product in rsaProduct" ng-change="filterByProduct(selectedProduct)" ng-model="selectedProduct">
                             <option value="">--Select Product--</option>
                     </select>
-                    <!-- <a ng-click="filterByProduct('arch')">RSA Archer<sup>&reg;</sup> Suite</a><br/>
-                    <a ng-click="filterByProduct('aa')">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</a><br/>
-                    <a ng-click="filterByProduct('igl')">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</a><br/>
-                    <a ng-click="filterByProduct('nw')">RSA NetWitness<sup>&reg;</sup> Platform</a><br />
-                    <a ng-click="filterByProduct('sida')">RSA SecurID<sup>&reg;</sup> Access</a> -->
+                  </div>
+                  <br/>
+                  <div class="text">
+                    <a target="_parent" href="https://community.rsa.com/community/training/internal/npr">New Product Readiness (NPR)</a><br/>        
                   </div>
                 </div>
                 <div class="bar"></div>
@@ -207,14 +204,13 @@
                     <h2>RSA PRODUCT</h2>
                   </div>
                   <div class="text">
-                    <!-- <a ng-click="filterByProduct('arch')">RSA Archer<sup>&reg;</sup> Suite</a><br/>
-                    <a ng-click="filterByProduct('aa')">RSA<sup>&reg;</sup> Fraud &amp; Risk Intelligence Suite</a><br/>
-                    <a ng-click="filterByProduct('igl')">RSA<sup>&reg;</sup> Identity Governance &amp; Lifecycle</a><br/>
-                    <a ng-click="filterByProduct('nw')">RSA NetWitness<sup>&reg;</sup> Platform</a><br />
-                    <a ng-click="filterByProduct('sida')">RSA SecurID<sup>&reg;</sup> Access</a> -->
                     <select class="form-control selcls" name="roles" ng-options="product.value as product.text for product in rsaProduct" ng-change="filterByProduct(selectedProduct)" ng-model="selectedProduct">
                             <option value="">--Select Product--</option>
                     </select>
+                  </div>
+                  <br/>
+                  <div class="text">
+                    <a target="_parent" href="https://community.rsa.com/community/training/internal/npr">New Product Readiness (NPR)</a><br/>        
                   </div>
                 </div>
                 <div class="bar"></div>
@@ -274,10 +270,10 @@
                     <div class="text1" ng-show="sida">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                     <div class="text1" ng-show="learningAcademy" style="font-weight: bold;">The Product & Operations Academy provides structured learning plans defined by Global Services Leadership. The P&O Academy portal makes it easy for learners and their managers to access learning plans by role. Learning plans cover functional training and backend technologies, business acumen, leadership, and personal/interpersonal skills. Training courses are delivered through on-demand eLearnings, Instructor-led and Virtual Instructor-led modalities. Click the More Details button below to get started. Some restrictions may apply.</div>
                     <div class="text1" ng-show="linkSeries" style="font-weight: bold;">The RSA Link Series provides training and best practices for knowledge base article writing and customer self-service capabilities.</div>
-                    <div class="text1" ng-show="ESjobSkillDesigners" style="font-weight: bold;">This pathway provides training on job skills used for instructional designers of RSA education services</div>
-                    <div class="text1" ng-show="EStoolDesigners" style="font-weight: bold;">This pathway provides training on tools used for instructional designers of RSA education service.</div>
-                    <div class="text1" ng-show="ESjobSkillTrainers" style="font-weight: bold;">This pathway provides training on job skills used for training facilitators of RSA education services.</div>
-                    <div class="text1" ng-show="EStoolTrainers" style="font-weight: bold;">This pathway provides training on tools used for training facilitators of RSA education services.</div>
+                    <div class="text1" ng-show="ESjobSkillDesigners" style="font-weight: bold;">This pathway provides training on job skills used for Instructional Designers of RSA Education Services.</div>
+                    <div class="text1" ng-show="EStoolDesigners" style="font-weight: bold;">This pathway provides training on tools used for Instructional Designers of RSA Education Services.</div>
+                    <div class="text1" ng-show="ESjobSkillTrainers" style="font-weight: bold;">This pathway provides training on job skills used for training facilitators of RSA Education Services.</div>
+                    <div class="text1" ng-show="EStoolTrainers" style="font-weight: bold;">This pathway provides training on tools used for training facilitators of RSA Education Services.</div>
                     <a ng-show="learningAcademy" class="discButton" data-role="button" style="float: right;width: 8%;"  target="_parent" href="https://www.pandoacademies.com">More Details</a>
                     <a ng-show="linkSeries" class="discButton" data-role="button" style="float: right;width: 8%;margin-top:8%"  target="_parent" href="https://community.rsa.com/community/internal/global-services/ed-services/rsa-link-workshop">More Details</a>
                     <a ng-show="ESjobSkillDesigners" class="discButton" data-role="button" style="float: right;width: 8%;top: 50px;"  target="_parent" href="https://learningstudio.dell.com/pathways/instructional-designer-skills">More Details</a>
