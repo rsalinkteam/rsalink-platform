@@ -578,4 +578,9 @@ th.header.headerSortDown span {
         	display: none !important;
 	}
 }
+
+/* Hide Announcements link*/
+#jive-link-managePlaceAnnouncements{
+     display: none;
+}
 /* END CUSTOM CSS */
