@@ -4,9 +4,14 @@ Iteration:      Nov 2018 Redesign
 Scope:          Used with iframes to apply base styling (gray background)
 Author:         Jeff Shurtliff
 Last Editor:    Jeff Shurtliff
-Last Updated:   21 Dec 2018
+Last Updated:   14 Aug 2019
 */
 
+/* Import the Jive fonts for the current release (2018.19.0.9) to utilize the icons and glyphs */
+/* NOTE: THE URL BELOW WILL NEED TO BE UPDATED EVERY RELEASE IN ORDER TO CONTINUE FUNCTIONING  */
+@import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-c360.css');
+
+/* Apply custom overall styling to match the current RSA branding */
 body {
 	color: #232222;
     font-family: arial, sans-serif;

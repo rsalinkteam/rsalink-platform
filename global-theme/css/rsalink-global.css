@@ -4,7 +4,7 @@ Iteration:      Nov 2018 Redesign
 Scope:          Global (Entire Website)
 Author:         Jeff Shurtliff
 Last Editor:    Jeff Shurtliff
-Last Updated:   19 Dec 2018
+Last Updated:   14 Aug 2019
 */
 
 /*
@@ -434,8 +434,10 @@ pre.kbCodeSnippet {
 
 
 /* 
- *  JIVE ALERT FORMATTING
- */
+===========================
+   JIVE ALERT FORMATTING
+===========================
+*/
 
 /* Styling for the Jive Information Box */
 .jiveInfoBox {
@@ -460,7 +462,7 @@ pre.kbCodeSnippet {
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
-	speak: none;
+	speak-as: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	content: "\e362";
@@ -493,7 +495,7 @@ pre.kbCodeSnippet {
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
-	speak: none;
+	speak-as: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	content: "\e356";
@@ -528,7 +530,7 @@ pre.kbCodeSnippet {
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
-	speak: none;
+	speak-as: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	content: "\26a1";
@@ -558,7 +560,7 @@ pre.kbCodeSnippet {
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
-	speak: none;
+	speak-as: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	content: "\e370";
@@ -566,6 +568,13 @@ pre.kbCodeSnippet {
 	top: 10px;
 	left: 10px;
 }
+
+
+/* 
+================
+     EVENTS  
+================
+*/
 
 /* Style Events */
 .j-event-details-block {

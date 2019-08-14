@@ -217,19 +217,9 @@ input.j-btn-callout[type="submit"][disabled]:hover, input.j-btn-callout[type="su
 	word-wrap: break-word;
 }
 .jiveInfoBox:before {
-	font-family: jiveglyphs;
-	font-style: normal;
-	font-weight: 400;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	speak-as: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	content: "\e362";
-	position: absolute;
-	top: 10px;
-	left: 10px;
+    content: url(https://www.rsa.com/content/dam/rsalink/images/icons/jiveInfoGlyph.png);
+    top: 10px;
+    left: 10px;
 }
 
 /* Styling for the Jive Warning Box */
@@ -249,20 +239,9 @@ input.j-btn-callout[type="submit"][disabled]:hover, input.j-btn-callout[type="su
 	word-wrap: break-word;
 }
 .jiveWarningBox:before {
-	top: 9px;
-	font-family: jiveglyphs;
-	font-style: normal;
-	font-weight: 400;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	speak-as: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	content: "\e356";
-	position: absolute;
-	top: 10px;
-	left: 10px;
+    content: url(https://www.rsa.com/content/dam/rsalink/images/icons/jiveWarningGlyph.png);
+    top: 10px;
+    left: 10px;
 }
 .jiveWarningBox span {
 	background-color: transparent !important;
