@@ -1,3 +1,16 @@
+/*      BEGIN CUSTOM FOOTER CSS      */
+/*  Last Modified Date: 14 Aug 2019  */
+
+/*
+ *    TABLE OF CONTENTS
+ *    - Site Footer Customizations
+ *    - Other Customizations
+ */
+ 
+/* ================================ */
+/*    Site Footer Customizations    */
+/* ================================ */
+
 /* Base Styling */
 .l-mountain-container {
     width: 96%;
@@ -50,11 +63,6 @@ p#testDataDisplay {
     display: none;
 }
 
-/* Adjust HTML Tile default margins */
-.js-tile-body iframe.j-tile-iframe body {
-    margin: 0px !important;
-}
-
 /* Make registered trademark symbols in footer smaller */
 sup.rtm {
     font-size: x-small;
@@ -80,3 +88,15 @@ footer#j-footer {
 footer#j-cust-foot {
     padding-bottom: 20px;
 }
+
+
+/* ========================== */
+/*    Other Customizations    */
+/* ========================== */
+
+/* Adjust HTML Tile default margins */
+.js-tile-body iframe.j-tile-iframe body {
+    margin: 0px !important;
+}
+
+/* END CUSTOM FOOTER CSS */
