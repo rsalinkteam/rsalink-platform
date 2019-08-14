@@ -1,0 +1,302 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          Case Summary Report widget (with Toggles) on Customer 360 spaces
+Author:         Mohit Verman
+Last Editor:    Jeff Shurtliff
+Last Updated:   14 Aug 2019
+*/
+
+.testimonial {
+    padding: 10px;
+}
+.hidden { 
+    display: none; 
+}
+
+/* Style the widget wrapper */
+.wrapper {
+    font-family: Arial;    
+    background-color: #fff;
+    position: relative;
+    width: 99%;
+    margin-left: 3px;
+    margin-top: 10px;
+}
+
+/* Style the toggle tabs */
+label { 
+    margin-right: 15px;
+}    
+.tab1 {
+    background: #ff0000;
+}
+.tab2 {
+    background: #228B22; 
+}
+  
+/* CANDY CSS BEGIN */
+.switch-toggle a,
+.switch-light span span {
+    display: none;
+}
+.switch-toggle label {
+    font-family: Arial;
+}
+
+/* Chrome/Opera gets its native focus styles */
+@media only screen and (-webkit-min-device-pixel-ratio: 0) {
+    .switch-light input:focus ~ span a,
+    .switch-light input:focus + label {
+        outline-color: -webkit-focus-ring-color;
+        outline-style: auto;
+    } 
+}
+
+/* Don't hide the input from screen-readers and keyboard access */
+@media only screen {
+    .switch-light input {
+        position: absolute;
+        opacity: 0;
+        z-index: 3;
+    }
+    .switch-light input:checked ~ span a {
+        right: 0%;
+    }
+
+    /* Inherit from label */
+    .switch-light strong {
+        font-weight: inherit;
+    }
+    .switch-light > span {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        min-height: 2em;
+
+        /* Overwrite 3rd party classes padding */
+        padding: 0;
+        text-align: left;
+    }
+    .switch-light span span {
+        position: relative;
+        z-index: 2;
+        display: block;
+        float: left;
+        width: 50%;
+        text-align: center;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .switch-light a {
+        position: absolute;
+        right: 50%;
+        top: 0;
+        z-index: 1;
+        display: block;
+        width: 50%;
+        height: 100%;
+        padding: 0;
+    }
+  
+    /* Radio Switch */
+    .switch-toggle {
+        position: relative;
+        display: block;
+        /* Simulate default browser focus outlines on the switch when the inputs are focused */
+        /* For callout panels in foundation */
+        padding: 0 !important;
+        /* 2 items */
+        /* 3 items */
+        /* 4 items */
+        /* 5 items */
+        /* 6 items */
+    }
+    .switch-toggle::after {
+        clear: both;
+        content: "";
+        display: table;
+    }
+    .switch-toggle *,
+    .switch-toggle *:before,
+    .switch-toggle *:after {
+        box-sizing: border-box;
+    }
+    .switch-toggle a {
+        display: block;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+    .switch-toggle label,
+    .switch-toggle > span {
+        /* Breathing room for bootstrap/foundation classes */
+        line-height: 2em;
+        vertical-align: middle;
+    }
+    .switch-toggle input:focus ~ span a,
+    .switch-toggle input:focus + label {
+        outline-width: 2px;
+        outline-style: solid;
+        outline-color: Highlight;
+    }
+}
+
+/* Chrome/Opera gets its native focus styles */
+@media only screen and (-webkit-min-device-pixel-ratio: 0) {
+    .switch-toggle input:focus ~ span a,
+    .switch-toggle input:focus + label {
+        outline-color: -webkit-focus-ring-color;
+        outline-style: auto;
+    }
+}
+
+@media only screen {
+    .switch-toggle input {
+        position: absolute;
+        left: 0;
+        opacity: 0;
+    }
+    .switch-toggle input + label {
+        position: relative;
+        z-index: 2;
+        display: block;
+        float: left;
+        padding: 0 0.5em;
+        margin: 0;
+        text-align: center;
+    }
+    .switch-toggle a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0;
+        z-index: 1;
+        width: 10px;
+        height: 100%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(4),
+    .switch-toggle label:nth-child(2):nth-last-child(4) ~ label,
+    .switch-toggle label:nth-child(2):nth-last-child(4) ~ a {
+        width: 50%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(4) ~ input:checked:nth-child(3) + label ~ a {
+        left: 50%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(6),
+    .switch-toggle label:nth-child(2):nth-last-child(6) ~ label,
+    .switch-toggle label:nth-child(2):nth-last-child(6) ~ a {
+        width: 33.33%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(6) ~ input:checked:nth-child(3) + label ~ a {
+        left: 33.33%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(6) ~ input:checked:nth-child(5) + label ~ a {
+        left: 66.66%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(8),
+    .switch-toggle label:nth-child(2):nth-last-child(8) ~ label,
+    .switch-toggle label:nth-child(2):nth-last-child(8) ~ a {
+        width: 25%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(8) ~ input:checked:nth-child(3) + label ~ a {
+        left: 25%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(8) ~ input:checked:nth-child(5) + label ~ a {
+        left: 50%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(8) ~ input:checked:nth-child(7) + label ~ a {
+        left: 75%; 
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(10),
+    .switch-toggle label:nth-child(2):nth-last-child(10) ~ label,
+    .switch-toggle label:nth-child(2):nth-last-child(10) ~ a {
+        width: 20%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(10) ~ input:checked:nth-child(3) + label ~ a {
+        left: 20%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(10) ~ input:checked:nth-child(5) + label ~ a {
+        left: 40%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(10) ~ input:checked:nth-child(7) + label ~ a {
+        left: 60%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(10) ~ input:checked:nth-child(9) + label ~ a {
+        left: 80%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(12),
+    .switch-toggle label:nth-child(2):nth-last-child(12) ~ label,
+    .switch-toggle label:nth-child(2):nth-last-child(12) ~ a {
+        width: 16.6%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(12) ~ input:checked:nth-child(3) + label ~ a {
+        left: 16.6%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(12) ~ input:checked:nth-child(5) + label ~ a {
+        left: 33.2%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(12) ~ input:checked:nth-child(7) + label ~ a {
+        left: 49.8%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(12) ~ input:checked:nth-child(9) + label ~ a {
+        left: 66.4%;
+    }
+    .switch-toggle label:nth-child(2):nth-last-child(12) ~ input:checked:nth-child(11) + label ~ a {
+        left: 83%;
+    }
+  
+    /* Candy Theme */
+    .switch-toggle.switch-candy,
+    .switch-light.switch-candy > span {
+        background-color: #FFF;
+        border-radius: 3px;
+        box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    .switch-light.switch-candy span span,
+    .switch-light.switch-candy input:checked ~ span span:first-child,
+    .switch-toggle.switch-candy label {
+        color: #415464;
+        font-weight: bold;
+        text-align: center;
+        /* text-shadow: 1px 1px 1px #191b1e; */
+    }
+    .switch-light.switch-candy input ~ span span:first-child,
+    .switch-light.switch-candy input:checked ~ span span:nth-child(2),
+    .switch-candy input:checked + label {
+        color: #FFF;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    }
+    .switch-candy a {
+        border: 1px solid #333;
+        border-radius: 3px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+        background-color: #415464;
+        background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2), transparent);
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+    }
+    .switch-candy-blue a {
+        background-color: #38a3d4;
+    }
+    .switch-candy-yellow a {
+        background-color: #f5e560;
+    }
+}
+/* CANDY CSS END */
+
+/* Style the accordions as necessary */
+#accordion h4 {
+    cursor: pointer;
+}
+.glyphicon {
+    font-size: 12px;
+}
+.acc-margin {
+    margin: 1px;
+}
+.accordionTableData td {
+    padding:5px;
+    border: 1px solid #C6C6C6;
+}
