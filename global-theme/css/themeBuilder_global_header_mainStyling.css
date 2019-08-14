@@ -1,4 +1,5 @@
-/* BEGIN CUSTOM CSS */
+/*      BEGIN CUSTOM CSS      */
+/* Last Updated: 14 Aug 2019  */
 
 /*
  *    TABLE OF CONTENTS
@@ -13,9 +14,9 @@
  *    - Other Customizations
  */
  
-/* ========================== */
-/* Site Header Customizations */
-/* ========================== */
+/* ================================ */
+/*    Site Header Customizations    */
+/* ================================ */
 
 /* 7S Legacy Header Styling */
 .l-mountain-container {
@@ -130,9 +131,9 @@ a#jive-nav-link-logout:hover, a#jive-nav-link-logout:focus, a#jive-nav-link-logo
 }
 
 
-/* ================================= */
-/* Jive Announcements Customizations */
-/* ================================= */
+/* ======================================= */
+/*    Jive Announcements Customizations    */
+/* ======================================= */
 
 /* Apply styling to the Jive Announcements */
 .j-home-welcome #jive-alert {
@@ -161,10 +162,15 @@ a#jive-nav-link-logout:hover, a#jive-nav-link-logout:focus, a#jive-nav-link-logo
     margin: auto auto 0px;
 }
 
+/* Hide Announcements link on spaces */
+#jive-link-managePlaceAnnouncements {
+    display: none;
+}
 
-/* ======================== */
-/* RSA Ideas Customizations */
-/* ======================== */
+
+/* ============================== */
+/*    RSA Ideas Customizations    */
+/* ============================== */
 
 /* Hide the ability to downvote ideas */
 button.js-vote-button.js-vote-down {
@@ -175,9 +181,9 @@ button.js-vote-button.js-vote-down {
 }
 
 
-/* ============================= */
-/* Knowledge Base Customizations */
-/* ============================= */
+/* =================================== */
+/*    Knowledge Base Customizations    */
+/* =================================== */
 
 /* Workaround for code snippet issue - RSALINK-3164 */
 p.ckeditor_codeblock {
@@ -229,9 +235,9 @@ table.kb-article table th span {
 }
 
 
-/* =========================== */
-/* Jive Content Customizations */
-/* =========================== */
+/* ================================= */
+/*    Jive Content Customizations    */
+/* ================================= */
 
 /* Fix the Jive Content footer to conform to background dimensions */
 @media only screen and (min-width: 1263px) {
@@ -330,9 +336,9 @@ p.ProcIntro{
     font-weight: normal !important;
 }
 
-/* ===================== */
-/* Events Customizations */
-/* ===================== */
+/* =========================== */
+/*    Events Customizations    */
+/* =========================== */
 
 /* Adjust font size on Event Types list -- RSALINK-3585 */
 .j-event-filter-options .j-event-type-filter ul {
@@ -369,9 +375,9 @@ p.ProcIntro{
 }
 
 
-/* ===================== */
-/* Mobile Customizations */
-/* ===================== */
+/* =========================== */
+/*    Mobile Customizations    */
+/* =========================== */
 
 /* Hide RSA Employee menu item bu default for mobile view */
 @media screen and (max-width: 40em) {
@@ -410,10 +416,17 @@ p.ProcIntro{
 	}
 }
 
+/* search icon warning on mobile view*/
+@media screen and (max-width: 40em) {
+	.jive-icon-warn {
+        	display: none !important;
+	}
+}
 
-/* ============================ */
-/* Activity Page Customizations */
-/* ============================ */
+
+/* ================================== */
+/*    Activity Page Customizations    */
+/* ================================== */
 
 /* Style the tile headers on the Activity pages */
 .jive-widget .j-tile-header, .j-tile .j-tile-header {
@@ -453,9 +466,9 @@ p.ProcIntro{
 }
 
 
-/* =========================== */
-/* User Profile Customizations */
-/* =========================== */
+/* ================================= */
+/*    User Profile Customizations    */
+/* ================================= */
 
 /* Force the user profile banners to align with the overall website width */
 .has-profile-banner .j2-pages-mitui-profile-banner {
@@ -465,9 +478,9 @@ p.ProcIntro{
 }
 
 
-/* ==================== */
-/* Other Customizations */
-/* ==================== */
+/* ========================== */
+/*    Other Customizations    */
+/* ========================== */
 
 /* Invert the place icon in the hover card */
 .j-mini-modal-place .j-modal-content .j-place-photo {
@@ -572,15 +585,4 @@ th.header.headerSortDown span {
     background-position: right center;
 }
 
-/* search icon warning on mobile view*/
-@media screen and (max-width: 40em) {
-	.jive-icon-warn {
-        	display: none !important;
-	}
-}
-
-/* Hide Announcements link*/
-#jive-link-managePlaceAnnouncements{
-     display: none;
-}
 /* END CUSTOM CSS */
