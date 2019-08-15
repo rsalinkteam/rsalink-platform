@@ -3,8 +3,8 @@ Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Scope:          RSA NetWitness Platform Integrations Space
 Author:         Jeff Shurtliff
-Last Editor:    Jeff Shurtliff
-Last Updated:   02 Aug 2019
+Last Editor:    Max Kimball
+Last Updated:   15 Aug 2019
 */
 
 /* Fix cropping of title banner */
@@ -137,4 +137,9 @@ span.vote-button.vote-down.jive-icon-glyph.icon-arrow-down {
 }
 .vote-button.jive-icon-glyph:before {
     top: 5px;
+}
+
+/* Hide the description text from the ideas widgets */
+.jive-content-ideas-list-item .jive-content-body {
+    display: none;
 }
