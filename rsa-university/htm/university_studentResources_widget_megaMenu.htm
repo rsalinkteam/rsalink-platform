@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 
 <style type="text/css">
@@ -42,7 +43,18 @@
   text-align: center;
 }
 </style>
-<div class="container">
+<script>
+    var app = angular.module('ngMasterApp', []);
+        var $j = jQuery.noConflict();
+        var jive_widget_container_large = window.parent.$j(".jive-widget-container-large");
+        app.controller('ngApp', function($scope) {
+            $scope.init = function () {
+                jive_widget_container_large.find("#rSAUniversotyQuestionsIssuesContact").parents(".jive-widget-htmltextwidget").css("margin-bottom","-15px");
+            };
+            $scope.init();
+        });
+ </script>
+<div class="container" ng-app="ngMasterApp" ng-controller="ngApp">
   <div class="row" style="margin-top: 28px;margin-right: 0px !important; margin-left: 0px !important">
     <div class="col-md-3">
       <div class="thumbnail">
@@ -67,7 +79,9 @@
     <div class="col-md-3">
       <div class="thumbnail">
         <a href="https://education.emc.com/default_guest.aspx" target="_blank">
-          <img src="https://community.rsa.com/resources/statics/243709/downloadRSUCourseCatalog.png?a=1561707333357" alt="Enrollments & Transcripts" style="width:auto;">
+          <!-- <img src="https://community.rsa.com/resources/statics/243709/downloadRSUCourseCatalog.png?a=1561707333357" alt="Enrollments & Transcripts" style="width:auto;"> -->
+          <!-- https://community.rsa.com/resources/statics/240968/LearningModalities.png?a=1565940260272 -->
+          <img src="https://community.rsa.com/resources/statics/240968/EnrollmentsAndTranscripts.png?a=1565940804201" alt="Enrollments & Transcripts" style="width:auto;">
           <div class="caption">
             <p>Enrollments & Transcripts</p>
           </div>
@@ -112,11 +126,24 @@
         <a href="https://community.rsa.com/docs/DOC-86734" target="_blank">
           <img src="https://community.rsa.com/resources/statics/243709/onDemandTraining.png?a=1561707353649" alt="On Demand Training" style="width:auto;">
           <div class="caption">
-            <p>On-Demand Training</p>
+            <p>On-Demand Subscriptions</p>
           </div>
         </a>
       </div>
     </div>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <a href="https://community.rsa.com/docs/DOC-106318" target="_blank">
+          <img src="https://community.rsa.com/resources/statics/240968/LearningModalities.png?a=1565940809580" alt="Access On Demand Learning" style="width:auto;">
+          <div class="caption">
+            <p>Learning Modalities</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Second Row Ends Here, and Third Row Starts Here -->
+  <div class="row" style="margin-right: 0px !important; margin-left: 0px !important">
     <div class="col-md-3">
       <div class="thumbnail">
         <a href="https://community.rsa.com/docs/DOC-43443" target="_blank">
@@ -127,9 +154,6 @@
         </a>
       </div>
     </div>
-  </div>
-  <!-- Second Row Ends Here, and Third Row Starts Here -->
-  <div class="row" style="margin-right: 0px !important; margin-left: 0px !important">
     <div class="col-md-3">
       <div class="thumbnail">
         <a href="https://community.rsa.com/docs/DOC-43294" target="_blank">
@@ -160,6 +184,10 @@
         </a>
       </div>
     </div>
+  </div>
+  <!-- Third Row Ends Here -->
+  <div class="row" style="margin-right: 0px !important; margin-left: 0px !important">
+    <div class="col-md-3"></div>
     <div class="col-md-3">
       <div class="thumbnail">
         <a href="https://www.youtube.com/channel/UC8zA1d5y_C_wAUcvr83-ndw" target="_blank">
@@ -170,22 +198,18 @@
         </a>
       </div>
     </div>
-  </div>
-  <!-- Third Row Ends Here -->
-  <div class="row" style="margin-right: 0px !important; margin-left: 0px !important">
-    <div class="col-md-12" style="justify-content: center;display: flex">
-        <div class="col-md-3">
-        <div class="thumbnail">
-          <a href="https://rsa.secure.force.com/contactrsauniversity/" target="_blank">
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <a href="https://rsa.secure.force.com/contactrsauniversity/" target="_blank">
             <img src="https://community.rsa.com/resources/statics/243709/contactRSAU.png?a=1561707326555" alt="Contact RSAU" style="width:auto;">
             <div class="caption">
               <p>Contact RSAU</p>
             </div>
           </a>
-        </div>
       </div>
     </div>
-    </div>
+    <div class="col-md-3"></div>
+  </div>
   </div>
 </div>
 
