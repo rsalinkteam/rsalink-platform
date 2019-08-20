@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/js/university_new_product_readiness_npr_training_widget_documentfilter.js"></script>
+    <style type="text/css">
+        .wrapper {
+            font-family: Arial;
+            /*background-color: #eeeff0;
+            border: 1px #be3a34 solid;border-radius: 4px;*/
+            border-bottom: 1px #c7c9cb solid;
+            position: relative;
+            width: 99.3%;
+            margin-left: 3px;
+            margin-top: 10px;
+            height: 110px !important; font-family: Arial;
+            
+        }
+        
+        .name h2 {
+            color: #7c7c7d;
+            font-family: inherit;
+            font-style: inherit;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .text {
+            text-align: justify;
+            font-family: Arial;
+            font-size: 14px;            
+        }
+
+
+        /*******************************/
+            .box {
+                width:90%;
+                height:200px;
+               /* background:#eeeff0;*/
+                margin:40px auto;
+            }
+            .box h3{
+              text-align:center;
+                position:relative;
+                top: 10%;
+            }
+            .box .boxText{
+              text-align:center;
+              padding-top: 3%;
+            }
+            .boxText .rsa{
+                color: #bf3732;
+                font-size: 48px;
+                font-weight: bold;
+            }
+            .boxText .university{
+                color: #415464;
+                font-size: 48px;
+                font-weight: bold;
+            }
+            .boxText .es {
+                color: #415464;
+                font-size: 26px;
+                font-weight: bold;
+                margin-left: -92px;
+                margin-top: -18px;
+            }
+            /*==================================================
+             * Effect 1
+             * ===============================================*/
+            /*.effect1{
+                -webkit-box-shadow: 0 10px 6px -6px #777;
+                   -moz-box-shadow: 0 10px 6px -6px #777;
+                        box-shadow: 0 10px 6px -6px #777;
+            }*/
+            /*.hintIcon {background-image: url(https://community.rsa.com/resources/statics/246715/hintIcon.PNG?a=1564603016412);background-repeat: no-repeat; background-position: center center; background-size: 80%; height: 120px; width: 120px; float: left;}*/
+    </style>
+
+    <div ng-app="ngchangeApp" ng-controller="ngApp">
+      <div class="row" style="margin-top: -10px;">
+        <div class="col-sm-12">
+            <div class="wrapper">
+                <div class="testimonial">
+                    <div class="name">
+                        <h2>NPR COURSE CATALOG</h2>
+                    </div>
+                    <div class="text">New Product Readiness (NPR) training delivers first-to-market serviceability and readiness training across customer-facing organizations, including Customer Support (CS), Professional Services (PS) and Channel Partners (CP). NPR content features new functionality, products and services. Learning paths are available for learner consumption via One Learning Management System (One LMS). Choose the learning path that meets your needs.</div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="row" style="padding: 10px !important;">
+        <div class="col-sm-4">
+            <label for="usr">COURSE</label>
+            <input ng-keyup="searchCourse($event)" type="text" class="form-control" id="course" placeholder="Enter Search Criteria Here" ng-model="courseInput">
+        </div>
+        <div class="col-sm-4">
+          <label for="sel1">PRODUCT NAME</label>
+          <select class="form-control" name="productName" ng-options="type.value as type.text for type in productName" ng-change="filterByColumn()" ng-model="selectedProductName">
+                <option value="">--Select Product--</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <label for="sel2">PRODUCT VERSION</label>
+          <select class="form-control" name="versions" ng-options="version as version for version in versions" ng-change="filterByColumn()" ng-model="selectedVersion">
+                <option value="">--Select Version--</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" style="padding: 10px !important;" ng-show="noDataWrapper">
+        <div class="col-sm-12 divBox">
+            <div class="box effect1">
+                <h3><img src="https://community.rsa.com/resources/statics/245231/hint.png?a=1564670399845" alt="hintIcon" style="margin-bottom: 5px;border-radius: 50%;width: 3%"> Type search criteria or select product name and version to get course details</h3>
+                <div class="boxText"><img src="https://community.rsa.com/resources/statics/245231/RSA-University-Logo-All-Red.png?a=1564670371577" alt="hintIcon" style="margin-bottom: 5px;width: 25%;"><!-- <span class="rsa">RSΛ</span> <span class="university">University</span> <div class="es">Education Services</div> --></div>
+            </div>
+        </div>
+      </div>
+ </div>
