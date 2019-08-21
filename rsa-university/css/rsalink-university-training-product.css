@@ -46,7 +46,8 @@
     margin-top: 7px !important;
 }
 .dropdown-menu{
-    width: 267px !important;
+    min-width: 267px !important;
+    overflow: hidden !important;
 }
 .dropdown-menu li a .checkbox{
     margin-top: 0px !important;
