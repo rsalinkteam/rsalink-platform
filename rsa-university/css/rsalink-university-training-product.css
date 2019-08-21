@@ -39,14 +39,14 @@
             margin-left: -13px;
 }
 .dropdown-multiselect button{
-    width:267px;
+    width:267px !important;
 }
 .dropdown-multiselect .btn .caret {
-    float: right;
-    margin-top: 7px;
+    float: right !important;
+    margin-top: 7px !important;
 }
 .dropdown-menu{
-    width: 267px;
+    width: 267px !important;
 }
 .dropdown-menu li a .checkbox{
     margin-top: 0px !important;
