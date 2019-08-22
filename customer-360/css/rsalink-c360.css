@@ -4,7 +4,7 @@ Iteration:      Nov 2018 Redesign
 Scope:          RSA Select Customer 360 Summary Pages
 Author:         Jeff Shurtliff
 Last Editor:    Jeff Shurtliff
-Last Updated:   19 Jul 2019
+Last Updated:   22 Aug 2019
 
 TABLE OF CONTENTS:
     1.0 - Title Section
@@ -14,8 +14,10 @@ TABLE OF CONTENTS:
         2.1 - General
         2.2 - Company Information
         2.3 - Case Summary Report
-        2.4 - RSA Ideas
-        2.5 - Current Events and News Feeds
+        2.4 - Escalations
+        2.5 - RSA Ideas
+        2.6 - Active Maintenance Contracts
+        2.7 - Current Events and News Feeds
     3.0 - Right Column
         3.1 - General
         3.2 - Quick Facts
@@ -28,9 +30,7 @@ TABLE OF CONTENTS:
  *   1.0 - TITLE SECTION   *
  ***************************/
 
-/*
- *  1.1 - Main Banner
- */
+/***|  1.1 - Main Banner  |***/
 
 /* Add the background image of the main banner */
 #mainBanner {
@@ -61,9 +61,7 @@ h1#mainBanner-title sup {
     font-size: 50px;
 }
 
-/*
- *  1.2 - Search Bar
- */
+/***|  1.2 - Search Bar  |***/
 
 /* Hide search widget header */
 .jive-widget-searchwidget .jive-widget-header {
@@ -125,9 +123,7 @@ h1#mainBanner-title sup {
  *   2.0 - LEFT COLUMN   *
  *************************/
  
-/*
- *  2.1 - General
- */
+ /***|  2.1 - General  |***/
 
  /* Make widget header text smaller */
 h4.jive-widget-handle {
@@ -198,9 +194,7 @@ a[data-role=button]:hover {
     color: #802629;
 }
 
-/*
- *  2.2 - Company Information
- */
+/***|  2.2 - Company Information  |***/
 
 /* Style the Company Information section */
 #jive-widget-container_2 .jive-widget-htmltextwidget .jive-widget-header {
@@ -230,9 +224,7 @@ a[data-role=button]:hover {
 	max-width: 400px;
 }
 
-/*
- *  2.3 - Case Summary Report
- */
+/***|  2.3 - Case Summary Report  |***/
 
 /* Add border around case summary graphics */
 #jive-widget-container_2 .jive-widget-formattedtextwidget img {
@@ -244,9 +236,35 @@ a[data-role=button]:hover {
     width: auto;
 }
 
-/*
- *  2.4 - RSA Ideas
- */
+/***|  2.4 - Escalations  |***/
+
+/* Rename the Escalation widget on the Customer 360 Spaces */
+.chrome #jive-widget-container_2 .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle span,
+.ff #jive-widget-container_2 .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle span,
+.opera #jive-widget-container_2 .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle span,
+.safari #jive-widget-container_2 .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle span {
+    display: none;
+}
+.chrome #jive-widget-container_2 .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle:after,
+.ff #jive-widget-container_2 .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle:after,
+.opera #jive-widget-container_2 .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle:after,
+.safari #jive-widget-container_2 .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle:after {
+    content: 'ACTIVE ESCALATED SUPPORT CASES';
+}
+.chrome #jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle span,
+.ff #jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle span,
+.opera #jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle span,
+.safari #jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle span {
+    display: initial;
+}
+.chrome #jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle:after,
+.ff #jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle:after,
+.opera #jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle:after,
+.safari #jive-widget-container_2 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget .jive-widget-header h4.jive-widget-handle:after {
+    content: '';
+}
+
+/***|  2.5 - RSA Ideas  |***/
 
 /* Display only the first 5 ideas in the RSA Ideas widget (automated widgets only) */
 tr.rsaIdeas.ideasTableRow {
@@ -265,18 +283,14 @@ tr.rsaIdeas.ideasTableRow:nth-child(5) {
     display: none;
 }
 
-/*
- *  2.5 - Active Maintenance Contracts
- */
+/***|  2.6 - Active Maintenance Contracts  |***/
 
 /* Reset the background to transparent */
 #jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
     background-color: transparent;
 }
 
-/*
- *  2.6 - Current Events and News Feeds
- */
+/***|  2.7 - Current Events and News Feeds  |***/
 
 /* Style the RSS Feed Widget */
 .jive-widget-rssfeed-entry {
@@ -311,9 +325,7 @@ a.statusrss.font-color-meta-light {
  *   3.0 - RIGHT COLUMN   *
  **************************/
 
-/*
- *  3.1 - General
- */
+ /***|  3.1 - General  |***/
 
 /* Move View All widget closer to Status Reports widget */
 #jive-widget-container_3 .jive-widget-tagwidget {
@@ -355,9 +367,7 @@ a.jive-link-email-small {
     display: none;
 }
 
-/*
- *  3.2 - Quick Facts
- */
+/***|  3.2 - Quick Facts  |***/
 
 /* Change header for Quick Facts table to red */
 #jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget table th,
@@ -370,9 +380,7 @@ a.jive-link-email-small {
     text-align: right;
 }
 
-/*
- *  3.3 - Status Reports
- */
+/***|  3.3 - Status Reports  |***/
 
 /* Style the bi-weekly status and TAM report hyperlinks */
 #jive-widget-container_3 .jive-widget-tagwidget li a {
@@ -414,9 +422,7 @@ a.allStatusReportsButton[data-role=button]:hover {
     margin-bottom: -5px;
 }
 
-/*
- *  3.3.1 - Bi-Weekly Status Reports
- */
+/***|  3.3.1 - Bi-Weekly Status Reports  |***/
 
 /* Update the Bi-Weekly Status Reports message when empty */
 .chrome #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p,
@@ -437,9 +443,7 @@ a.allStatusReportsButton[data-role=button]:hover {
     margin-bottom: -10px;
 }
 
-/*
- *  3.3.2 - TAM Status Reports
- */
+/***|  3.3.1 - TAM Status Reports  |***/
 
 /* Update the TAM Reports message when empty */
 .chrome #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
