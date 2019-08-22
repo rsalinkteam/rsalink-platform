@@ -32,3 +32,49 @@
  .jive-widget-watchlabel {
      display: none;
  }
+
+/*Multiselect dropdown*/
+.dropdown-multiselect{
+            margin-top: -7px;
+            margin-left: -13px;
+}
+.dropdown-multiselect button{
+    width:267px !important;
+}
+.dropdown-multiselect .btn .caret {
+    float: right !important;
+    margin-top: 7px !important;
+}
+.dropdown-menu{
+    min-width: 267px !important;
+    overflow: hidden !important;
+}
+.dropdown-menu li a .checkbox{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+/*customize single table */
+.customMasterTable td{
+    border-color: inherit;
+    border: 1px solid #c6c6c6 !important;
+    border-width: inherit;
+    text-align: left;
+    padding: 5px;
+    margin: 0;
+}
+.customMasterTable th{
+    font-weight: 700;
+    border-color: inherit;
+    border: 1px solid #c6c6c6 !important;
+    border-width: inherit;
+    text-align: left;
+    padding: 5px;
+    margin: 0;
+    font-size: 14px;
+}
+.customMasterTable td p {
+     margin: 0px !important; 
+}
+.dropdown-menu>li>a{
+    padding: 3px 10px !important;
+}
