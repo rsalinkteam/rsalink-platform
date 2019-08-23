@@ -1,10 +1,11 @@
-<script src='https://code.jquery.com/jquery-3.2.1.js'></script>
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://community.rsa.com/resources/statics/238998/rsalink-okr-iframe.css?a=1559754623885">
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
-<script>
+<!DOCTYPE html>
+    <meta charset="utf-8"/>
+    <script src='https://code.jquery.com/jquery-3.2.1.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://community.rsa.com/resources/statics/238998/rsalink-okr-iframe.css?a=1559914383226">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script>
 var $j = jQuery.noConflict();
 
 /*********** Objective Box Script **********/
@@ -42,7 +43,9 @@ $j(document).ready(function() {
 
 function resizeWidget() {
     setTimeout( resizeMe, 500);
-    
+}
+function scrollToKeyResult(){
+    $j('html,body', window.parent.document).animate({ scrollTop: "1400px" }, 1000);
 }
 //Enables console.log messages in Firefox 
 function log(msg){
@@ -101,8 +104,8 @@ function init(){
                         if($j.trim($j(rows[i]).text()) == $j.trim($j(value).find(".keyResult").text())){
                             statusLevel = $j(value).find(".statusLevel").text();
                             statusValue = $j(value).find(".statusValue").text();
-                            trend = $j(value).find(".trend").text();
-                            trendValue = $j(value).find(".trendValue").text();
+                            //trend = $j(value).find(".trend").text();
+                            //trendValue = $j(value).find(".trendValue").text();
                         }
                     })  
                 
@@ -145,8 +148,10 @@ function init(){
                     });
                     
                     bodyHtml = $j('table:first', $j(rows[i]).next()).parent().html();
+                    bodyHtml = bodyHtml.replace(/https:\/\/community\.rsa\.com\/external-link\.jspa\?url=/g,"").replace(/\/external-link\.jspa\?url=/g,"").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":").replace(/%3F\s*/g,"?").replace(/%3D\s*/g,"=").replace(/%26\s*/g,"&").replace(/%2B\s*/g,"+");
 
-                    tmpHTML += "<div class='panel " + colorStyle + "'> <h4 class='panel-heading panel-title' data-toggle='collapse' data-parent='#accordion"+key+"' data-parent='#accordionObj1' href='#collapse"+key+ collapseIncrementer + "' onclick='resizeWidget()' style:''> <span class='glyphicon glyphicon-plus'></span> &nbsp;<span class='accrdnTitle'>" + titleHtml + "</span><div class='resultsSection'><span class='resultStatusLevel "+statusLevel+"'>"+statusValue+"</span><span class='trendBox "+trend+"'></span><span class='trendValueBox'>"+trendValue+"</span></div></h4> <div id='collapse" +key+ collapseIncrementer + "' class='panel-collapse collapse";
+                    tmpHTML += "<div class='panel " + colorStyle + "'> <h4 class='panel-heading panel-title' data-toggle='collapse' data-parent='#accordion"+key+"' data-parent='#accordionObj1' href='#collapse"+key+ collapseIncrementer + "' onclick='resizeWidget();scrollToKeyResult();' style:''> <div class='accSectionObj1'><span class='glyphicon glyphicon-plus'></span> &nbsp;<span class='accrdnTitle'>" + titleHtml + "</span></div><div class='resultsSectionObj1'><span class='resultStatusLevelObj1 "+statusLevel+"'>"+statusValue+"</span></div></h4> <div id='collapse" +key+ collapseIncrementer + "' class='panel-collapse collapse";
+
                     if (typeof initState !== 'undefined') {
                         if ( initState == 'Expanded' || ( i == 0 && ( initState == 'First' || initState == 'undefined' ) ) ) {
                             tmpHTML += " in";
@@ -162,7 +167,7 @@ function init(){
 
                 if(key == "objective1Url"){                           
                         $j('.objective1 .testimonial #accordionobjective1Url').html(tmpHTML);    
-                        $j('.objective1 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);                   
+                        $j('.objective1 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);
                         $j('.objective1 .testimonial #corporateGoalValueObj1').text($j('.objectiveIntroTable', data).find(".corporateGoalValue").text());
                         $j('.objective1 .testimonial #leadValueObj1').html($j('.objectiveIntroTable', data).find(".leadValue").html());    
                         $j('.objective1 .testimonial #workingTeamValueObj1').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());    
@@ -170,10 +175,11 @@ function init(){
                         //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
                         $j('.objective1 .testimonial #accordionObj1').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
                         $j('.objective1 .testimonial #accordionObj1').find('a').attr('target','_blank');
-                        $j('#objective1 .overallTrendValue').html(overallTrendNumValue);
+                        //$j('#objective1 .overallTrendValueObj1').html( "Improve VoC-E from " + overallTrendNumValue + " to 70%");
+                        $j('#objective1 .overallTrendValueObj1').html( "Lorem ipsum");
                         $j('#objective1 .overallTrend').addClass(overallTrend);
-                        $j('#objective1 .objectiveStatus').addClass(overallObjectiveStatusLevel);
-                        $j('#objective1 .objectiveStatus').html(overallObjectiveStatus);
+                        $j('#objective1 .newObjectiveStatus').addClass(overallObjectiveStatusLevel);
+                        $j('#objective1 .newObjectiveStatus').html(overallObjectiveStatus);
                         $j('#objective1 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
                 } else if(key == "objective2Url"){
                         $j('.objective2 .testimonial #accordionobjective2Url').html(tmpHTML);    
@@ -187,9 +193,10 @@ function init(){
                         $j('.objective2 .testimonial #accordionObj2').find('a').attr('target','_blank');
                         $j('#objective2 .overallTrendValue').html(overallTrendNumValue);
                         $j('#objective2 .overallTrend').addClass(overallTrend);
-                        $j('#objective2 .objectiveStatus').addClass(overallObjectiveStatusLevel);
-                        $j('#objective2 .objectiveStatus').html(overallObjectiveStatus);
-                        $j('#objective2 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
+                        $j('#objective2 .newObjectiveStatus').addClass(overallObjectiveStatusLevel);
+                        $j('#objective2 .newObjectiveStatus').html(overallObjectiveStatus);
+                        //$j('#objective2 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
+                        $j('#objective2 .overallCompletedField').html("Lorem ipsum");
                 } else if(key == "objective3Url"){
                         $j('.objective3 .testimonial #accordionobjective3Url').html(tmpHTML);    
                         $j('.objective3 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);                   
@@ -202,9 +209,10 @@ function init(){
                         $j('.objective3 .testimonial #accordionObj3').find('a').attr('target','_blank');
                         $j('#objective3 .overallTrendValue').html(overallTrendNumValue);
                         $j('#objective3 .overallTrend').addClass(overallTrend);
-                        $j('#objective3 .objectiveStatus').addClass(overallObjectiveStatusLevel);
-                        $j('#objective3 .objectiveStatus').html(overallObjectiveStatus);
-                        $j('#objective3 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
+                        $j('#objective3 .newObjectiveStatus').addClass(overallObjectiveStatusLevel);
+                        $j('#objective3 .newObjectiveStatus').html(overallObjectiveStatus);
+                        //$j('#objective3 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
+                        $j('#objective3 .overallCompletedField').html("Lorem ipsum");
                 } else if(key == "objective4Url"){
                         $j('.objective4 .testimonial #accordionobjective4Url').html(tmpHTML);    
                         $j('.objective4 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);                   
@@ -217,9 +225,10 @@ function init(){
                         $j('.objective4 .testimonial #accordionObj4').find('a').attr('target','_blank');
                         $j('#objective4 .overallTrendValue').html(overallTrendNumValue);
                         $j('#objective4 .overallTrend').addClass(overallTrend);
-                        $j('#objective4 .objectiveStatus').addClass(overallObjectiveStatusLevel);
-                        $j('#objective4 .objectiveStatus').html(overallObjectiveStatus);
-                        $j('#objective4 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
+                        $j('#objective4 .newObjectiveStatus').addClass(overallObjectiveStatusLevel);
+                        $j('#objective4 .newObjectiveStatus').html(overallObjectiveStatus);
+                        //$j('#objective4 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
+                        $j('#objective4 .overallCompletedField').html("Lorem ipsum");
                 } else if(key == "objective5Url"){
                         $j('.objective5 .testimonial #accordionobjective5Url').html(tmpHTML);    
                         $j('.objective5 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);                   
@@ -232,9 +241,10 @@ function init(){
                         $j('.objective5 .testimonial #accordionObj5').find('a').attr('target','_blank');
                         $j('#objective5 .overallTrendValue').html(overallTrendNumValue);
                         $j('#objective5 .overallTrend').addClass(overallTrend);
-                        $j('#objective5 .objectiveStatus').addClass(overallObjectiveStatusLevel);
-                        $j('#objective5 .objectiveStatus').html(overallObjectiveStatus);
-                        $j('#objective5 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
+                        $j('#objective5 .newObjectiveStatus').addClass(overallObjectiveStatusLevel);
+                        $j('#objective5 .newObjectiveStatus').html(overallObjectiveStatus);
+                        //$j('#objective5 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
+                        $j('#objective5 .overallCompletedField').html("Lorem ipsum");
                 } else if(key == "objective6Url"){
                         $j('.objective6 .testimonial #accordionobjective6Url').html(tmpHTML);    
                         $j('.objective6 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);                   
@@ -247,23 +257,24 @@ function init(){
                         $j('.objective6 .testimonial #accordionObj6').find('a').attr('target','_blank');
                         $j('#objective6 .overallTrendValue').html(overallTrendNumValue);
                         $j('#objective6 .overallTrend').addClass(overallTrend);
-                        $j('#objective6 .objectiveStatus').addClass(overallObjectiveStatusLevel);
-                        $j('#objective6 .objectiveStatus').html(overallObjectiveStatus);
-                        $j('#objective6 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
+                        $j('#objective6 .newObjectiveStatus').addClass(overallObjectiveStatusLevel);
+                        $j('#objective6 .newObjectiveStatus').html(overallObjectiveStatus);
+                        //$j('#objective6 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
+                        $j('#objective6 .overallCompletedField').html("Lorem ipsum");
                 }
                 
                 $j(".collapse.in").each(function(){
                     $j(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
                 });
-               $j('.panel-title').each(function(){
-                    if($j(this).attr('href') === '#collapseobjective1Url2' || $j(this).attr('href') === '#collapseobjective3Url1' || $j(this).attr('href') === '#collapseobjective5Url2'){
-                        $j(this).find('.accrdnTitle').addClass('customAccrdnTitle');
-                        $j(this).find('.resultStatusLevel').addClass('customStatusLevelBox');
-                        $j(this).find('.trendBox').addClass('customTrendBox');
-                        $j(this).find('.trendValueBox').addClass('customTrendValueBox');
-                        $j(this).addClass('customAccrdnHeaderHeight');
-                    }
-                });
+               // $j('.panel-title').each(function(){
+               //      if($j(this).attr('href') === '#collapseobjective3Url1' || $j(this).attr('href') === '#collapseobjective5Url2'){
+               //          $j(this).find('.accrdnTitle').addClass('customAccrdnTitle');
+               //          $j(this).find('.resultStatusLevel').addClass('customStatusLevelBox');
+               //          $j(this).find('.trendBox').addClass('customTrendBox');
+               //          $j(this).find('.trendValueBox').addClass('customTrendValueBox');
+               //          $j(this).addClass('customAccrdnHeaderHeight');
+               //      }
+               //  });
         
                 // Toggle plus minus icon on show hide of collapse element
                 $j(".collapse").on('show.bs.collapse', function(){
@@ -323,38 +334,132 @@ $j('#back-on-top').click(function() { // When arrow is clicked
         scrollTop : 0                // Scroll to top of body
     }, 500);
 });
-</script>   
-<!--<div class="okrMainTitle">
-    <h2>Objectives and Key Results</h2>
-</div>-->
+</script> 
+<style>
+    .overallTrendValueObj1 {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .newObjectiveStatus {
+        width: auto;
+        color: #fff;
+        display: flex;
+        font-size: 18px;
+        padding: 10px;
+        justify-content: center;
+        font-weight: bold;
+    }
+    .resultStatusLevelObj1 {
+       display: block;
+       width: 100px;
+       padding: 10px;
+       text-align: center;
+       float: right;
+       color: #fff;
+       font-weight: bold;
+       margin-top: -10px;
+       min-height: 37px;
+    }
+    .accSectionObj1 {
+        display: inline-block;
+        width: 90%;
+    }
+    .resultsSectionObj1 {
+        position: relative;
+        display: inline-block;
+        float: right;
+        right: 0%;
+    }
+    .keyResultsHeadingContainer {
+        background-color: #415464;
+        padding: 10px !important;
+        color: #fff;
+        padding: 2px 2px 2px 10px;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .newObjectiveStatus {
+        width: auto;
+        color: #fff;
+        display: flex;
+        font-size: 18px;
+        padding: 10px;
+        justify-content: center;
+        font-weight: bold;
+    }
+    .objectiveTitle {
+        min-height: 180px !important;
+    }
+    .overallCompletedField {
+        display: none !important;
+    }
+    .overallTrendValueObj1 {
+        display: none !important;
+    }
+    .secondRowBox .objectiveTitle {
+        min-height: 155px !important;
+    }
+    .table-bordered td, .table-bordered th {
+        border: 1px solid #dee2e6;
+        vertical-align: middle !important;
+    }
+    .legendBox {
+        width: 50%;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        height: 35px;
+        display: block;
+        position: relative;
+        padding-top: 7px;
+        margin-left: 30%;
+    }
+    .legendGreenBox {
+        background-color: #22b14c;
+    }
+    .legendYellowBox {
+        background-color: #FFC90E;
+    }
+    .legendRedBox {
+        background-color: #ED1C24;
+    }
+</style>
+
+
+
 <div class="tableWrapper">
+
     <div class="objective" id="objective1">
         <div class="objectivesBox boxHover">
             <div class="objectiveTitle">
-                <p><span class="objectiveNum">OBJECTIVE 1:</span></br>70% of field facing team members strongly or fully agreeing with the statement “Providing best in class customer experience is a top priority at RSA” in the VoC-E</p>
+                <p><span class="objectiveNum">OBJECTIVE 1:</span></br>Provide best in class customer experience as a top priority in RSA and improve field facing team member VoC-E score from 56% to 70% by end of FY20</p>
             </div>
             <div class="objectiveFooter objectiveDetails">
-                <div class="overallCompletedField"></div>
-                <div class="objectiveStatus"></div>
-                <div class="overallTrendContainer">
-                    <span class="overallTrend"></span>
-                    <span class="overallTrendValue"></span>
-                </div>
+                <!-- <div class="overallTrendValueObj1"></div> -->
+                <div class="newObjectiveStatus"></div>
+                <!--<div class="overallTrendContainer">-->
+                    <!--<span class="overallTrend"></span>-->
+                    <!--<span class="overallTrendValue"></span>-->
+                <!-- </div> -->
             </div>
         </div>
     </div>
     <div class="objective" id="objective2">
         <div class="objectivesBox boxHover">
             <div class="objectiveTitle">
-                <p><span class="objectiveNum">OBJECTIVE 2:</span></br>Improve customer experience with RSA to achieve cNPS of FY20 goal of +25</p>
+                <p><span class="objectiveNum">OBJECTIVE 2:</span></br>By end of FY20, improve customer experience and achieve cNPS of +25</p>
             </div>
             <div class="objectiveFooter objectiveDetails">
-                <div class="overallCompletedField"></div>
-                <div class="objectiveStatus"></div>
-                <div class="overallTrendContainer">
+                <!-- <div class="overallCompletedField"></div> -->
+                <div class="newobjectiveStatus"></div>
+                <!-- <div class="overallTrendContainer">
                     <span class="overallTrend"></span>
                     <span class="overallTrendValue"></span>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -364,12 +469,12 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <p><span class="objectiveNum">OBJECTIVE 3:</span></br>Improve quality, governance and access to Customer Master Data</p>
             </div>
             <div class="objectiveFooter objectiveDetails">
-                <div class="overallCompletedField"></div>
-                <div class="objectiveStatus"></div>
-                <div class="overallTrendContainer">
+                <!-- <div class="overallCompletedField"></div> -->
+                <div class="newobjectiveStatus"></div>
+                <!-- <div class="overallTrendContainer">
                     <span class="overallTrend"></span>
                     <span class="overallTrendValue"></span>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -381,42 +486,42 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <p><span class="objectiveNum">OBJECTIVE 4:</span></br>Implement programs to improve the product Net Promoter Score (pNPS) within the RSA Fraud & Risk Intelligence Suite</p>
             </div>
             <div class="objectiveFooter objectiveDetails">
-                <div class="overallCompletedField bottomRowFields"></div>
-                <div class="objectiveStatus"></div>
-                <div class="overallTrendContainer">
+                <!-- <div class="overallCompletedField bottomRowFields"></div> -->
+                <div class="newobjectiveStatus"></div>
+                <!-- <div class="overallTrendContainer">
                     <span class="overallTrend"></span>
                     <span class="overallTrendValue"></span>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
     <div class="objective" id="objective5">
         <div class="objectivesBox boxHover secondRowBox">
             <div class="objectiveTitle">
-                <p><span class="objectiveNum">OBJECTIVE 5:</span></br>Implement programs to improve the product Net Promoter Score (pNPS) for RSA SecurID Access and Identity Governance & Lifecycle</p>
+                <p><span class="objectiveNum">OBJECTIVE 5:</span></br>Implement programs to improve the product Net Promoter Score (pNPS) for RSA SecurID Access and RSA Identity Governance &amp; Lifecycle</p>
             </div>
             <div class="objectiveFooter objectiveDetails">
-                <div class="overallCompletedField"></div>
-                <div class="objectiveStatus"></div>
-                <div class="overallTrendContainer">
+                <!-- <div class="overallCompletedField"></div> -->
+                <div class="newobjectiveStatus"></div>
+                <!-- <div class="overallTrendContainer">
                     <span class="overallTrend"></span>
                     <span class="overallTrendValue"></span>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
     <div class="objective" id="objective6">
         <div class="objectivesBox boxHover secondRowBox">
             <div class="objectiveTitle">
-                <p><span class="objectiveNum">OBJECTIVE 6:</span></br>Launch 4 Solutions/Risk Frameworks & enable sales to drive in strategic accounts</p>
+                <p><span class="objectiveNum">OBJECTIVE 6:</span></br>In FY20 launch 4 Solutions/Risk Frameworks & enable sales to drive in strategic accounts</p>
             </div>
             <div class="objectiveFooter objectiveDetails">
-                <div class="overallCompletedField"></div>
-                <div class="objectiveStatus"></div>
-                <div class="overallTrendContainer">
+                <!-- <div class="overallCompletedField"></div> -->
+                <div class="newobjectiveStatus"></div>
+                <!-- <div class="overallTrendContainer">
                     <span class="overallTrend"></span>
                     <span class="overallTrendValue"></span>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -429,13 +534,16 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj1"></span></h4>
             </div>
             <div class="okrContainer">
-                <h4><b>Objective and Key Results: </b><span class="okrContainerText">FY20 goal of 70% of field facing team members strongly or fully agreeing with the statement “Providing best in class customer experience is a top priority at RSA” in the VoC-E</span></h4>
+                <h4><b>Objective and Key Results: </b><span class="okrContainerText">Provide best in class customer experience as a top priority in RSA and improve field facing team member VoC-E score from 56% to 70% by end of FY20</span></h4>
             </div>
             <div class="leadValueContainer">
                 <h4><b>Executive Sponsor: </b><span id="leadValueObj1"></span></h4>
             </div>
             <div class="workingTeamContainer">
                 <h4><b>Leadership Team: </b><span id="workingTeamValueObj1"></span></h4>
+            </div>
+            <div class="keyResultsHeadingContainer">
+                <span><b>Key Results (As Measured By)</b></span>
             </div>
             <div id="keyResultTableObj1"></div>
             <div id='AccordionContainerObj1' class='acc-margin'>
@@ -477,23 +585,34 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/mikeOstendorf.jpg?a=1559220271670" /></div>
                 <div class="teamMemberName">Mike Ostendorf</div>
             </a>
-            <a href="mailto:julie.burgoyne@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/JulieBurgoyne%2B.png?a=1558942146237" /></div>
-                <div class="teamMemberName">Julie Burgoyne</div>
-            </a>
             <a href="mailto:david.spokane@rsa.com" class="teamMemberHolder">
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/daveSpokane.jpg?a=1558704698781" /></div>
                 <div class="teamMemberName">Dave Spokane</div>
             </a>
-            <a href="mailto:Kelly.Fiedler@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/KellyFiedler.png?a=1558704861104" /></div>
-                <div class="teamMemberName">Kelly Fiedler</div>
-            </a>
-            <a href="mailto:mignonette.silotchang@emc.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/mignonetteSilotChang-edited.jpg?a=1558704960239" /></div>
-                <div class="teamMemberName">Mignonette Silot-Chang</div>
-            </a>
         </div>
+        <!-- Legend Starts Here --> 
+            <table class="table table-hover table-bordered ">
+                <thead>
+                  <tr>
+                    <th colspan="2" class="keyResultsHeadingContainer">Measurement Legend Explained</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="legendBox legendGreenBox">Value</div></td>
+                    <td>Value is within 5 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendYellowBox">Value</div></td>
+                    <td>Value is within 10 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendRedBox">Value</div></td>
+                    <td>Value is more than 10 points from goal</td>
+                  </tr>
+                </tbody>
+            </table>
+        <!-- Legend Ends Here -->
     </div>
     <div class="wrapper objective2">
         <div class="testimonial">
@@ -502,13 +621,16 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj2"></span></h4>
             </div>
             <div class="okrContainer">
-                <h4><b>Objective and Key Results: </b><span class="okrContainerText">Improve customer experience with RSA to achieve cNPS of FY20 goal of +25</span></h4>
+                <h4><b>Objective and Key Results: </b><span class="okrContainerText">By end of FY20, improve customer experience and achieve cNPS of +25</span></h4>
             </div>
             <div class="leadValueContainer">
                 <h4><b>Executive Sponsor: </b><span id="leadValueObj2"></span></h4>
             </div>
             <div class="workingTeamContainer">
                 <h4><b>Leadership Team: </b><span id="workingTeamValueObj2"></span></h4>
+            </div>
+            <div class="keyResultsHeadingContainer">
+                <span><b>Key Results (As Measured By)</b></span>
             </div>
             <div id="keyResultTableObj2"></div>
             <div id='AccordionContainerObj2' class='acc-margin'>
@@ -521,6 +643,10 @@ $j('#back-on-top').click(function() { // When arrow is clicked
             <a href="mailto:doug.howard@rsa.com" class="teamMemberHolder">
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DougHoward_RSAcom.png?a=1558704760659" /></div>
                 <div class="teamMemberName">Doug Howard</div>
+            </a>
+            <a href="mailto:gail.burns@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/gailBurns.jpg?a=1558704808857" /></div>
+                <div class="teamMemberName">Gail Burns</div>
             </a>
             <a href="mailto:robert.haggerty@rsa.com" class="teamMemberHolder">
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/RobHaggerty.png?a=1558705168446" /></div>
@@ -538,10 +664,6 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DaveGaik.png?a=1558705273961" /></div>
                 <div class="teamMemberName">Dave Gaik</div>
             </a>
-            <a href="mailto:tom.luke@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/TomLuke.png?a=1558940276558" /></div>
-                <div class="teamMemberName">Tom Luke</div>
-            </a>
             <a href="mailto:lisa.zeena@rsa.com" class="teamMemberHolder">
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/LisaZeena.png?a=1558704901010" /></div>
                 <div class="teamMemberName">Lisa Zeena</div>
@@ -550,11 +672,30 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/mikeOstendorf.jpg?a=1559220271670" /></div>
                 <div class="teamMemberName">Mike Ostendorf</div>
             </a>
-            <a href="mailto:julie.burgoyne@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/JulieBurgoyne%2B.png?a=1558942146237" /></div>
-                <div class="teamMemberName">Julie Burgoyne</div>
-            </a>
         </div>
+            <!-- Legend Starts Here --> 
+            <table class="table table-hover table-bordered ">
+                <thead>
+                  <tr>
+                    <th colspan="2" class="keyResultsHeadingContainer">Measurement Legend Explained</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="legendBox legendGreenBox">Value</div></td>
+                    <td>Value is within 5 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendYellowBox">Value</div></td>
+                    <td>Value is within 10 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendRedBox">Value</div></td>
+                    <td>Value is more than 10 points from goal</td>
+                  </tr>
+                </tbody>
+            </table>
+        <!-- Legend Ends Here -->
     </div>
     <div class="wrapper objective3">
         <div class="testimonial">
@@ -570,6 +711,9 @@ $j('#back-on-top').click(function() { // When arrow is clicked
             </div>
             <div class="workingTeamContainer">
                 <h4><b>Leadership Team: </b><span id="workingTeamValueObj3"></span></h4>
+            </div>
+            <div class="keyResultsHeadingContainer">
+                <span><b>Key Results (As Measured By)</b></span>
             </div>
             <div id="keyResultTableObj3"></div>
             <div id='AccordionContainerObj3' class='acc-margin'>
@@ -587,35 +731,34 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/gailBurns.jpg?a=1558704808857" /></div>
                 <div class="teamMemberName">Gail Burns</div>
             </a>
-            <a href="mailto:robert.haggerty@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/RobHaggerty.png?a=1558705168446" /></div>
-                <div class="teamMemberName">Rob Haggerty</div>
-            </a>
             <a href="mailto:michael.svihra@rsa.com" class="teamMemberHolder">
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/MikeSvihra.png?a=1558705065051" /></div>
                 <div class="teamMemberName">Mike Svihra</div>
             </a>
-            <a href="mailto:ram.menashe@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/ramMenashe.jpg?a=1558705116719" /></div>
-                <div class="teamMemberName">Ram Menashe</div>
-            </a>
-            <a href="mailto:david.gaik@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DaveGaik.png?a=1558705273961" /></div>
-                <div class="teamMemberName">Dave Gaik</div>
-            </a>
-            <a href="mailto:lisa.zeena@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/LisaZeena.png?a=1558704901010" /></div>
-                <div class="teamMemberName">Lisa Zeena</div>
-            </a>
-            <a href="mailto:mike.ostendorf@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/mikeOstendorf.jpg?a=1559220271670" /></div>
-                <div class="teamMemberName">Mike Ostendorf</div>
-            </a>
-            <a href="mailto:robert.carey@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/RobCarey.png?a=1558940636625"/></div>
-                <div class="teamMemberName">Rob Carey</div>
-            </a>
         </div>
+            <!-- Legend Starts Here --> 
+            <table class="table table-hover table-bordered ">
+                <thead>
+                  <tr>
+                    <th colspan="2" class="keyResultsHeadingContainer">Measurement Legend Explained</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="legendBox legendGreenBox">Value</div></td>
+                    <td>Value is within 5 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendYellowBox">Value</div></td>
+                    <td>Value is within 10 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendRedBox">Value</div></td>
+                    <td>Value is more than 10 points from goal</td>
+                  </tr>
+                </tbody>
+            </table>
+        <!-- Legend Ends Here -->
     </div>
     <div class="wrapper objective4">
         <div class="testimonial">
@@ -632,6 +775,9 @@ $j('#back-on-top').click(function() { // When arrow is clicked
             <div class="workingTeamContainer">
                 <h4><b>Leadership Team: </b><span id="workingTeamValueObj4"></span></h4>
             </div>
+            <div class="keyResultsHeadingContainer">
+                <span><b>Key Results (As Measured By)</b></span>
+            </div>
             <div id="keyResultTableObj4"></div>
             <div id='AccordionContainerObj4' class='acc-margin'>
                 <div class='panel-group' id='accordionobjective4Url'>
@@ -644,15 +790,38 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DougHoward_RSAcom.png?a=1558704760659" /></div>
                 <div class="teamMemberName">Doug Howard</div>
             </a>
+            <a href="mailto:robert.haggerty@rsa.com" class="teamMemberHolder">
+                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/RobHaggerty.png?a=1558705168446" /></div>
+                <div class="teamMemberName">Rob Haggerty</div>
+            </a>
             <a href="mailto:ram.menashe@rsa.com" class="teamMemberHolder">
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/ramMenashe.jpg?a=1558705116719" /></div>
                 <div class="teamMemberName">Ram Menashe</div>
             </a>
-            <a href="mailto:lisa.zeena@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/LisaZeena.png?a=1558704901010" /></div>
-                <div class="teamMemberName">Lisa Zeena</div>
-            </a>
         </div>
+            <!-- Legend Starts Here --> 
+            <table class="table table-hover table-bordered ">
+                <thead>
+                  <tr>
+                    <th colspan="2" class="keyResultsHeadingContainer">Measurement Legend Explained</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="legendBox legendGreenBox">Value</div></td>
+                    <td>Value is within 5 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendYellowBox">Value</div></td>
+                    <td>Value is within 10 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendRedBox">Value</div></td>
+                    <td>Value is more than 10 points from goal</td>
+                  </tr>
+                </tbody>
+            </table>
+        <!-- Legend Ends Here -->
     </div>
     <div class="wrapper objective5">
         <div class="testimonial">
@@ -661,13 +830,16 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj5"></span></h4>
             </div>
             <div class="okrContainer">
-                <h4><b>Objective and Key Results: </b><span class="okrContainerText">Implement programs to improve the product Net Promoter Score (pNPS) for RSA SecurID Access and Identity Governance & Lifecycle</span></h4>
+                <h4><b>Objective and Key Results: </b><span class="okrContainerText">Implement programs to improve the product Net Promoter Score (pNPS) for RSA SecurID Access and RSA Identity Governance &amp; Lifecycle</span></h4>
             </div>
             <div class="leadValueContainer">
                 <h4><b>Executive Sponsor: </b><span id="leadValueObj5"></span></h4>
             </div>
             <div class="workingTeamContainer">
                 <h4><b>Leadership Team: </b><span id="workingTeamValueObj5"></span></h4>
+            </div>
+            <div class="keyResultsHeadingContainer">
+                <span><b>Key Results (As Measured By)</b></span>
             </div>
             <div id="keyResultTableObj5"></div>
             <div id='AccordionContainerObj5' class='acc-margin'>
@@ -681,19 +853,34 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/DougHoward_RSAcom.png?a=1558704760659" /></div>
                 <div class="teamMemberName">Doug Howard</div>
             </a>
-            <a href="mailto:James.Ducharme@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/jimDucharme-edited.jpg?a=1558704839024" /></div>
-                <div class="teamMemberName">Jim Ducharme</div>
-            </a>
             <a href="mailto:lisa.zeena@rsa.com" class="teamMemberHolder">
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/LisaZeena.png?a=1558704901010" /></div>
                 <div class="teamMemberName">Lisa Zeena</div>
             </a>
-            <a href="mailto:Kelly.Fiedler@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/KellyFiedler.png?a=1558704861104" /></div>
-                <div class="teamMemberName">Kelly Fiedler</div>
-            </a>
         </div>
+            <!-- Legend Starts Here --> 
+            <table class="table table-hover table-bordered ">
+                <thead>
+                  <tr>
+                    <th colspan="2" class="keyResultsHeadingContainer">Measurement Legend Explained</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="legendBox legendGreenBox">Value</div></td>
+                    <td>Value is within 5 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendYellowBox">Value</div></td>
+                    <td>Value is within 10 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendRedBox">Value</div></td>
+                    <td>Value is more than 10 points from goal</td>
+                  </tr>
+                </tbody>
+            </table>
+        <!-- Legend Ends Here -->
     </div>
     <div class="wrapper objective6">
         <div class="testimonial">
@@ -702,13 +889,16 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj6"></span></h4>
             </div>
             <div class="okrContainer">
-                <h4><b>Objective and Key Results: </b><span class="okrContainerText">Launch 4 Solutions/Risk Frameworks & enable sales to drive in strategic accounts</h4>
+                <h4><b>Objective and Key Results: </b><span class="okrContainerText">In FY20 launch 4 Solutions/Risk Frameworks & enable sales to drive in strategic accounts</h4>
             </div>
             <div class="leadValueContainer">
                 <h4><b>Executive Sponsor: </b><span id="leadValueObj6"></span></h4>
             </div>
             <div class="workingTeamContainer">
                 <h4><b>Leadership Team: </b><span id="workingTeamValueObj6"></span></h4>
+            </div>
+            <div class="keyResultsHeadingContainer">
+                <span><b>Key Results (As Measured By)</b></span>
             </div>
             <div id="keyResultTableObj6"></div>
             <div id='AccordionContainerObj6' class='acc-margin'>
@@ -726,11 +916,30 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/SteveBergman.png?a=1558705336687" /></div>
                 <div class="teamMemberName">Steve Bergman</div>
             </a>
-            <a href="mailto:gail.burns@rsa.com" class="teamMemberHolder">
-                <div class="teamMemberImage"><img src="https://community.rsa.com/resources/statics/238998/gailBurns.jpg?a=1558704808857" /></div>
-                <div class="teamMemberName">Gail Burns</div>
-            </a>
         </div>
+            <!-- Legend Starts Here --> 
+            <table class="table table-hover table-bordered ">
+                <thead>
+                  <tr>
+                    <th colspan="2" class="keyResultsHeadingContainer">Measurement Legend Explained</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="legendBox legendGreenBox">Value</div></td>
+                    <td>Value is within 5 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendYellowBox">Value</div></td>
+                    <td>Value is within 10 points of goal</td>
+                  </tr>
+                  <tr>
+                    <td><div class="legendBox legendRedBox">Value</div></td>
+                    <td>Value is more than 10 points from goal</td>
+                  </tr>
+                </tbody>
+            </table>
+        <!-- Legend Ends Here -->
     </div>
 </div>
 <div id="toTheTop" class="disableToTheTop">
