@@ -35,8 +35,8 @@
 
 /*Multiselect dropdown*/
 .dropdown-multiselect{
-            margin-top: -7px;
-            margin-left: -13px;
+    margin-top: -7px;
+    margin-left: -13px;
 }
 .dropdown-multiselect button{
     width:267px !important;
@@ -47,9 +47,9 @@
 }
 .dropdown-menu{
     min-width: 267px !important;
-    overflow: hidden !important;
 }
 .dropdown-menu li a .checkbox{
+    margin-left: -10px !important;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
 }
@@ -75,6 +75,5 @@
 .customMasterTable td p {
      margin: 0px !important; 
 }
-.dropdown-menu>li>a{
-    padding: 3px 10px !important;
-}
+
+
