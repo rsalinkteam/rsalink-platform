@@ -77,6 +77,7 @@
                         box-shadow: 0 10px 6px -6px #777;
             }*/
             /*.hintIcon {background-image: url(https://community.rsa.com/resources/statics/246715/hintIcon.PNG?a=1564603016412);background-repeat: no-repeat; background-position: center center; background-size: 80%; height: 120px; width: 120px; float: left;}*/
+            
     </style>
 
     <div ng-app="ngchangeApp" ng-controller="ngApp">
@@ -95,7 +96,7 @@
       <div class="row" style="padding: 10px !important;">
         <div class="col-sm-4">
             <label for="usr">COURSE</label>
-            <input ng-keyup="searchCourse($event)" type="text" class="form-control" id="course" placeholder="Enter Search Criteria Here" ng-model="courseInput">
+            <input ng-keyup="searchCourse($event)" type="text" class="form-control" id="course" placeholder="Search for a training course" ng-model="courseInput">
         </div>
         <div class="col-sm-4">
           <label for="sel1">PRODUCT NAME</label>
