@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+
+  <meta charset="UTF-8">
+  <title>Example - example-sanitize-service-production</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  <script src="//code.angularjs.org/snapshot/angular-sanitize.js"></script>
+  
+
+  
+
+<body ng-app="netWitnessPlatform">
+ <script>
+  var $j = jQuery.noConflict();
+   angular.module('netWitnessPlatform', ['ngSanitize']).controller('NetWitnessPlatformController', ['$scope', '$sce','$http', function($scope, $sce, $http) {
+          $scope.getTitleData = "";
+          $scope.accordionData = false;
+          $scope.getStartedTab = false;
+          $scope.deployTab = false;
+          $scope.setupandManageTab = false;
+          $scope.investigateTab = false;
+          $scope.respondToIncidentsTab = false;
+          
+          $scope.getStartedData = [];
+          $scope.getDeployData = [];
+          $scope.getSetupandManageData = [];
+          $scope.getInvestigateData = [];
+          $scope.getRespondToIncidentsData = [];
+          $scope.iframeHeight = 0;
+          $scope.wrapperOffSetHeight = 0;
+          $scope.collapseOffSetHeight = 0;
+          $scope.productBoxes = false;
+          $scope.iconPlusMinus = false;
+       $scope.init = function () {
+          /*$scope.sourceUrlList = {"urlList":{"getStarted":"https://community.rsa.com/docs/DOC-106392","deploy":"https://community.rsa.com/docs/DOC-106394","setupandManage":"https://community.rsa.com/docs/DOC-106425","investigate":"https://community.rsa.com/docs/DOC-106426","respondToIncidents":"https://community.rsa.com/docs/DOC-106427"}};*/
+          
+          
+          /* getStarted - https://community.rsa.com/docs/DOC-106599*/
+          /* deploy - https://community.rsa.com/docs/DOC-106600*/
+          /* ConfigureAndManage - https://community.rsa.com/docs/DOC-106611 */
+          /* investigate&Respond - https://community.rsa.com/docs/DOC-106613 */
+          /* Integrations&Utilities - https://community.rsa.com/docs/DOC-106614 */
+                    
+          $http.get("https://community.rsa.com/docs/DOC-106599").then(function(response) {
+              $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+              var accordianTitles = [];
+              angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_top");
+                var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                this.push(data);
+              }, accordianTitles);
+              $scope.getStartedData = accordianTitles;
+              console.log($scope.getStartedData)                
+          });
+          /* deploy - https://community.rsa.com/docs/DOC-106600*/
+          $http.get("https://community.rsa.com/docs/DOC-106600").then(function(response) {
+              $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+              var accordianTitles = [];
+              angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_top");
+                var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                this.push(data);
+
+              }, accordianTitles);
+              $scope.getDeployData = accordianTitles;                
+          });
+          /* setupandManage - https://community.rsa.com/docs/DOC-106611 */
+          $http.get("https://community.rsa.com/docs/DOC-106611").then(function(response) {
+              $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+              var accordianTitles = [];
+              angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_top");
+                var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                this.push(data);
+
+              }, accordianTitles);
+              $scope.getSetupandManageData = accordianTitles;                
+          });
+          /* investigate - https://community.rsa.com/docs/DOC-106613 */
+          $http.get("https://community.rsa.com/docs/DOC-106613").then(function(response) {
+              $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+              var accordianTitles = [];
+              angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_top");
+                var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                this.push(data);
+
+              }, accordianTitles);
+              $scope.getInvestigateData = accordianTitles;                
+          });
+          /* respondToIncidents - https://community.rsa.com/docs/DOC-106614 */
+          $http.get("https://community.rsa.com/docs/DOC-106614").then(function(response) {
+              $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+              var accordianTitles = [];
+              angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_top");
+                var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                this.push(data);
+
+              }, accordianTitles);
+              $scope.getRespondToIncidentsData = accordianTitles;                
+          });
+          setTimeout(function(){ 
+              window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove();
+
+          }, 1500);
+          $scope.productBoxes = true;
+          setTimeout(resizeMe,0);
+      };
+      $scope.init();
+       $scope.snippet =
+         '<p style="color:blue">an html\n' +
+         '<em onmouseover="this.textContent=\'PWN3D!\'">click here</em>\n' +
+         'snippet</p>';
+       $scope.deliberatelySnippet = function(data) {
+         return $sce.trustAsHtml(data);
+       };
+       $scope.getIframeHeight = function(){
+          return window.parent.$j(".htmlWidgetIframe")[0].offsetHeight;
+       }
+       $scope.getIframeHeight();
+       $scope.filterByAudience = function(audience){
+          $scope.iframeHeight = 0;
+          $scope.wrapperOffSetHeight = 0;
+          $scope.collapseOffSetHeight = 0;  
+          $scope.getTitleData = "";
+          if(audience == 'getStarted'){
+              $scope.getStartedTab = true; $scope.deployTab = false; $scope.setupandManageTab = false; $scope.investigateTab = false; $scope.respondToIncidentsTab = false;
+          }else if(audience == 'deploy'){
+              $scope.getStartedTab = false; $scope.deployTab = true; $scope.setupandManageTab = false; $scope.investigateTab = false; $scope.respondToIncidentsTab = false;
+          }else if(audience == 'setupandManage'){
+              $scope.getStartedTab = false; $scope.deployTab = false; $scope.setupandManageTab = true; $scope.investigateTab = false; $scope.respondToIncidentsTab = false;
+          }else if(audience == 'investigate'){
+              $scope.getStartedTab = false; $scope.deployTab = false; $scope.setupandManageTab = false; $scope.investigateTab = true; $scope.respondToIncidentsTab = false;
+          }else if(audience == 'respondToIncidents'){
+              $scope.getStartedTab = false; $scope.deployTab = false; $scope.setupandManageTab = false; $scope.investigateTab = false; $scope.respondToIncidentsTab = true;
+          }
+          $j(".collapse").removeClass("show");
+          $j(".icon").removeClass("icon-minus").addClass("icon-plus");
+
+          
+          setTimeout(function(){ 
+              $scope.iframeHeight = $scope.getIframeHeight();
+          }, 100);
+
+          setTimeout(resizeMe,0); 
+      }
+      $scope.indexChar = function (index) {
+              return String.fromCharCode(65 + index);
+      };
+       // Toggle plus minus icon on show hide of collapse element
+      
+      $scope.changeIcon = function(){
+        /*if($scope.collapseOffSetHeight > 0){
+          window.parent.$j(".htmlWidgetIframe").css("height",window.parent.$j(".htmlWidgetIframe")[0].offsetHeight-$scope.collapseOffSetHeight+"px");  
+        }*/
+          $scope.collapseOffSetHeight = 0;
+        
+          $scope.wrapperOffSetHeight = window.parent.$j(".htmlWidgetIframe")[0].offsetHeight;  
+          
+          if($(event.target).parent("h2").find(".icon").hasClass("icon-plus")){
+              $(event.target).parent("h2").find(".icon").addClass("icon-minus").removeClass("icon-plus");
+          }else if($(event.target).parent("h2").find(".icon").hasClass("icon-minus")){
+              $(event.target).parent("h2").find(".icon").addClass("icon-plus").removeClass("icon-minus");
+          }
+
+          if($(event.target).parents(".card").prevAll(".card").length > 0){
+              $($(event.target).parents(".card").prevAll(".card")).each(function(key, value){
+                  $(value).find(".icon").removeClass("icon-minus").addClass("icon-plus");
+              });   
+          }
+          if($(event.target).parents(".card").nextAll(".card").length > 0){
+              $($(event.target).parents(".card").nextAll(".card")).each(function(key, value){
+                  $(value).find(".icon").removeClass("icon-minus").addClass("icon-plus");
+              });   
+          }
+          if($(event.target).parents(".card").find(".collapse").find("tbody tr").length < 2){
+                $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*90;
+          }else if($(event.target).parents(".card").find(".collapse").find("tbody tr").length < 3){
+                $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*60;
+          }else{
+                $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*52;
+          }
+          
+          //window.parent.$j(".htmlWidgetIframe").css("height",$scope.wrapperOffSetHeight+$scope.collapseOffSetHeight+"px");
+          
+          if($(event.target).parent("h2").find(".icon").hasClass("icon-plus")){
+              console.log("Kamlesh");
+              window.parent.$j(".htmlWidgetIframe").css("height",$scope.iframeHeight+"px");
+          }else if($(event.target).parent("h2").find(".icon").hasClass("icon-minus")){
+            window.parent.$j(".htmlWidgetIframe").css("height",$scope.iframeHeight+$scope.collapseOffSetHeight+"px");  
+          }
+          
+      }
+      $scope.changeIconPlusMinus = function(){
+          $scope.collapseOffSetHeight = 0;
+          $scope.wrapperOffSetHeight = window.parent.$j(".htmlWidgetIframe")[0].offsetHeight;  
+          
+          if($(event.target).hasClass("icon-plus")){
+              $(event.target).addClass("icon-minus").removeClass("icon-plus");
+          }else if($(event.target).hasClass("icon-minus")){
+              $(event.target).addClass("icon-plus").removeClass("icon-minus");
+          }
+
+          if($(event.target).parents(".card").prevAll(".card").length > 0){
+              $($(event.target).parents(".card").prevAll(".card")).each(function(key, value){
+                  $(value).find(".icon").removeClass("icon-minus").addClass("icon-plus");
+              });   
+          }
+          if($(event.target).parents(".card").nextAll(".card").length > 0){
+              $($(event.target).parents(".card").nextAll(".card")).each(function(key, value){
+                  $(value).find(".icon").removeClass("icon-minus").addClass("icon-plus");
+              });   
+          }
+          if($(event.target).parents(".card").find(".collapse").find("tbody tr").length < 2){
+                $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*90;
+          }else if($(event.target).parents(".card").find(".collapse").find("tbody tr").length < 3){
+                $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*60;
+          }else{
+                $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*52;
+          }
+          
+          //window.parent.$j(".htmlWidgetIframe").css("height",$scope.wrapperOffSetHeight+$scope.collapseOffSetHeight+"px");
+          
+          if($(event.target).hasClass("icon-plus")){
+              console.log("Kamlesh");
+              window.parent.$j(".htmlWidgetIframe").css("height",$scope.iframeHeight+"px");
+          }else if($(event.target).hasClass("icon-minus")){
+            window.parent.$j(".htmlWidgetIframe").css("height",$scope.iframeHeight+$scope.collapseOffSetHeight+"px");  
+          }
+          
+      }
+
+      
+     }]);
+</script>
+<style type="text/css">
+    .wrapper {font-family: Arial;position: relative;height: auto;margin-top: 0.6%;border: 3px #be3a34 solid;}
+    .arrow-up {margin-left: 43%;margin-bottom: -5%;width: 0;height: 0;border-left: 25px solid transparent;border-right: 25px solid transparent;border-bottom: 25px solid #be3a34;}
+    /* Float Shadow */
+    .rkcIconLink {display: inline-block;vertical-align: middle;-webkit-transform: perspective(1px) translateZ(0);transform: perspective(1px) translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);position: relative;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform;transition-property: transform;cursor: pointer;}
+    .rkcIconLink:before {pointer-events: none;position: absolute;z-index: -1;content: '';top: 100%;left: 5%;height: 10px;width: 90%;opacity: 0;background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);/* W3C */-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform, opacity;transition-property: transform, opacity;}
+    .rkcIconLink:hover, .rkcIconLink:focus, .rkcIconLink:active {-webkit-transform: translateY(-3px);transform: translateY(-3px);}
+    .rkcIconLink:hover:before, .rkcIconLink:focus:before, .rkcIconLink:active:before {opacity: 1; -webkit-transform: translateY(5px);15 transform: translateY(5px);}
+    .rkcIcon {margin-left: auto;margin-right: auto;display: block;max-width: 100%;vertical-align: top;}
+    .text1 {text-align: justify;padding-top: 10px;font-size: 16px;}
+
+    
+    .col-xs-5ths,
+    .col-sm-5ths,
+    .col-md-5ths,
+    .col-lg-5ths {
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .col-xs-5ths {
+        width: 20%;
+        float: left;
+    }
+
+    @media (min-width: 768px) {
+        .col-sm-5ths {
+            width: 20%;
+            float: left;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .col-md-5ths {
+            width: 20%;
+            float: left;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .col-lg-5ths {
+            width: 20%;
+            float: left;
+        }
+    }
+    .accordion{
+    margin: 20px;
+    }
+    .card{box-shadow: 0 1px 2px rgba(0, 0, 0, .05);}
+
+
+
+
+    .icon {
+    position: relative;
+    width:16px;
+    height:16px;
+    margin: 5px;
+    }
+
+    .icon-minus {
+    float: left;
+    background-color: #b1362f;
+    border-radius:8px;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top:0px;
+    left:0;
+
+    }
+    .icon-minus:after {
+    background-color: #fff;
+    width: 8px;
+    height: 2px;
+    border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    position: absolute;
+    top:7px;
+    left: 3.5px;
+      z-index:4;
+       content:"";
+    }
+
+    .icon-plus {
+    float: left;
+    background-color: #b1362f;
+    border-radius:8px;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top:0px;
+    left:0;
+    }
+    .icon-plus:after {
+    background-color: #fff;
+    width: 8px;
+    height: 2px;
+    border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    position: absolute;
+    top:7px;
+    left: 4px;
+      content:"";
+    }
+    .icon-plus:before {
+    background-color: #fff;
+    width: 2px;
+    height: 8px;
+    border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    position: absolute;
+    top:4px;
+    left: 7px;
+      content:"";
+    }
+    .btn {font-size: 1.2rem !important;}
+    .btn-link {
+        color: #000 !important;
+        width: 95%;
+        text-align: left;
+        height: 55px !important;
+    }
+    .btn {
+     padding: 0px !important;  
+   }
+   .card-header {
+    padding: .10rem .25rem !important;
+    }
+    .j-rte-table {
+        max-width: 100%;
+        overflow-x: auto;
+        font-family: arial, helvetica, "helvetica neue", verdana, sans-serif;
+    }
+    .j-rte-table body{
+        border-color: inherit;
+        border-style: solid;
+        border-width: inherit;
+        text-align: left;
+        vertical-align: baseline;
+    }
+    .j-table {
+        border-collapse: collapse;
+        margin: 0 0 2px;
+    }
+    .j-rte-table tr{border-color: inherit;
+    border-style: solid;
+    border-width: inherit;
+    text-align: left;
+    vertical-align: baseline;}
+    
+    .j-table td {
+        padding: 5px;
+        border-style: solid;
+        border-width: inherit;
+        text-align: left;
+        border: 1px solid;
+        height: 25px;
+        line-height: 1.73;
+    }
+    .jive-link-wiki-small {
+        background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-wiki-12x12.png);
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        padding: 1px 0 1px 17px;
+        padding-left: -webkit-calc(12px + .35ex);
+        padding-left: calc(12px + .35ex);
+
+    }
+    .jive-link-blog-small {
+        background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-blog-12x12.png);
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        padding: 1px 0 1px 17px;
+        padding-left: -webkit-calc(12px + .35ex);
+        padding-left: calc(12px + .35ex);
+    }
+    .jive-link-video-small {
+        background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-video-12x12.png);
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        padding: 1px 0 1px 17px;
+        padding-left: -webkit-calc(12px + .35ex);
+        padding-left: calc(12px + .35ex);
+    }
+    .jive-link-community-small {
+        background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-community-12x12.png);
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        padding: 1px 0 1px 17px;
+        padding-left: -webkit-calc(12px + .35ex);
+        padding-left: calc(12px + .35ex);
+    }
+    a{
+        font-weight: inherit;
+        font-style: inherit;
+        font-size: 100%;
+        vertical-align: baseline;
+        color: #006ba6; */
+        fill: #006ba6;
+
+    }
+    a:link, a:visited {
+        color: #3778c7;
+        text-decoration: none;
+        -webkit-transition: color .1s linear;
+        transition: color .1s linear;
+    }
+    td p{
+        margin: 0; */
+        padding: 0;
+        border: 0;
+        font-weight: inherit;
+        font-style: inherit;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+    }
+    .disabled{
+      opacity: 0.5;
+      pointer-events: none;
+
+      > * {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+
+</style>
+     <div ng-controller="NetWitnessPlatformController">
+      <div class="row" ng-show="productBoxes">
+        <div class="col-md-5ths col-xs-6" id="p1">
+            <a class="rkcIconLink">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/GetStarted.png?a=1566489847063" ng-click="filterByAudience('getStarted')">
+            </a><br/>
+        </div>
+        <div class="col-md-5ths col-xs-6" id="p2">
+            <a class="rkcIconLink">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/Deploy.png?a=1566489844049" ng-click="filterByAudience('deploy')">
+            </a><br/>
+        </div>
+        <div class="col-md-5ths col-xs-6" id="p3">
+            <a class="rkcIconLink">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/Configure%2526Manage.png?a=1566489837773" ng-click="filterByAudience('setupandManage')">
+            </a><br/>
+        </div>
+        <div class="col-md-5ths col-xs-6" id="p4">
+            <a class="rkcIconLink">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/Investigate%2526Respond.png?a=1566489854160" ng-click="filterByAudience('investigate')">
+            </a><br/>
+        </div>
+        <div class="col-md-5ths col-xs-6" id="p5">
+            <a class="rkcIconLink">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/Integrations%2526Utilities.png?a=1566489850431" ng-click="filterByAudience('respondToIncidents')">
+            </a><br/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5ths col-xs-6" id="q1">
+            <div class="arrow-up" ng-show="getStartedTab"></div>
+        </div>
+        <div class="col-md-5ths col-xs-6" id="q2">
+            <div class="arrow-up" ng-show="deployTab"></div>
+        </div>
+        <div class="col-md-5ths col-xs-6" id="q3">
+            <div class="arrow-up" ng-show="setupandManageTab"></div>
+        </div>
+        <div class="col-md-5ths col-xs-6" id="q4">
+            <div class="arrow-up" ng-show="investigateTab"></div>
+        </div>
+        <div class="col-md-5ths col-xs-6" id="q5">
+            <div class="arrow-up" ng-show="respondToIncidentsTab"></div>
+        </div>
+    </div>
+    <!-- getStartedTab -->
+    <div class="row" ng-show="getStartedTab">
+        <div class="col-sm-12">
+            <div class="wrapper">
+                <div class="accordion" id="accordionExample1">
+                    <div class="card" ng-repeat="data in getStartedData">
+                        <div class="card-header" id="headingStarted{{indexChar($index)}}">
+                            <h2 class="mb-0">
+                                <button ng-click="changeIcon()" type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseStarted{{indexChar($index)}}"><span ng-click="changeIconPlusMinus()" class="icon icon-plus"></span><!-- <span class="icon icon-plus"></span> --><!-- <i class="fa fa-plus"></i> --> {{data.head}}</button>
+                            </h2>
+                        </div>
+                        <div id="collapseStarted{{indexChar($index)}}" class="collapse" aria-labelledby="headingStarted{{indexChar($index)}}" data-parent="#accordionExample1">
+                            <div class="card-body">
+                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- deployTab -->
+    <div class="row" ng-show="deployTab">
+        <div class="col-sm-12">
+            <div class="wrapper">
+                <div class="accordion" id="accordionExample2">
+                    <div class="card" ng-repeat="data in getDeployData">
+                        <div class="card-header" id="headingDeploy{{indexChar($index)}}">
+                            <h2 class="mb-0">
+                                <button ng-click="changeIcon()" type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseDeploy{{indexChar($index)}}"><span ng-click="changeIconPlusMinus()" class="icon icon-plus"></span><!-- <i class="fa fa-plus"></i> --> {{data.head}}</button>
+                            </h2>
+                        </div>
+                        <div id="collapseDeploy{{indexChar($index)}}" class="collapse" aria-labelledby="headingDeploy{{indexChar($index)}}" data-parent="#accordionExample2">
+                            <div class="card-body">
+                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- setupandManageTab -->
+    <div class="row" ng-show="setupandManageTab">
+        <div class="col-sm-12">
+            <div class="wrapper">
+                <div class="accordion" id="accordionExample3">
+                    <div class="card" ng-repeat="data in getSetupandManageData">
+                        <div class="card-header" id="headingSetupandManage{{indexChar($index)}}">
+                            <h2 class="mb-0">
+                                <button ng-click="changeIcon()" type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSetupandManage{{indexChar($index)}}"><span ng-click="changeIconPlusMinus()" class="icon icon-plus"></span><!-- <i class="fa fa-plus"></i> --> {{data.head}}</button>
+                            </h2>
+                        </div>
+                        <div id="collapseSetupandManage{{indexChar($index)}}" class="collapse" aria-labelledby="headingSetupandManage{{indexChar($index)}}" data-parent="#accordionExample3">
+                            <div class="card-body">
+                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- investigateTab -->
+    <div class="row" ng-show="investigateTab">
+        <div class="col-sm-12">
+            <div class="wrapper">
+                <div class="accordion" id="accordionExample4">
+                    <div class="card" ng-repeat="data in getInvestigateData">
+                        <div class="card-header" id="headingInvestigate{{indexChar($index)}}">
+                            <h2 class="mb-0">
+                                <button ng-click="changeIcon()" type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseInvestigate{{indexChar($index)}}"><span ng-click="changeIconPlusMinus()" class="icon icon-plus"></span><!-- <i class="fa fa-plus"> --></i> {{data.head}}</button>
+                            </h2>
+                        </div>
+                        <div id="collapseInvestigate{{indexChar($index)}}" class="collapse" aria-labelledby="headingInvestigate{{indexChar($index)}}" data-parent="#accordionExample4">
+                            <div class="card-body">
+                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- respondToIncidentsTab -->
+    <div class="row" ng-show="respondToIncidentsTab">
+        <div class="col-sm-12">
+            <div class="wrapper">
+                <div class="accordion" id="accordionExample5">
+                    <div class="card" ng-repeat="data in getRespondToIncidentsData">
+                        <div class="card-header" id="headingRespondToIncidents{{indexChar($index)}}">
+                            <h2 class="mb-0">
+                                <button ng-click="changeIcon()" type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseRespondToIncidents{{indexChar($index)}}"><span ng-click="changeIconPlusMinus()" class="icon icon-plus"></span><!-- <i class="fa fa-plus"></i> --> {{data.head}}</button>
+                            </h2>
+                        </div>
+                        <div id="collapseRespondToIncidents{{indexChar($index)}}" class="collapse" aria-labelledby="headingRespondToIncidents{{indexChar($index)}}" data-parent="#accordionExample5">
+                            <div class="card-body">
+                               <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
