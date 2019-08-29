@@ -10,25 +10,25 @@
     <!-- End Google Tag Manager -->
 
 <div class="menuBackground">
-	<div class="center myMenu">
-		<ul class="dropDownMenu" style="display: none;">
-			<li><a target="_parent" href="/community/products/adaptive-directory/advisories">Advisories</a>
-				<ul class="firstLevel advisoriesMenu">
-					<li><a target="_parent" href="/community/products/adaptive-directory/advisories">Product Advisories</a></li>
-					<li><a target="_parent" href="/community/products/adaptive-directory/advisories/security-advisories">Security Advisories</a></li>
-					<li><a target="_parent" href="/community/products/adaptive-directory/advisories">Technical Advisories</a></li>
-				</ul>
-			</li>
-			<li><a style="cursor: pointer;">Documentation</a>
-				<ul class="firstLevel documentationMenu">
-					<li><a target="_parent" href="/community/products/adaptive-directory/71">Version 7.1</a></li>
-					<li><a target="_parent" href="/community/products/adaptive-directory/60">Version 6.0</a></li>
-				</ul>
-			</li>			
-			<li><a target="_parent" href="/community/rsa-customer-support/knowledge-base">Knowledge Base</a></li>
-			<li><a target="_parent" href="/community/training">Training</a></li>
-		</ul>
-	</div>
+    <div class="center myMenu">
+        <ul class="dropDownMenu" style="display: none;">
+            <li><a target="_parent" href="/community/products/adaptive-directory/advisories">Advisories</a>
+                <ul class="firstLevel advisoriesMenu">
+                    <li><a target="_parent" href="/community/products/adaptive-directory/advisories">Product Advisories</a></li>
+                    <li><a target="_parent" href="/community/products/adaptive-directory/advisories/security-advisories">Security Advisories</a></li>
+                    <li><a target="_parent" href="/community/products/adaptive-directory/advisories">Technical Advisories</a></li>
+                </ul>
+            </li>
+            <li><a style="cursor: pointer;">Documentation</a>
+                <ul class="firstLevel documentationMenu">
+                    <li><a target="_parent" href="/community/products/adaptive-directory/71">Version 7.1</a></li>
+                    <li><a target="_parent" href="/community/products/adaptive-directory/60">Version 6.0</a></li>
+                </ul>
+            </li>           
+            <li><a target="_parent" href="/community/rsa-customer-support/knowledge-base">Knowledge Base</a></li>
+            <li><a target="_parent" href="/community/training">Training</a></li>
+        </ul>
+    </div>
 </div>
 
 
@@ -41,22 +41,22 @@
 .dropDownMenu ul {
     box-shadow: 2px 2px 15px 0 rgba(0,0,0, 0.5);
     text-align: left;
-	display: none;
-	background: #FFF;
+    display: none;
+    background: #FFF;
     position: absolute;
     top: 28px;
-	left: -2px;
+    left: -2px;
     z-index: 999999;
 }
 
 /* Advisories Menu */
 .dropDownMenu > li > ul.advisoriesMenu {
-	width: 220px;
+    width: 220px;
 }
 
 /* Documentation Menu */
 .dropDownMenu > li > ul.documentationMenu {
-	width: 185px;
+    width: 185px;
 }
 </style>
 
@@ -68,7 +68,7 @@
 </script>
 
 <div id="slide-box">
-	<ul>
+    <ul>
         <!-- <li>
             <a href="https://community.rsa.com/videos/33726" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/3006/banner-link-myRSA-post-launch-920x244.jpg?a=1559316487733" />
@@ -79,39 +79,44 @@
                 <img src="https://community.rsa.com/resources/statics/1889/197867-wb-nw-RSA-Charge-2019-Link-banner-920x244.jpg?a=1544506817636" />
             </a>
         </li>
-		<li>
+        <li class="bannerSize">
+            <a href="https://community.rsa.com/community/training/blog/2019/08/22/new-lms-platform-coming-soon?utm_source=rsalink&utm_medium=rotating_banner" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/3006/banner-rsa-link-one-lms-920x244-coming-soon-cta.jpg?a=1567058162300" />
+            </a>
+        </li>
+        <li>
             <a href="https://community.rsa.com/community/products/archer-grc/blog/2019/02/05/rsa-charge-2019-call-for-speakers-now-open-for-submissions" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/1853/banner_rsaCharge19_callForSpeakers_920x244.jpg?a=1550555860048" />
             </a>
         </li>
-		<li>
-			<a href="https://www.testdrive.tryrsasecurid.com/" target="_blank">
-				<img src="https://community.rsa.com/resources/statics/3008/RSA-SecurID-Link-banner-920x244.jpg?a=1510078727842" />
-			</a>
-		</li>
-		<li>
-			<a href="https://community.rsa.com/survey" target="_blank">
-				<img src="https://community.rsa.com/resources/statics/3014/RSA-Link-Better-Experience-banners-920x244.jpg?a=1502210820867" />
-			</a>
-		</li>
-	</ul>
+        <li>
+            <a href="https://www.testdrive.tryrsasecurid.com/" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/3008/RSA-SecurID-Link-banner-920x244.jpg?a=1510078727842" />
+            </a>
+        </li>
+        <li>
+            <a href="https://community.rsa.com/survey" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/3014/RSA-Link-Better-Experience-banners-920x244.jpg?a=1502210820867" />
+            </a>
+        </li>
+    </ul>
 </div>
 
 <!-- Script to activate the drop down menu -->
 <script type="text/javascript">
 $(document).ready(function() {
-	setTimeout(function(){ 
-	 $('.dropDownMenu').css("display",'block');
-	},100);
-	$('.myMenu ul.dropDownMenu li').hover(function() {
-		$(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
-	});
-	$('.myMenu ul.dropDownMenu li ul.firstLevel li').hover(function() {
-		$(this).find('ul.secondLevel').stop(true, false, true).slideToggle(300);
-	});
+    setTimeout(function(){ 
+     $('.dropDownMenu').css("display",'block');
+    },100);
+    $('.myMenu ul.dropDownMenu li').hover(function() {
+        $(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
+    });
+    $('.myMenu ul.dropDownMenu li ul.firstLevel li').hover(function() {
+        $(this).find('ul.secondLevel').stop(true, false, true).slideToggle(300);
+    });
     $('.myMenu ul.dropDownMenu li ul.secondLevel li').hover(function() {
-		$(this).find('ul.thirdLevel').stop(true, false, true).slideToggle(300);
-	});
+        $(this).find('ul.thirdLevel').stop(true, false, true).slideToggle(300);
+    });
 });
 </script>
 
