@@ -143,7 +143,6 @@ label{ margin-right: 15px; }
 
 /* Candy css begins here */
 
-.switch-toggle a,
 .switch-light span span {
     display: none;
 }
@@ -151,6 +150,7 @@ label{ margin-right: 15px; }
 /* Set the font family */
 .switch-toggle label {
     font-family: Arial;
+    cursor: pointer;
 }
   
 /* We can't test for a specific feature so we only target browsers with support for media queries */
@@ -1371,7 +1371,7 @@ fieldset[disabled] .btn-danger.active {
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
 }
-#accordion h4 {
+.panel-group h4 {
     cursor: pointer;
 }
 .glyphicon{
@@ -1395,6 +1395,15 @@ fieldset[disabled] .btn-danger.active {
 span.totalCountRow{
     float: right;
     font-weight: bold;
+}
+
+/******** Under Construction ********/
+.underConstructionMsg{
+    width:100%;
+}
+.colorRed{
+    font-size: 16px;
+    color: red;
 }
 </style>
 
@@ -1485,6 +1494,11 @@ function resizeWidget() {
     setTimeout( resizeMe, 500);
     
 }
+
+function scrollToDiv(){
+        $j('html,body', window.parent.document).animate({ scrollTop: "1750px" }, 1000);
+}
+
 //Enables console.log messages in Firefox 
 function log(msg){
     if (typeof console === "undefined" || typeof console.log === "undefined") return false;
@@ -1544,9 +1558,9 @@ function init(){
                     $j('table:first', $j(rows[i]).next()).css('width',"100%");
                     /*$j('table:first', $j(rows[i]).next()).find("tbody").prepend('<tr style="height: 10px;"><td colspan="6" style="font-weight:bold">Total Number of Projects: '+parseInt($j("table:first", $j(rows[i]).next()).find("tr").length - 1)+'</td></tr>');*/
                     bodyHtml = $j('table:first', $j(rows[i]).next()).parent().html();
+                    bodyHtml = bodyHtml.replace(/\/external-link\.jspa\?url=/g,"").replace(/https:\/\/community\.rsa\.com\/external-link\.jspa\?url=/g,"").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":");
                     
-                    
-                    tmpHTML += "<div class='panel " + colorStyle + "'> <h4 class='panel-heading panel-title' data-toggle='collapse' data-parent='#accordion' href='#collapse"+key+ collapseIncrementer + "' onclick='resizeWidget()' style:''> <span class='glyphicon glyphicon-plus'></span> &nbsp;" + titleHtml + " <span id='spanid' class='totalCountRow'>Total Projects: "+parseInt($j("table:first", $j(rows[i]).next()).find("tr").length - 1)+"</span></h4> <div id='collapse" +key+ collapseIncrementer + "' class='panel-collapse collapse";
+                    tmpHTML += "<div class='panel " + colorStyle + "'> <h4 class='panel-heading panel-title' data-toggle='collapse' data-parent='#accordion"+key+"' href='#collapse"+key+ collapseIncrementer + "' onclick='resizeWidget();scrollToDiv();' style:''> <span class='glyphicon glyphicon-plus'></span> &nbsp;" + titleHtml + " <span id='spanid' class='totalCountRow'>Total Projects: "+parseInt($j("table:first", $j(rows[i]).next()).find("tr").length - 1)+"</span></h4> <div id='collapse" +key+ collapseIncrementer + "' class='panel-collapse collapse";
                     if (typeof initState !== 'undefined') {
                         if ( initState == 'Expanded' || ( i == 0 && ( initState == 'First' || initState == 'undefined' ) ) ) {
                             tmpHTML += " in";
@@ -1562,35 +1576,35 @@ function init(){
                     
                 // Append the loop HTML to the resultArea
                 if(key == "americaActive"){
-                        $j('.active_america_project_content-tab .testimonial #accordion').html(tmpHTML);    
+                        $j('.active_america_project_content-tab .testimonial #accordionamericaActive').html(tmpHTML);    
                         $j('.active_america_project_content-tab .testimonial #totalActiveProjects').text('Total Number of Active America Projects: '+ totalRowCount);    
                         //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
-                        $j('.active_america_project_content-tab .testimonial #accordion').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
-                        $j('.active_america_project_content-tab .testimonial #accordion').find('a').attr('target','_blank');
+                        $j('.active_america_project_content-tab .testimonial #accordionamericaActive').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
+                        $j('.active_america_project_content-tab .testimonial #accordionamericaActive').find('a').attr('target','_blank');
                         
                         
 
                 }else if(key == "americaCompleted"){
-                        $j('.completed_america_project_content-tab .testimonial #accordion').html(tmpHTML);    
+                        $j('.completed_america_project_content-tab .testimonial #accordionamericaCompleted').html(tmpHTML);    
                         $j('.completed_america_project_content-tab .testimonial #totalActiveProjects').text('Total Number of Completed America Projects: '+ totalRowCount);    
                                 //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
-                        $j('.completed_america_project_content-tab .testimonial #accordion').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
-                        $j('.completed_america_project_content-tab .testimonial #accordion').find('a').attr('target','_blank');
+                        $j('.completed_america_project_content-tab .testimonial #accordionamericaCompleted').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
+                        $j('.completed_america_project_content-tab .testimonial #accordionamericaCompleted').find('a').attr('target','_blank');
 
                 }else if(key == "emeaActive"){
-                        $j('.active_emea_project_content-tab .testimonial #accordion').html(tmpHTML);    
+                        $j('.active_emea_project_content-tab .testimonial #accordionemeaActive').html(tmpHTML);    
                         $j('.active_emea_project_content-tab .testimonial #totalActiveProjects').text('Total Number of Active EMEA Projects: '+ totalRowCount);    
                                 //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
-                        $j('.active_emea_project_content-tab .testimonial #accordion').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
-                        $j('.active_emea_project_content-tab .testimonial #accordion').find('a').attr('target','_blank');
+                        $j('.active_emea_project_content-tab .testimonial #accordionemeaActive').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
+                        $j('.active_emea_project_content-tab .testimonial #accordionemeaActive').find('a').attr('target','_blank');
                         
 
                 }else if(key == "emeaCompleted"){
-                        $j('.completed_emea_project_content-tab .testimonial #accordion').html(tmpHTML);    
+                        $j('.completed_emea_project_content-tab .testimonial #accordionemeaCompleted').html(tmpHTML);    
                         $j('.completed_emea_project_content-tab .testimonial #totalActiveProjects').text('Total Number of Completed EMEA Projects: '+ totalRowCount);    
                         //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
-                        $j('.completed_emea_project_content-tab .testimonial #accordion').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
-                        $j('.completed_emea_project_content-tab .testimonial #accordion').find('a').attr('target','_blank');
+                        $j('.completed_emea_project_content-tab .testimonial #accordionemeaCompleted').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
+                        $j('.completed_emea_project_content-tab .testimonial #accordionemeaCompleted').find('a').attr('target','_blank');
                         
 
                 }
@@ -1687,7 +1701,7 @@ function resizeWidget() {
       <div class="text">Active projects for the Americas Project Management Services Team</div>
       <div id="totalActiveProjects"></div>
         <div id='AccordionContainer' class='acc-margin'>
-            <div class='panel-group' id='accordion'>
+            <div class='panel-group' id='accordionamericaActive'>
             </div>
         </div>
     </div>
@@ -1702,7 +1716,7 @@ function resizeWidget() {
         <div class="text">Completed projects for the Americas Project Management Services Team</div>
         <div id="totalActiveProjects"></div>
         <div id='AccordionContainer' class='acc-margin'>
-            <div class='panel-group' id='accordion'>
+            <div class='panel-group' id='accordionamericaCompleted'>
             </div>
         </div>
     </div>
@@ -1711,13 +1725,17 @@ function resizeWidget() {
 <!-- Active EMEA Project Stuff -->  
 <div class="wrapper hidden active_emea_project_content-tab">
     <div class="testimonial">
+        <div class="underConstructionMsg">
+            <div class="colorRed">EMEA PMS page is under construction and active development.</div>
+            <div class="">Data and information should not yet be used as up to date information. Please contact the Project Manager for information.</div>
+        </div>
       <div class="name">
-        <h2>EMEA ACTIVE PROJECTS (Under Construction)</h2>
+        <h2>EMEA ACTIVE PROJECTS</h2>
       </div>
       <div class="text">Active projects for the EMEA Project Management Services Team</div>
       <div id="totalActiveProjects"></div>
         <div id='AccordionContainer' class='acc-margin'>
-            <div class='panel-group' id='accordion'>
+            <div class='panel-group' id='accordionemeaActive'>
             </div>
         </div>
     </div>
@@ -1732,7 +1750,7 @@ function resizeWidget() {
         <div class="text">Completed projects for the EMEA Project Management Services Team</div>
         <div id="totalActiveProjects"></div>
         <div id='AccordionContainer' class='acc-margin'>
-            <div class='panel-group' id='accordion'>
+            <div class='panel-group' id='accordionemeaCompleted'>
             </div>
         </div>
     </div>
