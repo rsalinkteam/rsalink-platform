@@ -1,0 +1,124 @@
+<table id="rkcIconTable">
+    <tr>
+        <td>
+            <a class="rkcIconLink" href="https://community.rsa.com/community/training/internal/global-services/professional-talent/career-pathways">
+                <img class="rkcIcon" src="/resources/statics/231636/Global%2BServices%2BCareer%2BDevelopment.png?a=1559121915291" />
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a class="rkcIconLink" href="https://community.rsa.com/community/training/internal/global-services/professional-talent/leadership-development">
+                <img class="rkcIcon" src="/resources/statics/231636/Leadership%2BDevelopment.png?a=1554723209150" />
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a class="rkcIconLink" href="https://community.rsa.com/community/training/internal/global-services/professional-talent/mentoring-coaching">
+                <img class="rkcIcon" src="/resources/statics/231636/Mentoring%2B%2526%2BCoaching.png?a=1554723213280" />
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a class="rkcIconLink" href="https://community.rsa.com/community/training/internal/global-services/professional-talent/awareness-enablement">
+                <img class="rkcIcon" src="/resources/statics/231636/Cultural%2BAwareness%2B%2526%2BEnablement.png?a=1559121822773" />
+            </a>
+        </td>     
+    </tr>
+</table>
+<style>
+a[data-role=button] {
+    font-size: 12px;
+    top: 30%;
+    text-align: center;
+    border-radius: 0px;
+    line-height: 25px;
+    width: 88%;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    position: relative;
+    text-transform: none;
+    background-color: #802629;
+    border: 1px solid #802629;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color .25s ease-out, color .25s ease-out;
+}
+a[data-role=button]:hover {
+    background-color: #fff;
+    border: 1px solid #802629;
+    color: #802629;
+}
+
+/* Float Shadow */
+.rkcIconLink {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  cursor: pointer;
+}
+.rkcIconLink:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  /* W3C */
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+.rkcIconLink:hover, .rkcIconLink:focus, .rkcIconLink:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  /* move the element up by 5px */
+}
+.rkcIconLink:hover:before, .rkcIconLink:focus:before, .rkcIconLink:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
+#rkcIconTable {
+    width: 100%;
+    border: 0px;
+    margin-bottom: 10px
+}
+#rkcIconTable td {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#rkcIconTable td:first-child {
+    padding-left: 0px;
+}
+#rkcIconTable td:last-child {
+    padding-right: 0px;
+}
+.rkcIcon {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 100%;
+    vertical-align: top;
+    margin-top: 20px;
+}
+</style>
