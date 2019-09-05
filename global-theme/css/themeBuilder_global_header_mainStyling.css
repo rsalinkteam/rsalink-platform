@@ -1,5 +1,5 @@
-/*      BEGIN CUSTOM HEADER CSS      */
-/*  Last Modified Date: 14 Aug 2019  */
+/*      BEGIN CUSTOM CSS      */
+/* Last Updated: 05 Sep 2019  */
 
 /*
  *    TABLE OF CONTENTS
@@ -336,6 +336,12 @@ p.ProcIntro{
     font-weight: normal !important;
 }
 
+/* Hide the "View this document anyway" button on outdated content */
+button#dismissOutdatedModal {
+    display: none;
+}
+
+
 /* =========================== */
 /*    Events Customizations    */
 /* =========================== */
@@ -584,5 +590,4 @@ th.header.headerSortDown span {
     display: block;
     background-position: right center;
 }
-
-/* END CUSTOM HEADER CSS */
+/* END CUSTOM CSS */
