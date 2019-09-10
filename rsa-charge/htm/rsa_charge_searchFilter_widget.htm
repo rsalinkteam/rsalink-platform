@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+<script type="text/javascript" src="https://www.rsa.com/content/dam/rsalink/angularjs/lodash.min.js"></script>
+<script type="text/javascript" src="https://www.rsa.com/content/dam/rsalink/angularjs/angularjs-dropdown-multiselect.min.js"></script>
+<link href="https://www.rsa.com/content/dam/rsalink/css/rsalink-university-training-product.css" rel="stylesheet">        
+<script src="https://www.rsa.com/content/dam/rsalink/js/rsaCharge-documentFilter.js"></script>
+<div ng-app="ngchangeApp" ng-controller="ngApp">
+    <div class="row rsacharge2019Row">
+        <div class="col-sm-4">
+            <label for="usr">Presentation</label>
+            <input ng-keyup="searchPresentation($event)" type="text" class="form-control" id="course" placeholder="Search for a Presentation" ng-model="courseInput">
+        </div>
+        <div class="col-sm-3 rsaProductDropdown">
+            <label for="rsaProduct">RSA Product</label>
+            <div id="rsaProdFilter" ng-dropdown-multiselect="" options="rsaProdFilter" selected-model="selectedRsaProdFilter" checkboxes="true" extra-settings="rsaProdFilterSettings" translation-texts="rsaProduct" class="form-control" events="{onItemSelect: filterByColumn, onItemDeselect:filterByColumn}"></div>
+        </div>
+        <div class="col-sm-4">
+            <label for="track">Track</label>
+            <div id="trackFilter" ng-dropdown-multiselect="" options="trackFilter" selected-model="selectedTrack" checkboxes="true" extra-settings="trackSettings" translation-texts="trackText" class="form-control" events="{onItemSelect: filterByColumn, onItemDeselect:filterByColumn}"></div>
+        </div>
+    </div>
+    <br/>
+    <div class="row rsacharge2019Row">
+        <div class="col-sm-12">
+            <table style="border: 1px solid #c6c6c6; width: 99.8108%;" class="customMasterTable">
+                <thead>
+                    <tr style="height: 30px; background-color: #415464;">
+                        <th style="width: 20%; height: 25px; color: #ffffff;" class="header"><span>Presentation</span></th>
+                        <th style="width: 20%; height: 25px; color: #ffffff;" class="header"><span>Presenter</span></th>
+                        <th style="width: 20%; height: 25px; color: #ffffff;" class="header"><span>Company Affiliation</span></th>
+                        <th style="width: 25%; height: 25px; color: #ffffff;" class="header"><span>Track</span></th>
+                        <th style="width: 15%; height: 25px; color: #ffffff;" class="header"><span>Materials</span></th>
+                    </tr>
+                </thead>
+                <tbody class="customMasterDocument"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.rsacharge2019Row {
+    margin-right: -14px;
+    margin-left: -15px;
+}
+.dropdown-multiselect button{
+    width: 456px !important;
+}
+.rsaProductDropdown .dropdown-multiselect button{
+    width: 274px !important;
+}
+</style>
