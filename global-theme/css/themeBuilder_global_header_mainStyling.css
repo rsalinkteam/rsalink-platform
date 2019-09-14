@@ -1,5 +1,5 @@
 /*      BEGIN CUSTOM CSS      */
-/* Last Updated: 05 Sep 2019  */
+/* Last Updated: 14 Sep 2019  */
 
 /*
  *    TABLE OF CONTENTS
@@ -429,6 +429,29 @@ button#dismissOutdatedModal {
 	}
 }
 
+/* Style the mobile version of the RSA Charge 2019 landing page */
+@media screen and (max-width: 600px) {
+    .charge2019 tr td:nth-child(4),
+    .charge2019 th.header:nth-child(4),
+    .charge2019 tr td:nth-child(5),
+    .charge2019 th.header:nth-child(5),
+    .charge2019 tr td:nth-child(6),
+    .charge2019 th.header:nth-child(6) {
+        display: none;
+    }
+    .charge2019 th.header:nth-child(1) {
+        font-size: 11.5px;
+    }
+    .charge2019 tr td:nth-child(1),
+    .charge2019 tr td:nth-child(2),
+    .charge2019 th.header:nth-child(2),
+    .charge2019 tr td:nth-child(3),
+    .charge2019 th.header:nth-child(3),
+    .charge2019 tr td:nth-child(7),
+    .charge2019 th.header:nth-child(7) {
+        font-size: smaller;
+    }
+}
 
 /* ================================== */
 /*    Activity Page Customizations    */
@@ -591,55 +614,16 @@ th.header.headerSortDown span {
     background-position: right center;
 }
 
-/* RSA Charge 2019 Styles */
-
-@media screen and (max-width: 600px) {
-	.charge2019 tr td:nth-child(4) {
-	   display: none;
-	 }
-	.charge2019 th.header:nth-child(4) {
-	   display: none;
-	 }
-
-	.charge2019 tr td:nth-child(5) {
-	   display: none;
-	 }
-	.charge2019 th.header:nth-child(5) {
-	   display: none;
-	 }
-
-	.charge2019 tr td:nth-child(6) {
-	   display: none;
-	 }
-	.charge2019 th.header:nth-child(6) {
-	   display: none;
-	 }
-	 
-	 .charge2019 tr td:nth-child(1) {
-	   font-size: smaller;
-	 }
-	.charge2019 th.header:nth-child(1) {
-	   font-size: 11.5px;
-	 }
-
-	.charge2019 tr td:nth-child(2) {
-	   font-size: smaller;
-	 }
-	.charge2019 th.header:nth-child(2) {
-	   font-size: smaller;
-	 }
-
-	.charge2019 tr td:nth-child(3) {
-	   font-size: smaller;
-	 }
-	.charge2019 th.header:nth-child(3) {
-	   font-size: smaller;
-	 }
-	.charge2019 tr td:nth-child(7) {
-	   font-size: smaller;
-	 }
-	.charge2019 th.header:nth-child(7) {
-	   font-size: smaller;
-	 }
+/* Adjust the styling of the Carousel widget */
+.j-pagination-prevnext {
+    background: none;
 }
+.jive-widget-border .j-carousel .j-pagination-container {
+    top: 8px;
+    right: 5px;
+ }
+.j-carousel-edit a {
+    color: #fff;
+}
+
 /* END CUSTOM CSS */
