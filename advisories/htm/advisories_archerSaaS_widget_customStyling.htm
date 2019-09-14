@@ -1,5 +1,24 @@
-<!-- This Custom Styling code is used when there are four advisory types -->
-<div class="rightColumnSpacer fourTypes"></div>
 <style>
-    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-advisories-archer-saas.css');
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-archer-suite-service-notifications.css');
+    
+    /* Style the recent notifications widgets */
+    #jive-widget-container_2 .jive-icon-med, 
+    #jive-widget-container_3 .jive-icon-med {
+        display: none;
+    }
+    .jive-widget-tagwidget .j-icon-list li {
+        padding: 5px 0px 5px 0px;
+        border-bottom: 1px solid #d0d3d4;
+    }
+    .jive-widget-tagwidget .j-icon-list li:last-child {
+        border-bottom: 0px;
+    }
+    .jive-widget-tagwidget .jive-widget-body {
+        padding-top: 5px;
+    }
+    
+    /* Add spacing between the two common questions */
+    #commonQuestions .question:first-child {
+        padding-bottom: 20px;
+    }
 </style>
