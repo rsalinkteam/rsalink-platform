@@ -1,0 +1,31 @@
+<div id="solutions">
+    <a id="link" target="_blank"><img id="image" /></a>
+</div>
+
+<style>
+    #image {
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+</style>
+
+<script type='text/javascript'> 
+const images = 
+[
+    imageUrlPair = { ImgSrc:"https://community.rsa.com/resources/statics/1044/link-digital-risk-management-mico-banner.jpg?a=1568637927238", Href:"https://community.rsa.com/community/solutions" }
+    // ,
+    // imageUrlPair = { ImgSrc:"https://www.rsa.com/content/dam/rsalink/images/rsa-link-solution-micro-banner-third-party-risk.jpg", Href:"https://www.rsa.com/en-us/solutions/manage-third-party-risk?utm_source=rsa_link&utm_medium=micro_banner" },
+    // imageUrlPair = { ImgSrc:"https://www.rsa.com/content/dam/rsalink/images/rsa-link-solution-micro-banner-cloud-transformation.jpg", Href:"https://www.rsa.com/en-us/solutions/secure-your-cloud-transformation?utm_source=rsa_link&utm_medium=micro_banner" },
+    // imageUrlPair = { ImgSrc:"https://www.rsa.com/content/dam/rsalink/images/rsa-link-solution-micro-banner-cyber-attack-risk-v2.jpg", Href:"https://www.rsa.com/en-us/solutions/coordinate-business-resiliency?utm_source=rsa_link&utm_medium=micro_banner" },
+    // imageUrlPair = { ImgSrc:"https://www.rsa.com/content/dam/rsalink/images/rsa-link-solution-micro-banner-dynamic-workforce.jpg", Href:"https://www.rsa.com/en-us/solutions/manage-dynamic-workforce-risk?utm_source=rsa_link&utm_medium=micro_banner" },
+]
+
+function randImg() {
+const randomItem = images[Math.floor(images.length * Math.random())];
+document.getElementById('image').src = randomItem.ImgSrc;
+document.getElementById('link').href = randomItem.Href;
+}
+randImg();
+</script>
