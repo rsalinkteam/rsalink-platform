@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+
+  <meta charset="UTF-8">
+  <title>Example - example-sanitize-service-production</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  <script src="//code.angularjs.org/snapshot/angular-sanitize.js"></script>
+
+<body ng-app="netWitnessPlatform">
+ <script>
+  var $j = jQuery.noConflict();
+   angular.module('netWitnessPlatform', ['ngSanitize']).controller('NetWitnessPlatformController', ['$scope', '$log', '$sce','$http', function($scope, $log, $sce, $http) {
+          $scope.getTitleData = "";
+		  $scope.$log = $log;
+          $scope.getStartedData = [];
+       $scope.init = function () {   
+          $scope.integrationIdeas = [];
+          $scope.integrationtagsTags = [];
+          $scope.categories = [];                 
+          $http.get('https://community.rsa.com/api/core/v3/places/150040/contents?filter=type(idea)&count=100&startIndex=0').then(function(response) {
+ 
+                var categories = [];
+                var tags = [];
+               angular.forEach(response.data.list, function(value, key) {
+                 if(value.categories.toString() == 'Integration Ideas'){
+                 this.push(value);
+                 }
+               }, categories);
+               console.log(categories);
+               $scope.integrationIdeas = categories;
+               setTimeout(resizeMe,100);
+               window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove();      
+           }).catch(function(e){
+				        $log.log(e);
+				window.parent.$j(".jive-widget-formatted-body").parents(".jive-widget-documentviewwidget").text("You are not authorized to view the content.").css({"width": "100%", "text-align":"center"});
+		   });   
+          setTimeout(resizeMe,1000);
+      };
+      $scope.init();
+      $scope.deliberatelySnippet = function(data) {
+       return $sce.trustAsHtml(data);
+      };
+
+      $scope.convertToString = function(array) {
+       return array.toString();
+      };
+
+      $scope.htmlEntitiesDecode = function(name) {
+        var text = document.createElement("textarea");
+        text.innerHTML = name;
+        $scope.nameDecode = text.value;
+        return $scope.nameDecode;
+      }; 
+     }]);
+
+</script>
+<style type="text/css">
+  .jive-ideas-list-scoreblock .score {
+    margin-right: 0;
+}
+.jive-content-ideas-list-item .jive-ideas-list-scoreblock {
+    float: left;
+    margin: 15px 0 9px 15px;
+    width: 100px;
+    position: absolute;
+    z-index: 2;
+}
+.score {
+    border-radius: 5px;
+    background: #eee;
+    border: 0 solid #777;
+    color: #333;
+    float: left;
+    margin: 0 1ex 0 0;
+    padding-right: 20px;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+.clearfix {
+    min-height: 0;
+}
+
+.idea-widget-scoreText {
+    display: block;
+    position: absolute;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+.jive-ideas-list-scoreblock .score strong {
+    margin-right: -20px;
+}
+.jive-content-block-ideas-list, span.vote-button, #jive-ideasvoted-sidebar {
+    padding: 0;
+}
+[class^=icon-], [class*=" icon-"] {
+    font-family: jiveglyphs;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+.score strong {
+    border-radius: 5px 0 0 5px;
+    background: #eee;
+    border-right: 0 solid #fff;
+    display: block;
+    float: left;
+    font-size: 1.555em;
+    height: 27px;
+    line-height: 27px;
+    padding-bottom: 1px;
+    width: 4em;
+    z-index: 2;
+}
+strong {
+    font-weight: 700;
+}
+.j-508-label {
+    display: block!important;
+    position: absolute!important;
+    left: -9999px!important;
+    top: -9999px!important;
+    width: 1px;
+    height: 1px;
+}
+.jive-score-meta {
+    clear: both;
+    display: block;
+    margin: 5px 0;
+    padding-top: 2px;
+}
+.idea-stage {
+    background: #bbb;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 3px;
+    color: #fff;
+    display: inline;
+    font-size: 11px;
+    line-height: 16px;
+    padding: 0 5px;
+    text-transform: uppercase;
+    letter-spacing: .25px;
+}
+.jive-content-ideas-list-item .jive-ideas-list-scoreblock .idea-stage {
+    margin: 4px 0;
+}
+.icon-arrow-up:before {
+    content: '\02C4';
+}
+.vote-voted {
+    cursor: default;
+}
+
+.jive-score-meta span {
+    clear: both;
+    display: block;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-align: center;
+}
+.vote-up {
+    border-top-right-radius: 5px;
+    border-width: 0 0 2px 2px;
+    top: -1px;
+    margin-top: -1px;
+}
+.voting-up:hover {
+  background: #3b3;
+  color: #fff;
+}
+.vote-down {
+    border-bottom-right-radius: 5px;
+    border-width: 2px 0 0 2px;
+}
+span[class*=icon-]:before, a>span[class*=icon-]:before {
+    display: inline-block;
+    text-decoration: none;
+}
+.icon-arrow-down:before {
+    content: "\e3b2";
+}
+.vote-button {
+    border: 2px solid #fff;
+    display: inline-block;
+    height: 32px;
+    line-height: 25px;
+    margin-left: -2px;
+    position: absolute;
+    right: -2px;
+    text-align: center;
+    width: 25px;
+    z-index: 2;
+    outline: none;
+}
+
+.jive-widget:after, .clearfix:after {
+    clear: both;
+    content: "'";
+    display: block;
+    font-size: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.vote-button.jive-icon-glyph:before {
+    font-size: 10px;
+    font-family: Arial;
+}
+
+.font-color-meta {
+    color: #8b8b8b;
+    fill: #8b8b8b;
+}
+.idea-vote-count {
+  color:#8b8b8b;
+  margin:0px 0px 2px;
+}
+.jive-content-header-details, .jive-score-meta {
+    font-size: .8889em;
+}
+.jive-content-footer-item {
+    display: inline-block;
+    line-height: 1.3em;
+    margin-right: 12px;
+    vertical-align: bottom;
+}
+.jive-content-footer-item .jive-icon-med, .jive-content-footer-item .jive-icon-sml {
+    margin-top: 2px;
+}
+.jive-icon-sml, .jive-icon-med, .jive-icon-big, .jive-icon-huge {
+    background-color: transparent;
+    background-position: -100% -100%;
+    background-repeat: no-repeat;
+    display: block;
+    float: left;
+    padding: 0;
+}
+
+.font-color-meta a:link {
+color: #3d3d3d;
+    fill: #3d3d3d;
+
+}
+
+.jive-icon-med {
+    background-image: url(https://assets2.jiveon.com/core/2018.19.0.0.9ff2aa7/images/jive-icon-sprites-med.png);
+    height: 16px;
+    width: 17px;
+    margin: -1px 5px 0 0;
+}
+.jive-icon-sml {
+    background-image: url(https://assets2.jiveon.com/core/2018.19.0.0.9ff2aa7/images/jive-icon-sprites-sml.png);
+    height: 12px;
+    width: 12px;
+    margin: 1px 5px 0 0;
+}
+.jive-icon-tag {
+    background-position: -16px -464px;
+}
+.jive-icon-folder {
+    background-position: -848px -848px;
+}
+
+}
+.jive-content-footer-item .jive-icon-med, .jive-content-footer-item .jive-icon-sml {
+    margin-top: 2px;
+}
+.jive-content-ideas-list-item .jive-content-footer .jive-icon-sml {
+    /*margin-bottom: -2px;*/
+    bottom:-2px;
+}
+.idea-extended-fields-position, .jive-content-ideas-list-item .jive-content-footer-item .jive-icon-sml {
+    position: relative;
+}
+.jive-icon-meta-comment {
+    background-position: -16px -1424px;
+}
+
+.jive-widget .jive-content {
+    box-shadow: none;
+}
+.jive-content-ideas-list-item .jive-content {
+    border-top: none;
+    border-bottom: 1px solid #eee;
+    padding: 15px 15px 15px 130px;
+    margin: 0;
+}
+.jive-content {
+    position: relative;
+    padding: 20px 15px;
+    border: 1px solid #dadada;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 14px;
+}
+.jive-content-ideas-list-item .jive-content-header {
+    margin: 0 0 15px;
+}
+a, a:link {
+      color: #006ba6;
+    fill: #006ba6;
+}
+.jive-content-ideas-list-item .jive-content-title h2 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+.jive-content-title h2 {
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 1.1em;
+    margin: 0;
+    padding: 0;
+}
+
+
+</style>
+<div ng-controller="NetWitnessPlatformController">
+      
+<!-- getStartedTab -->
+<div class="row">
+    <div class="col-sm-12">
+      <div class="display-idea-list" id="ideaListDiv2622" style="overflow: hidden; display: block;"  ng-repeat="data in integrationIdeas | limitTo: 5 | orderBy: '-score'">
+        <div class="jive-content-ideas-list-item clearfix">
+            <div class="jive-ideas-list-scoreblock">
+                <div class="score clearfix">
+                    <span class="idea-widget-scoreText">score </span>
+                    <strong>{{data.score}}</strong>
+                    <span role="button" tabindex="0" class="vote-button vote-up jive-icon-glyph icon-arrow-up voting-up" title="Vote this idea up"><span class="j-508-label">{{data.voted}}</span></span>
+                </div>
+ 
+                <span class="jive-score-meta font-color-meta">
+                  <span class="idea-stage" style="background-color: #EEFFEE; color: #666666;">{{data.stage}} 
+                  </span>
+                <span class="idea-vote-count"> {{data.voteCount}} Votes</span>
+                </span>
+            </div>
+            <div class="jive-content" role="article">
+                <div class="jive-content-header">
+                    <div class="jive-content-title">
+                        <h2 class="displ ay-idea-subject">
+                          <a href="/ideas/2622" id="ideaLink2622"> {{htmlEntitiesDecode(data.subject)}}</a>
+                      </h2>
+                    </div>
+                    <div class="jive-content-header-details font-color-meta">
+                        Created on {{data.updated | date: 'MMM d, y h:mm a'}} by
+                        <a href="/people/BDWnpsAOsAyHeXBuETQHLvgBOFal37ClGdFojZtwuE4%3D" data-externalid="" data-username="BDWnpsAOsAyHeXBuETQHLvgBOFal37ClGdFojZtwuE4%3D" data-avatarid="127406" id="jive-8160814428997165387369" data-userid="81608" data-presence="null" class="jiveTT-hover-user jive-username-link">{{data.author.displayName}}</a> <span>-</span> Last Modified: {{data.updated | date: 'MMM d, y h:mm a'}}
+                    </div>
+                </div>
+
+                <div class="jive-content-body">
+                    <div class="jive-rendered-content" style="display: none;">
+                        <p> We would like to see an Nginx Parser created for Netwitness Logs and Packets. As of right now BigIP has claimed Nginx as part of there organization and RSA already has bigip parsers deployed into Netwitness</p>
+
+                    </div>
+                </div>
+                <div class="jive-content-footer font-color-meta">
+                    <span class="jive-content-footer-item">
+                      <a href="/ideas/2622?tab=comment"><span class="jive-icon-med jive-icon-meta-comment"></span> {{data.commentCount}} Comments </a>
+                    </span>
+                    <span class="jive-content-footer-item">
+
+               <span class="jive-content-footer-item">
+               <span class="jive-icon-sml jive-icon-folder"></span>Categories: {{convertToString(data.categories)}}</span>
+
+                    <span class="jive-content-footer-item" ng-if="!data.tags.length == 0">
+                <span class="jive-icon-sml jive-icon-tag" ></span> Tags: <a ng-repeat="tag in data.tags" href="/community/products/netwitness/integrations/staging/tags#/?tags={{tag}}" target="_top">{{tag}}<font ng-show="!$last">, </font></a><!-- {{convertToString(data.tags)}} -->
+
+                    </span>
+                    <br>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+ </div>
