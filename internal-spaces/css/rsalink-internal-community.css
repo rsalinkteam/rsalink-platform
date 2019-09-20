@@ -166,57 +166,50 @@ a.internalButton.largeButton.singleLine {
     background-image: none;
 }
 
-/* Global Services Product Blocks code */
-#productBlocks {
+/* Global Services Organization Blocks code */
+#orgBlocks {
 	width: 100%;
 	border: 0px;
 	padding-top: 15px;
 }
-#productBlocks td.imageCol {
+#orgBlocks td.imageCol {
 	width: 16%;
    
 }
-
-#productBlocks td.spacerCol {
+#orgBlocks td.spacerCol {
 	width: 3%;
-	
 }
-
-#productBlocks td img {
+#orgBlocks td img {
 	max-width: 100%;
 	-webkit-transition: filter .25s ease-out;	/* Safari */
 	transition: filter .25s ease-out;
 }
-	
-td.textCol {
+#orgBlocks td.textCol, 
+#orgBlocks td.textCol span, 
+#orgBlocks td.textCol a {
 	text-align: center;
 	text-transform: uppercase;
 	font-weight: bold;
-	font-size: 15px;
-	color: #414042;
-	font-family: "Lucida Sans",Arial,sans-serif;
+	font-size: 14px;
+	color: #232222;
+	font-family: Arial,sans-serif;
 }
-td.textCol span {
-	font-family: "Open Sans",Arial,sans-serif;
-}
-
-td.textCol a {
-	color: #414042;
+#orgBlocks td.textCol a {
 	text-decoration: none;
 	-webkit-transition: color .25s ease-out;	/* Safari */
 	transition: color .25s ease-out;
 }
-td.textCol a:hover {
+#orgBlocks td.textCol a:hover {
 	color: #000;
 }
-/*** Code for RSALINK-5521 ***/
-.productIconBox:hover {
-	filter: brightness(110%);
-	cursor: pointer;
+#orgBlocks tr.firstRow.textRow td {
+    padding-bottom: 10px;
 }
-.vsdCol{width: 19%;}
-.productIconBox{
-	height: 60px;
+#orgBlocks .vsdCol {
+    width: 19%;
+}
+#orgBlocks .productIconBox {
+	height: 95px;
 	background-color: #802629;
 	padding: 10px;
 	background-repeat: no-repeat;
@@ -224,12 +217,17 @@ td.textCol a:hover {
 	background-size: 50%;
 	display: block;
 }
-.professionalServicesIcon{
-	background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsProfessional_services.png?a=1553674564183');
+#orgBlocks .productIconBox:hover {      /*** Code for RSALINK-5521 ***/
+	filter: brightness(110%);
+	cursor: pointer;
 }
+
+/* Define the images for the organization blocks */
+.professionalServicesIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsProfessional_services.png?a=1553674564183');}
 .customerSuccessIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsCustomer_success.png?a=1553675146590');}
 .customerSuppportIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsCustomer_support.png?a=1553675819426');}
 .communicationsIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsCommunications.png?a=1553675783661');}
 .educationServicesIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsEducation_services.png?a=1553675841099');}
 .itOperationsIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsIt_operations.png?a=1553675856844');}
 .vsdIcon{background-image: url('https://community.rsa.com/resources/statics/129285/productBlocks_gsVSD.png?a=1553675871020');}
+.gsInnovationIcon{background-image: url('https://community.rsa.com/resources/statics/129285/Picture1.png?a=1568276622749');}
