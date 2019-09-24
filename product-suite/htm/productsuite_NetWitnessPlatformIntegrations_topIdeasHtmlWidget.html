@@ -11,13 +11,13 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
   <script src="//code.angularjs.org/snapshot/angular-sanitize.js"></script>
-
+  
 <body ng-app="netWitnessPlatform">
  <script>
   var $j = jQuery.noConflict();
    angular.module('netWitnessPlatform', ['ngSanitize']).controller('NetWitnessPlatformController', ['$scope', '$log', '$sce','$http', function($scope, $log, $sce, $http) {
           $scope.getTitleData = "";
-		  $scope.$log = $log;
+          $scope.$log = $log;
           $scope.getStartedData = [];
        $scope.init = function () {   
           $scope.integrationIdeas = [];
@@ -37,10 +37,9 @@
                setTimeout(resizeMe,100);
                window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove();      
            }).catch(function(e){
-				        $log.log(e);
-				window.parent.$j(".jive-widget-formatted-body").parents(".jive-widget-documentviewwidget").text("You are not authorized to view the content.").css({"width": "100%", "text-align":"center"});
-		   });   
-          setTimeout(resizeMe,1000);
+        window.parent.$j(".jive-widget-formatted-body").parents(".jive-widget-documentviewwidget").text("You are not authorized to view the content.").css({"width": "100%", "text-align":"center"});
+       });
+      setTimeout(resizeMe,1000);
       };
       $scope.init();
       $scope.deliberatelySnippet = function(data) {
@@ -182,6 +181,7 @@ strong {
 .vote-down {
     border-bottom-right-radius: 5px;
     border-width: 2px 0 0 2px;
+    /*top: 14px;*/
 }
 span[class*=icon-]:before, a>span[class*=icon-]:before {
     display: inline-block;
@@ -253,6 +253,7 @@ color: #3d3d3d;
 
 }
 
+
 .jive-icon-med {
     background-image: url(https://assets2.jiveon.com/core/2018.19.0.0.9ff2aa7/images/jive-icon-sprites-med.png);
     height: 16px;
@@ -277,8 +278,7 @@ color: #3d3d3d;
     margin-top: 2px;
 }
 .jive-content-ideas-list-item .jive-content-footer .jive-icon-sml {
-    /*margin-bottom: -2px;*/
-    bottom:-2px;
+       bottom:-2px;
 }
 .idea-extended-fields-position, .jive-content-ideas-list-item .jive-content-footer-item .jive-icon-sml {
     position: relative;
@@ -349,7 +349,7 @@ a, a:link {
                 <div class="jive-content-header">
                     <div class="jive-content-title">
                         <h2 class="displ ay-idea-subject">
-                          <a href="/ideas/2622" id="ideaLink2622"> {{htmlEntitiesDecode(data.subject)}}</a>
+                          <a ng-href="{{data.resources.html.ref}}" target="_top">{{ref}} {{htmlEntitiesDecode(data.subject)}}</a>
                       </h2>
                     </div>
                     <div class="jive-content-header-details font-color-meta">
@@ -374,8 +374,7 @@ a, a:link {
                <span class="jive-icon-sml jive-icon-folder"></span>Categories: {{convertToString(data.categories)}}</span>
 
                     <span class="jive-content-footer-item" ng-if="!data.tags.length == 0">
-                <span class="jive-icon-sml jive-icon-tag" ></span> Tags: <a ng-repeat="tag in data.tags" href="/community/products/netwitness/integrations/staging/tags#/?tags={{tag}}" target="_top">{{tag}}<font ng-show="!$last">, </font></a><!-- {{convertToString(data.tags)}} -->
-
+                <span class="jive-icon-sml jive-icon-tag" ></span> Tags: <a ng-repeat="tag in data.tags" href="/community/products/netwitness/integrations/staging/tags#/?tags={{tag}}" target="_top">{{tag}}<font ng-show="!$last">, </font></a>
                     </span>
                     <br>
                     </span>
