@@ -330,7 +330,7 @@ a, a:link {
 <!-- getStartedTab -->
 <div class="row">
     <div class="col-sm-12">
-      <div class="display-idea-list" id="ideaListDiv2622" style="overflow: hidden; display: block;"  ng-repeat="data in integrationIdeas | limitTo: 5 | orderBy: '-score'">
+      <div class="display-idea-list" id="ideaListDiv2622" style="overflow: hidden; display: block;"  ng-repeat="data in integrationIdeas | orderBy: '-score' | limitTo: 5">
         <div class="jive-content-ideas-list-item clearfix">
             <div class="jive-ideas-list-scoreblock">
                 <div class="score clearfix">
@@ -349,7 +349,7 @@ a, a:link {
                 <div class="jive-content-header">
                     <div class="jive-content-title">
                         <h2 class="displ ay-idea-subject">
-                          <a ng-href="{{data.resources.html.ref}}" target="_top">{{ref}} {{htmlEntitiesDecode(data.subject)}}</a>
+                          <a ng-href="{{data.resources.html.ref}}" target="_top">{{htmlEntitiesDecode(data.subject)}}</a>
                       </h2>
                     </div>
                     <div class="jive-content-header-details font-color-meta">
