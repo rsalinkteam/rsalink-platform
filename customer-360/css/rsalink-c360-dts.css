@@ -1,7 +1,7 @@
 /*	
 Website:        RSA Link
 Iteration:      Nov 2018 Redesign
-Scope:          RSA Select Customer 360 Summary Pages
+Scope:          Dell Technologies Select 360 Dashboards
 Author:         Jeff Shurtliff
 Last Editor:    Jeff Shurtliff
 Last Updated:   29 Sep 2019
@@ -9,7 +9,7 @@ Last Updated:   29 Sep 2019
 TABLE OF CONTENTS:
     1.0 - Title Section
         1.1 - Main Banner
-        1.2 - Search Bar
+        1.2 - Disclaimer
     2.0 - Left Column
         2.1 - General
         2.2 - Company Information
@@ -38,7 +38,7 @@ TABLE OF CONTENTS:
     background-image: url(https://www.rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_gray_1128x172.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 195px;
+    height: 178px;
     margin: 0;
 }
 
@@ -62,62 +62,11 @@ h1#mainBanner-title sup {
     font-size: 50px;
 }
 
-/***|  1.2 - Search Bar  |***/
+/***|  1.2 - Disclaimer  |***/
 
-/* Hide search widget header */
-.jive-widget-searchwidget .jive-widget-header {
-    display: none;
-}
-
-/* Adjust the position of the search widget */
-#jive-widget-container_1 >.jive-widget-searchwidget {
-    margin-bottom: 15px;
-    margin-top: -25px;
-}
-#j-search-widget .j-spotlight-search {
-    width: 85%;
-    height: auto;
-    float: left;
-    margin: 0;
-}
-
-/* Customize the search bar */
-#j-search-widget .j-spotlight-search input {
-    display: block;
-    background: #fff;
-    width: 93%;
-    height: auto;
-    outline: none;
-    border-radius: 4px;
-    border: 1px solid #bbb;
-    border-bottom: 1px solid #dadada;
-    padding: 6px;
-    -webkit-transition: all .3s linear;
-    transition: all .3s linear;
-    font: 13px Arial, sans-serif;
-    margin: 0 10px 7px 0;
-    position: relative;
-    right: 7px;
-}
-
-/* Customize the search button */
-#j-search-widget button {
-    display: block;
-    margin-top: -38px;
-    margin-left: auto;
-    margin-right: 0;
-    background: #e87722;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 0;
-    color: #fefefe;
-    width: 22%;
-    transition: background-color .25s ease-out,color .25s ease-out;
-    position: relative;
-    right: -180px;
-}
-#j-search-widget button:hover, #j-search-widget button:focus {
-    background-color: #d86a16;
-    color: #fefefe;
+/* Reduce the whitespace below the disclaimer message */
+#jive-widget-container_1 .jive-widget-htmltextwidget {
+    margin-bottom: 0px;
 }
 
 /*************************
@@ -387,88 +336,4 @@ a.jive-link-email-small {
 /* Right-align the Ranking values in the Quick Facts table */
 #jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .j-rte-table tr td ~ td {
     text-align: right;
-}
-
-/***|  3.4 - Status Reports  |***/
-
-/* Style the bi-weekly status and TAM report hyperlinks */
-#jive-widget-container_3 .jive-widget-tagwidget li a {
-    text-decoration: none;
-}
-#jive-widget-container_3 .jive-widget-tagwidget li:hover a {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 13.5px;
-}
-
-/* Style the "View All" button */
-#statusReportButtonTable {
-    border: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    width: 100%;
-}
-#statusReportButtonTable td {
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center;
-}
-a.allStatusReportsButton[data-role=button] {
-    padding: 5px 5px;
-    background-color: #eeeff0;
-    border: 1px solid #415464;
-    color: #415464;    
-}
-a.allStatusReportsButton[data-role=button]:hover {
-    background-color: #FFF;
-    border: 1px solid #415464;
-    color: #415464;
-}
-
-/* Move View All widget closer to Status Reports widget */
-#jive-widget-container_3 .jive-widget-tagwidget {
-    margin-bottom: -5px;
-}
-
-/***|  3.4.1 - Bi-Weekly Status Reports  |***/
-
-/* Update the Bi-Weekly Status Reports message when empty */
-.chrome #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p,
-.ff #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p,
-.opera #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p,
-.safari #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p {
-    visibility: hidden;
-}
-.chrome #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.ff #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.opera #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.safari #jive-widget-container_3 .jive-widget-tagwidget .jive-widget-body-empty p:after {
-    visibility: visible;
-    display: block;
-    content: 'No bi-weekly status reports have been uploaded at this time.';
-	text-align: center;
-    margin-top: -40px;
-    margin-bottom: -10px;
-}
-
-/***|  3.4.2 - TAM Status Reports  |***/
-
-/* Update the TAM Reports message when empty */
-.chrome #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
-.ff #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
-.opera #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p,
-.safari #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p {
-    visibility: hidden;
-}
-.chrome #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.ff #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.opera #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after,
-.safari #jive-widget-container_3 .jive-widget-tagwidget ~ .jive-widget-tagwidget .jive-widget-body-empty p:after {
-    visibility: visible;
-    display: block;
-    content: 'No TAM reports have been uploaded at this time.';
-	text-align: center;
-    margin-top: -40px;
-    margin-bottom: -10px;
 }
