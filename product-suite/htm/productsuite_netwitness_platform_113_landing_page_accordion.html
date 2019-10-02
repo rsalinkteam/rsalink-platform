@@ -21,12 +21,14 @@
    angular.module('netWitnessPlatform', ['ngSanitize']).controller('NetWitnessPlatformController', ['$scope', '$sce','$http', function($scope, $sce, $http) {
           $scope.getTitleData = "";
           $scope.accordionData = false;
+          $scope.getWhatIsNew = true;
           $scope.getStartedTab = false;
           $scope.deployTab = false;
           $scope.setupandManageTab = false;
           $scope.investigateTab = false;
           $scope.respondToIncidentsTab = false;
           
+          $scope.getWhatsNew = [];
           $scope.getStartedData = [];
           $scope.getDeployData = [];
           $scope.getSetupandManageData = [];
@@ -40,78 +42,102 @@
        $scope.init = function () {
           /*$scope.sourceUrlList = {"urlList":{"getStarted":"https://community.rsa.com/docs/DOC-106392","deploy":"https://community.rsa.com/docs/DOC-106394","setupandManage":"https://community.rsa.com/docs/DOC-106425","investigate":"https://community.rsa.com/docs/DOC-106426","respondToIncidents":"https://community.rsa.com/docs/DOC-106427"}};*/
           
-          
+          /* What's New - https://community.rsa.com/docs/DOC-106756*/
           /* getStarted - https://community.rsa.com/docs/DOC-106599*/
           /* deploy - https://community.rsa.com/docs/DOC-106600*/
           /* ConfigureAndManage - https://community.rsa.com/docs/DOC-106611 */
           /* investigate&Respond - https://community.rsa.com/docs/DOC-106613 */
           /* Integrations&Utilities - https://community.rsa.com/docs/DOC-106614 */
-                    
+            
+
+          /* What's New - https://community.rsa.com/docs/DOC-106756*/
+          $http.get("https://community.rsa.com/docs/DOC-106756").then(function(response) {
+              $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+              var accordianTitles = [];
+              angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                this.push(data);
+              }, accordianTitles);
+              $scope.getWhatsNew = accordianTitles;
+              window.parent.$j(".htmlWidgetIframe").css("height",window.parent.$j(".htmlWidgetIframe")[0].offsetHeight+$scope.getWhatsNew.length*66+"px");
+              $scope.iframeHeight = $scope.getIframeHeight();
+              setTimeout(resizeMe,0);                               
+          });
+          /* getStarted - https://community.rsa.com/docs/DOC-106599*/
           $http.get("https://community.rsa.com/docs/DOC-106599").then(function(response) {
               $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
               var accordianTitles = [];
               angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
-                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_top");
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                 var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                 this.push(data);
               }, accordianTitles);
               $scope.getStartedData = accordianTitles;
-              console.log($scope.getStartedData)                
+              setTimeout(resizeMe,0);
+                             
           });
           /* deploy - https://community.rsa.com/docs/DOC-106600*/
           $http.get("https://community.rsa.com/docs/DOC-106600").then(function(response) {
               $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
               var accordianTitles = [];
               angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
-                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_top");
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                 var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                 this.push(data);
 
               }, accordianTitles);
-              $scope.getDeployData = accordianTitles;                
+              $scope.getDeployData = accordianTitles;  
+              setTimeout(resizeMe,0);              
           });
           /* setupandManage - https://community.rsa.com/docs/DOC-106611 */
           $http.get("https://community.rsa.com/docs/DOC-106611").then(function(response) {
               $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
               var accordianTitles = [];
               angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
-                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_top");
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                 var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                 this.push(data);
 
               }, accordianTitles);
-              $scope.getSetupandManageData = accordianTitles;                
+              $scope.getSetupandManageData = accordianTitles;  
+              setTimeout(resizeMe,0);              
           });
           /* investigate - https://community.rsa.com/docs/DOC-106613 */
           $http.get("https://community.rsa.com/docs/DOC-106613").then(function(response) {
               $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
               var accordianTitles = [];
               angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
-                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_top");
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                 var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                 this.push(data);
 
               }, accordianTitles);
-              $scope.getInvestigateData = accordianTitles;                
+              $scope.getInvestigateData = accordianTitles;     
+              setTimeout(resizeMe,0);           
           });
           /* respondToIncidents - https://community.rsa.com/docs/DOC-106614 */
           $http.get("https://community.rsa.com/docs/DOC-106614").then(function(response) {
               $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
               var accordianTitles = [];
               angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
-                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_top");
+                $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                 var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                 this.push(data);
 
               }, accordianTitles);
-              $scope.getRespondToIncidentsData = accordianTitles;                
+              $scope.getRespondToIncidentsData = accordianTitles;   
+              setTimeout(resizeMe,0);             
           });
           setTimeout(function(){ 
               window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove();
-
           }, 1500);
           $scope.productBoxes = true;
-          setTimeout(resizeMe,0);
+
+          setTimeout(function(){ 
+              $scope.iframeHeight = $scope.getIframeHeight();
+          }, 100);
+          setTimeout(resizeMe,100);
       };
       $scope.init();
        $scope.snippet =
@@ -126,20 +152,23 @@
        }
        $scope.getIframeHeight();
        $scope.filterByAudience = function(audience){
+          console.log(audience);
           $scope.iframeHeight = 0;
           $scope.wrapperOffSetHeight = 0;
           $scope.collapseOffSetHeight = 0;  
           $scope.getTitleData = "";
-          if(audience == 'getStarted'){
-              $scope.getStartedTab = true; $scope.deployTab = false; $scope.setupandManageTab = false; $scope.investigateTab = false; $scope.respondToIncidentsTab = false;
+          if(audience == 'whatIsNew'){
+              $scope.getWhatIsNew = true; $scope.getStartedTab = false; $scope.deployTab = false; $scope.setupandManageTab = false; $scope.investigateTab = false; $scope.respondToIncidentsTab = false;
+          }else if(audience == 'getStarted'){
+              $scope.getWhatIsNew = false; $scope.getStartedTab = true; $scope.deployTab = false; $scope.setupandManageTab = false; $scope.investigateTab = false; $scope.respondToIncidentsTab = false;
           }else if(audience == 'deploy'){
-              $scope.getStartedTab = false; $scope.deployTab = true; $scope.setupandManageTab = false; $scope.investigateTab = false; $scope.respondToIncidentsTab = false;
+              $scope.getWhatIsNew = false; $scope.getStartedTab = false; $scope.deployTab = true; $scope.setupandManageTab = false; $scope.investigateTab = false; $scope.respondToIncidentsTab = false;
           }else if(audience == 'setupandManage'){
-              $scope.getStartedTab = false; $scope.deployTab = false; $scope.setupandManageTab = true; $scope.investigateTab = false; $scope.respondToIncidentsTab = false;
+              $scope.getWhatIsNew = false; $scope.getStartedTab = false; $scope.deployTab = false; $scope.setupandManageTab = true; $scope.investigateTab = false; $scope.respondToIncidentsTab = false;
           }else if(audience == 'investigate'){
-              $scope.getStartedTab = false; $scope.deployTab = false; $scope.setupandManageTab = false; $scope.investigateTab = true; $scope.respondToIncidentsTab = false;
+              $scope.getWhatIsNew = false; $scope.getStartedTab = false; $scope.deployTab = false; $scope.setupandManageTab = false; $scope.investigateTab = true; $scope.respondToIncidentsTab = false;
           }else if(audience == 'respondToIncidents'){
-              $scope.getStartedTab = false; $scope.deployTab = false; $scope.setupandManageTab = false; $scope.investigateTab = false; $scope.respondToIncidentsTab = true;
+              $scope.getWhatIsNew = false; $scope.getStartedTab = false; $scope.deployTab = false; $scope.setupandManageTab = false; $scope.investigateTab = false; $scope.respondToIncidentsTab = true;
           }
           $j(".collapse").removeClass("show");
           $j(".icon").removeClass("icon-minus").addClass("icon-plus");
@@ -181,7 +210,7 @@
               });   
           }
           if($(event.target).parents(".card").find(".collapse").find("tbody tr").length < 2){
-                $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*90;
+                $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*120;
           }else if($(event.target).parents(".card").find(".collapse").find("tbody tr").length < 3){
                 $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*60;
           }else{
@@ -191,7 +220,6 @@
           //window.parent.$j(".htmlWidgetIframe").css("height",$scope.wrapperOffSetHeight+$scope.collapseOffSetHeight+"px");
           
           if($(event.target).parent("h2").find(".icon").hasClass("icon-plus")){
-              console.log("Kamlesh");
               window.parent.$j(".htmlWidgetIframe").css("height",$scope.iframeHeight+"px");
           }else if($(event.target).parent("h2").find(".icon").hasClass("icon-minus")){
             window.parent.$j(".htmlWidgetIframe").css("height",$scope.iframeHeight+$scope.collapseOffSetHeight+"px");  
@@ -219,7 +247,7 @@
               });   
           }
           if($(event.target).parents(".card").find(".collapse").find("tbody tr").length < 2){
-                $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*90;
+                $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*120;
           }else if($(event.target).parents(".card").find(".collapse").find("tbody tr").length < 3){
                 $scope.collapseOffSetHeight = $(event.target).parents(".card").find(".collapse").find("tbody tr").length*60;
           }else{
@@ -229,7 +257,6 @@
           //window.parent.$j(".htmlWidgetIframe").css("height",$scope.wrapperOffSetHeight+$scope.collapseOffSetHeight+"px");
           
           if($(event.target).hasClass("icon-plus")){
-              console.log("Kamlesh");
               window.parent.$j(".htmlWidgetIframe").css("height",$scope.iframeHeight+"px");
           }else if($(event.target).hasClass("icon-minus")){
             window.parent.$j(".htmlWidgetIframe").css("height",$scope.iframeHeight+$scope.collapseOffSetHeight+"px");  
@@ -241,8 +268,8 @@
      }]);
 </script>
 <style type="text/css">
-    .wrapper {font-family: Arial;position: relative;height: auto;margin-top: 0.6%;border: 3px #be3a34 solid;}
-    .arrow-up {margin-left: 43%;margin-bottom: -5%;width: 0;height: 0;border-left: 25px solid transparent;border-right: 25px solid transparent;border-bottom: 25px solid #be3a34;}
+    .wrapper {font-family: Arial;/*position: relative;*/height: auto;margin-top: 0.6%;border: 3px #be3a34 solid;}
+    .arrow-up {margin-left: 33%;margin-bottom: -5%;width: 0;height: 0;border-left: 25px solid transparent;border-right: 25px solid transparent;border-bottom: 25px solid #be3a34;}
     /* Float Shadow */
     .rkcIconLink {display: inline-block;vertical-align: middle;-webkit-transform: perspective(1px) translateZ(0);transform: perspective(1px) translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);position: relative;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform;transition-property: transform;cursor: pointer;}
     .rkcIconLink:before {pointer-events: none;position: absolute;z-index: -1;content: '';top: 100%;left: 5%;height: 10px;width: 90%;opacity: 0;background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);/* W3C */-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform, opacity;transition-property: transform, opacity;}
@@ -480,54 +507,100 @@
         pointer-events: none;
       }
     }
+    .logo .col-sm-2{padding-right: 5px !important; padding-left: 5px !important;}
+
+    .centered {
+      line-height: 28px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #fff;
+      width: 100%;font-size: 22px;
+      text-align: center;
+      transform: translate(-50%, -50%);
+    }
 
 </style>
      <div ng-controller="NetWitnessPlatformController">
-      <div class="row" ng-show="productBoxes">
-        <div class="col-md-5ths col-xs-6" id="p1">
+      <div class="row logo" ng-show="productBoxes">
+        <div class="col-sm-2">
             <a class="rkcIconLink">
-                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/GetStarted.png?a=1566489847063" ng-click="filterByAudience('getStarted')">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964" ng-click="filterByAudience('whatIsNew')">
+                <div style="left:54%" class="centered" ng-click="filterByAudience('whatIsNew')">What's<br>New</div>
             </a><br/>
         </div>
-        <div class="col-md-5ths col-xs-6" id="p2">
+        <div class="col-sm-2">
             <a class="rkcIconLink">
-                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/Deploy.png?a=1566489844049" ng-click="filterByAudience('deploy')">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964" ng-click="filterByAudience('getStarted')">
+                <div class="centered" ng-click="filterByAudience('getStarted')">Get<br>Started</div>
             </a><br/>
         </div>
-        <div class="col-md-5ths col-xs-6" id="p3">
+        <div class="col-sm-2">
             <a class="rkcIconLink">
-                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/Configure%2526Manage.png?a=1566489837773" ng-click="filterByAudience('setupandManage')">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964" ng-click="filterByAudience('deploy')">
+                <div class="centered" ng-click="filterByAudience('deploy')">Install & Upgrade</div>
             </a><br/>
         </div>
-        <div class="col-md-5ths col-xs-6" id="p4">
+        <div class="col-sm-2">
             <a class="rkcIconLink">
-                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/Investigate%2526Respond.png?a=1566489854160" ng-click="filterByAudience('investigate')">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964" ng-click="filterByAudience('setupandManage')">
+                <div class="centered" ng-click="filterByAudience('setupandManage')">Configure<br>& Manage</div>
             </a><br/>
         </div>
-        <div class="col-md-5ths col-xs-6" id="p5">
+        <div class="col-sm-2">
             <a class="rkcIconLink">
-                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/Integrations%2526Utilities.png?a=1566489850431" ng-click="filterByAudience('respondToIncidents')">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964" ng-click="filterByAudience('investigate')">
+                <div class="centered" ng-click="filterByAudience('investigate')">Investigate<br>& Respond</div>
+            </a><br/>
+        </div>
+        <div class="col-sm-2">
+            <a class="rkcIconLink">
+                <img class="rkcIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964" ng-click="filterByAudience('respondToIncidents')">
+                <div class="centered" ng-click="filterByAudience('respondToIncidents')">Integrate<br>& Develop</div>
             </a><br/>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-5ths col-xs-6" id="q1">
+    <div class="row logoPointer">
+        <div class="col-sm-2">
+            <div class="arrow-up" ng-show="getWhatIsNew" style="margin-left: 35%;"></div>
+        </div>
+        <div class="col-sm-2">
             <div class="arrow-up" ng-show="getStartedTab"></div>
         </div>
-        <div class="col-md-5ths col-xs-6" id="q2">
-            <div class="arrow-up" ng-show="deployTab"></div>
+        <div class="col-sm-2">
+            <div class="arrow-up" ng-show="deployTab"></div>  
         </div>
-        <div class="col-md-5ths col-xs-6" id="q3">
+        <div class="col-sm-2">
             <div class="arrow-up" ng-show="setupandManageTab"></div>
         </div>
-        <div class="col-md-5ths col-xs-6" id="q4">
+        <div class="col-sm-2">
             <div class="arrow-up" ng-show="investigateTab"></div>
         </div>
-        <div class="col-md-5ths col-xs-6" id="q5">
+        <div class="col-sm-2">
             <div class="arrow-up" ng-show="respondToIncidentsTab"></div>
         </div>
     </div>
-    <!-- getStartedTab -->
+    <!-- getWhatIsNew -->
+    <div class="row" ng-show="getWhatIsNew">
+        <div class="col-sm-12">
+            <div class="wrapper">
+                <div class="accordion" id="accordionExample0">
+                    <div class="card" ng-repeat="data in getWhatsNew">
+                        <div class="card-header" id="headingNew{{indexChar($index)}}">
+                            <h2 class="mb-0">
+                                <button ng-click="changeIcon()" type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNew{{indexChar($index)}}"><span ng-click="changeIconPlusMinus()"  ng-class="{'icon-minus': indexChar($index) == 'A', 'icon-plus': indexChar($index) != 'A'}" class="icon"></span><!-- <span class="icon icon-plus"></span> --><!-- <i class="fa fa-plus"></i> --> {{data.head}}</button>
+                            </h2>
+                        </div>
+                        <div id="collapseNew{{indexChar($index)}}" class="collapse" ng-class="{'show': indexChar($index) == 'A'}" aria-labelledby="headingNew{{indexChar($index)}}" data-parent="#accordionExample0">
+                            <div class="card-body">
+                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- getStartedTab -->
     <div class="row" ng-show="getStartedTab">
         <div class="col-sm-12">
             <div class="wrapper">
