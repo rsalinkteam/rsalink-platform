@@ -4,7 +4,7 @@ Iteration:      Nov 2018 Redesign
 Scope:          RSA NetWitness Platform 11.3 Product Documentation
 Author:         Jeff Shurtliff
 Last Editor:    Jeff Shurtliff
-Last Updated:   2 Oct 2019
+Last Updated:   7 Oct 2019
 */
 
 /* Add the background image of the main banner */
@@ -66,6 +66,19 @@ h1#mainBanner-title {
 #jive-widget-container_3,
 #jive-widget-container_3 .jive-widget-body {
     background-color: #eeeff0;
+}
+
+/* Style the Categories widget */
+#jive-widget-container_3 .jive-widget-taggroupwidget .j-icon-list li {
+    padding: 0px 0px 5px 0px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+#jive-widget-container_3 .jive-widget-taggroupwidget .j-icon-list li:last-child {
+    border-bottom: 0px;
+}
+#jive-widget-container_3 .jive-widget-taggroupwidget .jive-icon-med.jive-icon-folder {
+    background-image: none;
 }
 
 /* Extend the right column height */
