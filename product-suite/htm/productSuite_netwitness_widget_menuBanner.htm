@@ -23,11 +23,9 @@
                         </ul>
                     </li>
                     <li><a target="_parent" href="/community/products/netwitness/endpoint-advisories">RSA NetWitness Endpoint</a>
-                        <ul class="secondLevel advisoryTypesMenu">
-                            <li><a target="_parent" href="/community/products/netwitness/endpoint-advisories">Product Advisories</a></li>
-                            <li><a target="_parent" href="/community/products/netwitness/endpoint-advisories#security">Security Advisories</a></li>
-                            <li><a target="_parent" href="/community/products/netwitness/endpoint-advisories#service">Service Notifications</a></li>
-                            <li><a target="_parent" href="/community/products/netwitness/endpoint-advisories#technical">Technical Advisories</a></li>
+                        <ul class="secondLevel advisoryTypesMenu-nwe">
+                            <li><a target="_parent" href="/community/products/netwitness/advisories">Version 11.x and Above</a></li>
+                            <li><a target="_parent" href="/community/products/netwitness/endpoint-advisories">Version 4.x and Below</a></li>
                         </ul>
                     </li>
                     
@@ -43,17 +41,15 @@
             <li><a target="_parent" href="/community/products/netwitness/documentation">Documentation</a>
                 <ul class="firstLevel documentationMenu">
                     <li><a target="_parent" href="/community/products/netwitness/documentation">RSA NetWitness Platform</a>
-                        <ul class="secondLevel documentationMenu-nwe">
-                            <li><a target="_parent" href="https://community.rsa.com/community/products/netwitness/documentation/overview">Version 11.3</a></li>
-                            <li><a target="_parent" href="https://community.rsa.com/community/products/netwitness/documentation/overview">Version 11.2</a></li>
-                            <!-- <li><a target="_parent" href="https://community.rsa.com/community/products/netwitness/documentation/overview">Version 11.1</a></li>
-                            <li><a target="_parent" href="/community/products/netwitness/1066">Version 10.6.6</a></li> -->
+                        <ul class="secondLevel documentationMenu-nwln">
+                            <li><a target="_parent" href="https://community.rsa.com/community/products/netwitness/113">Version 11.3</a></li>
+                            <li><a target="_parent" href="https://community.rsa.com/community/products/netwitness/112">Version 11.2</a></li>
                             <li><a target="_parent" href="/docs/DOC-40370">All Versions</a></li>
                         </ul>
                     </li>
                     <li><a target="_parent" href="/docs/DOC-40370#rnwe">RSA NetWitness Endpoint</a>
                         <ul class="secondLevel documentationMenu-nwe">
-                            <li><a target="_parent" href="/community/products/netwitness/documentation">Version 11.3</a></li>
+                            <li><a target="_parent" href="/community/products/netwitness/113">Version 11.3</a></li>
                             <li><a target="_parent" href="/community/products/netwitness/44">Version 4.4</a></li>
                             <li><a target="_parent" href="/docs/DOC-40370#rnwe">All Versions</a></li>
                         </ul>
@@ -68,13 +64,6 @@
                             <li><a target="_parent" href="/community/products/netwitness/investigator">Version 10.6</a></li>
                         </ul> -->
                     </li>
-                    <!-- <li><a target="_parent" href="/community/products/netwitness/documentation">RSA NetWitness Logs &amp; Network</a>
-                        <ul class="secondLevel documentationMenu-nwln">
-                                <li><a target="_parent" href="https://community.rsa.com/community/products/netwitness/documentation">Version 11.x</a></li>              
-                                <li><a target="_parent" href="/docs/DOC-40370#rnws">All Versions</a></li>
-                                <li><a target="_parent" href="https://community.rsa.com/community/products/netwitness/documentation/known-issues">Known Issues</a></li>
-                        </ul>
-                    </li> -->
                     
                     
                     <!--<li><a target="_parent" href="/community/products/netwitness/hardware-setup-guides">Hardware Setup Guides</a></li>-->
@@ -82,10 +71,9 @@
                         <ul class="secondLevel additionalResourcesMenu">                            
                                 <!--<li><a target="_parent" href="https://community.rsa.com/community/products/netwitness/documentation/troubleshooting">Troubleshooting</a></li>-->
                                 <li><a target="_parent" href="/community/products/netwitness/integrations">Integrations</a></li> 
-                                <li><a target="_parent" href="/community/products/netwitness/integrations/event-sources">Event Source Configuration</a></li> 
+                                <li><a target="_parent" href="/community/products/netwitness/integrations/event-sources">Event Source Configuration</a></li>
                                 <li><a target="_parent" href="/community/products/netwitness/rsa-content">RSA Live Content</a></li>
                                 <li><a target="_parent" href="/community/products/netwitness/hardware-setup-guides">Hardware Setup Guides</a></li>
-                                
                         </ul>
                     </li>
                 </ul>
@@ -178,6 +166,11 @@
         width: 222px;
     }
 }
+.dropDownMenu > li > ul > li > ul.advisoryTypesMenu-nwe {
+    left: 304px;
+    top: -2px;
+    width: 227px;
+}
 
 /* Documentation Menu */
 .dropDownMenu > li > ul.documentationMenu {
@@ -200,45 +193,19 @@
     }
 }
 
-/* Documentation Menu - RSA NetWitness Endpoint */
-.dropDownMenu > li > ul > li > ul.documentationMenu-nwe {
+/* Documentation Menu - RSA NetWitness Platform & RSA NetWitness Endpoint */
+.dropDownMenu > li > ul > li > ul.documentationMenu-nwe,
+.dropDownMenu > li > ul > li > ul.documentationMenu-nwln {
     left: 264px;
     top: -2px;
     width: 150px;
 }
 @media only screen and (min-width: 731px) {
-    .dropDownMenu > li > ul > li > ul.documentationMenu-nwe {
-        left: 304px;
-        top: -2px;
-        width: 200px;
-    }
-}
-
-/* Documentation Menu - RSA NetWitness Logs & Network */
-.dropDownMenu > li > ul > li > ul.documentationMenu-nwln {
-    left: 264px;
-    top: -2px;
-    width: 152px;
-}
-@media only screen and (min-width: 731px) {
+    .dropDownMenu > li > ul > li > ul.documentationMenu-nwe,
     .dropDownMenu > li > ul > li > ul.documentationMenu-nwln {
         left: 304px;
         top: -2px;
-        width: 200px;
-    }
-}
-
-/* Documentation Menu - RSA NetWitness Logs & Network 11.x */
-.dropDownMenu > li > ul > li > ul > li > ul.documentationMenu-nwln11 {
-    left: 151px;
-    top: -2px;
-    width: 175px;
-}
-@media only screen and (min-width: 731px) {
-    .dropDownMenu > li > ul > li > ul > li > ul.documentationMenu-nwln11 {
-        left: 151px;
-        top: -2px;
-        width: 175px;
+        width: 150px;
     }
 }
 
@@ -363,57 +330,36 @@ li.divideTop {
                 <img src="https://community.rsa.com/resources/statics/1875/charge_presentations_available.jpg?a=1568706061088" />
             </a>
         </li>
-        <!--<li>
-            <a href="https://www.rsa.com/en-us/events/rsa-charge-2019" target="_blank">
-                <img src="https://community.rsa.com/resources/statics/1875/rsa-link-banner-rsa-charge-agenda-920x244%2B%25281%2529.jpg?a=1560231506161" />
+        <li>
+            <a href="https://community.rsa.com/community/products/netwitness/113?utm_source=rsalink&utm_medium=rotating_banner" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1875/banner-rsa-link-netwitness-11-3-x-920x244.jpg?a=1570476103517" />
             </a>
-        </li>-->
+        </li>
         <li>
             <a href="https://community.rsa.com/community/customers/blog/2019/09/16/announcing-the-september-2019-release-of-the-myrsa-platform?utm_source=rsalink&utm_medium=rotating_banner" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/1040/banner-link-myRSA-post-launch-920x244.jpg?a=1559268983763" />
             </a>
         </li>  
+        <!--
         <li>
             <a href="https://community.rsa.com/community/training/blog/2019/08/22/new-lms-platform-coming-soon?utm_source=rsalink&utm_medium=rotating_banner" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/1875/banner-rsa-link-one-lms-920x244-now-available-cta.jpg?a=1568178439151" />
             </a>
         </li>
-        <!--<li>
-            <a href="https://webinars.on24.com/rsa/AreYouReadyForPSD2?partnerref=link" target="_blank">
-                <img src="https://community.rsa.com/resources/statics/66992/webinar_psd2_product_pages.jpg?a=1565979017683" />
-            </a>
-        </li>-->
-        <!--<li class="bannerSize">
-            <a href="https://community.rsa.com/community/training/blog/2019/08/22/new-lms-platform-coming-soon?utm_source=rsalink&utm_medium=rotating_banner" target="_blank">
-                <img src="https://community.rsa.com/resources/statics/1875/banner-rsa-link-one-lms-920x244-coming-soon-cta.jpg?a=1567060191947" />
-            </a>
-        </li>-->
+        -->
         <li>
-            <a href="https://community.rsa.com/community/products/netwitness/documentation"
+            <a href="https://community.rsa.com/community/products/netwitness/documentation?utm_source=rsalink&utm_medium=rotating_banner"
                 target="_blank">
                 <img src="https://community.rsa.com/resources/statics/1875/banner-netwitness-respond-confidently-to-breach-920x244.jpg?a=1560809885607" />
             </a>
         </li>
-        <!--<li>
-            <a href="https://www.rsa.com/en-us/events/rsa-charge-2019" target="_blank">
-                <img src="https://community.rsa.com/resources/statics/1875/rsalinkbannerrsacharge2019awards920x244.jpg?a=1565083320720" />
-            </a>
-        </li>
+        <!--
         <li>
-            <a href="https://community.rsa.com/community/products/archer-grc/blog/2019/07/12/draft-rsa-named-a-leader-in-garter-magic-quadrant-for-it-risk-management-solutions" target="_blank">
-                <img src="https://community.rsa.com/resources/statics/1875/rsa_itrm_mq_archer_920x244.jpg?a=1563424144204" />
-            </a>
-        </li>
-        <li>
-            <a href="https://information.rsa.com/Netwitness-Gartner-Magic-Quadrant" target="_blank">
-                <img src="https://community.rsa.com/resources/statics/1889/197867-wb-nw-Gartner-MQ-RSA-Link-Banners-920x244.jpg?a=1544506898694" />
-            </a>
-        </li>-->
-        <!-- <li>
             <a href="https://community.rsa.com/videos/33726" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/1875/banner-link-myRSA-post-launch-920x244.jpg?a=1559318335595" />
             </a>
-        </li> -->
+        </li>
+        -->
     </ul>
 </div>
 
