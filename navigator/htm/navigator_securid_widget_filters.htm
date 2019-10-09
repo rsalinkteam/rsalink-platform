@@ -1,51 +1,47 @@
-<script src="https://community.rsa.com/resources/statics/113225/jquery-2.1.4.min.js?a=1489005042369" type="text/javascript"></script>
-<script src="https://community.rsa.com/resources/statics/1040/css_browser_selector_v2.js?a=1481298634521"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
 
 <!-- Begin Select Boxes -->
+<!--
+  ** Style a Select Box Using Only CSS
+  ** Source: http://bavotasan.com/2011/style-select-box-using-only-css/
+  ** Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/
+  ** Source: http://stackoverflow.com/a/5809186
+-->
 <table id="navigatorTable" width="100%" border="0">
 	<tr>
 		<th>Role</th>
 		<th>Expertise</th>
 		<th>Focus</th>
-		<th>Cost</th>
+		<th>Language</th>	
 	</tr>
-	<tr>
+	<tr>				
 		<td>
 			<div class="styled-select brown semi-square">
 				<select id="role" onchange="updateFilters()">
-					<option value="%7C">
-						Select All
-					</option>
-					<option value="admin%7C" title="A person in an Archer Administrator role is typically responsible for implementing business requirements within the RSA Archer Platform. While a full understanding of the Platform features is required, additional knowledge about the solutions in use can also be beneficial.">
+					<option value="%7C">Select All</option>
+					<option value="admin%7C">
 						Administrator
 					</option>
-					<option value="tech+admin%7C" title="A person in a Technical Administrator role is typically responsible for the installation and maintenance of the RSA Archer Platform. They require knowledge of the Platform, its solutions and all the technical aspects of deploying RSA Archer for usage by the various teams within their company.">
-						Tech Administrator
+					<option value="system+admin%7C">
+						System Administrator
 					</option>
-					<option value="business+user%7C" title="An Archer Business User is typically responsible for defining requirements for an Archer build.  This user should know what the Archer platform is capable of, so that appropriate requirements can be written.  Knowledge of the solution area(s) purchased is also appropriate for this user.">
+					<option value="business+user%7C">
 						Business User
 					</option>
-					<option value="end+user%7C" title="End users of an Archer implementation will benefit from learning how to navigate the system and how to build reports.  They may also benefit from viewing the solution training(s) and reading the Use Case guides for the solution(s) within which they will be working.">
-						End User
+					<option value="helpdesk%7C">
+						HelpDesk
 					</option>
 				</select>
-			</div>
+			</div>      
 		</td>
 		<td>
 			<div class="styled-select brown semi-square">
 				<select id="expertise" onchange="updateFilters()">
-					<option value="%7C">
-						Select All
-					</option>
-					<option value="getting+started%7C" title="Brand new to RSA Archer and needing foundational information on the RSA Archer platform and solution areas.">
-						Beginner
-					</option>
-					<option value="expanding%7C" title="Advancing your knowledge of the platform and achieving a deeper understanding of the RSA Archer use cases and how to implement them.">
-						Intermediate
-					</option>
-					<option value="advanced%7C" title="Mastering your knowledge of RSA Archer from a technical, administrative or business use, depending upon your role.">
-						Advanced
-					</option> 
+					<option value="%7C">Select All</option>
+					<option value="getting+started%7C">Basic</option>
+					<option value="expanding%7C">Intermediate</option>
+					<option value="advanced%7C">Advanced</option>
 				</select>
 			</div>      
 		</td>
@@ -53,49 +49,64 @@
 			<div class="styled-select brown semi-square">
 				<select id="focus" onchange="updateFilters()">
 					<option value="%7C">Select All</option>
-					<option value="general%7C">General Product Use</option>					
-					<option value="module%7C">Modules</option>
-					<option value="maturity+model%7C">Maturity Model</option>
-					<option value="business-driven+security%7C">Business-Driven Security</option>
-					<option value="release+notes+and+advisories%7C">Release Notes and Advisories</option>					
-					<option value="use+case+guides%7C">Use Case Guides</option>
-					<option value="training%7C">Training</option>
+					<option value="administration%7C">Administration</option>
+					<option value="configuration%7C">Configuration</option>
+					<option value="hardware%7C">Hardware</option>
+					<option value="integration%7C">Integration</option>
+					<option value="installation+%26+upgrade%7C">Software Installation and Upgrade</option>
 					<option value="troubleshooting%7C">Troubleshooting</option>
+					<option value="best+practices%7C">Recommended Practices</option>
 				</select>
 			</div>      
 		</td>
 		<td>
 			<div class="styled-select brown semi-square">
-				<select id="cost" onchange="updateFilters()">
-					<option value="%7C">Select All</option>
-					<option value="free%7C">Free</option>
-					<option value="fee%7C">Fee Required</option>
+				<select id="language" onchange="updateFilters()">
+					<option value="english%7C">English</option>
+					<option value="french%7C">French</option>
+					<option value="german%7C">German</option>
+					<option value="japanese%7C">Japanese</option>
+					<option value="spanish%7C">Spanish</option>
 				</select>
 			</div>      
-		</td>
+		</td>	
 	</tr>
 	<tr>
 		<th style="padding-top: 10px;">Product</th>
 		<th style="padding-top: 10px;">Version</th>
 		<th style="padding-top: 10px;">Content Type</th>
+		<th style="padding-top: 10px;">Component</th>
 	</tr>
 	<tr>
 		<td>
 			<div class="styled-select brown semi-square">
 				<select id="product" onchange="updateFilters()">
-					<option value="%7C">Select All</option>
-					<option value="platform%7C">RSA Archer Platform</option>
-					<option value="solutions+and+use+cases%7C">RSA Archer Solutions &amp; Use Cases</option>
-					<option value="rsa+exchange%7C">RSA Exchange</option>
+					<option value="%7C">
+						Select All
+					</option>
+					<option value="authentication+manager%7C">
+						RSA Authentication Manager
+					</option>
+					<option value="identity+governance+and+lifecycle%7C">
+						RSA Identity Governance &amp; Lifecycle
+					</option>
+					<option value="securid+access%7C">
+						RSA SecurID Access
+					</option>
 				</select>
-			</div>      
+			</div>
 		</td>
 		<td>
 			<div class="styled-select brown semi-square">
 				<select id="version" onchange="updateFilters()">
 					<option value="%7C">Select All</option>
-					<option value="6.x%7C">6.x</option>
-					<option value="5.x%7C">5.x</option>
+					<option class="amFilter excludesSA excludesGL" value="8.2%7C">8.2</option>
+					<option class="amFilter excludesSA excludesGL" value="8.1%7C">8.1</option>
+					<option class="amFilter excludesSA excludesGL" value="8.0%7C">8.0</option>
+					<option class="glFilter excludesAM excludesSA" value="7.0.2%7C">7.0.2</option>
+					<option class="glFilter excludesAM excludesSA" value="7.0.1%7C">7.0.1</option>
+					<option class="glFilter excludesAM excludesSA" value="7.0.0%7C">7.0</option>
+					<option class="glFilter excludesAM excludesSA" value="6.x%7C">6.x</option>
 				</select>
 			</div>      
 		</td>
@@ -103,29 +114,61 @@
 			<div class="styled-select brown semi-square">
 				<select id="contentType" onchange="updateFilters()">
 					<option value="%7C">Select All</option>
-					<option value="on+demand+learning%7C">On-Demand Learning</option>
-					<option value="in+person+training%7C">In-Person Training</option>
-					<option value="on+demand+lab%7C">On-Demand Lab</option>
-					<option value="documentation%7C">Documentation</option>
-					<option value="translation%7C">Translated Documentation</option>					
-					<option value="knowledge+base%7C">Knowledge Base</option>
-					<option value="infographic%7C">Infographic</option>
-					<option value="technical+video%7C">Technical Video</option>
-					<option value="roadmap%7C">Roadmap</option>
-					<option value="white+paper%7C">White Paper</option>
-					<option value="working+group%7C">Working Group</option>
-					<option value="use+case+presentation%7C">Use Case Presentation</option>
+					<option value="advisory%7C">Advisories</option>
+					<option value="blog+post%7C">Blog Posts</option>
+					<option value="documentation%7Crelease+notes%7C">Documentation: Release Notes</option>
+					<option value="documentation%7Ctechnical%7C">Documentation: Technical</option>
+					<option value="documentation%7Cuser+guide%7C">Documentation: User Guide</option>					
+					<option value="download%7C">Downloads</option>
+					<option class="kbFilter" value="knowledge+base%7C">Knowledge Base</option>
+					<option value="training%7Con+demand%7C">Training: On Demand</option>
+					<option value="training%7Cclassroom%7C">Training: Classroom</option>
+					<option value="training%7Cremote%7C">Training: Remote</option>					
+					<option value="video%7C">Videos</option>
 				</select>
-			</div>
+			</div>      
 		</td>
-		<td>&nbsp;</td>
+		<td>
+			<div class="styled-select brown semi-square">
+				<select id="component" onchange="updateFilters()">
+					<option value="%7C">Select All</option>
+					<option class="glFilter excludesAM excludesSA" value="access+certification+%26+reviews%7C">Access Certification & Reviews</option>
+					<option class="glFilter excludesAM excludesSA" value="identity+unification%7C">Identity Unification</option>
+					<option class="glFilter excludesAM excludesSA" value="access+request+management%7C">Access Request Management</option>
+					<option class="glFilter saFilter excludesAM" value="collector%7C">Collectors</option>
+					<option class="glFilter excludesAM excludesSA" value="workflow%7C">Workflows</option>
+					<option class="glFilter excludesAM excludesSA" value="rule%7C">Rules</option>
+					<option class="glFilter excludesAM excludesSA" value="business+role+management%7C">Business Role Management</option>
+					<option class="glFilter excludesAM excludesSA" value="provisioning%7Cautomated%7C">Provisioning: Automated</option>
+					<option class="glFilter excludesAM excludesSA" value="provisioning%7Cmanual%7C">Provisioning: Manual</option>
+					<option class="glFilter excludesAM excludesSA" value="jml%7C">Joiner / Mover / Leaver</option>
+					<option class="glFilter excludesAM excludesSA" value="data+access+governance%7C">Data Access Governance</option>
+					<option class="glFilter saFilter amFilter" value="authentication%7C">Authentication</option>
+					<option class="glFilter saFilter amFilter" value="agent%7C">Agent</option>
+					<option class="saFilter excludesAM excludesGL" value="identity+router%7C">Identity Router</option>
+					<option class="glFilter saFilter amFilter" value="sso%7C">SSO</option>
+					<option class="glFilter saFilter amFilter" value="otp%7C">One Time Password (OTP)</option>
+					<option class="saFilter excludesAM excludesGL" value="mmfa%7C">Mobile Multi-Factor Authentication (MMFA)</option>
+					<option class="saFilter amFilter excludesGL" value="mfa%7C">Multi-Factor Authentication (MFA)</option>
+					<option class="amFilter excludesSA excludesGL" value="token+authentication%7C">Token Authentication</option>
+					<option class="saFilter excludesAM excludesGL" value="risk+analytics%7C">Risk Analytics</option>
+					<option class="amFilter excludesSA excludesGL" value="token%7C">Tokens</option>
+					<option class="glFilter saFilter amFilter" value="password+management%7C">Password Management</option>
+					<option class="glFilter excludesAM excludesSA" value="clustering%7C">Clustering</option>
+					<option class="glFilter saFilter amFilter" value="report%7C">Reports</option>
+					<option class="glFilter saFilter amFilter" value="api%7C">Web Services / Protocols / APIs</option>
+					<option class="glFilter saFilter amFilter" value="user+interface%7C">User Interface (UI)</option>
+					<option class="glFilter saFilter amFilter" value="application+integration%7C">Application Integration</option>
+				</select>
+			</div>      
+		</td>
 	</tr>
 </table>
 <br />
 <!-- End Select Boxes -->
 
 <!-- Begin Search Button Area -->
-<table id="navigatorButtons" border="0" style="border: 0px solid rgb(198, 198, 198); margin-left: auto; margin-right: auto; margin-top: 10px;">
+<table border="0" style="border: 0px solid rgb(198, 198, 198); width: 35%; margin-left: auto; margin-right: auto; margin-top: 10px;">
 	<tbody>
 		<tr>
 			<td style="padding-left: 10px; padding-right: 10px; text-align: center;">
@@ -140,57 +183,131 @@
 <br />
 <!-- End Search Button Area -->
 
-<!-- Begin Navigator JavaScript Code -->
+<!-- Begin JavaScript -->
 <script type="text/javascript">
 function updateFilters() {
 	var productValue = document.getElementById("product").value;
-	var roleValue = document.getElementById("role").value;
-	var expertiseValue = document.getElementById("expertise").value;
-	var contentTypeValue = document.getElementById("contentType").value;
-	var focusValue = document.getElementById("focus").value;
 	var versionValue = document.getElementById("version").value;
-	var costValue = document.getElementById("cost").value;	
+	var roleValue = document.getElementById("role").value;
+	var focusValue = document.getElementById("focus").value;
+	var expertiseValue = document.getElementById("expertise").value;	
+	var languageValue = document.getElementById("language").value;
+	var contentTypeValue = document.getElementById("contentType").value;
+	var componentValue = document.getElementById("component").value;	
 	
-	if (contentTypeValue == "knowledge+base%7C") {
+	if (productValue == "authentication+manager%7C") {		
+		$('.kbFilter').removeAttr('disabled').show();
+		//$('.kbFilter').css('visibility','visible'); 		
+		
+		$('.excludesAM').attr('disabled','disabled').hide();
+		//$('.excludesAM').css('visibility','hidden');
+		
+		$('.excludesGL').attr('disabled','disabled').hide();
+		//$('.excludesGL').css('visibility','hidden');		
+		
+		$('.excludesSA').attr('disabled','disabled').hide();
+		//$('.excludesSA').css('visibility','hidden');		
+		
+		$('.amFilter').removeAttr('disabled').show();
+		//$('.amFilter').css('visibility','visible'); 		
+	} else if (productValue == "identity+governance+and+lifecycle%7C") {
+		$('.kbFilter').removeAttr('disabled').show();
+		//$('.kbFilter').css('visibility','visible');
+		
+		$('.excludesAM').attr('disabled','disabled').hide();
+		//$('.excludesAM').css('visibility','hidden');
+		
+		$('.excludesGL').attr('disabled','disabled').hide();
+		//$('.excludesGL').css('visibility','hidden');
+		
+		$('.excludesSA').attr('disabled','disabled').hide();
+		//$('.excludesSA').css('visibility','hidden');
+		
+		$('.glFilter').removeAttr('disabled').show();
+		//$('.glFilter').css('visibility','visible'); 
+	} else if (productValue == "securid+access%7C") {
+		$('.kbFilter').removeAttr('disabled').show();
+		//$('.kbFilter').css('visibility','visible');
+		
+		$('.excludesAM').attr('disabled','disabled').hide();
+		//$('.excludesAM').css('visibility','hidden');
+		
+		$('.excludesGL').attr('disabled','disabled').hide();
+		//$('.excludesGL').css('visibility','hidden');
+		
+		$('.excludesSA').attr('disabled','disabled').hide();
+		//$('.excludesSA').css('visibility','hidden');
+		
+		$('.saFilter').removeAttr('disabled').show();
+		//$('.saFilter').css('visibility','visible');
+	} else {
+		$('.amFilter').removeAttr('disabled').show();
+		//$('.amFilter').css('visibility','visible'); 
+		
+		$('.glFilter').removeAttr('disabled').show();
+		//$('.glFilter').css('visibility','visible'); 
+		
+		$('.saFilter').removeAttr('disabled').show();
+		//$('.saFilter').css('visibility','visible');
+		
+		$('.kbFilter').attr('disabled','disabled').hide();
+		//$('.kbFilter').css('visibility','hidden');
+	};
+	
+	if (productValue == "authentication+manager%7C" && contentTypeValue == "knowledge+base%7C") {
 		$('#submitArea').empty();
-		$('#submitArea').append('<a href=\"/community/products/archer-grc/knowledge-base/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+		$('#submitArea').append('<a href=\"/community/products/securid/knowledge-base/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + contentTypeValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+		setTimeout(resizeMe,2000);	
+	} else if (productValue == "securid+access%7C" && contentTypeValue == "knowledge+base%7C") {
+		$('#submitArea').empty();
+		$('#submitArea').append('<a href=\"/community/products/securid/knowledge-base/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + contentTypeValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+		setTimeout(resizeMe,2000);		
+	} else if (productValue == "identity+governance+and+lifecycle%7C" && contentTypeValue == "knowledge+base%7C") {
+		$('#submitArea').empty();
+		$('#submitArea').append('<a href=\"/community/products/governance-and-lifecycle/knowledge-base/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + contentTypeValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
 		setTimeout(resizeMe,2000);	
 	} else {
 		$('#submitArea').empty();
-		$('#submitArea').append('<a href=\"/community/products/archer-grc/navigator/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + roleValue + productValue + expertiseValue + focusValue + contentTypeValue + versionValue + costValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
+		$('#submitArea').append('<a href=\"/community/products/securid/navigator/content/?filterID=contentstatus%5Bpublished%5D~tag%5B' + productValue + versionValue + roleValue + focusValue + expertiseValue + languageValue + contentTypeValue + componentValue + '%5D\" target="_parent" data-role="button" class="searchButton">View Results</a>');
 		setTimeout(resizeMe,2000);
-	}
-	
+	};
 }
 
 updateFilters();
 
 function resetOptions() {
-	document.getElementById("role").selectedIndex = "0";
-	document.getElementById("expertise").selectedIndex = "0";
-	document.getElementById("contentType").selectedIndex = "0";
-	document.getElementById("focus").selectedIndex = "0";
-	document.getElementById("product").selectedIndex = "0";
+	document.getElementById("product").selectedIndex = "0";	
 	document.getElementById("version").selectedIndex = "0";
-	document.getElementById("cost").selectedIndex = "0";
+	document.getElementById("role").selectedIndex = "0";
+	document.getElementById("focus").selectedIndex = "0";	
+	document.getElementById("expertise").selectedIndex = "0";
+	document.getElementById("language").selectedIndex = "0";
+	document.getElementById("contentType").selectedIndex = "0";
+	document.getElementById("component").selectedIndex = "0";
+	
+	updateFilters();
 }
 
 
 </script>
-<!-- End Navigator JavaScript Code -->
 
-<!-- Begin Google Analytics Tracking Code -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-2931917-31', 'auto');
-  ga('send', 'pageview');
 
-</script>
-<!-- End Google Analytics Tracking Code -->
+
+<!-- End JavaScript -->
+
+	<!-- Begin Search Button -->
+	<!--
+	<table border="0" style="border: 0px solid rgb(198, 198, 198); width: 49%; margin-left: auto; margin-right: auto;">
+		<tbody>
+			<tr>
+				<td style="padding-left: 10px; padding-right: 10px; text-align: center;"><a class="searchButton" data-role="button" style="cursor: pointer;" onclick="loadSpreadsheet()">View Results</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	-->
+	<!-- End Search Button -->
 
 <!-- Begin Stylesheet -->
 <style>
@@ -221,6 +338,10 @@ function resetOptions() {
   background: #802629;
 }
 
+.styled-select select option:disabled {
+  background: #707372;
+}
+
 /* -------------------- Rounded Corners */
 .semi-square {
    -webkit-border-radius: 5px;
@@ -230,7 +351,7 @@ function resetOptions() {
 
 /* -------------------- Colors: Background */
 .brown { 
-  background-color: #802629; 
+  background-color: #802629;
 }
 
 /* -------------------- Colors: Text */
@@ -266,16 +387,6 @@ a.searchButton {
 a[data-role=button]:hover {
     background-color: #FFF;
     color: #802629;
-}
-
-/* Adjust the width of the Navigator buttons */
-#navigatorButtons {
-	width: 45%;
-}
-@media only screen and (min-width: 852px) {
-	#navigatorButtons {
-		width: 35%;
-	}
 }
 
 /* Set the font family for the Navigator table */
