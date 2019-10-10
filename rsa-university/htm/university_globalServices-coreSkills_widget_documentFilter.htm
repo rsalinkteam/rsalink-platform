@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+        <script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery.min.3.4.1.js"></script>
+    <link href="https://www.rsa.com/content/dam/rsalink/bootstrap/3-3-7/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://www.rsa.com/content/dam/rsalink/bootstrap/3-3-7/bootstrap.min.js"></script>    
+    <script type="text/javascript" src="https://www.rsa.com/content/dam/rsalink/angularjs/angular.min.v1.5.5.js"></script>
     <script type="text/javascript" src="https://www.rsa.com/content/dam/rsalink/angularjs/lodash.min.js"></script>
-    <script type="text/javascript" src="https://www.rsa.com/content/dam/rsalink/angularjs/angularjs-dropdown-multiselect.min.js"></script>
-    <link href="https://www.rsa.com/content/dam/rsalink/css/rsalink-university-training-product.css" rel="stylesheet">        
+    <script type="text/javascript" src="https://www.rsa.com/content/dam/rsalink/angularjs/angularjs-dropdown-multiselect.min.js"></script>    
+    <link href="https://www.rsa.com/content/dam/rsalink/css/rsalink-university-training-product.css" rel="stylesheet">          
+            
     
     <script src="https://www.rsa.com/content/dam/rsalink/js/university_globalServices-coreSkills_widget_megaMenu.js"></script>
+    
     
     <style type="text/css">
         .RSAArcherSuiteIcon {background-image: url(https://community.rsa.com/resources/statics/231635/RSAArcherSuiteIcon.png?a=1556696933613);background-repeat: no-repeat; background-position: center center; background-size: 80%; height: 120px; width: 120px; float: left;}
@@ -22,7 +23,7 @@
         a[data-role=button] {font-size: 12px;top: 30%;text-align: center;border-radius: 0px;line-height: 25px;width: 88%;font-weight: bold;display: inline-block;vertical-align: middle;font-family: Arial,sans-serif;margin-bottom: 10px;position: relative;text-transform: none;background-color: #802629;border: 1px solid #802629;color: #fff;text-decoration: none;transition: background-color .25s ease-out, color .25s ease-out;}
         a[data-role=button]:hover {background-color: #fff;border: 1px solid #802629;color: #802629;}
 
-        .text{text-align: center;margin-top: -5px;font-size: 18px;}
+        .text{text-align: center;margin-top: -5px;font-size: 18px;}
         .text a{text-decoration: none;color: #337ab7; line-height: 1.7em;}
         .text a:hover, .text a:focus, .text a:active {color: #337ab7;fill: #337ab7;font-weight: bold;text-decoration: none;outline: none;cursor:pointer;}
         .wrapper {font-family: Arial;position: relative;width: 99%;margin-left: 3px;height: 240px;margin-top: -0.6%;border: 3px #be3a34 solid;}
@@ -35,7 +36,7 @@
         .rkcIconLink:before {pointer-events: none;position: absolute;z-index: -1;content: '';top: 100%;left: 5%;height: 10px;width: 90%;opacity: 0;background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);/* W3C */-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform, opacity;transition-property: transform, opacity;}
         .rkcIconLink:hover, .rkcIconLink:focus, .rkcIconLink:active {-webkit-transform: translateY(-5px);transform: translateY(-5px);}
         .rkcIconLink:hover:before, .rkcIconLink:focus:before, .rkcIconLink:active:before {opacity: 1; -webkit-transform: translateY(5px);15 transform: translateY(5px);}
-        .rkcIcon {margin-left: auto;margin-right: auto;display: block;max-width: 100%;vertical-align: top;}
+        .rkcIcon {margin-left: auto;margin-right: auto;display: block;width: 100%;vertical-align: top;}
         .text1 {text-align: justify;padding-top: 10px;font-size: 16px;}
 
         .selcls { 
@@ -52,7 +53,7 @@
                 margin-top: 15px;
                 } 
     </style>
-    <div ng-app="ngMasterApp" ng-controller="ngApp">
+<div ng-app="ngMasterApp" ng-controller="ngApp">
       <div class="row">
         <div class="col-sm-3">
             <a class="rkcIconLink">
@@ -297,28 +298,7 @@
       </div>
       <div class="row"><div class="col-sm-12"><level>&nbsp;</level></div></div>
       <div class="row" ng-show="filterRowDetails">
-        <!-- <div class="col-sm-3">
-            <label for="usr">COURSE</label>
-            <input ng-keyup="searchCourse($event)" type="text" class="form-control" id="course" placeholder="Search for a training course" ng-model="courseInput">
-        </div>
-        <div class="col-sm-3">
-          <label for="sel1">DELIVERY TYPE</label>
-          <select class="form-control" name="deliveryType" ng-options="type.value as type.text for type in deliveryType" ng-change="filterByColumn()" ng-model="selectedDeliveryType">
-                <option value="">--Select Delivery Type--</option>
-          </select>
-        </div>
-        <div class="col-sm-3">
-          <label for="sel2">ROLE</label>
-          <select class="form-control" name="roles" ng-options="role.value as role.text for role in roles" ng-change="filterByColumn()" ng-model="selectedRole">
-                <option value="">--Select Role--</option>
-          </select>
-        </div>
-        <div class="col-sm-3">
-          <label for="sel3">LEVEL</label>
-          <select class="form-control" name="levels" ng-options="level.value as level.text for level in levels" ng-change="filterByColumn()" ng-model="selectedLevel">
-                <option value="">--Select Level--</option>
-          </select>
-        </div> -->
+        
         <div class="col-sm-3">
             <label for="usr">COURSE</label>
             <input ng-keyup="searchCourse($event)" type="text" class="form-control" id="course" placeholder="Search for a training course" ng-model="courseInput">
@@ -337,18 +317,17 @@
         </div>
       </div>
       <br>
-    <div class="row" ng-show="customMasterDocumentTable">
-        <div class="col-sm-12">
-            <table style="border: 1px solid #c6c6c6; width: 99.8108%;" class="customMasterTable">
-                <thead>
-                    <tr style="height: 30px; background-color: #415464;">
-                        <th style="width: 60%; height: 25px; color: #ffffff;" class="header"><span>Course Name / Description</span></th>
-                        <th style="width: 25%; height: 25px; color: #ffffff;" class="header"><span>Delivery Options</span></th>
-                        <!-- <th style="width: 15%; height: 25px; color: #ffffff;" class="header"><span>Cost</span></th> -->
-                    </tr>
-                </thead>
-                <tbody class="customMasterDocument"></tbody>
-            </table>
-        </div>
-    </div>
+      <div class="row" ng-show="customMasterDocumentTable">
+          <div class="col-sm-12">
+              <table style="border: 1px solid #c6c6c6; width: 99.8108%;" class="customMasterTable">
+                  <thead>
+                      <tr style="height: 30px; background-color: #415464;">
+                          <th style="width: 60%; height: 25px; color: #ffffff;" class="header"><span>Course Name / Description</span></th>
+                          <th style="width: 25%; height: 25px; color: #ffffff;" class="header"><span>Delivery Options</span></th>
+                      </tr>
+                  </thead>
+                  <tbody class="customMasterDocument"></tbody>
+              </table>
+          </div>
+      </div>
  </div>
