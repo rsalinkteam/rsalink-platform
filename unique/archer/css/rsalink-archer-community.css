@@ -3,8 +3,8 @@ Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Scope:          RSA Archer Customer/Partner Community
 Author:         Jeff Shurtliff
-Last Editor:    Santhosh V
-Last Updated:   03 Apr 2019
+Last Editor:    Max Kimball
+Last Updated:   29 Oct 2019
 */
 
 /* Add the background image of the main banner */
@@ -154,7 +154,7 @@ a[data-role=button]:hover {
 
 /* Adjust whitespace between Recent Discussions and buttons */
 .jive-widget-recentcontentwidget {
-    margin-bottom: -37px;
+    margin-bottom: -23px;
 }
 a.jive-icon-link-forward-content.jive-more-content {
     margin-top: 0px;
@@ -163,9 +163,9 @@ a.jive-icon-link-forward-content.jive-more-content {
 .jive-box-footer .statusrss {
     display: none;
 }
-#jive-widget-container_2 .jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget {
+/* #jive-widget-container_2 .jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget {
     margin-top: -50px;
-}
+} */
 .jive-widget-recentcontentwidget .content-large .jive-table-recentcontent {
     margin: 5px 0 18px;
 }
