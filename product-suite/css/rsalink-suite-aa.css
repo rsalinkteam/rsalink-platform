@@ -23,7 +23,7 @@ Last Updated:   09 Dec 2018
 
 /* Make the Recent Documents widget header red (PMS 1815) */
 #jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-header {
-    background-color: #802629;
+    background-color: #415464;
 }
 
 /* Make the Top Knowledge Articles header blue/gray (PMS 7545) */
@@ -68,4 +68,84 @@ Last Updated:   09 Dec 2018
 }
 .accessHover:hover .accessHoverText {
     visibility: visible;
+}
+
+<div class="rightColumnSpacer"></div>
+
+/* Adjust right column height */
+rightColumnSpacer {
+    min-height: 810px;
+}
+
+/* Make the Recent Advisories widget header red (PMS 1815) */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Hide the author name and avatar from the Recent Advisories widget */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-author, 
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-avatar {
+    display: none;
+}
+
+/* Changed shared content icon to look like the normal document icons */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-icon-doctype-generic {
+    background-position: -16px -80px;
+}
+
+/*  Make the Recent Advisories widget background gray (PMS 1815) */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body {
+    background-color: #eeeff0;
+}
+
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-taggables tr.jive-table-row-even td {
+    background-color: #eeeff0;
+}
+
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-taggables tr.jive-table-row-odd td {
+    background-color: #eeeff0;
+}
+
+/* Recent Product Advisories margin top increased */
+#jive-widget-container_1 > .jive-widget-tagwidget {
+    margin-bottom: -1px;
+    margin-top: 15px !important;
+}
+
+#jive-widget-container_1 > .jive-widget-recentcontentwidget {
+    margin-top: 15px !important;
+    margin-bottom: -20px !important;
+}
+
+/* When View All button has to be of gray color in Recent Advisories Widget */
+a.grayDiscButton.discButton {
+    background-color: #802629 !important;
+    color: #ffffff !important;
+    border: 1px solid #802629 !important;
+}
+
+a.grayDiscButton.discButton:hover {
+    background-color: #ffffff !important;
+    color: #802629 !important;
+}
+
+/* Alternate colors for other widgets */
+#jive-widget-container_1 .jive-widget-featuredcontentwidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Space Adjustment of other widgets */
+.jive-widget-container .jive-widget.jive-widget-borderless {
+    border: 0;
+    background-color: transparent;
+    margin-top: 0px !important;
+}
+
+.jive-widget-recentcontentwidget {
+    margin-bottom: 0px !important;
+}
+
+/* Widget header color of Recent Documents changed */
+#jive-widget-container_1 .jive-widget:nth-child(6) .jive-widget-header {
+    background-color: #802629;
 }
