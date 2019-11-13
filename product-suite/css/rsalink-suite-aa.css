@@ -70,8 +70,6 @@ Last Updated:   09 Dec 2018
     visibility: visible;
 }
 
-<div class="rightColumnSpacer"></div>
-
 /* Adjust right column height */
 rightColumnSpacer {
     min-height: 810px;
