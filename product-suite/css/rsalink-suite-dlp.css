@@ -7,9 +7,14 @@ Last Editor:    Mohit Verman
 Last Updated:   14 Nov 2019
 */
 
+/* Adjust right column height */
+.rightColumnSpacer {
+	min-height: 810px;
+}
+
 /* Make the Top Knowledge Articles header blue/gray (PMS 7545) */
 #jive-widget-container_1 > .jive-widget-featuredcontentwidget .jive-widget-header {
-    background-color: #415464;
+    background-color: #802629;
 }
 
 /* Make the Recent Advisories widget header red (PMS 1815) */
@@ -20,17 +25,17 @@ Last Updated:   14 Nov 2019
 /* Hide the author name and avatar from the Recent Advisories widget */
 #jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-author, 
 #jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-avatar {
-    display: none;
+    display: none !important;
 }
 
 /* Changed shared content icon to look like the normal document icons */
 #jive-widget-container_1 .jive-widget-tagwidget .jive-icon-doctype-generic {
-    background-position: -16px -80px;
+    background-position: -16px -80px !important;
 }
 
 /*  Make the Recent Advisories widget background gray (PMS 1815) */
 #jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body {
-	background-color: #eeeff0;
+	background-color: #eeeff0 !important;
 }
 
 /* Make the background color of widget as gray */
@@ -62,9 +67,9 @@ a[data-role=button]:hover {
 
 /* When View All button has to be of gray color in Recent Advisories Widget */
 a.grayDiscButton.discButton {
-    background-color: #415464 !important;
+    background-color: #415464;
     color: #ffffff !important;
-    border: 1px solid #415464 !important;
+    border: 1px solid #415464;
 }
 
 a.grayDiscButton.discButton:hover {
