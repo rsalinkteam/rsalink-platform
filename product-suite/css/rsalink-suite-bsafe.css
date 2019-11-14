@@ -3,8 +3,8 @@ Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Scope:          RSA BSAFE Overview Page
 Author:         Jeff Shurtliff
-Last Editor:    Jeff Shurtliff
-Last Updated:   27 Mar 2019
+Last Editor:    Mohit Verman
+Last Updated:   14 Nov 2019
 */
 
 /* Adjust spacing of the Recent Blog Posts widget */
@@ -48,4 +48,27 @@ Last Updated:   27 Mar 2019
 #jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-odd td,
 #jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-body .jive-table-row-even td {
     background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Changed shared content icon to look like the normal document icons for Recent Advisories widget */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-icon-doctype-generic {
+    background-position: -16px -80px;
+}
+
+/* Reduce the space below Recent Advisories widget for View All HTML widget */
+#jive-widget-container_1 > .jive-widget-tagwidget {
+	margin-bottom: 0%;
+}
+
+/* When View All button has to be of gray color in Recent Advisories Widget */
+a.grayDiscButton.discButton {
+    background-color: #802629;
+    color: #ffffff;
+    border: 1px solid #802629;
+    width: 100%;
+}
+
+a.grayDiscButton.discButton:hover {
+    background-color: #ffffff;
+    color: #802629;
 }
