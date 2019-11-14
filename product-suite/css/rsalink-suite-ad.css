@@ -1,0 +1,55 @@
+/* Make the Recent Advisories widget header red (PMS 1815) */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Hide the author name and avatar from the Recent Advisories widget */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-author, 
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-avatar {
+    display: none;
+}
+
+/* Change the shared icon to normal document icon for Recent Advisories widget */
+/* Changed shared content icon to look like the normal document icons */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-icon-doctype-generic {
+    background-position: -16px -80px;
+}
+
+/*  Make the Recent Advisories widget background gray (PMS 1815) */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body {
+    background-color: #eeeff0;
+}
+
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-taggables tr.jive-table-row-even td {
+    background-color: #eeeff0;
+}
+
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-taggables tr.jive-table-row-odd td {
+    background-color: #eeeff0;
+}
+
+/* Recent Product Advisories View All button adjusted */
+#jive-widget-container_1 > .jive-widget-tagwidget {
+    margin-bottom: 0px;
+}
+
+/* When View All button has to be of gray color in Recent Advisories Widget */
+a.grayDiscButton.discButton {
+    background-color: #415464;
+    color: #ffffff;
+    border: 1px solid #415464;
+}
+
+a.grayDiscButton.discButton:hover {
+    background-color: #ffffff;
+    color: #415464;
+}
+
+#discButtonTable td {
+    width: 34%;
+}
+
+a.discButton {
+    padding: 8px 15px;
+    font-size: 12px;
+}
