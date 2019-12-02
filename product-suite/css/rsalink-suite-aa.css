@@ -1,10 +1,10 @@
-/*	
+/*
 Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Scope:          RSA Adaptive Authentication Overview Page
 Author:         Jeff Shurtliff
-Last Editor:    Mohit Verman
-Last Updated:   14 Nov 2019
+Last Editor:    Santhosh
+Last Updated:   02 Dec 2019
 */
 
 /* Adjust spacing of the Recent Blog Posts widget */
@@ -54,7 +54,7 @@ Last Updated:   14 Nov 2019
     background-color: #415464;
     color: #fff;
     font-family: Arial;
-	font-size: 10px;
+    font-size: 10px;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0px;
@@ -63,8 +63,8 @@ Last Updated:   14 Nov 2019
     /* Position the tooltip */
     position: absolute;
     z-index: 999;
-    margin-left: 93px;
-    margin-top: -33px;
+    margin-left: 3px;
+    margin-top: -10px;
 }
 .accessHover:hover .accessHoverText {
     visibility: visible;
@@ -81,7 +81,7 @@ rightColumnSpacer {
 }
 
 /* Hide the author name and avatar from the Recent Advisories widget */
-#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-author, 
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-author,
 #jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-avatar {
     display: none;
 }
