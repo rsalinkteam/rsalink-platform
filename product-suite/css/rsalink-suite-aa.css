@@ -3,8 +3,8 @@ Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Scope:          RSA Adaptive Authentication Overview Page
 Author:         Jeff Shurtliff
-Last Editor:    Santhosh
-Last Updated:   02 Dec 2019
+Last Editor:    Mohit
+Last Updated:   18 Dec 2019
 */
 
 /* Adjust spacing of the Recent Blog Posts widget */
@@ -129,7 +129,7 @@ a.grayDiscButton.discButton:hover {
 
 /* Alternate colors for other widgets */
 #jive-widget-container_1 .jive-widget-featuredcontentwidget .jive-widget-header {
-    background-color: #802629;
+    background-color: #415464;
 }
 
 /* Space Adjustment of other widgets */
@@ -145,5 +145,9 @@ a.grayDiscButton.discButton:hover {
 
 /* Widget header color of Recent Documents changed */
 #jive-widget-container_1 .jive-widget:nth-child(6) .jive-widget-header {
+    background-color: #802629;
+}
+
+#jive-widget-container_1 .jive-widget:nth-child(10) .jive-widget-header {
     background-color: #802629;
 }
