@@ -3,8 +3,8 @@ Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Scope:          Recent Videos widget on RSA Identity Governance & Lifecycle page
 Author:         Jeff Shurtliff
-Last Editor:    Jeff Shurtliff
-Last Updated:   09 Dec 2018  
+Last Editor:    Mohit Verman
+Last Updated:   19 Dec 2019  
 */
 
 /* Adjust spacing above and below the Recent Videos widget */
@@ -18,4 +18,71 @@ Last Updated:   09 Dec 2018
 #jive-widget-container_1 > .jive-widget-featuredcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-odd td,
 #jive-widget-container_1 > .jive-widget-featuredcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-even td {
     background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Adjust spacing between both Related Communities widgets */
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-bottom: 0px;
+}
+#jive-widget-container_2 .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-htmltextwidget {
+    margin-bottom: 30px;
+}
+
+/* Adjust right column height */
+.rightColumnSpacer {
+    min-height: 910px;
+}
+
+/* Styling according to RSALINK-6003 */
+/* Make the Recent Advisories widget header red (PMS 1815) */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Hide the author name and avatar from the Recent Advisories widget */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-author, 
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-avatar {
+    display: none;
+}
+
+/* Change the shared icon to normal document icon for Recent Advisories widget */
+/* Changed shared content icon to look like the normal document icons */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-icon-doctype-generic {
+    background-position: -16px -80px;
+}
+
+/*  Make the Recent Advisories widget background gray (PMS 1815) */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body {
+	background-color: #eeeff0;
+}
+
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-taggables tr.jive-table-row-even td {
+	background-color: #eeeff0;
+}
+
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-taggables tr.jive-table-row-odd td {
+	background-color: #eeeff0;
+}
+
+/* Recent Product Advisories margin top increased */
+#jive-widget-container_1 > .jive-widget-tagwidget {
+    margin-top: 30px;
+	margin-bottom: -1px;
+}
+
+/* Alternate colors for other widgets */
+#jive-widget-container_1 .jive-widget-featuredcontentwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+.jive-widget-recentcontentwidget:last-child .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Recent Videos header color and increasing the margin botton after the widget */
+#jive-widget-container_1 > .jive-widget-featuredcontentwidget ~ .jive-widget-recentcontentwidget {
+    margin-bottom: 30px;
+}
+#jive-widget-container_1 > .jive-widget-featuredcontentwidget ~ .jive-widget-recentcontentwidget .jive-box-header {
+    background-color: #802629;
 }
