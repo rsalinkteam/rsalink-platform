@@ -1,0 +1,54 @@
+/*  
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA SecurID Access Overview Page
+Author:         Mohit Verman
+Last Editor:    Mohit Verman
+Last Updated:   19 Dec 2019  
+*/
+
+/* Make the Recent Advisories widget header red (PMS 1815) */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Hide the author name and avatar from the Recent Advisories widget */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-author, 
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-avatar {
+    display: none;
+}
+
+/* Change the shared icon to normal document icon for Recent Advisories widget */
+/* Changed shared content icon to look like the normal document icons */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-icon-doctype-generic {
+    background-position: -16px -80px;
+}
+
+/*  Make the Recent Advisories widget background gray (PMS 1815) */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body {
+    background-color: #eeeff0;
+}
+
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-taggables tr.jive-table-row-even td {
+    background-color: #eeeff0;
+}
+
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-taggables tr.jive-table-row-odd td {
+    background-color: #eeeff0;
+}
+
+/* Recent Product Advisories margin top increased */
+#jive-widget-container_1 > .jive-widget-tagwidget {
+    margin-top: 30px;
+    margin-bottom: -1px;
+}
+
+/* Alternate colors for other widgets */
+#jive-widget-container_1 .jive-widget-featuredcontentwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Widget header color for Upcoming events widget */
+.j-box.j-enhanced header, .jive-widget .jive-box-header {
+    background-color: #802629;
+}
