@@ -1,0 +1,203 @@
+/*	
+Website:        RSA Link
+Iteration:      Nov 2018 Redesign
+Scope:          RSA Fraud & Risk Intelligence Suite
+Author:         Santhosh V
+Last Editor:    Mohit Verman
+Last Updated:   19 Dec 2019  
+*/
+
+/* Hide the Recent Discussions Filter */
+.jive-content-filter {    
+    display: none;
+}
+
+/* Hide search widget header */
+.jive-widget-searchwidget .jive-widget-header {
+    display: none;
+}
+
+/* Proactively resize the rotating banner widget */
+#jive-widget-container_1 iframe.htmlWidgetIframe {
+    height: 274px !important;
+}
+
+/* Add extra padding between community posts and green buttons */
+.jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget .jive-widget-body .jive-table-row-odd td {
+    background-color: #f2f2f2;
+    padding-bottom: 20px;
+}
+/* Change the color of every other Watch a Tag header in the left column */
+#jive-widget-container_1 .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #415464;
+}
+#jive-widget-container_1 .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_1 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Change the background of subsequent View Document widgets back to normal */
+#jive-widget-container_1 .jive-widget-documentviewwidget ~ .jive-widget-documentviewwidget {
+    background-color: #fff;
+}
+/* Change the background of the right column to be gray */
+#jive-widget-container_2,
+#jive-widget-container_2 .jive-widget .jive-widget-body {
+    background-color: #eeeff0;  /* rgba(222,224,225,0.5) */
+}
+
+/* Change the color of every other Watch a Tag header in the left column */
+#jive-widget-container_2 .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header,
+#jive-widget-container_2 .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget ~ .jive-widget .jive-widget-header  {
+    background-color: #415464;
+}
+
+/* Adjust spacing of the Recent Blog Posts widget */
+.jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-recentcontentwidget {
+    margin-top: 10px;
+    margin-bottom: -20px;
+}
+
+/* Adjust spacing between Recent Documents and Top Knowledge Articles */
+.jive-widget-recentcontentwidget ~ .jive-widget-htmltextwidget ~ .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget {
+    margin-bottom: -30px;
+}
+
+/* Adjust height of the first hover text for versions */
+#productVersions-aa .accessHover, #longText .accessHoverText {
+    margin-top: -48px !important;
+}
+
+/* Style hover text for restricted subspaces */
+.accessHover {
+    position: relative;
+    display: inline-block;
+}
+.accessHover .accessHoverText {
+    visibility: hidden;
+    width: 110px;
+    background-color: #415464;
+    color: #fff;
+    font-family: Arial;
+	font-size: 10px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0px;
+    opacity: 1;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 999;
+    margin-left: 93px;
+    margin-top: -33px;
+}
+.accessHover:hover .accessHoverText {
+    visibility: visible;
+}
+
+/* Change font size of product titles in sidebar */
+#productVersions-fri .productTitle {
+    font-size: 12px;
+}
+
+/* Adjust width of right column */
+#jive-body-layout-ls .jive-body-layout-s {
+    /* padding-left: 0px; */
+    /* width: 20%; */
+}
+
+
+/* Make the Recent Advisories widget header red (PMS 1815) */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #415464;
+}
+
+/* Hide the author name and avatar from the Recent Advisories widget */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-author, 
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-cell-avatar {
+    display: none;
+}
+
+/* Changed shared content icon to look like the normal document icons */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-icon-doctype-generic {
+    background-position: -16px -80px;
+}
+
+/*  Make the Recent Advisories widget background gray (PMS 1815) */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-widget-body {
+    background-color: #eeeff0;
+}
+
+/* Make the background color of widget as gray */
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-taggables tr.jive-table-row-even td {
+    background-color: #eeeff0;
+}
+
+#jive-widget-container_1 .jive-widget-tagwidget .jive-table-taggables tr.jive-table-row-odd td {
+    background-color: #eeeff0;
+}
+
+/* Recent Product Advisories margin top increased */
+#jive-widget-container_1 > .jive-widget-tagwidget {
+    margin-top: 30px;
+    margin-bottom: -1px;
+}
+
+/* Alternate colors for other widgets */
+#jive-widget-container_1 .jive-widget-featuredcontentwidget .jive-widget-header {
+    background-color: #802629;
+}
+
+/* Font color for Ask a Question, Start a discussion, and View All in Recent Discussion widget */
+a[data-role=button]:hover {
+    color: #415464 !important;
+    background-color: #fff;
+    border: 1px solid #415464;
+}
+
+/* When View All button has to be of gray color in Recent Advisories Widget */
+a.grayDiscButton.discButton {
+    background-color: #802629 !important;
+    color: #ffffff !important;
+    border: 1px solid #802629 !important;
+}
+
+a.grayDiscButton.discButton:hover {
+    background-color: #FFFFFF !important;
+    color: #802629 !important;
+    border: 1px solid #802629;
+}
+
+a[data-role=button] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    width: 88%;
+    position: relative;
+    text-transform: none;
+    background-color: #415464;
+    border: #415464;
+    color: #FFF;
+    text-decoration: none;
+    transition: background-color .25s ease-out,border .25s ease-out;
+}
+
+/* Widget header color for Rcent Product Advisories widget */
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-header {
+    background-color: #802629 !important;
+}
