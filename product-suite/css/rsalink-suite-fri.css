@@ -201,3 +201,8 @@ a[data-role=button] {
 #jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-tagwidget .jive-widget-header {
     background-color: #802629 !important;
 }
+
+#jive-widget-container_1 > .jive-widget-recentcontentwidget ~ .jive-widget-recentcontentwidget {
+margin-top: 55px !important;
+margin-bottom: -30px !important;
+}
