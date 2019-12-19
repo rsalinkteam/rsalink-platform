@@ -1,10 +1,10 @@
 /*
 Website:        RSA Link
 Iteration:      Nov 2018 Redesign
-Scope:          RSA Adaptive Authentication Overview Page
-Author:         Jeff Shurtliff
-Last Editor:    Mohit
-Last Updated:   18 Dec 2019
+Scope:          RSA Adaptive Authentication for eCommerce Overview Page
+Author:         Mohit Verman
+Last Editor:    Mohit Verman
+Last Updated:   19 Dec 2019
 */
 
 /* Adjust spacing of the Recent Blog Posts widget */
@@ -129,7 +129,7 @@ a.grayDiscButton.discButton:hover {
 
 /* Alternate colors for other widgets */
 #jive-widget-container_1 .jive-widget-featuredcontentwidget .jive-widget-header {
-    background-color: #415464;
+    background-color: #802629;
 }
 
 /* Space Adjustment of other widgets */
