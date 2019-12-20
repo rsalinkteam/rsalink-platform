@@ -151,3 +151,38 @@ a.grayDiscButton.discButton:hover {
 #jive-widget-container_1 .jive-widget:nth-child(10) .jive-widget-header {
     background-color: #802629;
 }
+
+/* Specific changes for View All button */
+a.general {
+    background-color: #415464;
+    color: #fff;
+    border: 1px solid #415464;
+}
+
+a[data-role=generalButton] {
+    border-radius: 0px;
+    line-height: 14px;
+    font-size: 12px;
+    line-height: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Arial,sans-serif;
+    margin-bottom: 10px;
+    position: relative;
+    text-transform: none;
+    background-color: #415464 !important;
+    border: 1px solid #415464 !important;
+    color: #FFF;
+    text-decoration: none;
+    transition: background-color .25s ease-out,border .25s ease-out;
+    padding: 8px 15px;
+    width: 88%;
+    font-size: 12px;
+}
+
+a[data-role=generalButton]:hover {
+    background-color: #FFF !important;
+    color: #415464 !important;
+    border: 1px solid #415464 !important;
+}
