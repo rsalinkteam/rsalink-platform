@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<title>Example - example-sanitize-service-production</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+<script src="//code.angularjs.org/snapshot/angular-sanitize.js"></script>
+  
+ <script >
+    var $j = jQuery.noConflict();
+angular.module('lightup', ['ngSanitize']).controller('lightUpController', ['$scope', '$log', '$sce', '$http', function($scope, $log, $sce, $http) {
+    $scope.getTitleData = "";
+    $scope.courseInput = "";
+    $scope.$log = $log;
+    $scope.getStartedData = [];
+    $scope.selectedImpactCategory = null;
+    $scope.selectedImpactValue = null;
+    $scope.getAllIdea = [];
+    $scope.getForSearchIdea = [];
+    $scope.getForSearchImapct = [];
+    $scope.regionSelected = false;
+    $scope.gsFunctionSelected = false;
+    $scope.impactValueSelected = false;
+    var noDataFound = '<div class="display-idea-list ng-scope" id="noDataFound" style="overflow: hidden; display: block; border: 2px #eeeeee solid;"><div class="jive-content-ideas-list-item clearfix"><div role="article" style=" padding: 20px 15px;"><div class="jive-content-header"><div class="jive-content-title"><h2 class="displ ay-idea-subject" style=" text-align: center;">No Idea Found</h2></div></div></div></div></div>';
+    $scope.global = ["Global", "US", "EMEA", "APJ"];
+    $scope.customerService = ["Customer Support", "Customer Success", "Education Services", "IT", "Professional Services", "Virtual Service Delivery"];
+    $scope.results = ["Customers", "Winning Together", "Innovation", "Results", "Integrity"];
+
+    $scope.init = function() {
+        $scope.ideas = [];
+        $scope.integrationtagsTags = [];
+        $scope.ideasList = [];
+        $http.get('https://community.rsa.com/api/core/v3/places/257836/contents?filter=type(idea)&count=100&startIndex=0').then(function(response) {
+
+            var ideasList = [];
+            var tags = [];
+            if (response.data.list.length > 0) {
+                angular.forEach(response.data.list, function(value, key) {
+                    this.push(value);
+                }, ideasList);
+                $scope.ideas = ideasList;
+                setTimeout(resizeMe, 100);
+                setTimeout(function() {
+                    //window.parent.$j(".jive-widget-container-large .jive-widget-htmltext:nth-child(4)").find(".htmlWidgetIframe").css("height","1000px");
+                    //window.parent.$j(".htmlWidgetIframe").css("height","1000px");
+                    // window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove();
+                    setTimeout(resizeMe, 10);
+                }, 2000);
+
+            } else {
+                window.parent.$j(".jive-widget-container-large").find(".jive-widget-htmltext:nth-child(4)").hide();
+                //window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove();       
+            }
+
+        }).catch(function(e) {
+            window.parent.$j(".jive-widget-formatted-body").parents(".jive-widget-documentviewwidget").text(" You are not authorized to view the content. Please make sure you are logged in and have an active maintenance contract for the RSA NetWitness Platform associated with your account.").css({
+                "width": "100%",
+                "text-align": "center"
+            });
+        });
+        setTimeout(function() {
+            $scope.getAllIdea = $j(".showIdeas").find(".display-idea-list");
+            $scope.getForSearchIdea = $scope.getAllIdea;
+            /*window.parent.$j(".jive-widget-container-large .jive-widget-htmltext:nth-child(4)").find(".htmlWidgetIframe").css("height","100px");
+            window.parent.$j(".jive-widget-container-large .jive-widget-htmltext:nth-child(5)").find(".htmlWidgetIframe").css("height","100px");*/
+
+        }, 2000);
+        setTimeout(resizeMe, 1000);
+    };
+    $scope.init();
+    $scope.deliberatelySnippet = function(data) {
+        return $sce.trustAsHtml(data);
+    };
+
+    $scope.getShortDescription = function(shortDescription) {
+        return $j(shortDescription).find(".shortDescription").html();
+    };
+
+    $scope.convertToString = function(array) {
+        return array.toString();
+    };
+
+    $scope.htmlEntitiesDecode = function(name) {
+        var text = document.createElement("textarea");
+        text.innerHTML = name;
+        $scope.nameDecode = text.value;
+        return $scope.nameDecode;
+    };
+
+    $scope.filterByIdea = function() {
+        $scope.courseInput = "";
+        $scope.getAllIdea.show();
+        $scope.getForSearchIdea = [];
+        $scope.getForSearchImapct = [];
+        console.log($scope.selectedImpactCategory);
+        if ($scope.selectedImpactCategory == null || $scope.selectedImpactCategory == '') {
+            $scope.regionSelected = false;
+            $scope.gsFunctionSelected = false;
+            $scope.impactValueSelected = false;
+            $scope.getForSearchIdea = $scope.getAllIdea;
+        } else if ($scope.selectedImpactCategory == 'gl') {
+            $scope.getForSearchIdea = $scope.getAllIdea.filter(function() {
+                return $scope.global.some(r => $(this).find(".impactData").text().toLowerCase().split(',').indexOf(r.toLowerCase()) >= 0)
+            });
+
+            $scope.regionSelected = true;
+            $scope.gsFunctionSelected = false;
+            $scope.impactValueSelected = false;
+        } else if ($scope.selectedImpactCategory == 'cs') {
+            $scope.getForSearchIdea = $scope.getAllIdea.filter(function() {
+                return $scope.customerService.some(r => $(this).find(".impactData").text().toLowerCase().split(',').indexOf(r.toLowerCase()) >= 0)
+            });
+
+            $scope.regionSelected = false;
+            $scope.gsFunctionSelected = true;
+            $scope.impactValueSelected = false;
+        } else if ($scope.selectedImpactCategory == 'results') {
+            $scope.getForSearchIdea = $scope.getAllIdea.filter(function() {
+                return $scope.results.some(r => $(this).find(".impactData").text().toLowerCase().split(',').indexOf(r.toLowerCase()) >= 0)
+            });
+
+            $scope.regionSelected = false;
+            $scope.gsFunctionSelected = false;
+            $scope.impactValueSelected = true;
+        }
+
+        if ($scope.getForSearchIdea.length == 0) {
+            $j(".showIdeas").html(noDataFound)
+        } else {
+            $j(".showIdeas").html($scope.getForSearchIdea);
+        }
+        setTimeout(resizeMe, 10);
+        $scope.selectedImpactValue = null;
+    };
+    $scope.filterByImpactValue = function() {
+        $scope.courseInput = "";
+        $scope.getForSearchIdea.show();
+        $scope.getForSearchImapct = [];
+        if ($scope.selectedImpactValue == null || $scope.selectedImpactValue == '') {
+            $scope.getForSearchImapct = $scope.getForSearchIdea;
+        } else {
+            $scope.getForSearchImapct = $scope.getForSearchIdea.filter(function() {
+                return $scope.selectedImpactValue.split(',').some(r => $(this).find(".impactData").text().toLowerCase().split(',').indexOf(r.toLowerCase()) >= 0)
+            });
+        }
+
+        console.log($scope.getForSearchImapct);
+        if ($scope.getForSearchImapct.length == 0) {
+            $j(".showIdeas").html(noDataFound)
+        } else {
+            $j(".showIdeas").html($scope.getForSearchImapct);
+        }
+
+        setTimeout(resizeMe, 10);
+    };
+    //Filter row by course, DT and Role
+    $scope.searchCourse = function(event) {
+        if (($scope.selectedImpactValue == null || $scope.selectedImpactValue == '')) {
+            $scope.getForSearchIdea.filter(function() {
+                $(this).toggle($(this).find("h2").text().toLowerCase().indexOf($(event.target).val().toLowerCase()) > -1);
+            });
+            if ($scope.getForSearchIdea.filter(function() {
+                    return $j(this).css("display") === "block";
+                }).length == 0) {
+                if ($j(".showIdeas").find("#noDataFound").length == 0) {
+                    $j(".showIdeas").append(noDataFound);
+                }
+            } else {
+                $j(".showIdeas").find("#noDataFound").remove();
+            }
+        } else {
+            $scope.getForSearchImapct.filter(function() {
+                $(this).toggle($(this).find("h2").text().toLowerCase().indexOf($(event.target).val().toLowerCase()) > -1);
+            });
+            if ($scope.getForSearchImapct.filter(function() {
+                    return $j(this).css("display") === "block";
+                }).length == 0) {
+                if ($j(".showIdeas").find("#noDataFound").length == 0) {
+                    $j(".showIdeas").append(noDataFound);
+                }
+            } else {
+                $j(".showIdeas").find("#noDataFound").remove();
+            }
+        }
+        setTimeout(resizeMe, 0);
+
+    };
+
+
+
+}]);
+
+</script>
+
+<div ng-controller="lightUpController" ng-app="lightup">
+
+    <!-- getStartedTab -->
+    <div class="row" style="padding: 10px !important;">
+        <div class="col-sm-6">
+            <label for="usr" style="font-weight: bold">Search</label>
+            <input ng-keyup="searchCourse($event)" type="text" class="form-control" id="course" placeholder="Search for a submitted ideas" ng-model="courseInput">
+            <!-- <input type="text" class="form-control" id="course" placeholder="Search for a submitted ideas" ng-model="courseInput"> -->
+        </div>
+        <div class="col-sm-3">
+            <label for="sel1" style="font-weight: bold">Filter By</label>
+            <select class="form-control" name="impact" ng-change="filterByIdea()" ng-model="selectedImpactCategory">
+                <option value="">--Select Impact--</option>
+                <option value="gl">Region</option>
+                <option value="cs">GS Function</option>
+                <option value="results">Impact value</option>
+            </select>
+        </div>
+        <div class="col-sm-3" ng-show="regionSelected">
+            <label for="sel1" style="font-weight: bold">Filter By Region</label>
+            <select class="form-control" name="impact" ng-change="filterByImpactValue()" ng-model="selectedImpactValue">
+                <option value="">--Select Region--</option>
+                <option value="global">Global</option>
+                <option value="us">US</option>
+                <option value="emea">EMEA</option>
+                <option value="apj">APJ</option>
+            </select>
+        </div>
+        <div class="col-sm-3" ng-show="gsFunctionSelected">
+            <label for="sel1" style="font-weight: bold">Filter By GS Function</label>
+            <select class="form-control" name="impact" ng-change="filterByImpactValue()" ng-model="selectedImpactValue">
+                <option value="">--Select GS Function--</option>
+                <option value="customer support">Customer Support</option>
+                <option value="customer success">Customer Success</option>
+                <option value="education services">Education Services</option>
+                <option value="it">IT</option>
+                <option value="professional services">Professional Services</option>
+                <option value="virtual service delivery">Virtual Service Delivery</option>
+            </select>
+        </div>
+        <div class="col-sm-3" ng-show="impactValueSelected">
+            <label for="sel1" style="font-weight: bold">Filter By Impact Value</label>
+            <select class="form-control" name="impact" ng-change="filterByImpactValue()" ng-model="selectedImpactValue">
+                <option value="">--Select Impact value--</option>
+                <option value="customers">Customers</option>
+                <option value="winning together">Winning Together</option>
+                <option value="innovation">Innovation</option>
+                <option value="results">Results</option>
+                <option value="integrity">Integrity</option>
+            </select>
+        </div>
+    </div>
+    <div class="row" style="padding: 10px !important;">
+        <div class="col-sm-12" ng-show="regionSelected">
+            <div style="font-weight: bold"><img style="height:50px;" src="https://community.rsa.com/resources/statics/257836/global.png?a=1576489960833" alt="Place image"> REGION > {{selectedImpactValue | uppercase}}</div>
+        </div>
+        <div class="col-sm-12" ng-show="gsFunctionSelected">
+            <div style="font-weight: bold"><img style="height:50px;" src="https://community.rsa.com/resources/statics/257836/customer.png?a=1576489970413" alt="Place image"> GS FUNCTION > {{selectedImpactValue | uppercase}}</div>
+        </div>
+        <div class="col-sm-12" ng-show="impactValueSelected">
+            <div style="font-weight: bold"><img style="height:50px;" src="https://community.rsa.com/resources/statics/257836/other.png?a=1576489965367"> IMPACT VALUE > {{selectedImpactValue | uppercase}}</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 showIdeas">
+            <!-- <div class="display-idea-list" id="ideaListDiv2622" style="overflow: hidden; display: block; border: 2px #eeeeee solid;"  ng-repeat="data in ideas | orderBy: '-score' | limitTo: 5"> -->
+            <div class="display-idea-list" id="ideaList{{$index}}" style="overflow: hidden; display: block; border: 2px #eeeeee solid;" ng-repeat="data in ideas | orderBy: '-score'">
+                <div class="jive-content-ideas-list-item clearfix">
+                    <div class="jive-ideas-list-scoreblock">
+                        <div class="score clearfix">
+                            <span class="idea-widget-scoreText">score </span>
+                            <strong>{{data.score}}</strong>
+                            <span role="button" tabindex="0" class="vote-button vote-up jive-icon-glyph icon-arrow-up voting-up" title="Vote this idea up"><span class="j-508-label">{{data.voted}}</span></span>
+                        </div>
+
+                        <span class="jive-score-meta font-color-meta">
+                            <span class="idea-stage" style="background-color: #EEFFEE; color: #666666;">{{data.stage}}
+                            </span>
+                            <span class="idea-vote-count"> {{data.voteCount}} Votes</span>
+                        </span>
+                    </div>
+                    <div class="jive-content" role="article">
+                        <div class="jive-content-header">
+                            <div class="jive-content-title">
+                                <h2 class="displ ay-idea-subject">
+                                    <a ng-href="{{data.resources.html.ref}}" target="_top">{{htmlEntitiesDecode(data.subject)}}</a>
+                                </h2>
+                            </div>
+                            <div class="jive-content-header-details font-color-meta">
+                                Created on {{data.updated | date: 'MMM d, y h:mm a'}} by
+                                <a href="/people/BDWnpsAOsAyHeXBuETQHLvgBOFal37ClGdFojZtwuE4%3D" data-externalid="" data-username="BDWnpsAOsAyHeXBuETQHLvgBOFal37ClGdFojZtwuE4%3D" data-avatarid="127406" id="jive-8160814428997165387369" data-userid="81608" data-presence="null" class="jiveTT-hover-user jive-username-link">{{data.author.displayName}}</a> <span>-</span> Last Modified: {{data.updated | date: 'MMM d, y h:mm a'}}
+                            </div>
+                        </div>
+
+                        <div class="jive-content-body">
+                            <div class="jive-rendered-content" ng-bind-html="getShortDescription(data.content.text)">
+
+                            </div>
+                        </div>
+                        <div class="jive-content-footer font-color-meta">
+                            <span class="jive-content-footer-item">
+                                <a href="/ideas/2622?tab=comment" target="_top"><span class="jive-icon-med jive-icon-meta-comment"></span> {{data.commentCount}} Comments </a>
+                            </span>
+                            <span class="jive-content-footer-item">
+
+                                <span class="jive-content-footer-item">
+                                    <span class="jive-icon-sml jive-icon-folder"></span>Impact: <span class="impactData">{{convertToString(data.categories)}}</span></span>
+
+                                <span class="jive-content-footer-item" ng-if="!data.tags.length == 0">
+                                    <span class="jive-icon-sml jive-icon-tag"></span> Tags: <a ng-repeat="tag in data.tags" href="/community/products/netwitness/integrations/staging/tags#/?tags={{tag}}" target="_top">{{tag}}
+                                        <font ng-show="!$last">, </font>
+                                    </a>
+                                </span>
+                                <br>
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span style="float: right;" id="jive-whats-new-more"><a class="jive-icon-link-forward" href="/community/internal/global-services/rsa-light-up/content?filterID=contentstatus[published]~objecttype~objecttype[idea]&amp;sortKey=contentstatus[published]~objecttype~objecttype[idea]~ideaScoreDesc">Show All</a></span>
+        </div>
+    </div>
+</div>
+<style type="text/css">.jive-ideas-list-scoreblock .score {
+    margin-right: 0;
+}
+
+.jive-content-ideas-list-item .jive-ideas-list-scoreblock {
+    float: left;
+    margin: 15px 0 9px 15px;
+    width: 100px;
+    position: absolute;
+    z-index: 2;
+}
+
+.score {
+    border-radius: 5px;
+    background: #eee;
+    border: 0 solid #777;
+    color: #333;
+    float: left;
+    margin: 0 1ex 0 0;
+    padding-right: 20px;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+.clearfix {
+    min-height: 0;
+}
+
+.idea-widget-scoreText {
+    display: block;
+    position: absolute;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.jive-ideas-list-scoreblock .score strong {
+    margin-right: -20px;
+}
+
+.jive-content-block-ideas-list,
+span.vote-button,
+#jive-ideasvoted-sidebar {
+    padding: 0;
+}
+
+[class^=icon-],
+[class*=" icon-"] {
+    font-family: jiveglyphs;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.score strong {
+    border-radius: 5px 0 0 5px;
+    background: #eee;
+    border-right: 0 solid #fff;
+    display: block;
+    float: left;
+    font-size: 1.555em;
+    height: 27px;
+    line-height: 27px;
+    padding-bottom: 1px;
+    width: 4em;
+    z-index: 2;
+}
+
+strong {
+    font-weight: 700;
+}
+
+.j-508-label {
+    display: block !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    width: 1px;
+    height: 1px;
+}
+
+.jive-score-meta {
+    clear: both;
+    display: block;
+    margin: 5px 0;
+    padding-top: 2px;
+}
+
+.idea-stage {
+    background: #bbb;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 3px;
+    color: #fff;
+    display: inline;
+    font-size: 11px;
+    line-height: 16px;
+    padding: 0 5px;
+    text-transform: uppercase;
+    letter-spacing: .25px;
+}
+
+.jive-content-ideas-list-item .jive-ideas-list-scoreblock .idea-stage {
+    margin: 4px 0;
+}
+
+.icon-arrow-up:before {
+    content: '\02C4';
+}
+
+.vote-voted {
+    cursor: default;
+}
+
+.jive-score-meta span {
+    clear: both;
+    display: block;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.vote-up {
+    border-top-right-radius: 5px;
+    border-width: 0 0 2px 2px;
+    top: -1px;
+    margin-top: -1px;
+}
+
+.voting-up:hover {
+    background: #3b3;
+    color: #fff;
+}
+
+.vote-down {
+    border-bottom-right-radius: 5px;
+    border-width: 2px 0 0 2px;
+    /*top: 14px;*/
+}
+
+span[class*=icon-]:before,
+a>span[class*=icon-]:before {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.icon-arrow-down:before {
+    content: "\e3b2";
+}
+
+.vote-button {
+    border: 2px solid #fff;
+    display: inline-block;
+    height: 32px;
+    line-height: 25px;
+    margin-left: -2px;
+    position: absolute;
+    right: -2px;
+    text-align: center;
+    width: 25px;
+    z-index: 2;
+    outline: none;
+}
+
+.jive-widget:after,
+.clearfix:after {
+    clear: both;
+    content: "'";
+    display: block;
+    font-size: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.vote-button.jive-icon-glyph:before {
+    font-size: 10px;
+    font-family: Arial;
+}
+
+.font-color-meta {
+    color: #8b8b8b;
+    fill: #8b8b8b;
+}
+
+.idea-vote-count {
+    color: #8b8b8b;
+    margin: 0px 0px 2px;
+}
+
+.jive-content-header-details,
+.jive-score-meta {
+    font-size: .8889em;
+}
+
+.jive-content-footer-item {
+    display: inline-block;
+    line-height: 1.3em;
+    margin-right: 12px;
+    vertical-align: bottom;
+}
+
+.jive-content-footer-item .jive-icon-med,
+.jive-content-footer-item .jive-icon-sml {
+    margin-top: 2px;
+}
+
+.jive-icon-sml,
+.jive-icon-med,
+.jive-icon-big,
+.jive-icon-huge {
+    background-color: transparent;
+    background-position: -100% -100%;
+    background-repeat: no-repeat;
+    display: block;
+    float: left;
+    padding: 0;
+}
+
+.font-color-meta a:link {
+    color: #3d3d3d;
+    fill: #3d3d3d;
+
+}
+
+
+.jive-icon-med {
+    background-image: url(https://assets2.jiveon.com/core/2018.19.0.0.9ff2aa7/images/jive-icon-sprites-med.png);
+    height: 16px;
+    width: 17px;
+    margin: -1px 5px 0 0;
+}
+
+.jive-icon-sml {
+    background-image: url(https://assets2.jiveon.com/core/2018.19.0.0.9ff2aa7/images/jive-icon-sprites-sml.png);
+    height: 12px;
+    width: 12px;
+    margin: 1px 5px 0 0;
+}
+
+.jive-icon-tag {
+    background-position: -16px -464px;
+}
+
+.jive-icon-folder {
+    background-position: -848px -848px;
+}
+
+}
+
+.jive-content-footer-item .jive-icon-med,
+.jive-content-footer-item .jive-icon-sml {
+    margin-top: 2px;
+}
+
+.jive-content-ideas-list-item .jive-content-footer .jive-icon-sml {
+    bottom: -2px;
+}
+
+.idea-extended-fields-position,
+.jive-content-ideas-list-item .jive-content-footer-item .jive-icon-sml {
+    position: relative;
+}
+
+.jive-icon-meta-comment {
+    background-position: -16px -1424px;
+}
+
+.jive-widget .jive-content {
+    box-shadow: none;
+}
+
+.jive-content-ideas-list-item .jive-content {
+    border-top: none;
+    border-bottom: 1px solid #eee;
+    padding: 15px 15px 15px 130px;
+    margin: 0;
+}
+
+.jive-content {
+    position: relative;
+    padding: 20px 15px;
+    border: 1px solid #dadada;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.jive-content-ideas-list-item .jive-content-header {
+    margin: 0 0 15px;
+}
+
+a,
+a:link {
+    color: #006ba6;
+    fill: #006ba6;
+}
+
+.jive-content-ideas-list-item .jive-content-title h2 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.jive-content-title h2 {
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 1.1em;
+    margin: 0;
+    padding: 0;
+}
+
+</style>
