@@ -1,0 +1,360 @@
+         <script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery.min.3.4.1.js"></script> 
+        <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.css">
+        <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.js"></script>
+        <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/css/font-awesome.min.css">
+        <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/js/popper.min.js"></script>
+        <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angularV1.7.9.min.js"></script>
+        <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angular-sanitize.js"></script>
+        <script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+        <script src="https://www.rsa.com/content/dam/rsalink/js/zSlider-doubleLength.js"></script>
+        <script type="text/javascript">
+          var $j = jQuery.noConflict();
+          angular.module('rsa-light-up', ['ngSanitize']).controller('rsa-light-upController', ['$scope', '$sce','$http', function($scope, $sce, $http) {
+              $scope.init = function () {
+                window.parent.$j(".jive-widget-container-large .jive-widget-htmltext:nth-child(2)").find(".htmlWidgetIframe").css("height","345px");
+                setTimeout(function(){ 
+                    window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove(); 
+                    window.parent.$j(".jive-widget-container-large div:nth-child(5)").css("display", "none");
+                    window.parent.$j(".jive-widget-container-large div:nth-child(6)").css("display", "none");
+                }, 3000);
+                setTimeout(resizeMe,100);
+              };
+              $scope.init();
+              $scope.mouseOverElement = function(categories, $event){
+                if(categories == 'idea'){
+                    $j(".icon_idea_white").addClass("circleHoverIdea");
+                    $j(".icon_idea_white").addClass("icon_idea");
+                    $j(".icon_idea_white").removeClass("circleIdea");
+                    $j(".icon_idea_white").removeClass("icon_idea_white");
+                }else if(categories == 'moderate'){
+                    $j(".icon_moderate_white").addClass("circleHoverModerate");
+                    $j(".icon_moderate_white").addClass("icon_moderate");
+                    $j(".icon_moderate_white").removeClass("circleModerate");
+                    $j(".icon_moderate_white").removeClass("icon_moderate_white");        
+                }else if(categories == 'celebrate'){
+                    $j(".icon_celebrate_white").addClass("circleHoverCelebrate");
+                    $j(".icon_celebrate_white").addClass("icon_celebrate");
+                    $j(".icon_celebrate_white").removeClass("circleCelebrate");
+                    $j(".icon_celebrate_white").removeClass("icon_celebrate_white");     
+                }
+              }
+
+              $scope.mouseOut = function(categories, $event) {
+                $j(".buttonIdea").css("background-color","#f1ae25");
+                $j(".icon_idea").removeClass("circleHoverIdea");
+                 $j(".icon_idea").addClass("circleIdea");
+                $j(".icon_idea").addClass("icon_idea_white");
+                $j(".icon_idea").removeClass("icon_idea");
+                
+                $j(".buttonModerate").css("background-color","#748e54");
+                $j(".icon_moderate").removeClass("circleHoverModerate");
+                $j(".icon_moderate").addClass("circleModerate");
+                $j(".icon_moderate").addClass("icon_moderate_white");
+                $j(".icon_moderate").removeClass("icon_moderate");
+                
+
+                $j(".buttonCelebrate").css("background-color","#415464");
+                $j(".icon_celebrate").removeClass("circleHoverCelebrate");
+                $j(".icon_celebrate").addClass("icon_celebrate_white");
+                $j(".icon_celebrate").addClass("circleCelebrate");
+                $j(".icon_celebrate").removeClass("icon_celebrate");
+              }
+
+              $scope.innovateClick = function($event) {
+              		$scope.projectButtonVisible = false;
+              		$scope.ideaButtonVisible = true;
+                    window.parent.$j(".jive-widget-container-large div:nth-child(3)").find(".workflow").css("display", "");
+              		window.parent.$j(".jive-widget-container-large div:nth-child(4)").css("display", "");
+              		window.parent.$j(".jive-widget-container-large div:nth-child(5)").css("display", "none");
+                    window.parent.$j(".jive-widget-container-large div:nth-child(6)").css("display", "none");
+                    setTimeout(resizeMe,1000);
+              }
+
+              $scope.moderateClick = function($event) {
+              		$scope.ideaButtonVisible = false;
+              		$scope.projectButtonVisible = true;
+                    window.parent.$j(".jive-widget-container-large div:nth-child(3)").find(".workflow").css("display", "");
+              		window.parent.$j(".jive-widget-container-large div:nth-child(4)").css("display", "none");
+              		window.parent.$j(".jive-widget-container-large div:nth-child(5)").css("display", "");
+                    window.parent.$j(".jive-widget-container-large div:nth-child(6)").css("display", "none");
+                    setTimeout(resizeMe,1000);
+              }
+
+              $scope.celebrateClick = function($event) {
+                    $scope.ideaButtonVisible = false;
+                    $scope.projectButtonVisible = false;
+                    window.parent.$j(".jive-widget-container-large div:nth-child(3)").addClass('workflow');
+                    window.parent.$j(".jive-widget-container-large div:nth-child(3)").find(".workflow").css("display", "none");
+                    window.parent.$j(".jive-widget-container-large div:nth-child(4)").css("display", "none");
+                    window.parent.$j(".jive-widget-container-large div:nth-child(5)").css("display", "none");
+                    window.parent.$j(".jive-widget-container-large div:nth-child(6)").css("display", "");
+                    setTimeout(resizeMe,1000);
+              }
+
+          }]);
+          function increaseFrameHeight(){
+                //window.parent.$j(".htmlWidgetIframe").css("height","420px");
+                //$scope.iframeHeight = window.parent.$j(".htmlWidgetIframe").height();
+                window.parent.$j(".jive-widget-container-large .jive-widget-htmltext:nth-child(2)").find(".htmlWidgetIframe").css("height","420px");
+                //setTimeout(resizeMe,0);
+          }
+        </script>
+
+        <div ng-app="rsa-light-up" ng-controller="rsa-light-upController" class="container">
+            <div class="row">
+                <div class="col-4"><div class="circleIdea icon_idea_white"></div></div>
+                <div class="col-4"><div class="circleModerate icon_moderate_white"></div></div>
+                <div class="col-4"><div class="circleCelebrate icon_celebrate_white"></div></div>
+            </div>
+            <div class="row">
+                <div class="col-4"><a class="buttonIdea buttonIdeaColor" onclick="increaseFrameHeight();" ng-click=innovateClick($event) ng-mouseover="mouseOverElement('idea', $event)" ng-mouseleave="mouseOut('idea')" data-role="buttonIdea" target="_parent">Innovate</a></div>
+                <div class="col-4"><a class="buttonModerate buttonModerateColor" onclick="increaseFrameHeight();" ng-click=moderateClick($event) ng-mouseover="mouseOverElement('moderate', $event)" ng-mouseleave="mouseOut('moderate')" data-role="buttonIdea" target="_parent">Moderate</a></div>
+                <!-- celebrate -->
+                <div class="col-4"><a class="buttonCelebrate buttonCelebrateColor" ng-click=celebrateClick($event) ng-mouseover="mouseOverElement('celebrate', $event)" ng-mouseleave="mouseOut('celebrate')" data-role="buttonIdea" target="_parent">Celebrate</a></div>
+            </div>
+            <div class="createIdeaBtnContainer" ng-show="ideaButtonVisible">
+                <a data-role="button" target="_parent" href="https://community.rsa.com/create-idea!input.jspa?containerType=14&containerID=3408">Create Idea</a>
+            </div>
+            <div class="createProjectBtnContainer" ng-show="projectButtonVisible">
+                <a data-role="button" target="_parent" href="https://community.rsa.com/document/create.jspa?containerType=14&containerID=3408&tags=moderate,active_projects,completed_projects&categories=moderate">Create Project</a>
+            </div>
+        </div>
+        <style>
+            .createIdeaBtnContainer {
+                text-align: center;
+            }
+
+            .createIdeaBtnContainer a[data-role=button] {
+                border-top-right-radius: 15px;
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                font-size: 20px;
+                line-height: 14px;
+                line-height: 1.4rem;
+                line-height: 1rem;
+                font-weight: bold;
+                display: inline-block;
+                vertical-align: middle;
+                font-family: OpenSans-Bold, Arial, sans-serif;
+                margin-bottom: 10px;
+                padding: 20px;
+                position: relative;
+                background-color: rgb(209, 211, 213);
+                border: 1px solid rgb(209, 211, 213);
+                color: #67696b;
+                text-decoration: none;
+                transition: background-color .25s ease-out, border .25s ease-out, color .25s ease-out;
+                width: 100%;
+                max-width: 205px;
+            }
+
+            .createIdeaBtnContainer a[data-role=button]:hover {
+                background-color: #fff;
+                color: #67696b;
+                border: 1px solid rgb(209, 211, 213);
+            }
+
+            .createProjectBtnContainer {
+                text-align: center;
+            }
+
+            .createProjectBtnContainer a[data-role=button] {
+                border-top-right-radius: 15px;
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                font-size: 20px;
+                line-height: 14px;
+                line-height: 1.4rem;
+                line-height: 1rem;
+                font-weight: bold;
+                display: inline-block;
+                vertical-align: middle;
+                font-family: OpenSans-Bold, Arial, sans-serif;
+                margin-bottom: 10px;
+                padding: 20px;
+                position: relative;
+                background-color: rgb(209, 211, 213);
+                border: 1px solid rgb(209, 211, 213);
+                color: #67696b;
+                text-decoration: none;
+                transition: background-color .25s ease-out, border .25s ease-out, color .25s ease-out;
+                width: 100%;
+                max-width: 205px;
+            }
+
+            .createProjectBtnContainer a[data-role=button]:hover {
+                background-color: #fff;
+                color: #67696b;
+                border: 1px solid rgb(209, 211, 213);
+            }
+
+            .icon_idea {
+                background-image: url(https://community.rsa.com/resources/statics/257836/idea-yellow.png?a=1575868273936);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 70%;
+                height: 120px;
+                width: 120px;
+            }
+
+            .icon_idea_white {
+                background-image: url(https://community.rsa.com/resources/statics/257836/idea-white_v1.png?a=1575357871793);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 70%;
+                height: 120px;
+                width: 120px;
+            }
+
+            .icon_moderate {
+                background-image: url(https://community.rsa.com/resources/statics/257836/moderate-green.png?a=1575868583444);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 70%;
+                height: 120px;
+                width: 120px;
+            }
+
+            .icon_moderate_white {
+                background-image: url(https://community.rsa.com/resources/statics/257836/list-white_v1.png?a=1575358061026);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 70%;
+                height: 120px;
+                width: 120px;
+            }
+
+            .icon_celebrate {
+                background-image: url(https://community.rsa.com/resources/statics/257836/celebrate-blue_thick.png?a=1575363574399);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 70%;
+                height: 120px;
+                width: 120px;
+            }
+
+            .icon_celebrate_white {
+                background-image: url(https://community.rsa.com/resources/statics/257836/celebrate-white_v1.png?a=1575358090628);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 70%;
+                height: 120px;
+                width: 120px;
+            }
+
+            .circle {
+                height: 190px;
+                width: 190px;
+                background-color: #fff;
+                border-radius: 50%;
+                border: 4px solid #f1ae25;
+                margin: 0 auto;
+                margin-top: 5px;
+            }
+
+            .circleIdea {
+                height: 190px;
+                width: 190px;
+                background-color: #f1ae25;
+                border-radius: 50%;
+                margin: 0 auto;
+                margin-top: 5px;
+            }
+
+            .circleModerate {
+                height: 190px;
+                width: 190px;
+                background-color: #748e54;
+                border-radius: 50%;
+                margin: 0 auto;
+                margin-top: 5px;
+            }
+
+            .circleCelebrate {
+                height: 190px;
+                width: 190px;
+                background-color: #415463;
+                border-radius: 50%;
+                margin: 0 auto;
+                margin-top: 5px;
+            }
+
+            .circleHoverIdea {
+                height: 190px;
+                width: 190px;
+                background-color: #fff;
+                border-radius: 50%;
+                border: 4px solid #f1ae25;
+                margin: 0 auto;
+                margin-top: 5px;
+            }
+
+            .circleHoverModerate {
+                height: 190px;
+                width: 190px;
+                background-color: #fff;
+                border-radius: 50%;
+                border: 4px solid #748e54;
+                margin: 0 auto;
+                margin-top: 5px;
+            }
+
+            .circleHoverCelebrate {
+                height: 190px;
+                width: 190px;
+                background-color: #fff;
+                border-radius: 50%;
+                border: 4px solid #415463;
+                margin: 0 auto;
+                margin-top: 5px;
+            }
+
+            .bottom-border {
+                margin-left: 10px;
+                margin-right: 10px;
+                border-bottom: 1px #be3a34 solid;
+            }
+
+            a[data-role=buttonIdea] {
+                text-align: center;
+                border-radius: 0px;
+                line-height: 14px;
+                font-size: 20px;
+                line-height: 2rem;
+                font-weight: bold;
+                display: inline-block;
+                vertical-align: middle;
+                font-family: Arial, sans-serif;
+                margin-bottom: 60px;
+                padding: 10px 18px;
+                width: 100%;
+                position: relative;
+                border-top-right-radius: 15px;
+                border-top-left-radius: 15px;
+                margin-top: 35px;
+                text-transform: none;
+                /*background-color: #f1ad24;
+                    border: 1px solid #f1ad24;*/
+                color: #fff !important;
+                text-decoration: none;
+                cursor: pointer;
+                transition: background-color .25s ease-out, border .25s ease-out;
+            }
+
+            .buttonIdeaColor {
+                background-color: #f1ad24;
+                border: 1px solid #f1ad24;
+            }
+
+            .buttonModerateColor {
+                background-color: #758e54;
+                border: 1px solid #758e54;
+            }
+
+            .buttonCelebrateColor {
+                background-color: #415463;
+                border: 1px solid #415463;
+            }
+        </style>
