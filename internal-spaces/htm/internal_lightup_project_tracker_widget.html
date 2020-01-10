@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery.min.3.4.1.js"></script> 
+    <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.css">
+    <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/css/font-awesome.min.css">
+    <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/js/popper.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angularV1.7.9.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angular-sanitize.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/js/LightUpIdea_filter.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/js/lightUp_Active_InactiveFilter.js"></script>
+  
+ 
+
+<div ng-controller="inComplatedAndCompleteController"  ng-app="inComplatedAndComplete">      
+  <div style="margin: 10px;">
+    <div class="row" style="padding: 10px !important;">
+          <div class="col-sm-6">
+            <label for="usr" style="font-weight: bold">Search</label>
+            <input ng-keyup="searchProject($event)" type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" id="course" placeholder="Search for a submitted project" ng-model="selectedProjectInput">
+              <!-- <input type="text" class="form-control" id="course" placeholder="Search for a submitted ideas" ng-model="courseInput"> -->
+          </div>
+          <div class="col-sm-3">
+            <label for="sel1" style="font-weight: bold">Filter By</label>
+            <select class="form-control" name="impact" ng-change="filterByIdea()" ng-model="selectedImpactCategory">
+                  <option value="">--Select Impact--</option>
+                  <option value="gl">Region</option>
+                  <option value="cs">GS Function</option>
+                  <option value="results">Impact value</option>
+            </select>
+          </div>
+          <div class="col-sm-3" ng-show="regionSelected">
+            <label for="sel1" style="font-weight: bold">Filter By Region</label>
+            <select class="form-control" name="impact" ng-change="filterByImpactValue()" ng-model="selectedImpactValue">
+                  <option value="">--Select Region--</option>
+                  <option value="global">Global</option>
+                  <option value="us">US</option>
+                  <option value="emea">EMEA</option>
+                  <option value="apj">APJ</option>
+            </select>
+          </div>
+          <div class="col-sm-3" ng-show="gsFunctionSelected">
+            <label for="sel1" style="font-weight: bold">Filter By GS Function</label>
+            <select class="form-control" name="impact" ng-change="filterByImpactValue()" ng-model="selectedImpactValue">
+                  <option value="">--Select GS Function--</option>
+                  <option value="customer support">Customer Support</option>
+                  <option value="customer success">Customer Success</option>
+                  <option value="education services">Education Services</option>
+                  <option value="it">IT</option>
+                  <option value="professional services">Professional Services</option>
+                  <option value="virtual service delivery">Virtual Service Delivery</option>
+            </select>
+          </div>
+          <div class="col-sm-3" ng-show="impactValueSelected">
+            <label for="sel1" style="font-weight: bold">Filter By Impact Value</label>
+            <select class="form-control" name="impact" ng-change="filterByImpactValue()" ng-model="selectedImpactValue">
+                  <option value="">--Select Impact value--</option>
+                  <option value="customers">Customers</option>
+                  <option value="winning together">Winning Together</option>
+                  <option value="innovation">Innovation</option>
+                  <option value="results">Results</option>
+                  <option value="integrity">Integrity</option>
+            </select>
+          </div>
+          <!-- <div class="col-sm-1">
+              <label for="usr" style="font-weight: bold;padding-top: 7px;padding-left: 15px">Search: </label>
+          </div>
+          <div class="col-sm-5" style="padding-right:25px">
+              <input ng-keyup="searchProject($event)" type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" id="course" placeholder="Search for a submitted project" ng-model="selectedProjectInput">
+          </div> -->
+
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="tab" role="tabpanel">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                      <li role="presentation"><a href="#CompletedProject" aria-controls="home" role="tab" data-toggle="tab" class="active" ng-click="activeNinActive('active')">Active Projects</a></li>
+                      <li role="presentation"><a href="#InCompletedProject" aria-controls="profile" role="tab" data-toggle="tab" ng-click="activeNinActive('inActive')">Completed Projects</a></li>
+                  </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content tabs">
+                      <div role="tabpanel" class="tab-pane fade in active show" id="CompletedProject">
+                          <table style="border: 1px solid #c6c6c6;" width="100%" class="activeProjectTable">
+                            <thead>
+                                <tr style="background-color: #efefef;">
+                                    <th style="width: 15%">Project Name</th>
+                                    <th>Short Description</th>
+                                    <th style="width: 10%">Owners</th>
+                                    <th style="width: 10%">Start Date</th>
+                                    <th style="width: 10%">Target Date</th>
+                                    <th style="width: 15%">Impact</th>
+                                    <th style="width: 10%">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="completedProjectField">
+                                <tr ng-repeat="project in completedProject">
+                                    <td><a target="_blank" href="{{project.subjectUrl}}">{{project.subject}}</a></td>
+                                    <td>{{project.shortDescription}}</td>
+                                    <td>{{project.owner}}</td>
+                                    <td>{{project.startDate}}</td>
+                                    <td>{{project.targetDate}}</td>
+                                    <td>
+                                      <table>
+                                        <tr style="border-bottom: none;">
+                                          <td style="border-right: none;" ng-bind-html="deliberatelySnippet(project.region.image)"></td>
+                                          <td style="border-right: none;" >{{project.region.value}}</td>
+                                        </tr>
+                                        <tr style="border-bottom: none;">
+                                          <td style="border-right: none;" ng-bind-html="deliberatelySnippet(project.GSFunction.image)"></td>
+                                          <td style="border-right: none;" >{{project.GSFunction.value}}</td>
+                                        </tr>
+                                        <tr style="border-bottom: none;">
+                                          <td style="border-right: none;" ng-bind-html="deliberatelySnippet(project.impactValue.image)"></td>
+                                          <td style="border-right: none;" >{{project.impactValue.value}}</td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                    <td>{{project.status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                      <div role="tabpanel" class="tab-pane fade" id="InCompletedProject">
+                          <table style="border: 1px solid #c6c6c6;" width="100%" class="inActiveProjectTable">
+                            <thead>
+                                <tr style="background-color: #efefef;">
+                                    <th style="width: 15%">Project Name</th>
+                                    <th>Short Description</th>
+                                    <th style="width: 10%">Owners</th>
+                                    <th style="width: 10%">Start Date</th>
+                                    <th style="width: 10%">Target Date</th>
+                                    <th style="width: 15%">Impact</th>
+                                    <th style="width: 10%">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="inCompletedProjectField">
+                                <tr ng-repeat="project in incompletedProject">
+                                    <td><a target="_blank" href="{{project.subjectUrl}}">{{project.subject}}</a></td>
+                                    <td>{{project.shortDescription}}</td>
+                                    <td>{{project.owner}}</td>
+                                    <td>{{project.startDate}}</td>
+                                    <td>{{project.targetDate}}</td>
+                                    <td>
+                                      <table>
+                                        <tr style="border-bottom: none;">
+                                          <td style="border-right: none;" ng-bind-html="deliberatelySnippet(project.region.image)"></td>
+                                          <td style="border-right: none;" >{{project.region.value}}</td>
+                                        </tr>
+                                        <tr style="border-bottom: none;">
+                                          <td style="border-right: none;" ng-bind-html="deliberatelySnippet(project.GSFunction.image)"></td>
+                                          <td style="border-right: none;" >{{project.GSFunction.value}}</td>
+                                        </tr>
+                                        <tr style="border-bottom: none;">
+                                          <td style="border-right: none;" ng-bind-html="deliberatelySnippet(project.impactValue.image)"></td>
+                                          <td style="border-right: none;" >{{project.impactValue.value}}</td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                    <td style="background-color:#64b148">{{project.status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<style type="text/css">
+.impactText{display: inline;}
+.impactImage img{height: 40px !important;}
+.activeProjectTable tr,.inActiveProjectTable tr{border-bottom: 1px #c6c6c6 solid}
+.activeProjectTable th, .inActiveProjectTable th{padding: 10px;text-align: left;border-right: 1px #c6c6c6 solid;}
+.activeProjectTable td, .inActiveProjectTable td{padding: 5px;text-align: left;border-right: 1px #c6c6c6 solid;}
+a:hover,a:focus{
+    outline: none;
+    text-decoration: none;
+}
+.tab .nav-tabs{
+    border: none;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    padding-left: 20px;
+}
+.tab .nav-tabs li a{
+    padding: 10px 195px;
+    margin-right: 5px;
+    background: #9e5e5e;
+    font-size: 18px;
+    font-weight: 700;
+    color: #e8e8e86b;
+    border: 2px solid #9e5e5e;
+    border-radius: 50px;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    transition: all 0.4s ease-in 0s;
+}
+.tab .nav-tabs li .active{background: #81302c;color: #fff;} 
+/*.tab .nav-tabs li a:hover{
+    color: #5182bb57;
+    background: #fff;
+    border: 2px solid #5182bb57;
+}*/
+.tab .nav-tabs li.active a{
+    color: #092c4f;
+    border: 2px solid #092c4f;
+}
+.tab .nav-tabs li a:before{
+    content: "";
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #fff;
+    margin-top: -100px;
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    opacity: 0.3;
+    z-index: -1;
+    transform: scale(0);
+    transition: all 0.4s ease-in 0.1s;
+}
+.tab .nav-tabs li a:hover:before,
+.tab .nav-tabs li.active a:before{
+    opacity: 1;
+    /*transform: scale(2); 5182bb57*/
+}
+.tab .tab-content{
+    padding: 15px 15px;
+    font-size: 15px;
+    color: #232222;
+    line-height: 30px;
+    letter-spacing: 1px;
+    border: 2px solid #81302c;
+    outline: 5px solid #81302c;
+    outline-offset: 3px;
+    /*background: #5182bb;
+    border-radius: 25px;*/
+}
+.tab .tab-content h3{
+    font-size: 24px;
+    margin-top: 0;
+}
+@media only screen and (max-width: 479px){
+    .tab .nav-tabs li{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .tab .nav-tabs li a:hover:before,
+    .tab .nav-tabs li.active a:before{
+        transform: scale(10);
+    }
+}
+</style>
