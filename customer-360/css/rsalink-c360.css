@@ -4,7 +4,7 @@ Iteration:      Nov 2018 Redesign
 Scope:          RSA Select Customer 360 Summary Pages
 Author:         Jeff Shurtliff
 Last Editor:    Jeff Shurtliff
-Last Updated:   29 Sep 2019
+Last Updated:   13 Jan 2020
 
 TABLE OF CONTENTS:
     1.0 - Title Section
@@ -378,14 +378,21 @@ a.jive-link-email-small {
 
 /***|  3.3 - Quick Facts  |***/
 
-/* Change header for Quick Facts table to red */
+/* Change header background for Quick Facts table to red */
 #jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget table th,
 #jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-documentviewwidget table th {
 	background-color: #802629 !important;
 }
 
+/* Change header styling for the automated Quick Facts table */
+table.quickFactsTable th {
+    background-color: #802629 !important;
+    color: #fff;
+}
+
 /* Right-align the Ranking values in the Quick Facts table */
-#jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .j-rte-table tr td ~ td {
+#jive-widget-container_3 .jive-widget-formattedtextwidget ~ .jive-widget-formattedtextwidget .j-rte-table tr td ~ td,
+table.quickFactsTable tr td ~ td {
     text-align: right;
 }
 
