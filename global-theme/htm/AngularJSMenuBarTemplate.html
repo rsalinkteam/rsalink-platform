@@ -1,0 +1,332 @@
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery.min.3.4.1.js"></script> 
+    <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.css">
+    <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/css/font-awesome.min.css">
+    <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/js/popper.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angularV1.7.9.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angular-sanitize.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/js/zSlider-doubleLength.js"></script>
+    
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+      angular.module('newMenuBar', ['ngSanitize']).controller('newMenuBarController', ['$scope', '$sce','$http', function($scope, $sce, $http) {
+          $scope.decodeEntities = function(encodedString) {
+              var textArea = document.createElement('textarea');
+              textArea.innerHTML = encodedString;
+              return textArea.value;
+          }
+          $scope.init = function () {
+            $j(function () {
+                $j('#slide-box').zSlider({width:920,height:244});
+            })
+            //Json configuration for Menu and sub menu bar 
+            this.menuBarConfig = [
+                                  {
+                                    "url": "/community/products/securid/advisories",
+                                    "menu": "Advisories",
+                                    "subMenu": [
+                                      {
+                                        "url": "/community/products/securid/advisories",
+                                        "name": "Product Advisories"
+                                      },
+                                      {
+                                        "url": "/community/products/securid/advisories/security-advisories",
+                                        "name": "Security Advisories"
+                                      },
+                                      {
+                                        "url": "/community/products/securid/advisories/service-notifications",
+                                        "name": "Service Notifications"
+                                      },
+                                      {
+                                        "url": "/community/products/securid/advisories#technical",
+                                        "name": "Technical Advisories"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "url": "",
+                                    "menu": "Documentation",
+                                    "subMenu": [
+                                      {
+                                        "url": "/docs/DOC-40601#agents",
+                                        "name": "Authentication Agents",
+                                        "subMenuItem": [
+                                          {
+                                            "url": "/community/products/securid/authentication-agent-web-apache",
+                                            "name": "Apache Web Server"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/authentication-agent-windows",
+                                            "name": "Microsoft Windows"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/authentication-agent-pam",
+                                            "name": "PAM (Unix/Linux)"
+                                          },
+                                          {
+                                            "url": "/docs/DOC-40601#agents",
+                                            "name": "View All Agents"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "url": "/community/products/securid/securid-access",
+                                        "name": "Cloud Authentication Service",
+                                        "subMenuItem": [
+                                          {
+                                            "url": "/community/products/securid/securid-access",
+                                            "name": "Documentation"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/securid-access/integrations",
+                                            "name": "Integrations"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/advisories/service-notifications",
+                                            "name": "Service Notifications"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "url": "/docs/DOC-40601#am",
+                                        "name": "RSA Authentication Manager",
+                                        "subMenuItem": [
+                                          {
+                                            "url": "/community/products/securid/authentication-manager-83",
+                                            "name": "Version 8.3"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/authentication-manager-821",
+                                            "name": "Version 8.2 SP1"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/authentication-manager-82",
+                                            "name": "Version 8.2"
+                                          },
+                                          {
+                                            "url": "/docs/DOC-40601#am",
+                                            "name": "All Versions"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "url": "/docs/DOC-40601#token",
+                                        "name": "Token Authenticators",
+                                        "subMenuItem": [
+                                          {
+                                            "url": "/community/products/securid/software-token-ios",
+                                            "name": "Apple iOS"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/software-token-android",
+                                            "name": "Google Android"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/software-token-windows-phone",
+                                            "name": "Windows Phone"
+                                          },
+                                          {
+                                            "url": "/docs/DOC-40601#token",
+                                            "name": "View All Tokens  "
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "url": "",
+                                        "name": "Additional Resources",
+                                        "subMenuItem": [
+                                          {
+                                            "url": "/community/products/securid/ideas",
+                                            "name": "Submit Enhancement Requests"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/navigator",
+                                            "name": "RSA SecurID Suite Navigator"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "url": "/community/products/securid/knowledge-base",
+                                    "menu": "Knowledge Base",
+                                    "subMenu": []
+                                  },
+                                  {
+                                    "url": "",
+                                    "menu": "Downloads",
+                                    "subMenu": [
+                                      {
+                                        "url": "/docs/DOC-40601#agents",
+                                        "name": "Authentication Agents",
+                                        "subMenuItem": [
+                                          {
+                                            "url": "/community/products/securid/authentication-agent-web-apache/downloads",
+                                            "name": "Apache Web Server"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/authentication-agent-windows/downloads",
+                                            "name": "Microsoft Windows"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/authentication-agent-pam/downloads",
+                                            "name": "PAM (Unix/Linux)"
+                                          },
+                                          {
+                                            "url": "/docs/DOC-40601#agents",
+                                            "name": "View All Agents"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "url": "/community/products/securid/securid-access/downloads",
+                                        "name": "Cloud Authentication Service"
+                                      },
+                                      {
+                                        "url": "/docs/DOC-40601#am",
+                                        "name": "RSA Authentication Manager",
+                                        "subMenuItem": [
+                                          {
+                                            "url": "/community/products/securid/authentication-manager-83/downloads",
+                                            "name": "Version 8.3"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/authentication-manager-821/downloads",
+                                            "name": "Version 8.2 SP1"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/authentication-manager-82/downloads",
+                                            "name": "Version 8.2"
+                                          },
+                                          {
+                                            "url": "/docs/DOC-40601#am",
+                                            "name": "All Versions"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "url": "/docs/DOC-40601#token",
+                                        "name": "Token Authenticators",
+                                        "subMenuItem": [
+                                          {
+                                            "url": "/community/products/securid/software-token-ios/downloads",
+                                            "name": "Apple iOS"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/software-token-android/downloads",
+                                            "name": "Google Android"
+                                          },
+                                          {
+                                            "url": "/community/products/securid/software-token-windows-phone/downloads",
+                                            "name": "Windows Phone"
+                                          },
+                                          {
+                                            "url": "/docs/DOC-40601#token",
+                                            "name": "View All Tokens"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "url": "/community/training/securid",
+                                    "menu": "Training",
+                                    "subMenu": []
+                                  }
+                                ];
+            //Json configuration Moving Banner  
+            this.bannerConfig = [
+                                  {
+                                    "link": "https://rsa.com/charge",
+                                    "image": "https://community.rsa.com/resources/statics/1889/197867-wb-nw-RSA-Charge-2019-Link-banner-920x244.jpg?a=1544506817636"
+                                  },
+                                  {
+                                    "link": "https://community.rsa.com/community/training/blog/2018/11/11/rsa-global-services-says-thank-you-to-the-us-military-free-exam-vouchers-for-any-rsa-product",
+                                    "image": "https://community.rsa.com/resources/statics/27011/link-banner-veterans-option1-920x244.jpg?a=1542032256023"
+                                  },
+                                  {
+                                    "link": "https://www.rsa.com/freeMFA",
+                                    "image": "https://community.rsa.com/resources/statics/1853/Free-MFA-Promo-RSA-Link-Product-Page-Banner-920x244.jpg?a=1522705368414"
+                                  },
+                                  {
+                                    "link": "https://www.testdrive.tryrsasecurid.com/",
+                                    "image": "https://community.rsa.com/resources/statics/3008/RSA-SecurID-Link-banner-920x244.jpg?a=1510078727842"
+                                  },
+                                  {
+                                    "link": "https://community.rsa.com/community/training/certification",
+                                    "image": "https://community.rsa.com/resources/statics/1853/88740-wb-RSA-SecurID-Certified-920x244.jpg?a=1521130416666"
+                                  }
+                                ];
+            setTimeout(resizeMe,0);
+          };
+          $scope.init();
+      }]);
+    </script>
+<div ng-app="newMenuBar" ng-controller="newMenuBarController">
+    <!-- Menu Bar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown" ng-repeat="menu in menuBarConfig" id="{{$index}}">
+                    <a target="_parent" class="nav-link dropdown-toggle" ng-if="menu.url != ''" href="{{menu.url}}" aria-haspopup="true" aria-expanded="false">{{menu.menu}}</a>
+                    <a target="_parent" class="nav-link dropdown-toggle" ng-if="menu.url == ''" aria-haspopup="true" aria-expanded="false">{{menu.menu}}</a>
+                    
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ng-if="menu.subMenu.length > 0">
+                        <li class="dropdown-submenu" ng-repeat="subMenu in menu.subMenu">
+                            <a target="_parent" class="dropdown-item dropdown-toggle" ng-if="subMenu.url != ''" href="{{subMenu.url}}">{{decodeEntities(subMenu.name)}}</a>
+                            <a target="_parent" class="dropdown-item dropdown-toggle" ng-if="subMenu.url == ''">{{decodeEntities(subMenu.name)}}</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" ng-if="subMenu.subMenuItem.length > 0" kamlesh="{{$index}}">
+                                <li ng-repeat="subMenuItem in subMenu.subMenuItem">
+                                  <a target="_parent" class="dropdown-item" ng-if="subMenuItem.url != '' " href="{{subMenuItem.url}}">{{decodeEntities(subMenuItem.name)}}</a>
+                                  <a target="_parent" class="dropdown-item" ng-if="subMenuItem.url == ''">{{decodeEntities(subMenuItem.name)}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Moving Banner -->
+    <div id="slide-box">
+        <ul>
+            <li ng-repeat="banner in bannerConfig">
+                <a href="{{banner.link}}" target="_blank"><img src="{{banner.image}}"/>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<style>
+  .dropdown-item{font-weight: bold;}
+  .navbar{padding:0;font-family: arial, helvetica, "helvetica neue", verdana, sans-serif;}
+  .navbar-light .navbar-nav .nav-link{color: #FFF;}
+  .navbar-light .navbar-nav .nav-link:hover{color: #FFF;background: #7a8893;}
+  .navbar-nav{text-transform: uppercase;background: #415464;width:100%; font-weight: bold;}
+  .navbar-nav .nav-item{text-align: center;width: 100%}
+  .navbar-nav li:hover > ul.dropdown-menu {display: block;}
+  .navbar-nav li a:hover > ul.dropdown-menu {display: block;}
+  li .dropdown-menu{margin-top: 0px;padding:0px;font-size: 14px;}
+  .dropdown-submenu {position:relative;}
+  .dropdown-submenu >.dropdown-menu {top:0;left:100%;margin-top:-1px;margin-left:-16px;}
+  /* rotate caret on hover */
+  .dropdown-menu > li > a:hover:after {text-decoration: underline;transform: rotate(-90deg);} 
+  .dropdown:nth-child(4) > .dropdown-menu > li > a:hover:after, .dropdown:nth-child(5) > .dropdown-menu > li > a:hover:after {text-decoration: underline;transform: rotate(-270deg);} 
+  .dropdown-submenu a:hover{background: #7a8893;color: #FFF;/*font-weight: bold;*/}
+  .dropdown:nth-child(4) > ul > li > ul, .dropdown:nth-child(5) > ul > li > ul{top:0;left:-60%;width: 210px}
+  .dropdown:nth-child(5) > ul{left:-95%;}
+  #slide-box {position: relative;overflow: hidden;z-index: 888;margin: 0 auto;width: 101% !important;}
+  #slide-box ul {list-style: none;position: absolute;left: -4.2%;top: 0;width: 100%;}
+  #slide-box ul li {float: left;position: relative;width: 100% !important;}
+  #slide-box ol {position: absolute;bottom: 205px;right: 20px;list-style: none;z-index: 999;}
+  #slide-box ol li {width: 10px;height: 10px;float: left;margin: 5px;border-radius: 50%;cursor: pointer;background-color: #fff;border: 1px solid #d0d3d4;}
+  #slide-box ol li.on {background: #802629;border: 1px solid #802629;}
+
+</style>
