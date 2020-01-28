@@ -1,0 +1,308 @@
+<script src='https://code.jquery.com/jquery-3.2.1.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://community.rsa.com/resources/statics/238998/rsalink-okr-iframe.css?a=1559914383226">
+
+<script>
+var $j = jQuery.noConflict();
+
+//Resizes widget
+function resizeWidget() {
+    setTimeout( resizeMe, 500);
+    
+}
+
+//Scrolls to specific area
+function scrollToDiv(){
+	$j('#jive-widget-container_1 .jive-widget .jive-widget-header .jive-widget-handle span', window.parent.document).each(function(){
+		var widgetTitle = $j(this, window.parent.document).text();
+		widgetTitle = $j.trim(widgetTitle);
+		if(widgetTitle === 'Resources' || widgetTitle === 'RESOURCES'){
+			$j(this,window.parent.document).addClass('scrollPosition');
+			var pos = $j('.scrollPosition', window.parent.document).offset();
+			$j('html,body', window.parent.document).animate({ scrollTop: pos.top-10+'px' }, 1000);
+		}
+	});
+}
+
+//Enables console.log messages in Firefox 
+function log(msg){
+    if (typeof console === "undefined" || typeof console.log === "undefined") return false;
+    console.log(msg);
+}
+
+// Loads in the setup document and parses the table information into the accordion.
+function init(){
+    if(!sourceURL) {
+        log("No setup document given");
+        return false;
+    }
+    // Load the setup document
+    var sourceUrlList = {
+                          "urlList": {
+                            "accordionOne": "https://community.rsa.com/docs/DOC-106080",
+                            //"accordionTwo": "https://community.rsa.com/docs/DOC-106081",
+                          }
+                        };
+
+    $j.each( sourceUrlList.urlList, function( key, value ) {
+            $j.ajax({
+            type: 'GET',
+            url: value,
+            dataType: 'html',
+            success: function (data) { 
+            
+                // Point to the table in the setup document
+                //https://community.rsa.com/docs/DOC-101647
+                var pruduct = $j('.jive-rendered-content h2', data);
+                if(pruduct.length < 1) {
+                    alert('No table found in the setup document.  Please make sure the setup document is correctly formatted.');
+                    return false;
+                }
+                // Check to make sure there are at least two table rows
+                //var rows = $j('ul:first > tbody > tr', data);
+                var rows = $j('.jive-rendered-content h2', data);
+                if(rows.length < 1) {
+                    alert('The table does not have at least 1 row.  Please properly create the table in the setup document.');
+                    return false;
+                } 
+                // set variables for temporarily storing table data
+                var tmpHTML = '';
+                var collapseIncrementer = 1;
+
+                // Loop over the remaining rows and place them in the accordion.
+                var totalRowCount = 0;
+                for (var i = 0; i < rows.length; i++) {
+                    //Grabs the content in the table row.
+                    //titleHtml = $j('td:eq(0)', rows[i]).html();
+                    //bodyHtml = $j('td:eq(1)', rows[i]).html();
+                    totalRowCount += parseInt($j("ul:first", $j(rows[i]).next()).find("tr").length - 1);
+                    $j('ul:first', $j(rows[i]).next()).addClass("accordionTableData");
+                    titleHtml = $j(rows[i]).text();
+                    $j('ul:first', $j(rows[i]).next()).css('width',"100%");
+                    /*$j('ul:first', $j(rows[i]).next()).find("tbody").prepend('<tr style="height: 10px;"><td colspan="6" style="font-weight:bold">Total Number of Projects: '+parseInt($j("ul:first", $j(rows[i]).next()).find("tr").length - 1)+'</td></tr>');*/
+                    bodyHtml = $j('ul:first', $j(rows[i]).next()).parent().html();
+                    console.log($j('ul:first', $j(rows[i]).next()).html());
+                    bodyHtml = bodyHtml.replace(/\/external-link\.jspa\?url=/g,"").replace(/https:\/\/community\.rsa\.com\/external-link\.jspa\?url=/g,"").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":");
+                    
+                    tmpHTML += "<div class='panel " + colorStyle + "'> <h4 class='panel-heading panel-title' data-toggle='collapse' data-parent='#accordion' href='#collapse"+key+ collapseIncrementer + "' onclick='resizeWidget();scrollToDiv();' style:''> <span class='glyphicon glyphicon-plus'></span> &nbsp;" + titleHtml + " <span id='spanid' class='totalCountRow'>Total Projects: "+parseInt($j("ul:first", $j(rows[i]).next()).find("tr").length - 1)+"</span></h4> <div id='collapse" +key+ collapseIncrementer + "' class='panel-collapse collapse";
+                    if (typeof initState !== 'undefined') {
+                        if ( initState == 'Expanded' || ( i == 0 && ( initState == 'First' || initState == 'undefined' ) ) ) {
+                            tmpHTML += " in";
+                        }
+                    } else if ( i == 0 ) {
+                        tmpHTML += " in";
+                    }
+                    tmpHTML += " panel-body'> " + bodyHtml +"</div> </div>";
+
+                    collapseIncrementer++;
+                } // end for loop
+                
+                    
+                // Append the loop HTML to the resultArea
+                if(key == "accordionOne"){
+                        $j('.accordion_content_tab_third .testimonial #accordion').html(tmpHTML);    
+                        
+                        //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
+                        $j('.accordion_content_tab_third .testimonial #accordion').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
+                        $j('.accordion_content_tab_third .testimonial #accordion').find('a').attr('target','_blank');
+                }
+               
+                    $j(".collapse.in").each(function(){
+                    $j(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
+                    });
+                
+                    // Toggle plus minus icon on show hide of collapse element
+                    $j(".collapse").on('show.bs.collapse', function(){
+                      $j(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+                    }).on('hide.bs.collapse', function(){
+                       $j(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+                    });
+
+                resizeWidget();
+                resizeMe();
+            },
+            error: function (xhr, ajaxOptions, thrownError){ 
+                alert("There was an error: Most likely reason is your sourceURL variable is not pointing to a valid document");
+                return false;
+            },
+            complete: function(){
+                resizeWidget();
+            }
+        });
+    });
+
+    
+   
+} 
+// Color Styles
+// "panel-default" = Silver
+// "panel-primary" = Blue
+// "panel-info" = Sky Blue
+// "panel-success" = Green
+// "panel-warning" = Orange
+// "panel-danger" = Red
+
+var colorStyle='panel-default';
+var sourceURL='https://community.rsa.com/docs/DOC-103296';
+//var sourceURL='https://rsa-preview.jiveon.com/docs/DOC-142338';
+
+//var sourceURL='https://community.rsa.com/docs/DOC-93468';
+//var sourceURL='https://rsa-preview.jiveon.com/docs/DOC-142311';
+
+// First panel expanded = "First"
+// All panels collapsed = "Collapsed"
+// All panels expanded = "Expanded"
+var initState='Collapsed';
+init();
+  
+function resizeWidget() {
+    setTimeout( resizeMe, 500);
+}
+  
+</script>
+
+<style>
+/*.btn-info {
+    color: #fff;
+    background-color: #802629;
+    border-color: #802629;
+    display: inline;
+    border-radius: 0;
+}*/
+.container {
+    width: auto;
+    padding: 10px 2px;
+    pad
+}
+.panel {
+    margin-bottom: 10px;
+}
+.boldText{font-weight: bold;}
+.panel-body {
+    height: auto !important;
+}
+.panel-group {
+    margin-bottom: 5px;
+}
+.panel-title {
+    color: #333;
+}
+a.btn.btn-info {
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: background-color .25s ease-out, color .25s ease-out;
+    font-weight: bold;
+    color: #fff;
+    background-color: #802629;
+    border-color: #802629;
+    display: inline;
+    border-radius: 0;
+}
+a.btn.btn-info:hover {
+    color: #802629;
+    background-color: #fff;
+    border-color: 1px solid #802629;
+    font-size: 14px;
+    font-weight: bold;
+}
+.row {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+a {
+    text-decoration: none !important;
+}
+.totalCountRow {
+    display: none;
+}
+i.glyphicon {
+    padding-right: 5px;
+}
+.description {
+    margin: 0px 0px 5px;
+    color: #232222;
+}
+ul.accordionTableData {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+ul.accordionTableData li {
+    padding-bottom: 2px;
+}
+video#videoElement {
+    width: 45%;
+}
+</style>
+<div class="container">
+
+    <div class="panel-group" id="resourcesAccordion">
+
+        <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#resourcesAccordion" data-target="#resourceOne" onclick="resizeWidget();">
+                <h4 class="panel-title">
+                    <i class="more-less glyphicon glyphicon-plus"></i>
+                    <a href="#" class="">Watch the 5 minute Global Services Objectives and Key Results instructional video</a>
+                </h4>
+            </div>
+            <div id="resourceOne" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                     <p class="description">Watch the <a href="https://community.rsa.com/videos/33834" target="_blank"><i>RSA Global Services Objectives & Key Results Status & Methodology Video</i></a> by Michael Svihra.</p>
+                    <iframe width="650" height="380" src="https://www.youtube.com/embed/wrIJqjjesyg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#resourcesAccordion" data-target="#resourceTwo" onclick="resizeWidget();">
+                 <h4 class="panel-title">
+                    <i class="more-less glyphicon glyphicon-plus"></i>
+                    <a href="#" class="">Read the book <i>Measure What Matters</i> by John Doerr</a>
+              </h4>
+
+            </div>
+            <div id="resourceTwo" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                     <p class="description">Improve your understanding of Objectives and Key Results by reading <i>Measure What Matters </i>by John Doerr.</p>
+                     <p>Click on the buttons below to obtain the book in your preferred format. Check with your manager to see if you can expense it.</p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="https://www.amazon.com/Measure-What-Matters-Google-Foundation/dp/0525536221/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=&sr=" target="_blank" class="btn btn-info" role="button">Hardcover</a>
+                            <a href="https://www.amazon.com/Measure-What-Matters-Simple-Drives/dp/024134848X/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=" target="_blank" class="btn btn-info" role="button">Paperback</a>
+                            <a href="https://www.amazon.com/gp/product/B078FZ9SYB?tag=randohouseinc7986-20" target="_blank" class="btn btn-info" role="button">eBook</a>
+                            <a href="https://www.audible.com/pd/Measure-What-Matters-Audiobook/0241391407?qid=1562852289&sr=1-2&pf_rd_p=e81b7c27-6880-467a-b5a7-13cef5d729fe&pf_rd_r=65MXDT8MYVQ9ANN62HKE&ref=a_search_c3_lProduct_1_2" target="_blank" class="btn btn-info" role="button">Audiobook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#resourcesAccordion" data-target="#resourceThree" onclick="resizeWidget();">
+                <h4 class="panel-title">
+                    <i class="more-less glyphicon glyphicon-plus"></i>
+                    <a href="#" class="">Quarterly Status Updates</a>
+                </h4>
+            </div>
+            <div id="resourceThree" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                     <span class="boldText">FY20 Q2 Updates</span> - <a href="https://community.rsa.com/resources/statics/238998/FY20%2BOKRs%2BQ2%2BUpdates.pdf?a=1575451872681" target="_blank" class="">Click here to View/Download</a><br />
+                     <span class="boldText">FY20 Q3 Updates</span> - <a href="https://community.rsa.com/resources/statics/238998/FY20%252BOKRs%252BQ3%252BUpdates.pdf?a=1580241694362" target="_blank" class="">Click here to View/Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion_content_tab_third">
+        <div class="testimonial">
+          <div id="totalActiveProjects"></div>
+            <div id='AccordionContainer' class='acc-margin'>
+                <div class='panel-group' id='accordion'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
