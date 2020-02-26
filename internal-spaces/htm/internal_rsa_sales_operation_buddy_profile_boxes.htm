@@ -1,0 +1,192 @@
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery.min.3.4.1.js"></script> 
+    <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.css">
+    <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/css/font-awesome.min.css">
+    <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/js/popper.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angularV1.7.9.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angular-sanitize.js"></script>
+
+<script>
+var $j = jQuery.noConflict();
+angular.module('ngBuddyControllerPlatform', ['ngSanitize']).controller('buddyController', ['$scope', '$sce','$http', function($scope, $sce, $http) {
+    
+    $scope.name = "";
+    $scope.role = "";
+    $scope.title = "";    
+    $scope.init = function () {
+        
+        /* Buddies Document - https://community.rsa.com/docs/DOC-109595*/
+        /* Buddies Staging Document - https://community.rsa.com/docs/DOC-109633 */
+
+        $scope.buddies = [];
+        $http.get("https://community.rsa.com/docs/DOC-109595").then(function(response) {
+            angular.forEach($j('.jive-rendered-content .buddiesDoc tbody tr', response.data), function(value, key) {
+            	var buddy = {"name":$j(value).find("td:nth-child(1)").text(),
+            				 "title":$j(value).find("td:nth-child(2)").text(),
+            				 "image":$j(value).find("td:nth-child(3) img").attr("src"),
+            				 "role":$j(value).find("td:nth-child(4)").text()};
+            	
+            	$scope.buddies.push(buddy);	                
+			});
+            setTimeout(resizeMe,0);
+        });
+        
+    };
+    $scope.init();
+    $scope.showDetails = function (details) {
+    	$scope.name = details.name;
+    	$scope.role = details.role;
+    	$scope.title = details.title;
+    	$j('#descContainer').removeClass("hide").addClass("show");
+    }
+
+    $scope.increaseFrameHeight = function(){
+	    setTimeout(resizeMe,0);
+	}
+}]);
+</script>
+		<div ng-app="ngBuddyControllerPlatform" ng-controller="buddyController">
+			<div class="mainIconContainer">
+				<div ng-repeat="buddy in buddies" ng-click="showDetails(buddy)">
+					<div class="yourJourneyContainerWidth" ng-click="increaseFrameHeight()">
+						<div><img alt="" src="{{buddy.image}}"></div><br>
+						<div>{{buddy.name}}</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Details Box Code Starts Here -->
+			<div id="descContainer" class = "descriptionContainer hide">
+				<div id="mainDescBoxContainer" class="mainDescBox newJourneyDesc">
+					<h4 class="descHeader">{{name}}</h4>
+					<div class="journeyDescription"><b>Title</b>{{title}} <br><b>Role </b>{{role}}</div>
+				</div>
+			</div>
+		</div>
+<style>
+	.leadershipTable{width: 100%;}
+	.alignCenter{text-align: center;}
+	body{margin:0;font-family: Arial;}
+	.customMargin{margin:10px 0;}
+	.mainIconContainer{width: 100%;}
+	.yourJourneyContainerWidth:visited, .yourJourneyContainerWidth:link{text-decoration: none;height: 150px;}
+	.yourJourneyContainerWidth{background-size: 30%;width: 31%;height:auto;padding: 20px;margin: 10px;float: left;border: 2px solid #802629;text-decoration: none;text-align: center;background-position: center 25px;background-repeat: no-repeat;cursor: pointer; color: #802629;
+    	font-weight: bold}
+	.yourJourneyContainerWidth img{width: 100px; height: 100px;}
+	
+	.yourJourneyContainerWidth:hover {
+		transition: all .4s ease;
+		-webkit-transition: all .4s ease;
+	  background-color: #802629;
+	  color: #fff;
+	  text-decoration: none;
+	   -webkit-box-shadow:inset 0px 0px 0px 4px #fff;
+    -moz-box-shadow:inset 0px 0px 0px 4px #fff;
+    box-shadow:inset 0px 0px 0px 4px #fff;
+	}
+	.yourJourneyContainerWidth:hover .yourJourneyTabTitle{
+		color: #fff;
+	}
+	.yourJourneyTabTitle{display: block;text-decoration: none;font-weight: bold;font-size: 20px;color: #802629;margin-top: 110px;}
+	.descriptionContainer .mainDescBox{
+		background-color: #eeeff0;
+	    border: 1px solid #be3a34;
+	    border-radius: 4px;
+	    float: left;
+	    width: 98%;
+	    padding: 20px;
+	    margin: 10px;
+	}
+	.descHeader{
+		font-weight: normal;
+	    padding-left: 5px;
+	    padding-bottom: 5px;
+	    border-bottom: 0.5px solid #aa373b;
+	    margin-bottom: 15px;
+	}
+	.journeyImgContainer{
+		height: 120px;
+	    width: 120px;
+	    background-size: 80%;
+	    float: left;
+	    background-repeat: no-repeat;
+	}
+	.journeyDescription{
+		text-align: justify;
+	    width: 86%;
+	    float: left;
+	    margin: 15px;
+	}
+	a[data-role=button]{
+		border-radius: 0px;
+	    line-height: 14px;
+	    font-size: 12px;
+	    line-height: 1rem;
+	    font-weight: bold;
+	    display: inline-block;
+	    vertical-align: middle;
+	    font-family: Arial,sans-serif;
+	    margin-bottom: 10px;
+	    padding: 8px 15px;
+	    width: 88%;
+	    position: relative;
+	    text-transform: none;
+	    background-color: #802629;
+	    border: 1px solid #802629;
+	    color: #FFF;
+	    text-decoration: none;
+	    transition: background-color .25s ease-out,border .25s ease-out;
+    }
+    a[data-role=button]:hover{
+    	background-color: #fff;
+	    color: #802629;
+    }
+    .mainDescBox .moreButton{
+    	float: right;
+	    width: 15% ;
+	    text-align: center;
+    }
+
+.mainDescBox .moreButton{
+	float: right;
+    width: 15% ;
+    text-align: center;
+}
+.descHeader{
+	font-weight: normal;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom: 0.5px solid #aa373b;
+    margin-bottom: 15px;
+}
+.journeyImgContainer{
+	height: 120px;
+    width: 120px;
+    background-size: 80%;
+    float: left;
+    background-repeat: no-repeat;
+}
+.journeyDescription{
+	text-align: justify;
+    width: 86%;
+    float: left;
+    margin: 15px;
+}
+.descriptionContainer .mainDescBox {
+    background-color: #eeeff0;
+    border: 1px solid #be3a34;
+    border-radius: 4px;
+    float: left;
+    width: 98%;
+    padding: 20px;
+    margin: 10px;
+}
+.show {
+    display: block !important;
+}
+.hide {
+	display: none !important;
+}
+</style>

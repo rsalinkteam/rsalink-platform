@@ -1,0 +1,185 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+<div class="menuBackground">
+    <div class="center myMenu">
+        <ul class="dropDownMenu">
+            <li>
+                <a target="_parent" href="https://community.rsa.com/community/internal/sales/operations">Sales Ops Home</a>
+            </li>
+            <li>
+                <a target="_parent" href="https://community.rsa.com/community/internal/sales/operations/your-journey">Your Journey</a>
+            </li>
+            <li>
+                <a target="_parent" href="#">Buddy</a>
+            </li>
+            <li>
+                <a target="_parent" href="https://community.rsa.com/community/internal/sales/operations/knowledge-sharing">Knowledge Sharing</a>
+            </li>
+            <li>
+                <a target="_parent" href="https://community.rsa.com/community/internal/sales/operations/innovation">Innovation</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    /* Load base configuration styling for menu and rotating banner */
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-suite-menu-base.css');
+    @import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-suite-menu-banner.css');
+
+    /* Base styling for the drop down sections */
+    .dropDownMenu ul {
+        box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.5);
+        text-align: left;
+        display: none;
+        background: #FFF;
+        position: absolute;
+        z-index: 999999;
+    }
+
+    /* Advisories Menu */
+    .dropDownMenu>li>ul.advisoriesMenu {
+        top: 28px;
+        left: 0;
+        width: 230px;
+    }
+
+    /* Documentation Menu */
+    .dropDownMenu ul {
+        box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .dropDownMenu>li>ul.documentationMenu {
+        top: 28px;
+        left: 0px;
+        width: 234px;
+    }
+
+    @media only screen and (min-width: 854px) {
+        .dropDownMenu>li>ul.documentationMenu {
+            width: 320px;
+        }
+
+        /* Downloads Menu */
+        .dropDownMenu>li>ul.downloadsMenu {
+            left: -115px;
+            width: 335px;
+        }
+    }
+
+    @media only screen and (min-width: 731px) {
+        .dropDownMenu>li>ul.documentationMenu {
+            width: 235px;
+        }
+
+        .mac .dropDownMenu>li>ul.documentationMenu {
+            width: 236px;
+        }
+
+        .ie .dropDownMenu>li>ul.documentationMenu {
+            width: 238px;
+        }
+    }
+
+    /* Documentation Menu - Platform */
+    .dropDownMenu>li>ul>li>ul.documentationMenu-platform {
+        left: 233px;
+        top: 0px;
+        width: 190px;
+    }
+
+    /* Documentation Menu - Solutions & Use Cases */
+    .dropDownMenu>li>ul>li>ul.documentationMenu-solutions {
+        left: 233px;
+        top: -2px;
+        width: 233px;
+    }
+
+    /* Documentation Menu - Additional Resources */
+    .dropDownMenu>li>ul>li>ul.additionalResourcesMenu {
+        left: 233px;
+        top: -2px;
+        width: 295px;
+    }
+
+    .mac .dropDownMenu>li>ul>li>ul.additionalResourcesMenu {
+        width: 296px;
+    }
+
+    .ie .dropDownMenu>li>ul>li>ul.additionalResourcesMenu {
+        width: 297px;
+    }
+
+    /* Downloads Menu */
+    .dropDownMenu>li>ul.downloadsMenu {
+        top: 28px;
+        left: -4px;
+        width: 235px;
+    }
+
+    @media only screen and (min-width: 731px) {
+        .dropDownMenu>li>ul.downloadsMenu {
+            left: -78px;
+            width: 228px;
+        }
+
+        .mac .dropDownMenu>li>ul.downloadsMenu {
+            width: 229px;
+        }
+
+        .ie .dropDownMenu>li>ul.downloadsMenu {
+            width: 230px;
+        }
+    }
+
+    /* Downloads Menu - Platform */
+    .dropDownMenu>li>ul>li>ul.downloadsMenu-platform {
+        left: -163px;
+        top: -1px;
+        width: 163px;
+    }
+
+    /* Downloads Menu - Solutions & Use Cases */
+    .dropDownMenu>li>ul>li>ul.downloadsMenu-solutions {
+        left: -233px;
+        top: -1px;
+        width: 233px;
+    }
+#mainBanner {
+    background-image: url(https://www.rsa.com/content/dam/rsalink/images/rsalink_spaceBanner_blue_920x156.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 200px;
+}
+h1#mainBanner-title {
+    color: #fff;
+    font-size: 40px;
+    padding: 50px 30px;
+    font-family: Arial, sans-serif;
+    font-weight: 100;
+}
+.menuBackground {
+     margin-left: 0 !important;
+}
+</style>
+
+<div id="mainBanner">
+    <h1 id="mainBanner-title">
+        During My Journey
+    </h1>
+</div>
+
+<!-- Script to activate the drop down menu -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        setTimeout(function () {
+            $('.dropDownMenu').css("display", 'block');
+        }, 100);
+        $('.myMenu ul.dropDownMenu li').hover(function () {
+            $(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
+        });
+        $('.myMenu ul.dropDownMenu li ul.firstLevel li').hover(function () {
+            $(this).find('ul.secondLevel').stop(true, false, true).slideToggle(300);
+        });
+    });
+</script>

@@ -1,0 +1,209 @@
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery.min.3.4.1.js"></script> 
+<link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.css">
+<script src="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.js"></script>
+<link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/css/font-awesome.min.css">
+<script src="https://www.rsa.com/content/dam/rsalink/bootstrap/js/popper.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/angularjs/angularV1.7.9.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/angularjs/angular-sanitize.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/zSlider-doubleLength.js"></script>
+<script type="text/javascript">
+  var $j = jQuery.noConflict();
+  angular.module('ngMasterApp', ['ngSanitize']).controller('ngApp', ['$scope', '$sce','$http', function($scope, $sce, $http) {
+    $scope.init = function () {
+      setTimeout(resizeMe,0);
+    };
+    $scope.init();
+    }]);
+    function increaseFrameHeight(){
+      //window.parent.$j(".htmlWidgetIframe").css("height","800px");
+      setTimeout(resizeMe,0);
+  }
+</script>
+<div ng-app="ngMasterApp" ng-controller="ngApp">
+  <div class="mainIconContainer">
+    <a class="duringYourJourneyContainerWidth frispContainer" ng-click="show = 1" onclick="increaseFrameHeight();">
+      <span class="duringYourJourneyTabTitle">FRISP</span>
+    </a>
+    <a class="duringYourJourneyContainerWidth dachContainer" ng-click="show = 2" onclick="increaseFrameHeight();">
+      <span class="duringYourJourneyTabTitle">DACH</span>
+    </a>
+    <a class="duringYourJourneyContainerWidth meaContainer" ng-click="show = 3" onclick="increaseFrameHeight();">
+      <span class="duringYourJourneyTabTitle">MEA</span>
+    </a>
+    <a class="duringYourJourneyContainerWidth benenordContainer" ng-click="show = 4" onclick="increaseFrameHeight();">
+      <span class="duringYourJourneyTabTitle">BENENORD</span>
+    </a>
+  </div>
+  <div class="productsContainer frispProductBlock" ng-show="show==1">
+    <div class="productContainerHeader">
+      <h3 class="productContainerHeaderTitle">FRISP</h3>
+    </div>
+    <a class="productCircle securIdCircleCmn sID1" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-securid-suite-operations" target="_parent">
+      <span class="productTitle">RSA SecurId<sup class="rtm">®</sup> Suite</span>
+    </a>
+    <a class="productCircle archerCircleCmn archer1" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-archer-suite-operations" target="_parent">
+      <span class="productTitle">RSA Archer<sup class="rtm">®</sup> Suite</span>
+    </a>
+    <a class="productCircle friCircleCmn fri1" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-fri-suite-operations" target="_parent">
+      <span class="productTitle">RSA<sup class="rtm">®</sup> Fraud & Risk Intelligence Suite</span>
+    </a>
+    <a class="productCircle netwitnessCircleCmn nw1" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-netwitness-platform-operations" target="_parent">
+      <span class="productTitle">RSA NetWitness<sup class="rtm">®</sup> Platform</span>
+    </a>
+  </div>
+  <div class="productsContainer dachProductBlock" ng-show="show==2">
+    <div class="productContainerHeader">
+      <h3 class="productContainerHeaderTitle">DACH</h3>
+    </div>
+    <a class="productCircle securIdCircleCmn sID2" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-securid-suite-operations" target="_parent">
+      <span class="productTitle">RSA SecurId<sup class="rtm">®</sup> Suite</span>
+    </a>
+    <a class="productCircle archerCircleCmn archer2" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-archer-suite-operations" target="_parent">
+      <span class="productTitle">RSA Archer<sup class="rtm">®</sup> Suite</span>
+    </a>
+    <a class="productCircle friCircleCmn fri2" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-fri-suite-operations" target="_parent">
+      <span class="productTitle">RSA<sup class="rtm">®</sup> Fraud & Risk Intelligence Suite</span>
+    </a>
+    <a class="productCircle netwitnessCircleCmn nw2" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-netwitness-platform-operations" target="_parent">
+      <span class="productTitle">RSA NetWitness<sup class="rtm">®</sup> Platform</span>
+    </a>
+  </div>
+  <div class="productsContainer meaProductBlock" ng-show="show==3">
+    <div class="productContainerHeader">
+      <h3 class="productContainerHeaderTitle">MEA</h3>
+    </div>
+    <a class="productCircle securIdCircleCmn sID3" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-securid-suite-operations" target="_parent">
+      <span class="productTitle">RSA SecurId<sup class="rtm">®</sup> Suite</span>
+    </a>
+    <a class="productCircle archerCircleCmn archer3" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-archer-suite-operations" target="_parent">
+      <span class="productTitle">RSA Archer<sup class="rtm">®</sup> Suite</span>
+    </a>
+    <a class="productCircle friCircleCmn fri3" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-fri-suite-operations" target="_parent">
+      <span class="productTitle">RSA<sup class="rtm">®</sup> Fraud & Risk Intelligence Suite</span>
+    </a>
+    <a class="productCircle netwitnessCircleCmn nw3" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-netwitness-platform-operations" target="_parent">
+      <span class="productTitle">RSA NetWitness<sup class="rtm">®</sup> Platform</span>
+    </a>
+  </div>
+  <div class="productsContainer benenordProductBlock" ng-show="show==4">
+    <div class="productContainerHeader">
+      <h3 class="productContainerHeaderTitle">BENENORD</h3>
+    </div>
+    <a class="productCircle securIdCircleCmn sID4" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-securid-suite-operations" target="_parent">
+      <span class="productTitle">RSA SecurId<sup class="rtm">®</sup> Suite</span>
+    </a>
+    <a class="productCircle archerCircleCmn archer4" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-archer-suite-operations" target="_parent">
+      <span class="productTitle">RSA Archer<sup class="rtm">®</sup> Suite</span>
+    </a>
+    <a class="productCircle friCircleCmn fri4" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-fri-suite-operations" target="_parent">
+      <span class="productTitle">RSA<sup class="rtm">®</sup> Fraud & Risk Intelligence Suite</span>
+    </a>
+    <a class="productCircle netwitnessCircleCmn nw4" href="https://community.rsa.com/community/internal/sales/operations/your-journey/during-my-journey/rsa-netwitness-platform-operations" target="_parent">
+      <span class="productTitle">RSA NetWitness<sup class="rtm">®</sup> Platform</span>
+    </a>
+  </div>
+</div>
+<style>
+  .leadershipTable{width: 100%;}
+  .alignCenter{text-align: center;}
+  body{margin:0;font-family: Arial;}
+  .customMargin{margin:10px 0;}
+  .mainIconContainer{width: 100%;}
+  .duringYourJourneyContainerWidth:visited, .duringYourJourneyContainerWidth:link,.productCircle:visited,.productCircle:link{text-decoration: none;height: 150px;}
+  .duringYourJourneyContainerWidth{background-size: 12%;width: 23%;height:auto;padding: 20px;margin: 10px;float: left;border: 2px solid #802629;text-decoration: none;text-align: center;cursor: pointer;}
+  .duringYourJourneyContainerWidth img{width: 100px; height: 100px;}
+  .securIdCircleCmn{background-image: url('https://community.rsa.com/resources/statics/260568/securid.png?a=1577090393465');}
+  .securIdCircleCmn:hover{background-image: url('https://community.rsa.com/resources/statics/260568/securid-white.png?a=1577090396944');}
+  .archerCircleCmn{background-image: url('https://community.rsa.com/resources/statics/260568/Archer.png?a=1577090362524');}
+  .archerCircleCmn:hover{background-image: url('https://community.rsa.com/resources/statics/260568/Archer-white.png?a=1577090366604');}
+  .friCircleCmn{background-image: url('https://community.rsa.com/resources/statics/260568/Fraud-risk.png?a=1577090372347');}
+  .friCircleCmn:hover{background-image: url('https://community.rsa.com/resources/statics/260568/Fraud-risk-white.png?a=1577090377533');}
+  .netwitnessCircleCmn{background-image: url('https://community.rsa.com/resources/statics/260568/netwitness.png?a=1577090381518');}
+  .netwitnessCircleCmn:hover{background-image: url('https://community.rsa.com/resources/statics/260568/netwitness-white.png?a=1577090389556');}
+  .duringYourJourneyContainerWidth:hover {
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    background-color: #802629;
+    color: #fff;
+    text-decoration: none;
+     -webkit-box-shadow:inset 0px 0px 0px 4px #fff;
+    -moz-box-shadow:inset 0px 0px 0px 4px #fff;
+    box-shadow:inset 0px 0px 0px 4px #fff;
+  }
+  .duringYourJourneyContainerWidth:hover .duringYourJourneyTabTitle{
+    color: #fff;
+  }
+  .duringYourJourneyTabTitle{display: block;text-decoration: none;font-weight: bold;font-size: 18px;color: #802629;}
+  .productsContainer .productCircle{
+    background-color: #fff;
+      border: 3px solid #802629;
+      border-radius: 50%;
+      float: left;
+      width: 23%;
+      margin: 10px;
+      color: #802629;
+      height: 235px;
+        background-position: center 22px;
+      background-repeat: no-repeat;
+      background-size: 40%;
+  }
+
+  .productsContainer .productCircle:hover{
+      transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+      background-color: #802629;
+      color: #fff;
+      text-decoration: none;
+      -webkit-box-shadow:inset 0px 0px 0px 4px #fff;
+      -moz-box-shadow:inset 0px 0px 0px 4px #fff;
+      box-shadow:inset 0px 0px 0px 4px #fff;
+  }
+  .productTitle{
+    display: block;
+      margin-top: 142px;
+      text-align: center;
+      font-weight: bold;
+  }
+  a[data-role=button]{
+    border-radius: 0px;
+      line-height: 14px;
+      font-size: 12px;
+      line-height: 1rem;
+      font-weight: bold;
+      display: inline-block;
+      vertical-align: middle;
+      font-family: Arial,sans-serif;
+      margin-bottom: 10px;
+      padding: 8px 15px;
+      width: 88%;
+      position: relative;
+      text-transform: none;
+      background-color: #802629;
+      border: 1px solid #802629;
+      color: #FFF;
+      text-decoration: none;
+      transition: background-color .25s ease-out,border .25s ease-out;
+    }
+    a[data-role=button]:hover{
+      background-color: #fff;
+      color: #802629;
+    }
+    .mainProductsBox .moreButton{
+      float: right;
+      width: 15% ;
+      text-align: center;
+    }
+    .friCircleCmn .productTitle{
+      padding: 14px;
+      margin-top: 128px;
+    }
+    .productContainerHeader{
+      float: left;
+      width: 100%;
+      padding: 10px;
+    }
+    .productContainerHeaderTitle{
+      border-bottom: 2px solid #802629;
+    }
+</style>

@@ -1,0 +1,141 @@
+	<div class="newJrneyContainer">
+		<a class="jrneyBlock block1 toRight" href="#">
+			<span class="iconCircle yourTeam"></span>
+			<span class="titleSubtitleContainer">
+				<span class="jrneyTitle">Your Team: Sales Operations</span>
+				<span class="jrneySubTitle">Overview of Sales Operations and its Role in RSA</span>
+			</span>
+		</a>
+		<a class="jrneyBlock block2 toLeft" href="https://community.rsa.com/docs/DOC-109627">
+			<span class="titleSubtitleContainer">
+				<span class="jrneyTitle">Orientation about the Company</span>
+				<span class="jrneySubTitle">Onboarding Week 1</span>
+			</span>
+			<span class="iconCircle aboutCompany"></span>
+		</a>
+		<a class="jrneyBlock block3 toRight" href="https://community.rsa.com/docs/DOC-109628">
+			<span class="iconCircle quoteDesk"></span>
+			<span class="titleSubtitleContainer">
+				<span class="jrneyTitle">Quote Desk</span>
+				<span class="jrneySubTitle">Onboarding week 2</span>
+			</span>
+		</a>
+		<a class="jrneyBlock block4 toLeft" href="https://community.rsa.com/docs/DOC-109629">
+			<span class="titleSubtitleContainer">
+				<span class="jrneyTitle">Deal Desk</span>
+				<span class="jrneySubTitle">Onboarding week 3</span>
+			</span>
+			<span class="iconCircle dealDesk"></span>
+		</a>
+	</div>
+	<style type="text/css">
+		.newJrneyContainer{
+			width: 100%;
+		}
+		.jrneyBlock{ 
+			text-decoration: none;
+			width: 80%;
+		    height: 110px;
+		    border: 3px solid #802629;
+		    border-radius: 60px;
+		    display: block;
+		    background-size: 200.22% auto;
+		    transition: background-position 0.5s ease-out 0s !important;
+		    margin-bottom: 5px;
+		}
+		.jrneyBlock:hover{
+			text-decoration: none;
+		}
+		.toRight{
+			background-position: 0 0;
+			background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #802629 50%);
+		}
+		.toRight:hover{
+			background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #802629 50%);
+			background-position: -99.99% 0;
+		}
+		.toLeft{
+			background-position: 0.01% 0;
+			background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #802629 50%);
+			margin-left: 94px;
+		}
+		.toLeft:hover{
+			background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #802629 50%);
+			background-position: 100%;
+		}
+		.toRight .iconCircle{
+			float: left;
+		}
+		.toLeft .iconCircle{
+			float: right;
+		}
+		.iconCircle{
+			background-size: 50%;
+		    width: 140px;
+		    height: 105px;
+		    border: 3px solid #802629;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    display: block;
+		    border-radius: 60px;
+		}
+		.toRight .iconCircle{
+			margin-left: -1px;
+		}
+		.toLeft .iconCircle{
+			margin-right: -1px;
+		}
+		.yourTeam{
+			background-image: url('https://community.rsa.com/resources/statics/260566/your-team.png?a=1576738017657');
+		}
+		.aboutCompany{
+			background-image: url('https://community.rsa.com/resources/statics/260566/about-company.png?a=1576738217782');
+		}
+		.quoteDesk{
+			background-image: url('https://community.rsa.com/resources/statics/260566/quote-desk.png?a=1576738271258');
+		}
+		.dealDesk{
+			background-image: url('https://community.rsa.com/resources/statics/260566/deal-desk.png?a=1576738231243');
+		}
+		.block1:hover .yourTeam{
+			background-image: url('https://community.rsa.com/resources/statics/260566/your-team-white.png?a=1576738022965');
+		}
+		.block2:hover .aboutCompany{
+			background-image: url('https://community.rsa.com/resources/statics/260566/about-company-white.png?a=1576738223922');
+		}		
+		.block3:hover .quoteDesk{
+			background-image: url('https://community.rsa.com/resources/statics/260566/quote-desk-white.png?a=1576738405531');
+		}
+		.block4:hover .dealDesk{
+			background-image: url('https://community.rsa.com/resources/statics/260566/deal-desk-white.png?a=1576738236196');
+		}
+		.jrneyBlock:hover .iconCircle{
+			border: 3px solid #fff;
+		}
+		.jrneyBlock:hover .jrneyTitle,.jrneyBlock:hover .jrneySubTitle{
+			color:#fff;
+		}
+		.jrneySubTitle{
+			color:#000;
+			font-size: 16px; 
+		}
+		.jrneyTitle{
+			display: block;
+			color:#802629;
+			font-weight: bold;
+			font-size: 18px;
+		}
+		.titleSubtitleContainer{
+			display: block;
+		    float: left;
+		    text-align: center;
+		    position: relative;
+		    top: 30%;
+		    width: 84%;
+		}
+		.toLeft .titleSubtitleContainer{
+			margin-left: 10%;
+    		width: 74%;
+		}
+		.jrneyBlock:visited, .jrneyBlock:link{text-decoration: none;}
+	</style>
