@@ -3,8 +3,8 @@ Website:        RSA Link
 Iteration:      Nov 2018 Redesign
 Scope:          RSA NetWitness Orchestrator
 Author:         Jeff Shurtliff
-Last Editor:    Santhosh V
-Last Updated:   05 Apr 2019
+Last Editor:    Jeff Shurtliff
+Last Updated:   08 Mar 2020
 */
 
 /* Add the background image of the main banner */
@@ -22,6 +22,13 @@ Last Updated:   05 Apr 2019
     padding: 32px 44px;
     font-family: Arial,sans-serif;
     font-weight: 100;
+}
+#mainBanner-title.withTagline {
+    padding: 22px 44px;
+    line-height: 1;
+}
+#mainBanner-title .tagline {
+    font-size: 30px;
 }
 @media only screen and (min-width: 1105px) and (max-width: 1200px) {
 	#mainBanner-title {
