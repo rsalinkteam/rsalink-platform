@@ -4,13 +4,19 @@ Iteration:      Feb 2020 Redesign
 Scope:          RSA Link Wufoo Forms
 Author:         Jeff Shurtliff
 Last Editor:    Jeff Shurtliff
-Last Updated:   20 Feb 2020
+Last Updated:   18 Mar 2020
 */
 
 /* Background image */
 body {
     background-color: #68696a;
     background-image: url(https://community.rsa.com/resources/statics/257635/bg-texture-dots-lines-white-10.png?a=1582237067309);
+}
+
+/* Do not apply the background when embedded */
+.embed body {
+    background-color: #fff;
+    background-image: none;
 }
 
 /* Adjust the padding around the logo */
@@ -33,15 +39,18 @@ body {
 .wufoo li.focused span.choice__text {
     color: #444444 !important;
 }
-/*
-form ul li.focused:nth-child(odd) {
-    background-color: #415464 !important;
-}
-*/
 
+/* Style the selected page indicator */
+.pgStyle1 .selected var {
+    border: 1px solid #be3a34;
+    background: #be3a34;
+    color: #fff;
+}
 
 /* Style the submit button */
-.wufoo input#saveForm {
+.wufoo input#saveForm,
+.wufoo input#nextPageButton,
+.wufoo button#previousPageButton {
     background-color: #802629;
     border: 1px solid #802629;
     color: #fff;
@@ -58,7 +67,20 @@ form ul li.focused:nth-child(odd) {
     cursor: pointer;
     transition: background-color .25s ease-out, color .25s ease-out;
 }
-.wufoo input#saveForm:hover {
+.wufoo input#saveForm:hover,
+.wufoo input#saveForm:focus,
+.wufoo input#nextPageButton:hover,
+.wufoo input#nextPageButton:focus,
+.wufoo button#previousPageButton:hover,
+.wufoo button#previousPageButton:focus {
     background-color: #fff;
+    color: #802629;
+}
+
+/* Style hyperlinks in instruction text */
+.instruct a, .instruct a:visited {
+    color: #be3a34;
+}
+.instruct a:hover, .instruct a:focus {
     color: #802629;
 }
