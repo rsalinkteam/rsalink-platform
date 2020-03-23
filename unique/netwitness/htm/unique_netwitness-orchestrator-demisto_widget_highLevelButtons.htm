@@ -20,12 +20,31 @@
         <tr id="productFlavorRow">
             <td colspan="5">
                 <p class="jiveInfoBox" id="flavorMessage">
-                    This page contains information regarding the current RSA NetWitness<sup>&reg;</sup> Orchestrator, built on ThreatConnect<sup>&reg;</sup> software. Content for previous versions of RSA NetWitness Orchestrator, powered by Demisto software, can be <b><a target="_top" href="https://community.rsa.com/community/products/netwitness/orchestrator/demisto">accessed here</a></b>.
+                    This page contains information regarding legacy RSA NetWitness<sup>&reg;</sup> Orchestrator, powered by Demisto software. Content for current versions of RSA NetWitness Orchestrator, built on ThreatConnect<sup>&reg;</sup> software, can be <b><a target="_top" href="https://community.rsa.com/community/products/netwitness/orchestrator">accessed here</a></b>.
+                </p>
+            </td>
+        </tr>
+        <tr id="warningBannerRow">
+            <td colspan="5">
+                <p class="jiveWarningBox" id="orchestratorWarning">
+                    The product documentation and release notes are currently accessible only to users with active maintenance contracts for RSA NetWitness&reg; Orchestrator.<br />
+                    For more information please visit the <a target="_top" href="https://www.rsa.com/en-us/products/threat-detection-response/security-automation-orchestration" target="_blank">Security Automation and Orchestration</a> page on RSA.com or contact your account manager.
                 </p>
             </td>
         </tr>
     </tbody>
 </table>
+
+<script>
+var rsaEmployee = "Employee";
+if (window.parent.userType == rsaEmployee) {
+    console.log("Hiding the warning banner as user is RSA employee.");
+} else {
+    console.log("Displaying the warning banner as user is not an RSA employee.");
+    jQuery('#warningBannerRow').css("display", "table-row");
+}
+</script>
+
 
 <style>
 @import url('https://community.rsa.com/resources/statics/184424/rsalink-orchestrator.css?a=1557913474267');
