@@ -196,6 +196,7 @@
             text-align: left;
             border: 0 solid;
             border-bottom: 1px #eeeff0;
+            border: 1px #eeeff0 solid;
             height: 25px;
             line-height: 1.73;
         }
@@ -303,45 +304,51 @@
             left: 50%;
             color: #fff;
             width: 100%;
-            font-size: 22px;
+            font-size: 15px;
             text-align: center;
             transform: translate(-50%, -50%);
         }
         .col-half-offset {
             margin-left:4.166666667%
         }
+        img.authenticatorMatrix{
+            width: 95%;
+            height: auto;
+        }
+        a.jive-link-external-small {
+            padding: 0px !important;
+        }
     </style>
 
     <body ng-app="remoteWorkforce">
         <script>
             var $j = jQuery.noConflict();
-            angular.module('remoteWorkforce', ['ngSanitize']).controller('remoteWorkforceController', 
+            angular.module('remoteWorkforce', ['ngSanitize']).controller('remoteWorkforceController',
                 ['$scope', '$sce','$http', function($scope, $sce, $http) {
                     $scope.getTitleData = "";
                     $scope.accordionData = false;
-                    $scope.getOrientedTab = false;
+                    $scope.getOrientedTab = true;
                     $scope.iNeedToTab = false;
                     $scope.planningDesignTab = false;
-                    $scope.implementationTab = false;
                     $scope.endUserTab = false;
+                    $scope.optimizingNTuningTab = false;
 
                     $scope.getGetOrientedData = [];
                     $scope.getINeedToData = [];
                     $scope.getPlanningDesignData = [];
-                    $scope.getImplementationData = [];
                     $scope.getEndUserData = [];
+                    $scope.getOptimizingNTuning = [];
                     $scope.getRespondToIncidentsData = [];
                     $scope.iframeHeight = 0;
                     $scope.wrapperOffSetHeight = 0;
                     $scope.collapseOffSetHeight = 0;
                     $scope.productBoxes = false;
                     $scope.iconPlusMinus = false;
-                    
+
                 $scope.init = function () {
                     /* Get Oriented - https://community.rsa.com/docs/DOC-111357 */
                     /* I Need To... - https://community.rsa.com/docs/DOC-111358 */
                     /* Planning & Design - https://community.rsa.com/docs/DOC-111359 */
-                    /* Implementation Guidance - https://community.rsa.com/docs/DOC-111360 */
                     /* Supporting My End-Users - https://community.rsa.com/docs/DOC-111361 */
                     /* Optimizing & Tuning - https://community.rsa.com/docs/DOC-111362 */
 
@@ -395,21 +402,6 @@
                         setTimeout(resizeMe,0);
                     });
 
-                    /* Implementation Guidance - https://community.rsa.com/docs/DOC-111360 */
-                    $http.get("https://community.rsa.com/docs/DOC-111361").then(function(response) {
-                        $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
-                        var accordionTitles = [];
-                        angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}),
-                            function(value, key) {
-                            $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
-                            var data = {'head': $j(value).text(),
-                                'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
-                            this.push(data);
-
-                        }, accordionTitles);
-                        $scope.getImplementationData = accordionTitles;
-                        setTimeout(resizeMe,0);
-                    });
 
                     /* Supporting My End-Users - https://community.rsa.com/docs/DOC-111361 */
                     $http.get("https://community.rsa.com/docs/DOC-111361").then(function(response) {
@@ -426,7 +418,23 @@
                         $scope.getEndUserData = accordionTitles;
                         setTimeout(resizeMe,0);
                     });
-                    
+
+                    /* Optimizing & Tuning - https://community.rsa.com/docs/DOC-111362 */
+                    $http.get("https://community.rsa.com/docs/DOC-111362").then(function(response) {
+                        $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                        var accordionTitles = [];
+                        angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}),
+                            function(value, key) {
+                            $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                            var data = {'head': $j(value).text(),
+                                'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                            this.push(data);
+
+                        }, accordionTitles);
+                        $scope.getOptimizingNTuning = accordionTitles;
+                        setTimeout(resizeMe,0);
+                    });
+
                     setTimeout(function(){
                         window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove();
                         //$j("#headingNewA").find("a").attr("aria-expanded", true);
@@ -496,19 +504,19 @@
                     $scope.getTitleData = "";
                     if(audience == 'getOriented'){
                         $scope.getOrientedTab = true; $scope.iNeedToTab = false;
-                        $scope.planningDesignTab = false; $scope.implementationTab = false; $scope.endUserTab = false;
+                        $scope.planningDesignTab = false; $scope.endUserTab = false; $scope.optimizingNTuningTab = false;
                     }else if(audience == 'iNeedTo'){
                         $scope.getOrientedTab = false; $scope.iNeedToTab = true;
-                        $scope.planningDesignTab = false; $scope.implementationTab = false; $scope.endUserTab = false;
+                        $scope.planningDesignTab = false; $scope.endUserTab = false; $scope.optimizingNTuningTab = false;
                     }else if(audience == 'planningDesign'){
                         $scope.getOrientedTab = false; $scope.iNeedToTab = false;
-                        $scope.planningDesignTab = true; $scope.implementationTab = false; $scope.endUserTab = false;
-                    }else if(audience == 'implementation'){
-                        $scope.getOrientedTab = false; $scope.iNeedToTab = false;
-                        $scope.planningDesignTab = false; $scope.implementationTab = true; $scope.endUserTab = false;
+                        $scope.planningDesignTab = true; $scope.endUserTab = false; $scope.optimizingNTuningTab = false;
                     }else if(audience == 'endUsers'){
                         $scope.getOrientedTab = false; $scope.iNeedToTab = false;
-                        $scope.planningDesignTab = false; $scope.implementationTab = false; $scope.endUserTab = true;
+                        $scope.planningDesignTab = false; $scope.endUserTab = true; $scope.optimizingNTuningTab = false;
+                    }else if(audience == 'optimizingNTuning'){
+                        $scope.getOrientedTab = false; $scope.iNeedToTab = false;
+                        $scope.planningDesignTab = false; $scope.endUserTab = false; $scope.optimizingNTuningTab = true;
                     }
                     $j(".collapse").removeClass("show");
                     $j(".panel-heading").find("a").attr("aria-expanded", false);
@@ -535,76 +543,73 @@
                             <img class="boxIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964"
                                  ng-click="filterByAudience('getOriented')" />
                             <div style="left:54%" class="centered" ng-click="filterByAudience('getOriented')">
-                                <img src="https://community.rsa.com/resources/statics/250480/gettingStarted.png?a=1570701111781"
+                                <img src="https://community.rsa.com/resources/statics/268904/GetOriented.png?a=1585013416250"
                                      style="width: 50px; height: 50px;" /><br>
-                                Getting Started
+                                Get Oriented
                             </div>
                         </a><br/>
                     </div>
                     <div class="col-sm-2 col-half-offset" id="p2">
                         <a class="boxIconLink">
                             <img class="boxIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964"
-                                 ng-click="filterByAudience('planningDesign')" />
-                            <div class="centered" ng-click="filterByAudience('planningDesign')">
+                                 ng-click="filterByAudience('iNeedTo')" />
+                            <div class="centered" ng-click="filterByAudience('iNeedTo')">
                                 <img src=https://community.rsa.com/resources/statics/250480/technicalInfo.png?a=1571234232156"
                                      style="height: 50px; width: 50px;" /><br>
-                                Technical Info
+                                I Need To...
                             </div>
                         </a><br/>
                     </div>
                     <div class="col-sm-2 col-half-offset" id="p3">
                         <a class="boxIconLink">
                             <img class="boxIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964"
-                                 ng-click="filterByAudience('iNeedTo')" />
-                            <div class="centered" ng-click="filterByAudience('iNeedTo')">
-                                <img src="https://community.rsa.com/resources/statics/250485/primeSolutions.png?a=1572878742058"
+                                 ng-click="filterByAudience('planningDesign')" />
+                            <div class="centered" ng-click="filterByAudience('planningDesign')">
+                                <img src="https://community.rsa.com/resources/statics/268904/planing.png?a=1585013422733"
                                      style="width: 50px; height: 50px;"><br>
-                                Prime Solutions
+                                Plan, Design &amp; Implement
                             </div>
                         </a><br/>
                     </div>
                     <div class="col-sm-2 col-half-offset" id="p4">
                         <a class="boxIconLink">
                             <img class="boxIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964"
-                                 ng-click="filterByAudience('implementation')" />
-                            <div class="centered" ng-click="filterByAudience('implementation')">
-                                <img src="https://community.rsa.com/resources/statics/250480/support.png?a=1570703766823"
+                                 ng-click="filterByAudience('endUsers')" />
+                            <div class="centered" ng-click="filterByAudience('endUsers')">
+                                <img src="https://community.rsa.com/resources/statics/268904/Supporting.png?a=1585013426847"
                                      style="width: 50px; height: 50px;" /><br>
-                                Support
+                                Supporting My End-Users
                             </div>
                         </a><br/>
                     </div>
                     <div class="col-sm-2 col-half-offset" id="p5">
                         <a class="boxIconLink">
                             <img class="boxIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964"
-                                 ng-click="filterByAudience('endUsers')" />
-                            <div class="centered" ng-click="filterByAudience('endUsers')">
-                                <img src="https://community.rsa.com/resources/statics/250480/developer.png?a=1570703760600"
+                                 ng-click="filterByAudience('optimizingNTuning')" />
+                            <div class="centered" ng-click="filterByAudience('optimizingNTuning')">
+                                <img src="https://community.rsa.com/resources/statics/268904/tuning.png?a=1585013438183"
                                      style="width: 50px; height: 50px;" /><br>
-                                Developer
+                                Optimizing &amp; Tuning
                             </div>
                         </a><br/>
                     </div>
                 </div>
                 <div class="row logoPointer">
-                    <div class="col-sm-2" id="logoPointer1">
+                    <div class="col-sm-2" id="p1">
                         <div class="arrow-up" ng-show="getOrientedTab" style="margin-left: 35%;"></div>
                     </div>
-                    <div class="col-sm-2 col-half-offset" id="logoPointer2">
-                        <div class="arrow-up" ng-show="planningDesignTab"></div>
-                    </div>
-                    <div class="col-sm-2 col-half-offset" id="logoPointer3">
+                    <div class="col-sm-2 col-half-offset" id="p2">
                         <div class="arrow-up" ng-show="iNeedToTab"></div>
                     </div>
-                    <div class="col-sm-2 col-half-offset" id="logoPointer4">
-                        <div class="arrow-up" ng-show="implementationTab"></div>
+                    <div class="col-sm-2 col-half-offset" id="p3">
+                        <div class="arrow-up" ng-show="planningDesignTab"></div>
                     </div>
-                    <div class="col-sm-2 col-half-offset" id="logoPointer5">
+                    <div class="col-sm-2 col-half-offset" id="p4">
                         <div class="arrow-up" ng-show="endUserTab"></div>
                     </div>
-                    <!-- <div class="col-sm-2 col-half-offset" id="p5">
-                        <div class="arrow-up" ng-show="respondToIncidentsTab"></div>
-                    </div> -->
+                    <div class="col-sm-2 col-half-offset" id="p5">
+                        <div class="arrow-up" ng-show="optimizingNTuningTab"></div>
+                    </div>
                 </div>
 
                 <div class="row" ng-show="getOrientedTab">
@@ -616,19 +621,19 @@
                               <div class="clearfix"></div>
                               <div class="panel-group" id="accordion0" role="tablist" aria-multiselectable="true">
                                   <div class="panel panel-default" ng-repeat="data in getGetOrientedData">
-                                      <div class="panel-heading" role="tab" id="headingNew{{indexChar($index)}}" ng-click="resizeAccordion()">
+                                      <div class="panel-heading" role="tab" id="headingOriented{{indexChar($index)}}" ng-click="resizeAccordion()">
                                           <h2 class="mb-0">
                                               <a role="button" data-toggle="collapse" data-parent="#accordion0"
-                                                  href="#collapseNew{{indexChar($index)}}" aria-expanded="{{indexChar($index) == 'A'}}"
-                                                  aria-controls="collapseNew{{indexChar($index)}}" class="collapsed">
+                                                  href="#collapseOriented{{indexChar($index)}}" aria-expanded="{{indexChar($index) == 'A'}}"
+                                                  aria-controls="collapseOriented{{indexChar($index)}}" class="collapsed">
                                                       {{data.head}}
                                               </a>
                                           </h2>
                                       </div>
 
-                                      <div id="collapseNew{{indexChar($index)}}" class="panel-collapse in collapse"
+                                      <div id="collapseOriented{{indexChar($index)}}" class="panel-collapse in collapse"
                                            ng-class="{'show': indexChar($index) == 'A'}"  role="tabpanel"
-                                           aria-labelledby="headingNew{{indexChar($index)}}">
+                                           aria-labelledby="headingOriented{{indexChar($index)}}">
                                           <div class="panel-body">
                                               <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
                                           </div>
@@ -642,23 +647,23 @@
                     <div class="col-sm-12">
                         <div class="wrapper">
                             <div class="accordion-option">
-                                <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion1">Expand All</a>
+                                <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion2">Expand All</a>
                             </div>
                             <div class="clearfix"></div>
 
-                            <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+                            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-default" ng-repeat="data in getINeedToData">
-                                    <div class="panel-heading" role="tab" id="headingStarted{{indexChar($index)}}" ng-click="resizeAccordion()">
+                                    <div class="panel-heading" role="tab" id="headingINeedTo{{indexChar($index)}}" ng-click="resizeAccordion()">
                                         <h2 class="mb-0">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion1"
-                                               href="#collapseStarted{{indexChar($index)}}" aria-expanded="false"
-                                               aria-controls="collapseStarted{{indexChar($index)}}" class="collapsed">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion2"
+                                               href="#collapseINeedTo{{indexChar($index)}}" aria-expanded="false"
+                                               aria-controls="collapseINeedTo{{indexChar($index)}}" class="collapsed">
                                                 {{data.head}}
                                             </a>
                                         </h2>
                                     </div>
-                                    <div id="collapseStarted{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel"
-                                         aria-labelledby="headingStarted{{indexChar($index)}}" style="">
+                                    <div id="collapseINeedTo{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel"
+                                         aria-labelledby="headingINeedTo{{indexChar($index)}}" style="">
                                         <div class="panel-body">
                                             <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
                                         </div>
@@ -672,25 +677,25 @@
                     <div class="col-sm-12">
                         <div class="wrapper">
                             <div class="accordion-option">
-                                <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion2">Expand All</a>
+                                <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion3">Expand All</a>
                             </div>
                             <div class="clearfix"></div>
 
-                            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                            <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-default" ng-repeat="data in getPlanningDesignData">
-                                    <div class="panel-heading" role="tab" id="headingDeploy{{indexChar($index)}}"
+                                    <div class="panel-heading" role="tab" id="headingPlanningDesign{{indexChar($index)}}"
                                          ng-click="resizeAccordion()">
                                         <h2 class="mb-0">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion2"
-                                               href="#collapseDeploy{{indexChar($index)}}" aria-expanded="false"
-                                               aria-controls="collapseDeploy{{indexChar($index)}}" class="collapsed">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion3"
+                                               href="#collapsePlanningDesign{{indexChar($index)}}" aria-expanded="false"
+                                               aria-controls="collapsePlanningDesign{{indexChar($index)}}" class="collapsed">
                                                 {{data.head}}
                                             </a>
                                         </h2>
                                     </div>
 
-                                    <div id="collapseDeploy{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel"
-                                         aria-labelledby="headingDeploy{{indexChar($index)}}" style="">
+                                    <div id="collapsePlanningDesign{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel"
+                                         aria-labelledby="headingPlanningDesign{{indexChar($index)}}" style="">
                                         <div class="panel-body">
                                             <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
                                         </div>
@@ -700,28 +705,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" ng-show="implementationTab">
+                <div class="row" ng-show="endUserTab">
                     <div class="col-sm-12">
                         <div class="wrapper">
                               <div class="accordion-option">
-                                  <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion3">Expand All</a>
+                                  <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion5">Expand All</a>
                               </div>
                               <div class="clearfix"></div>
-                              <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
-                                  <div class="panel panel-default" ng-repeat="data in getImplementationData">
+                              <div class="panel-group" id="accordion5" role="tablist" aria-multiselectable="true">
+                                  <div class="panel panel-default" ng-repeat="data in getEndUserData">
 
-                                      <div class="panel-heading" role="tab" id="headingSetupandManage{{indexChar($index)}}"
+                                      <div class="panel-heading" role="tab" id="headingEndUser{{indexChar($index)}}"
                                            ng-click="resizeAccordion()">
                                           <h2 class="mb-0">
-                                              <a role="button" data-toggle="collapse" data-parent="#accordion3"
-                                                 href="#collapseSetupandManage{{indexChar($index)}}" aria-expanded="false"
-                                                 aria-controls="collapseSetupandManage{{indexChar($index)}}" class="collapsed">
+                                              <a role="button" data-toggle="collapse" data-parent="#accordion5"
+                                                 href="#collapseEndUser{{indexChar($index)}}" aria-expanded="false"
+                                                 aria-controls="collapseEndUser{{indexChar($index)}}" class="collapsed">
                                                   {{data.head}}
                                               </a>
                                           </h2>
                                       </div>
-                                      <div id="collapseSetupandManage{{indexChar($index)}}" class="panel-collapse in collapse"
-                                           role="tabpanel" aria-labelledby="headingSetupandManage{{indexChar($index)}}" style="">
+                                      <div id="collapseEndUser{{indexChar($index)}}" class="panel-collapse in collapse"
+                                           role="tabpanel" aria-labelledby="headingEndUser{{indexChar($index)}}" style="">
                                           <div class="panel-body">
                                               <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
                                           </div>
@@ -731,33 +736,34 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" ng-show="endUserTab">
+                <div class="row" ng-show="optimizingNTuningTab">
                     <div class="col-sm-12">
                         <div class="wrapper">
-                            <div class="accordion-option">
-                                <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion4">Expand All</a>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="panel-group" id="accordion4" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default" ng-repeat="data in getEndUserData">
-                                    <div class="panel-heading" role="tab" id="headingInvestigate{{indexChar($index)}}"
-                                         ng-click="resizeAccordion()">
-                                        <h2 class="mb-0">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion4"
-                                               ref="#collapseInvestigate{{indexChar($index)}}" aria-expanded="false"
-                                               aria-controls="collapseInvestigate{{indexChar($index)}}" class="collapsed">
-                                                {{data.head}}
-                                            </a>
-                                        </h2>
-                                    </div>
-                                    <div id="collapseInvestigate{{indexChar($index)}}" class="panel-collapse in collapse"
-                                         role="tabpanel" aria-labelledby="headingInvestigate{{indexChar($index)}}" style="">
-                                        <div class="panel-body">
-                                            <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                              <div class="accordion-option">
+                                  <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion6">Expand All</a>
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="panel-group" id="accordion6" role="tablist" aria-multiselectable="true">
+                                  <div class="panel panel-default" ng-repeat="data in getOptimizingNTuning">
+
+                                      <div class="panel-heading" role="tab" id="headingEndUser{{indexChar($index)}}"
+                                           ng-click="resizeAccordion()">
+                                          <h2 class="mb-0">
+                                              <a role="button" data-toggle="collapse" data-parent="#accordion6"
+                                                 href="#collapseEndUser{{indexChar($index)}}" aria-expanded="false"
+                                                 aria-controls="collapseEndUser{{indexChar($index)}}" class="collapsed">
+                                                  {{data.head}}
+                                              </a>
+                                          </h2>
+                                      </div>
+                                      <div id="collapseEndUser{{indexChar($index)}}" class="panel-collapse in collapse"
+                                           role="tabpanel" aria-labelledby="headingEndUser{{indexChar($index)}}" style="">
+                                          <div class="panel-body">
+                                              <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
                         </div>
                     </div>
                 </div>
