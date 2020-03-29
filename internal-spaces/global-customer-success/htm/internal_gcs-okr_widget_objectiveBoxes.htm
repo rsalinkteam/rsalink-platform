@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-    <meta charset="utf-8"/>
-    <script src='https://code.jquery.com/jquery-3.2.1.js'></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://community.rsa.com/resources/statics/238998/rsalink-okr-iframe.css?a=1559914383226">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <script>
+	<meta charset="utf-8"/>
+	<script src='https://code.jquery.com/jquery-3.2.1.js'></script>
+	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://community.rsa.com/resources/statics/238998/rsalink-okr-iframe.css?a=1559914383226">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<script>
 var $j = jQuery.noConflict();
 
 /*********** Objective Box Script **********/
@@ -19,7 +19,7 @@ $j(document).ready(function() {
             if($j('.'+boxClass).is(':visible')){
                 $j('.keyResultsContainer .'+boxClass).hide();
                 $j('.disableToTheTop').css("display", "none");
-            }else{                  
+            }else{
                 $j('.keyResultsContainer .wrapper').hide();
                 $j('.keyResultsContainer .'+boxClass).show();
                 $j('.disableToTheTop').css("display", "block");
@@ -36,7 +36,7 @@ $j(document).ready(function() {
                 $j('html,body', window.parent.document).animate({ scrollTop: "1200px" }, 1000);
             }
         });
-    }); 
+    });
 });
 
 /*********** Key Results Accordion Script **********/
@@ -45,9 +45,9 @@ function resizeWidget() {
     setTimeout( resizeMe, 500);
 }
 function scrollToKeyResult(){
-    $j('html,body', window.parent.document).animate({ scrollTop: "1400px" }, 1000);
+	$j('html,body', window.parent.document).animate({ scrollTop: "1400px" }, 1000);
 }
-//Enables console.log messages in Firefox 
+//Enables console.log messages in Firefox
 function log(msg){
     if (typeof console === "undefined" || typeof console.log === "undefined") return false;
     console.log(msg);
@@ -67,7 +67,7 @@ function init(){
                             "objective3Url": "https://community.rsa.com/docs/DOC-104882",
                             "objective4Url": "https://community.rsa.com/docs/DOC-104883",
                             "objective5Url": "https://community.rsa.com/docs/DOC-104884",
-                            "objective6Url": "https://community.rsa.com/docs/DOC-104885"                                
+                            "objective6Url": "https://community.rsa.com/docs/DOC-104885"
                           }
                         };
 
@@ -76,8 +76,8 @@ function init(){
             type: 'GET',
             url: value,
             dataType: 'html',
-            success: function (data) { 
-                
+            success: function (data) {
+
                 // Point to the table in the setup document
                 var product = $j('.actionsTitle', data);
                 if(product.length < 1) {
@@ -107,12 +107,12 @@ function init(){
                             //trend = $j(value).find(".trend").text();
                             //trendValue = $j(value).find(".trendValue").text();
                         }
-                    })  
-                
+                    })
+
                     totalRowCount += parseInt($j("table:first", $j(rows[i]).next()).find("tr").length - 1);
                     $j('table:first', $j(rows[i]).next()).addClass("accordionTableData");
                     titleHtml = $j(rows[i]).text();
-                    
+
                     //Fetches Trend from ObjectiveIntroTable and displays in respective objectives
                     var overallObjectiveStatusLevel,overallTrend,overallTrendNumValue,overallObjectiveStatus,totalKeyResults,completedKeyResults;
                     $j.each($j('.objectiveIntroTable', data), function( key, value ){
@@ -146,9 +146,9 @@ function init(){
                             $j(value).find(".actionCompleted").removeClass('customWidth21');
                         }
                     });
-                    
+
                     bodyHtml = $j('table:first', $j(rows[i]).next()).parent().html();
-                    bodyHtml = bodyHtml.replace(/https:\/\/community\.rsa\.com\/external-link\.jspa\?url=/g,"").replace(/\/external-link\.jspa\?url=/g,"").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":").replace(/%3F\s*/g,"?").replace(/%3D\s*/g,"=").replace(/%26\s*/g,"&").replace(/%2B\s*/g,"+");
+					bodyHtml = bodyHtml.replace(/https:\/\/community\.rsa\.com\/external-link\.jspa\?url=/g,"").replace(/\/external-link\.jspa\?url=/g,"").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":").replace(/%3F\s*/g,"?").replace(/%3D\s*/g,"=").replace(/%26\s*/g,"&").replace(/%2B\s*/g,"+");
 
                     tmpHTML += "<div class='panel " + colorStyle + "'> <h4 class='panel-heading panel-title' data-toggle='collapse' data-parent='#accordion"+key+"' data-parent='#accordionObj1' href='#collapse"+key+ collapseIncrementer + "' onclick='resizeWidget();scrollToKeyResult();' style:''> <div class='accSectionObj1'><span class='glyphicon glyphicon-plus'></span> &nbsp;<span class='accrdnTitle'>" + titleHtml + "</span></div><div class='resultsSectionObj1'><span class='resultStatusLevelObj1 "+statusLevel+"'>"+statusValue+"</span></div></h4> <div id='collapse" +key+ collapseIncrementer + "' class='panel-collapse collapse";
 
@@ -160,18 +160,18 @@ function init(){
                         tmpHTML += " in";
                     }
                     tmpHTML += " panel-body'> " + bodyHtml +"</div> </div>";
-                    collapseIncrementer++;                      
+                    collapseIncrementer++;
                 } // end for loop
-                
+
                 // Append the loop HTML to the resultArea
 
-                if(key == "objective1Url"){                           
-                        $j('.objective1 .testimonial #accordionobjective1Url').html(tmpHTML);    
+                if(key == "objective1Url"){
+                        $j('.objective1 .testimonial #accordionobjective1Url').html(tmpHTML);
                         $j('.objective1 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);
                         $j('.objective1 .testimonial #corporateGoalValueObj1').text($j('.objectiveIntroTable', data).find(".corporateGoalValue").text());
-                        $j('.objective1 .testimonial #leadValueObj1').html($j('.objectiveIntroTable', data).find(".leadValue").html());    
-                        $j('.objective1 .testimonial #workingTeamValueObj1').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());    
-                        
+                        $j('.objective1 .testimonial #leadValueObj1').html($j('.objectiveIntroTable', data).find(".leadValue").html());
+                        $j('.objective1 .testimonial #workingTeamValueObj1').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());
+
                         //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
                         $j('.objective1 .testimonial #accordionObj1').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
                         $j('.objective1 .testimonial #accordionObj1').find('a').attr('target','_blank');
@@ -182,12 +182,12 @@ function init(){
                         $j('#objective1 .newObjectiveStatus').html(overallObjectiveStatus);
                         $j('#objective1 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
                 } else if(key == "objective2Url"){
-                        $j('.objective2 .testimonial #accordionobjective2Url').html(tmpHTML);    
-                        $j('.objective2 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);                   
+                        $j('.objective2 .testimonial #accordionobjective2Url').html(tmpHTML);
+                        $j('.objective2 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);
                         $j('.objective2 .testimonial #corporateGoalValueObj2').text($j('.objectiveIntroTable', data).find(".corporateGoalValue").text());
-                        $j('.objective2 .testimonial #leadValueObj2').html($j('.objectiveIntroTable', data).find(".leadValue").html());    
-                        $j('.objective2 .testimonial #workingTeamValueObj2').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());    
-                        
+                        $j('.objective2 .testimonial #leadValueObj2').html($j('.objectiveIntroTable', data).find(".leadValue").html());
+                        $j('.objective2 .testimonial #workingTeamValueObj2').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());
+
                         //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
                         $j('.objective2 .testimonial #accordionObj2').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
                         $j('.objective2 .testimonial #accordionObj2').find('a').attr('target','_blank');
@@ -198,12 +198,12 @@ function init(){
                         //$j('#objective2 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
                         $j('#objective2 .overallCompletedField').html("Lorem ipsum");
                 } else if(key == "objective3Url"){
-                        $j('.objective3 .testimonial #accordionobjective3Url').html(tmpHTML);    
-                        $j('.objective3 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);                   
+                        $j('.objective3 .testimonial #accordionobjective3Url').html(tmpHTML);
+                        $j('.objective3 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);
                         $j('.objective3 .testimonial #corporateGoalValueObj3').text($j('.objectiveIntroTable', data).find(".corporateGoalValue").text());
-                        $j('.objective3 .testimonial #leadValueObj3').html($j('.objectiveIntroTable', data).find(".leadValue").html());    
-                        $j('.objective3 .testimonial #workingTeamValueObj3').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());    
-                        
+                        $j('.objective3 .testimonial #leadValueObj3').html($j('.objectiveIntroTable', data).find(".leadValue").html());
+                        $j('.objective3 .testimonial #workingTeamValueObj3').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());
+
                         //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
                         $j('.objective3 .testimonial #accordionObj3').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
                         $j('.objective3 .testimonial #accordionObj3').find('a').attr('target','_blank');
@@ -214,12 +214,12 @@ function init(){
                         //$j('#objective3 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
                         $j('#objective3 .overallCompletedField').html("Lorem ipsum");
                 } else if(key == "objective4Url"){
-                        $j('.objective4 .testimonial #accordionobjective4Url').html(tmpHTML);    
-                        $j('.objective4 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);                   
+                        $j('.objective4 .testimonial #accordionobjective4Url').html(tmpHTML);
+                        $j('.objective4 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);
                         $j('.objective4 .testimonial #corporateGoalValueObj4').text($j('.objectiveIntroTable', data).find(".corporateGoalValue").text());
-                        $j('.objective4 .testimonial #leadValueObj4').html($j('.objectiveIntroTable', data).find(".leadValue").html());    
-                        $j('.objective4 .testimonial #workingTeamValueObj4').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());    
-                        
+                        $j('.objective4 .testimonial #leadValueObj4').html($j('.objectiveIntroTable', data).find(".leadValue").html());
+                        $j('.objective4 .testimonial #workingTeamValueObj4').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());
+
                         //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
                         $j('.objective4 .testimonial #accordionObj4').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
                         $j('.objective4 .testimonial #accordionObj4').find('a').attr('target','_blank');
@@ -230,12 +230,12 @@ function init(){
                         //$j('#objective4 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
                         $j('#objective4 .overallCompletedField').html("Lorem ipsum");
                 } else if(key == "objective5Url"){
-                        $j('.objective5 .testimonial #accordionobjective5Url').html(tmpHTML);    
-                        $j('.objective5 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);                   
+                        $j('.objective5 .testimonial #accordionobjective5Url').html(tmpHTML);
+                        $j('.objective5 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);
                         $j('.objective5 .testimonial #corporateGoalValueObj5').text($j('.objectiveIntroTable', data).find(".corporateGoalValue").text());
-                        $j('.objective5 .testimonial #leadValueObj5').html($j('.objectiveIntroTable', data).find(".leadValue").html());    
-                        $j('.objective5 .testimonial #workingTeamValueObj5').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());    
-                        
+                        $j('.objective5 .testimonial #leadValueObj5').html($j('.objectiveIntroTable', data).find(".leadValue").html());
+                        $j('.objective5 .testimonial #workingTeamValueObj5').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());
+
                         //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
                         $j('.objective5 .testimonial #accordionObj5').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
                         $j('.objective5 .testimonial #accordionObj5').find('a').attr('target','_blank');
@@ -246,12 +246,12 @@ function init(){
                         //$j('#objective5 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
                         $j('#objective5 .overallCompletedField').html("Lorem ipsum");
                 } else if(key == "objective6Url"){
-                        $j('.objective6 .testimonial #accordionobjective6Url').html(tmpHTML);    
-                        $j('.objective6 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);                   
+                        $j('.objective6 .testimonial #accordionobjective6Url').html(tmpHTML);
+                        $j('.objective6 .testimonial #totalActiveProjects').text('Total Number of Active RSA Link Team Projects: '+ totalRowCount);
                         $j('.objective6 .testimonial #corporateGoalValueObj6').text($j('.objectiveIntroTable', data).find(".corporateGoalValue").text());
-                        $j('.objective6 .testimonial #leadValueObj6').html($j('.objectiveIntroTable', data).find(".leadValue").html());    
-                        $j('.objective6 .testimonial #workingTeamValueObj6').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());    
-                        
+                        $j('.objective6 .testimonial #leadValueObj6').html($j('.objectiveIntroTable', data).find(".leadValue").html());
+                        $j('.objective6 .testimonial #workingTeamValueObj6').html($j('.objectiveIntroTable', data).find(".workingTeamValue").html());
+
                         //Removes lightbox effect from images and links that are served by the jive servlet.  Passes through non-jive servlet links.
                         $j('.objective6 .testimonial #accordionObj6').find('img').attr('onclick','if ($j(this).parent().prop("nodeName")=="A" && $j(this).parent().attr("href").indexOf("JiveServlet") >= 0){return false;}');
                         $j('.objective6 .testimonial #accordionObj6').find('a').attr('target','_blank');
@@ -262,7 +262,7 @@ function init(){
                         //$j('#objective6 .overallCompletedField').html(completedKeyResults + " of " + totalKeyResults + " Completed");
                         $j('#objective6 .overallCompletedField').html("Lorem ipsum");
                 }
-                
+
                 $j(".collapse.in").each(function(){
                     $j(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
                 });
@@ -275,17 +275,17 @@ function init(){
                //          $j(this).addClass('customAccrdnHeaderHeight');
                //      }
                //  });
-        
+
                 // Toggle plus minus icon on show hide of collapse element
                 $j(".collapse").on('show.bs.collapse', function(){
                     $j(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
                 }).on('hide.bs.collapse', function(){
                     $j(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
-                });      
+                });
                 resizeWidget();
-                resizeMe();                        
+                resizeMe();
             },
-            error: function (xhr, ajaxOptions, thrownError){ 
+            error: function (xhr, ajaxOptions, thrownError){
                 alert("There was an error: Most likely reason is your sourceURL variable is not pointing to a valid document");
                 return false;
             },
@@ -294,8 +294,8 @@ function init(){
             }
         });
     });
-  
-} 
+
+}
 // Color Styles
 // "panel-default" = Silver
 // "panel-primary" = Blue
@@ -316,7 +316,7 @@ var sourceURL='https://community.rsa.com/docs/DOC-103296';
 // All panels expanded = "Expanded"
 var initState='Collapsed';
 init();
-  
+
 function resizeWidget() {
     setTimeout( resizeMe, 500);
 }
@@ -334,7 +334,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
         scrollTop : 0                // Scroll to top of body
     }, 500);
 });
-</script> 
+</script>
 <style>
     .overallTrendValueObj1 {
         font-size: 16px;
@@ -529,7 +529,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
 <div class="keyResultsContainer" id="keyResultsContainer">
      <div class="wrapper objective1">
         <div class="testimonial">
-            <div class="name"></div>         
+            <div class="name"></div>
             <div class="corporateGoalContainer">
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj1"></span></h4>
             </div>
@@ -590,7 +590,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberName">Dave Spokane</div>
             </a>
         </div>
-        <!-- Legend Starts Here --> 
+        <!-- Legend Starts Here -->
             <table class="table table-hover table-bordered ">
                 <thead>
                   <tr>
@@ -616,7 +616,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
     </div>
     <div class="wrapper objective2">
         <div class="testimonial">
-            <div class="name"></div>         
+            <div class="name"></div>
             <div class="corporateGoalContainer">
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj2"></span></h4>
             </div>
@@ -673,7 +673,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberName">Mike Ostendorf</div>
             </a>
         </div>
-            <!-- Legend Starts Here --> 
+            <!-- Legend Starts Here -->
             <table class="table table-hover table-bordered ">
                 <thead>
                   <tr>
@@ -699,7 +699,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
     </div>
     <div class="wrapper objective3">
         <div class="testimonial">
-            <div class="name"></div>         
+            <div class="name"></div>
             <div class="corporateGoalContainer">
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj3"></span></h4>
             </div>
@@ -736,7 +736,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberName">Mike Svihra</div>
             </a>
         </div>
-            <!-- Legend Starts Here --> 
+            <!-- Legend Starts Here -->
             <table class="table table-hover table-bordered ">
                 <thead>
                   <tr>
@@ -762,7 +762,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
     </div>
     <div class="wrapper objective4">
         <div class="testimonial">
-            <div class="name"></div>         
+            <div class="name"></div>
             <div class="corporateGoalContainer">
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj4"></span></h4>
             </div>
@@ -799,7 +799,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberName">Ram Menashe</div>
             </a>
         </div>
-            <!-- Legend Starts Here --> 
+            <!-- Legend Starts Here -->
             <table class="table table-hover table-bordered ">
                 <thead>
                   <tr>
@@ -825,7 +825,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
     </div>
     <div class="wrapper objective5">
         <div class="testimonial">
-            <div class="name"></div>         
+            <div class="name"></div>
             <div class="corporateGoalContainer">
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj5"></span></h4>
             </div>
@@ -858,7 +858,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberName">Lisa Zeena</div>
             </a>
         </div>
-            <!-- Legend Starts Here --> 
+            <!-- Legend Starts Here -->
             <table class="table table-hover table-bordered ">
                 <thead>
                   <tr>
@@ -884,7 +884,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
     </div>
     <div class="wrapper objective6">
         <div class="testimonial">
-            <div class="name"></div>         
+            <div class="name"></div>
             <div class="corporateGoalContainer">
                 <h4><b>Corporate Goal: </b><span id="corporateGoalValueObj6"></span></h4>
             </div>
@@ -917,7 +917,7 @@ $j('#back-on-top').click(function() { // When arrow is clicked
                 <div class="teamMemberName">Steve Bergman</div>
             </a>
         </div>
-            <!-- Legend Starts Here --> 
+            <!-- Legend Starts Here -->
             <table class="table table-hover table-bordered ">
                 <thead>
                   <tr>
@@ -945,3 +945,4 @@ $j('#back-on-top').click(function() { // When arrow is clicked
 <div id="toTheTop" class="disableToTheTop">
     <a href="#" id="back-on-top"><i class="icon-chevron-up"></i></a>
 </div>
+
