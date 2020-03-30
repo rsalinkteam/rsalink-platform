@@ -12,7 +12,19 @@
 <div class="menuBackground">
     <div class="center myMenu">
         <ul class="dropDownMenu" style="display: none;">
-            <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bdocument%5D">Documentation</a></li>
+            <li><a target="_parent" href="/community/products/fraudaction/advisories">Advisories</a>
+                <ul class="firstLevel advisoriesMenu">
+                    <li><a target="_parent" href="/community/products/fraudaction/advisories/content?filterID=contentstatus%5Bpublished%5D~category%5Bproduct-advisories%5D">Product Advisories</a></li>
+                    <li><a target="_parent" href="/community/products/fraudaction/advisories/content?filterID=contentstatus%5Bpublished%5D~category%5Bsecurity-advisories%5D">Security Advisories</a></li>
+                    <li><a target="_parent" href="/community/products/fraudaction/advisories/content?filterID=contentstatus%5Bpublished%5D~category%5Btechnical-advisories%5D">Technical Advisories</a></li>
+                </ul>
+            </li>
+            <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bdocument%5D">Documentation</a>
+             <ul class="firstLevel documentationMenu">
+                    <li><a target="_parent" href="/community/products/fraudaction/dashboard">RSA FraudAction Dashboard</a></li>
+                    <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bdocument%5D">RSA FraudAction Services</a></li>
+                </ul>
+            </li>
             <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bvideo%5D">Videos</a></li>
             <li><a target="_parent" href="/community/rsa-customer-support/knowledge-base">Knowledge Base</a></li>
             <li><a target="_parent" href="/community/training">Training</a></li>
@@ -34,6 +46,8 @@
     position: absolute;
     z-index: 999999;
 }
+.firstLevel.advisoriesMenu{width: 215px;}
+.firstLevel.documentationMenu{width: 280px;}
 </style>
 
 <!-- BEGIN ROTATING BANNER -->
@@ -46,8 +60,18 @@
 <div id="slide-box">
     <ul>
         <li>
+            <a href="https://community.rsa.com/remote-workforce?utm_source=rsalink&utm_medium=rotating_banner" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1883/remote-workforce-resource-920x244.jpg?a=1585595957669" />
+            </a>
+        </li>
+        <li>
             <a href="https://webinars.on24.com/rsa/managingbizdisruptseries?partnerref=link" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/1002/rsa-link-webinar-banner--managing-biz-disruption-920x244_Mar%2B31%2Band%2BApr8.jpg?a=1584930154645" />
+            </a>
+        </li>
+        <li>
+            <a href="https://webinars.on24.com/rsa/CloudyWithAChanceOfRisk?partnerref=link" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1883/345952_Webinar-Banners_920x244_R.jpg?a=1585549371140"/>
             </a>
         </li>
         <li>
