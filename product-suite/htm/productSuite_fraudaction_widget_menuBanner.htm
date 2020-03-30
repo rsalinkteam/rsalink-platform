@@ -12,7 +12,19 @@
 <div class="menuBackground">
     <div class="center myMenu">
         <ul class="dropDownMenu" style="display: none;">
-            <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bdocument%5D">Documentation</a></li>
+            <li><a target="_parent" href="/community/products/fraudaction/advisories">Advisories</a>
+                <ul class="firstLevel advisoriesMenu">
+                    <li><a target="_parent" href="/community/products/fraudaction/advisories/content?filterID=contentstatus%5Bpublished%5D~category%5Bproduct-advisories%5D">Product Advisories</a></li>
+                    <li><a target="_parent" href="/community/products/fraudaction/advisories/content?filterID=contentstatus%5Bpublished%5D~category%5Bsecurity-advisories%5D">Security Advisories</a></li>
+                    <li><a target="_parent" href="/community/products/fraudaction/advisories/content?filterID=contentstatus%5Bpublished%5D~category%5Btechnical-advisories%5D">Technical Advisories</a></li>
+                </ul>
+            </li>
+            <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bdocument%5D">Documentation</a>
+             <ul class="firstLevel documentationMenu">
+                    <li><a target="_parent" href="/community/products/fraudaction/dashboard">RSA FraudAction Dashboard</a></li>
+                    <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bdocument%5D">RSA FraudAction Services</a></li>
+                </ul>
+            </li>
             <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bvideo%5D">Videos</a></li>
             <li><a target="_parent" href="/community/rsa-customer-support/knowledge-base">Knowledge Base</a></li>
             <li><a target="_parent" href="/community/training">Training</a></li>
@@ -34,6 +46,8 @@
     position: absolute;
     z-index: 999999;
 }
+.firstLevel.advisoriesMenu{width: 215px;}
+.firstLevel.documentationMenu{width: 280px;}
 </style>
 
 <!-- BEGIN ROTATING BANNER -->
@@ -45,6 +59,11 @@
 
 <div id="slide-box">
     <ul>
+        <li>
+            <a href="https://community.rsa.com/remote-workforce?utm_source=rsalink&utm_medium=rotating_banner" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1883/remote-workforce-resource-920x244.jpg?a=1585595957669" />
+            </a>
+        </li>
         <li>
             <a href="https://webinars.on24.com/rsa/managingbizdisruptseries?partnerref=link" target="_blank">
                 <img src="https://community.rsa.com/resources/statics/1002/rsa-link-webinar-banner--managing-biz-disruption-920x244_Mar%2B31%2Band%2BApr8.jpg?a=1584930154645" />
@@ -87,7 +106,7 @@
 <!-- Script to activate the drop down menu -->
 <script type="text/javascript">
 $(document).ready(function() {
-    setTimeout(function(){
+    setTimeout(function(){ 
      $('.dropDownMenu').css("display",'block');
     },100);
     $('.myMenu ul.dropDownMenu li').hover(function() {
@@ -108,7 +127,7 @@ $(document).ready(function() {
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
+  
     ga('create', 'UA-72926342-1', 'auto');
     ga('send', 'pageview');
 </script>
