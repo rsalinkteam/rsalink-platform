@@ -1,3 +1,4 @@
+
 <html lang="en">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,13 +14,15 @@
     <script>
         var $j = jQuery.noConflict();
         angular.module('rsaTransitionTasks', ['ngSanitize']).controller('RSATransitionTasksController', ['$scope', '$sce','$http', function($scope, $sce, $http) {
+            $scope.tab = 1;
+
             /* Define default table data variable */
             $scope.getTitleData = "";
 
             /* Define category Boolean values */
             $scope.accordionData = false;
             $scope.communications = false;
-            $scope.corporateSuccess = false;
+            $scope.customerSuccess = false;
             $scope.facilities = false;
             $scope.finance = false;
             $scope.globalServices = false;
@@ -30,10 +33,10 @@
             $scope.marketing = false;
             $scope.procurement = false;
             $scope.federal = false;
-            
+
             /* Define category storage arrays */
             $scope.communicationsData = [];
-            $scope.corporateSuccessData = [];
+            $scope.customerSuccessData = [];
             $scope.facilitiesData = [];
             $scope.financeData = [];
             $scope.globalServicesData = [];
@@ -53,7 +56,20 @@
             $scope.iconPlusMinus = false;
             $scope.defaultIframeHeight = 0;
             $scope.visibleWrapper = 0;
-        
+
+            $scope.setTab = function(newTab){
+              $j(".searchBox input").val('');
+              $j(".panel").show();
+              $j(".collapse").removeClass("show");
+              $j(".panel-heading").find("a").attr("aria-expanded", false);
+              $j(".toggle-accordion").text("Expand All");
+              $scope.tab = newTab;
+            };
+
+            $scope.isSet = function(tabNum){
+              return $scope.tab === tabNum;
+            };
+
             /* Load the widget documents */
             $scope.init = function () {
                 /* Communications - https://community.rsa.com/docs/DOC-111000 */
@@ -62,155 +78,291 @@
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
                     $scope.communicationsData = accordionTitles;
                     window.parent.$j(".htmlWidgetIframe").css("height",window.parent.$j(".htmlWidgetIframe")[0].offsetHeight+$scope.communicationsData.length*66+"px");
                     $scope.iframeHeight = $scope.getIframeHeight();
-                    setTimeout(resizeMe,0);                               
+                    setTimeout(resizeMe,0);
                 });
-                /* Corporate Success - https://community.rsa.com/docs/DOC-111051 */
+
+                /* Communications - https://community.rsa.com/docs/DOC-111051 */
                 $http.get("https://community.rsa.com/docs/DOC-111051").then(function(response) {
                     $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.corporateSuccessData = accordionTitles;
+                    $scope.customerSuccessData = accordionTitles;
                     setTimeout(resizeMe,0);
-                                    
                 });
+
                 /* Facilities - https://community.rsa.com/docs/DOC-111052 */
                 $http.get("https://community.rsa.com/docs/DOC-111052").then(function(response) {
-                    $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
-                    var accordionTitles = [];
-                    angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
-                        $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
-                        var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+
+                    $scope.getTitleData = $j('.jive-rendered-content h1', response.data);
+                    var accordionTitles = {};
+                    angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(head1, table1) {
+                        accordionTitles[$j(head1).text()] = [];
+                        angular.forEach($j($j(head1).nextUntil("h1","h2")), function(head2, table2) {
+                            angular.forEach($j($j(head2).nextAll(".j-rte-table:first").find("tbody tr")), function(head3, table3) {
+                                $j(head3).find("td:nth-child(5)").css('vertical-align','middle');
+                                if($j(head3).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                    $j(head3).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(head3).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(head2).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(head2).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                                }else{
+                                      //$j(head3).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                      $j(head3).find("td:nth-child(5)").html($j(head3).find("td:nth-child(6)").html());
+                                }
+                            })
+                            accordionTitles[$j(head1).text()].push({'heading2':$j(head2).text(),'body': $j($j(head2).nextAll(".j-rte-table:first"))[0].innerHTML});
+                        })
+                    })
+                    $scope.facilitiesData = accordionTitles;
+
+                    setTimeout(resizeMe,0);
+
+                    /*angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value1, key1) {
+                        angular.forEach($j($j(value1).nextAll(".j-rte-table:first")).find("tbody tr"), function(value2, key2) {
+                            $j(value2).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value2).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value2).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value2).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value1).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0DThis%20is%20an%20example%20task%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  $j(value2).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                            }
+                        })
+                        $j($j(value1).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                        var data = {'head': $j(value1).text(),'body': $j($j(value1).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.facilitiesData = accordionTitles;  
-                    setTimeout(resizeMe,0);              
+
+                    $scope.facilitiesData = accordionTitles;*/
+
+
                 });
+
+
+
+
+
+
+
                 /* Finance - https://community.rsa.com/docs/DOC-111053 */
                 $http.get("https://community.rsa.com/docs/DOC-111053").then(function(response) {
                     $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.financeData = accordionTitles;  
-                    setTimeout(resizeMe,0);              
+                    $scope.financeData = accordionTitles;
+                    setTimeout(resizeMe,0);
                 });
                 /* Global Services - https://community.rsa.com/docs/DOC-111054 */
                 $http.get("https://community.rsa.com/docs/DOC-111054").then(function(response) {
                     $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.globalServicesData = accordionTitles;     
-                    setTimeout(resizeMe,0);           
+                    $scope.globalServicesData = accordionTitles;
+                    setTimeout(resizeMe,0);
                 });
                 /* Human Resources - https://community.rsa.com/docs/DOC-111055 */
                 $http.get("https://community.rsa.com/docs/DOC-111055").then(function(response) {
                     $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.humanResourcesData = accordionTitles;     
-                    setTimeout(resizeMe,0);           
+                    $scope.humanResourcesData = accordionTitles;
+                    setTimeout(resizeMe,0);
                 });
                 /* Cybersecurity & Risk Management - https://community.rsa.com/docs/DOC-111056 */
                 $http.get("https://community.rsa.com/docs/DOC-111056").then(function(response) {
                     $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.cyberRiskManagementData = accordionTitles;     
-                    setTimeout(resizeMe,0);           
+                    $scope.cyberRiskManagementData = accordionTitles;
+                    setTimeout(resizeMe,0);
                 });
                 /* Information Technology - https://community.rsa.com/docs/DOC-111057 */
                 $http.get("https://community.rsa.com/docs/DOC-111057").then(function(response) {
                     $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.infoTechnologyData = accordionTitles;     
-                    setTimeout(resizeMe,0);           
+                    $scope.infoTechnologyData = accordionTitles;
+                    setTimeout(resizeMe,0);
                 });
                 /* Legal - https://community.rsa.com/docs/DOC-111058 */
                 $http.get("https://community.rsa.com/docs/DOC-111058").then(function(response) {
                     $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.legalData = accordionTitles;     
-                    setTimeout(resizeMe,0);           
+                    $scope.legalData = accordionTitles;
+                    setTimeout(resizeMe,0);
                 });
                 /* Marketing - https://community.rsa.com/docs/DOC-111059 */
                 $http.get("https://community.rsa.com/docs/DOC-111059").then(function(response) {
                     $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.marketingData = accordionTitles;     
-                    setTimeout(resizeMe,0);           
+                    $scope.marketingData = accordionTitles;
+                    setTimeout(resizeMe,0);
                 });
                 /* Procurement - https://community.rsa.com/docs/DOC-111060 */
                 $http.get("https://community.rsa.com/docs/DOC-111060").then(function(response) {
                     $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.procurementData = accordionTitles;     
-                    setTimeout(resizeMe,0);           
+                    $scope.procurementData = accordionTitles;
+                    setTimeout(resizeMe,0);
                 });
                 /* U.S. Federal - https://community.rsa.com/docs/DOC-111061 */
                 $http.get("https://community.rsa.com/docs/DOC-111061").then(function(response) {
                     $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
                     var accordionTitles = [];
                     angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}), function(value, key) {
+                        angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("tbody tr"), function(value1, key1) {
+                            $j(value1).find("td:nth-child(5)").css('vertical-align','middle');
+                            if($j(value1).find("td:nth-child(5)").text().toLowerCase().indexOf('yes') > -1){
+                                $j(value1).find("td:nth-child(5)").html('<a class="volunteer" href="'+$j(value1).find("td:nth-child(3) a").attr('href')+'?subject=Volunteer%20for%20'+$j(value).text()+'&body=Hello,%0DI%20would%20like%20to%20volunter%20for%20the%20task%20below.%0D%0D%0DCATEGORY:%0DCommunications%0D%0DTASK:%0D'+$j(value).text()+'%0D%0DMANAGER NAME:%0D%5BEnter%20your%20manager name%5D%0D%0DNAME:%0D%5BEnter%20your%20name%5D%0D%0DEMAIL:%0D%5BEnter%20your%20email%20address%5D%0D%0DSKILLS:%0D%5BExplain%20or%20list%20your%20skills%20and%20how%20they%20could%20contribute%20to%20this%20task.%5D%0D%0DTIME:%0D%5BState%20how%20much%20time%20you%20can%20dedicate%20to%20this%20task%20without%20causing%20negative%20impact%20to%20your%20primary%20responsibilities.%5D%0D%0DThank%20you%21">Volunteer Now</a>');
+                            }else{
+                                  //$j(value1).find("td:nth-child(5)").html('<a class="noVolunteer">No Volunteers Needed</a>');
+                                  $j(value1).find("td:nth-child(5)").html($j(value1).find("td:nth-child(6)").html());
+                            }
+                        })
                         $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
                         var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
                         this.push(data);
                     }, accordionTitles);
-                    $scope.federalData = accordionTitles;     
-                    setTimeout(resizeMe,0);           
+                    $scope.federalData = accordionTitles;
+                    setTimeout(resizeMe,0);
                 });
 
                 /* Define the toggle functionality */
-                setTimeout(function(){ 
+                setTimeout(function(){
                     window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove();
                     $j(".toggle-accordion").on("click", function() {
                         var accordionId = $j(this).attr("accordion-id"),
                         numPanelOpen = $j(accordionId + ' .collapse.show').length;
-                        console.log(numPanelOpen);
                         $j(this).toggleClass("active");
 
                         /* Establish the Expand/Collapse All functionality */
@@ -223,40 +375,34 @@
                             $j(this).text("Collapse All");
                             }else{
                                 closeAllPanels(accordionId);
-                                $j(this).text("Expand All");  
+                                $j(this).text("Expand All");
                             }
                         }
                         setTimeout(resizeMe,0);
                     })
                     openAllPanels = function(aId) {
-                        console.log("setAllPanelOpen");
                         $j(aId + ' .panel-collapse.in').addClass('show');
                         $j(aId + ' .panel-heading h2 a').attr("aria-expanded", true);
                     }
                     closeAllPanels = function(aId) {
-                        console.log("setAllPanelclose");
                         $j(aId + ' .panel-collapse.in').collapse('hide');
                     }
+                    $j(".imageLoader").remove();
                     // $j("#headingNewA").find("a").attr("aria-expanded", true);
                 }, 1500);
                 $scope.categoryBoxes = true;
                 setTimeout(function(){$scope.iframeHeight = $scope.getIframeHeight();}, 100);
                 setTimeout(resizeMe,100);
             };
-            
+
             /* Call the init function */
             $scope.init();
             $scope.resizeAccordion = function($event) {
-                console.log()
-                //setTimeout(resizeMe,500);
-                /*console.log($scope.defaultIframeHeight);
-                console.log($scope.visibleWrapper);
-                console.log($j(".visibleWrapper").height());*/
-                setTimeout(function(){ 
+                setTimeout(function(){
                     window.parent.$j(".htmlWidgetIframe").css("height",$scope.defaultIframeHeight + $j(".visibleWrapper").height()+"px");
                 }, 1000);
             };
-            
+
             $scope.deliberatelySnippet = function(data) {
                 return $sce.trustAsHtml(data);
             };
@@ -264,691 +410,685 @@
             $scope.getIframeHeight = function(){
                 return window.parent.$j(".htmlWidgetIframe")[0].offsetHeight;
             };
-            
-            $scope.getIframeHeight();
-            $scope.filterByAudience = function(audience, $event){
-                if(angular.element($event.target).hasClass("font-bold")){
-                    $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                    $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                    $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    $j(".gsCategory").removeClass("boxSizeReduce");
-                    angular.element($event.target).removeClass("font-bold");
-                }else if(angular.element($event.target).parents(".gsCategory").hasClass("font-bold")){
-                    $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                    $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                    $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    $j(".gsCategory").removeClass("boxSizeReduce");
-                    angular.element($event.target).parents(".gsCategory").removeClass("font-bold");
-                }else{
-                    $scope.defaultIframeHeight = 0;
-                    $scope.visibleWrapper = 0;
-                    $j(".gsCategory").addClass("boxSizeReduce");
-                    $j(".gsCategory").removeClass("font-bold");
-                    angular.element($event.target).removeClass("boxSizeReduce");
-                    angular.element($event.target).parents(".gsCategory").removeClass("boxSizeReduce");
-                    angular.element($event.target).parents(".gsCategory").addClass("font-bold");
 
-                    $scope.iframeHeight = 0;
-                    $scope.wrapperOffSetHeight = 0;
-                    $scope.collapseOffSetHeight = 0;  
-                    $scope.getTitleData = "";
-                    if(audience == 'communications'){
-                        $scope.communications = true; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                        $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                        $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    }else if(audience == 'corporateSuccess'){
-                        $scope.communications = false; $scope.corporateSuccess = true; $scope.facilities = false; $scope.finance = false; 
-                        $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                        $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    }else if(audience == 'facilities'){
-                        $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = true; $scope.finance = false; 
-                        $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                        $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    }else if(audience == 'finance'){
-                        $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = true; 
-                        $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                        $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    }else if(audience == 'globalServices'){
-                        $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                        $scope.globalServices = true; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                        $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    }else if(audience == 'humanResources'){
-                        $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                        $scope.globalServices = false; $scope.humanResources = true; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                        $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    }else if(audience == 'cyberRiskManagement'){
-                        $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                        $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = true; $scope.infoTechnology = false; 
-                        $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    }else if(audience == 'infoTechnology'){
-                        $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                        $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = true; 
-                        $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    }else if(audience == 'legal'){
-                        $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                        $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                        $scope.legal = true; $scope.marketing = false; $scope.procurement = false; $scope.federal = false;
-                    }else if(audience == 'marketing'){
-                        $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                        $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                        $scope.legal = false; $scope.marketing = true; $scope.procurement = false; $scope.federal = false;
-                    }else if(audience == 'procurement'){
-                        $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                        $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                        $scope.legal = false; $scope.marketing = false; $scope.procurement = true; $scope.federal = false;
-                    }else if(audience == 'federal'){
-                        $scope.communications = false; $scope.corporateSuccess = false; $scope.facilities = false; $scope.finance = false; 
-                        $scope.globalServices = false; $scope.humanResources = false; $scope.cyberRiskManagement = false; $scope.infoTechnology = false; 
-                        $scope.legal = false; $scope.marketing = false; $scope.procurement = false; $scope.federal = true;
-                    }
-                    
-                    $j(".collapse").removeClass("show");
-                    $j(".panel-heading").find("a").attr("aria-expanded", false);
-                    $j(".toggle-accordion").text("Expand All");
-                    
-                    setTimeout(function(){ 
-                        $scope.iframeHeight = $scope.getIframeHeight();
-                        $scope.defaultIframeHeight = $scope.iframeHeight;
-                        $scope.visibleWrapper = angular.element($event.target).parents(".container-fluid").find(".visibleWrapper").parent().height();                  
-                    }, 100);
-                }
-                setTimeout(resizeMe,0); 
-            }
+            $scope.getIframeHeight();
             $scope.indexChar = function (index) {
                 return String.fromCharCode(65 + index);
+            };
+            $scope.strToHex = function (str) {
+	            var arr1 = [];
+	            for (var n = 0, l = str.length; n < l; n ++) {
+		            var hex = Number(str.charCodeAt(n)).toString(16);
+		            arr1.push(hex);
+	            }
+	            return arr1.join('').slice(0,15);
+            };
+
+            $scope.searchVolunteer = function (event) {
+                $j(event.target).parents(".getParentWrapper").find(".panel").filter(function() {$j(this).toggle($j(this).text().toLowerCase().indexOf($j(event.target).val().toLowerCase()) > -1);});
+                /*if(($scope.selectedProductName == null) && ($scope.selectedVersion == null)){
+                    if($(event.target).val().toLowerCase() == ""){
+                        $scope.noDataWrapper = true;
+                        jive_widget_container_large.find(".masterDocument").hide();
+                    }else{
+                        $scope.noDataWrapper = false;
+                        jive_widget_container_large.find(".masterDocument").show();
+                        $scope.getCourseRowData.filter(function() {
+                            $(this).toggle($(this).text().toLowerCase().indexOf($(event.target).val().toLowerCase()) > -1);
+                        });
+                    }
+                }else{
+                    $scope.noDataWrapper = false;
+                    jive_widget_container_large.find(".masterDocument").show();
+                    $scope.getCourseRowData.filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf($(event.target).val().toLowerCase()) > -1);
+                    });
+                }*/
+                setTimeout(resizeMe,0);
             };
         }]);
     </script>
 
     <div ng-controller="RSATransitionTasksController" ng-app="rsaTransitionTasks">
-        <div class="container-fluid">
-            <div class="row logo" ng-show="categoryBoxes">
-                <div class="col-sm-2" style="margin-left: 25px">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('communications', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_communications"></div>
-                                <div class="productFooter">Communications</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-                <div class="col-sm-2 col-half-offset">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('corporateSuccess', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_corporate_success"></div>
-                                <div class="productFooter">Corporate Success</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-                <div class="col-sm-2 col-half-offset">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('facilities', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_facilities"></div>
-                                <div class="productFooter">Facilities</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-                <div class="col-sm-2 col-half-offset">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('finance', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_finance"></div>
-                                <div class="productFooter">Finance</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-                <div class="col-sm-2 col-half-offset">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('globalServices', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_global_services"></div>
-                                <div class="productFooter">Global Services</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-                <div class="col-sm-2 col-half-offset" style="margin-right: 25px">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('humanResources', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_human_resources"></div>
-                                <div class="productFooter">Human Resources</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
+          <div class="row">
+            <div class="col-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <li ng-class="{ active: isSet(1) }" style="margin-top: 3px;">
+                        <a class="btn btn-lg" href ng-click="setTab(1)"><span class="icon_communications_white icon_section_header_small" ng-show="isSet(1)"></span><span class="icon_communications icon_section_header_small" ng-show="!isSet(1)"></span>Communications</a>
+                    </li>
+                    <!-- Commented due to RSALINK-9417 -->
+                    <!-- <li ng-class="{ active: isSet(2) }">
+                        <a class="btn btn-lg"  href ng-click="setTab(2)"><span class="icon_customer_success_white icon_section_header_small" ng-show="isSet(2)" ></span><span ng-show="!isSet(2)"  class="icon_customer_success icon_section_header_small"></span>Customer Success</a>
+                    </li> -->
+                    <li ng-class="{ active: isSet(3) }">
+                        <a class="btn btn-lg"  href ng-click="setTab(3)"><span  ng-show="isSet(3)" class="icon_facilities_white icon_section_header_small"></span><span ng-show="!isSet(3)"  class="icon_facilities icon_section_header_small"></span>Facilities</a>
+                    </li>
+                    <li ng-class="{ active: isSet(4) }">
+                        <a class="btn btn-lg" href ng-click="setTab(4)"><span ng-show="isSet(4)" class="icon_finance_white icon_section_header_small"></span><span ng-show="!isSet(4)" class="icon_finance icon_section_header_small"></span>Finance</a>
+                    </li>
+                    <!-- Commented due to RSALINK-9417 -->
+                    <!-- <li ng-class="{ active: isSet(5) }">
+                        <a class="btn btn-lg"  href ng-click="setTab(5)"><span ng-show="isSet(5)" class="icon_global_services_white icon_section_header_small"></span><span ng-show="!isSet(5)" class="icon_global_services icon_section_header_small"></span>Global Services</a>
+                    </li> -->
+                    <li ng-class="{ active: isSet(6) }">
+                        <a class="btn btn-lg"  href ng-click="setTab(6)"><span ng-show="isSet(6)" class="icon_human_resources_white icon_section_header_small"></span><span ng-show="!isSet(6)" class="icon_human_resources icon_section_header_small"></span>Human Resources</a>
+                    </li>
+                    <li ng-class="{ active: isSet(7) }">
+                        <a class="btn btn-lg" href ng-click="setTab(7)"><span style="margin-top: 12px;" ng-show="isSet(7)" class="icon_cyber_risk_mgmt_white icon_section_header_small"></span><span style="margin-top: 12px;" ng-show="!isSet(7)" class="icon_cyber_risk_mgmt icon_section_header_small"></span>Cybersecurity & Risk Management</a>
+                    </li>
+                    <li ng-class="{ active: isSet(8) }">
+                        <a class="btn btn-lg"  href ng-click="setTab(8)"><span ng-show="isSet(8)" class="icon_info_technology_white icon_section_header_small" style="margin-top: 12px;" ></span><span ng-show="!isSet(8)" class="icon_info_technology icon_section_header_small" style="margin-top: 12px;" ></span>Information Technology</a>
+                    </li>
+                    <li ng-class="{ active: isSet(9) }">
+                        <a class="btn btn-lg"  href ng-click="setTab(9)"><span ng-show="isSet(9)" class="icon_legal_white icon_section_header_small"></span><span ng-show="!isSet(9)" class="icon_legal icon_section_header_small"></span>Legal</a>
+                    </li>
+                    <!-- Commented due to RSALINK-9417 -->
+                    <!-- <li ng-class="{ active: isSet(10) }">
+                        <a class="btn btn-lg" href ng-click="setTab(10)"><span ng-show="isSet(10)" class="icon_marketing_white icon_section_header_small"></span><span ng-show="!isSet(10)" class="icon_marketing icon_section_header_small"></span>Marketing</a>
+                    </li> -->
+                    <li ng-class="{ active: isSet(11) }">
+                        <a class="btn btn-lg"  href ng-click="setTab(11)"><span ng-show="isSet(11)" class="icon_procurement_white icon_section_header_small"></span><span ng-show="!isSet(11)" class="icon_procurement icon_section_header_small"></span>Procurement</a>
+                    </li>
+                    <li ng-class="{ active: isSet(12) }">
+                        <a class="btn btn-lg"  href ng-click="setTab(12)"><span ng-show="isSet(12)" class="icon_federal_white icon_section_header_small"></span><span ng-show="!isSet(12)" class="icon_federal icon_section_header_small"></span>U.S. Federal</a>
+                    </li>
+                </ul>
             </div>
-            <div class="row"><div class="col-sm-12">&nbsp;</div></div>
-            
-            <!-- Start Communications Section -->
-            <div class="row" ng-show="communications"><span class="visibleWrapper" ng-if="communications"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row"><div class="col-sm-1"><div class="icon_communications icon_section_header"></div></div><div class="col-sm-11"><h4 style="padding-top: 18px;">Communications</h4></div></div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">                        
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion0">Expand All</a></div> -->
-                                <div class="clearfix"></div>
-                                <div class="panel-group" id="accordion0" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in communicationsData">
-                                        <div class="panel-heading" role="tab" id="headingNew{{indexChar($index)}}" ng-click="resizeAccordion($event)">
-                                            <h2 class="mb-0">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion0" href="#collapseNew{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseNew{{indexChar($index)}}" class="collapsed">
-                                                    {{data.head}}
-                                                </a>
-                                            </h2>
-                                        </div>
-                                        <div id="collapseNew{{indexChar($index)}}" class="panel-collapse in collapse" ng-class="{'show': indexChar($index) == 'A'}"  role="tabpanel" aria-labelledby="headingNew{{indexChar($index)}}">
-                                            <div class="panel-body"><div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div></div>
-                                        </div>
-                                    </div>            
+            <div class="col-9">
+                <div class="transactionDetails scrollbar" id="style-3">
+                    <div ng-show="isSet(1)" class="getParentWrapper">
+                         <span class="icon_communications icon_section_header"></span>
+                         <h1>Communications</h1>
+                        <div class="bottom-border"></div>
+                        <!-- Start Communications Section -->
+                        <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
+                        <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion0">Expand All</a></div>
+                        <div class="clearfix"></div>
+                        <div class="imageLoader" style="text-align: center;"><img alt="" src="https://community.rsa.com/resources/statics/265870/jive-image-loading.gif?a=1582626242003"/></div>
+                        <div class="panel-group" id="accordion0" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in communicationsData">
+                                <div class="panel-heading" role="tab" id="headingNew{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                    <h2 class="mb-0">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion0" href="#collapseNew{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseNew{{indexChar($index)}}" class="collapsed">
+                                            {{data.head}}
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div id="collapseNew{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingNew{{indexChar($index)}}">
+                                    <div class="panel-body"><div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Communications Section -->
-            
-            <!-- Start Corporate Success Section -->
-            <div class="row" ng-show="corporateSuccess"><span class="visibleWrapper" ng-if="corporateSuccess"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_corporate_success icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">Corporate Success</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion1">Expand All</a></div> -->
-                                <div class="clearfix"></div>
-                                <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in corporateSuccessData">
-                                            <div class="panel-heading" role="tab" id="headingStarted{{indexChar($index)}}" ng-click="resizeAccordion($event)">
-                                                <h2 class="mb-0">
-                                                    <a role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseStarted{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseStarted{{indexChar($index)}}" class="collapsed">
-                                                        {{data.head}}
-                                                    </a>
-                                                </h2>
-                                            </div>
-                                        <div id="collapseStarted{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingStarted{{indexChar($index)}}">
-                                            <div class="panel-body">
-                                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
-                                            </div>
-                                        </div>
-                                    </div>            
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Corporate Success Section -->
 
-            <!-- Start Facilities Section -->
-            <div class="row" ng-show="facilities"><span class="visibleWrapper" ng-if="facilities"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_facilities icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">Facilities</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion2">Expand All</a></div> -->
-                                <div class="clearfix"></div>  
-                                <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in facilitiesData">
-                                        <div class="panel-heading" role="tab" id="headingDeploy{{indexChar($index)}}" ng-click="resizeAccordion($event)">
-                                            <h2 class="mb-0">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseDeploy{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseDeploy{{indexChar($index)}}" class="collapsed">
-                                                    {{data.head}}
-                                                </a>
-                                            </h2>
-                                        </div>
-                                        <div id="collapseDeploy{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingDeploy{{indexChar($index)}}">
-                                            <div class="panel-body">
-                                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
-                                            </div>
-                                        </div>
-                                    </div>            
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- End Facilities Section -->
-            
-            <!-- Start Finance Section -->
-            <div class="row" ng-show="finance"><span class="visibleWrapper" ng-if="finance"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_finance icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">Finance</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion3">Expand All</a></div> -->
-                                <div class="clearfix"></div>
-                                <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in financeData">
-                                        <div class="panel-heading" role="tab" id="headingSetupandManage{{indexChar($index)}}" ng-click="resizeAccordion($event)">
-                                            <h2 class="mb-0">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseSetupandManage{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseSetupandManage{{indexChar($index)}}" class="collapsed">
-                                                    {{data.head}}
-                                                </a>
-                                            </h2>
-                                        </div>
-                                        <div id="collapseSetupandManage{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingSetupandManage{{indexChar($index)}}">
-                                            <div class="panel-body">
-                                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
-                                            </div>
-                                        </div>
-                                    </div>            
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Finance Section -->
-            
-            <!-- Start Global Services Section -->
-            <div class="row" ng-show="globalServices"><span class="visibleWrapper" ng-if="globalServices"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_global_services icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">Global Services</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion4">Expand All</a></div> -->
-                                <div class="clearfix"></div>  
-                                <div class="panel-group" id="accordion4" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in globalServicesData">
-                                        <div class="panel-heading" role="tab" id="headingInvestigate{{indexChar($index)}}" ng-click="resizeAccordion($event)">
-                                            <h2 class="mb-0">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseInvestigate{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseInvestigate{{indexChar($index)}}" class="collapsed">
-                                                    {{data.head}}
-                                                </a>
-                                            </h2>
-                                        </div>
-                                        <div id="collapseInvestigate{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingInvestigate{{indexChar($index)}}" style="">
-                                            <div class="panel-body">
-                                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
-                                            </div>
-                                        </div>
+                    <div ng-show="isSet(2)" class="getParentWrapper">
+                      <span class="icon_customer_success icon_section_header"></span>
+                      <h1>Customer Success</h1>
+                      <div class="bottom-border"></div>
+                      <!-- Start Customer Success Section -->
+                        <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control volunteerData" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
+                        <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion1">Expand All</a></div>
+                        <div class="clearfix"></div>
+                        <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in customerSuccessData">
+                                    <div class="panel-heading" role="tab" id="headingStarted{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                        <h2 class="mb-0">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseStarted{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseStarted{{indexChar($index)}}" class="collapsed">
+                                                {{data.head}}
+                                            </a>
+                                        </h2>
+                                    </div>
+                                <div id="collapseStarted{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingStarted{{indexChar($index)}}">
+                                    <div class="panel-body">
+                                        <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- End Global Services Section -->
+                    <div ng-show="isSet(3)" class="getParentWrapper">
+                      <span class="icon_facilities icon_section_header"></span>
+                      <h1>Facilities</h1>
+                      <div class="bottom-border"></div>
+                        <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
+                        <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion2">Expand All</a></div>
+                        <div class="clearfix"></div>
+                            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-default" ng-repeat="(key, level1) in facilitiesData">
+                                    <div class="panel-heading" role="tab" id="headingDeploy{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                        <h2 class="mb-0">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseDeploy{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseDeploy{{indexChar($index)}}" class="collapsed">
+                                                {{key}}
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseDeploy{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingDeploy{{indexChar($index)}}">
+                                        <div class="panel-body">
 
-            <!-- Start Human Resources Section -->
-            <div class="row" ng-show="humanResources"><span class="visibleWrapper" ng-if="humanResources"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_human_resources icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">Human Resources</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion4">Expand All</a></div> -->
-                                <div class="clearfix"></div>  
-                                <div class="panel-group" id="accordion4" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in humanResourcesData">
-                                        <div class="panel-heading" role="tab" id="headingInvestigate{{indexChar($index)}}" ng-click="resizeAccordion($event)">
-                                            <h2 class="mb-0">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseInvestigate{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseInvestigate{{indexChar($index)}}" class="collapsed">
-                                                    {{data.head}}
-                                                </a>
-                                            </h2>
-                                        </div>
-                                        <div id="collapseInvestigate{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingInvestigate{{indexChar($index)}}">
-                                            <div class="panel-body">
-                                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                            <div class="panel-group" id="accordion2{{strToHex(key)}}" role="tablist" aria-multiselectable="true">
+                                                <div class="panel panel-default" ng-repeat="data in level1">
+                                                    <div class="panel-heading" role="tab" id="headingDeploy{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                                        <h2 class="mb-0">
+                                                            <a role="button" data-toggle="collapse" data-parent="#accordion2{{strToHex(key)}}" href="#collapseDeploy{{strToHex(key)}}{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseDeploy{{strToHex(key)}}{{indexChar($index)}}" class="collapsed">
+                                                                {{data.heading2}}
+                                                            </a>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="collapseDeploy{{strToHex(key)}}{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingDeploy{{indexChar($index)}}">
+                                                        <div class="panel-body">
+                                                            <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                    <div ng-show="isSet(4)" class="getParentWrapper">
+                        <span class="icon_finance icon_section_header"></span>
+                        <h1>Finance</h1>
+                        <div class="bottom-border"></div>
+                        <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
+
+                        <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion3">Expand All</a></div>
+                            <div class="clearfix"></div>
+                            <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-default" ng-repeat="data in financeData">
+                                    <div class="panel-heading" role="tab" id="headingSetupandManage{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                        <h2 class="mb-0">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseSetupandManage{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseSetupandManage{{indexChar($index)}}" class="collapsed">
+                                                {{data.head}}
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseSetupandManage{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingSetupandManage{{indexChar($index)}}">
+                                        <div class="panel-body">
+                                            <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div ng-show="isSet(5)" class="getParentWrapper">
+                      <span class="icon_global_services icon_section_header"></span>
+                      <h1>Global Services</h1>
+                      <div class="bottom-border"></div>
+                      <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
+
+                      <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion4">Expand All</a></div>
+                        <div class="clearfix"></div>
+                        <div class="panel-group" id="accordion4" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in globalServicesData">
+                                <div class="panel-heading" role="tab" id="headingInvestigate{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                    <h2 class="mb-0">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseInvestigate{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseInvestigate{{indexChar($index)}}" class="collapsed">
+                                            {{data.head}}
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div id="collapseInvestigate{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingInvestigate{{indexChar($index)}}" style="">
+                                    <div class="panel-body">
+                                        <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- End Human Resources Section -->
+                    <div ng-show="isSet(6)" class="getParentWrapper">
+                      <span class="icon_human_resources icon_section_header"></span>
+                      <h1>Human Resources</h1>
+                      <div class="bottom-border"></div>
+                      <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
 
+                      <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion5">Expand All</a></div>
+                        <div class="clearfix"></div>
+                        <div class="panel-group" id="accordion5" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in humanResourcesData">
+                                <div class="panel-heading" role="tab" id="headingInvestigate{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                    <h2 class="mb-0">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion5" href="#collapseInvestigate{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseInvestigate{{indexChar($index)}}" class="collapsed">
+                                            {{data.head}}
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div id="collapseInvestigate{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingInvestigate{{indexChar($index)}}">
+                                    <div class="panel-body">
+                                        <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="isSet(7)" class="getParentWrapper">
+                        <span class="icon_cyber_risk_mgmt icon_section_header"></span>
+                        <h1>Cybersecurity & Risk Management</h1>
+                        <div class="bottom-border"></div>
+                        <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
 
-            <div class="row logo" ng-show="categoryBoxes">
-                <div class="col-sm-2" style="margin-left: 25px">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('cyberRiskManagement', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_cyber_risk_mgmt"></div>
-                                <div class="productFooter">Cybersecurity &amp; Risk Management</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-                <div class="col-sm-2 col-half-offset">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('infoTechnology', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_info_technology"></div>
-                                <div class="productFooter">Information Technology</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-                <div class="col-sm-2 col-half-offset">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('legal', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_legal"></div>
-                                <div class="productFooter">Legal</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-                <div class="col-sm-2 col-half-offset">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('marketing', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_marketing"></div>
-                                <div class="productFooter">Marketing</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-                <div class="col-sm-2 col-half-offset">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('procurement', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_procurement"></div>
-                                <div class="productFooter">Procurement</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-                <div class="col-sm-2 col-half-offset" style="margin-right: 25px">
-                    <a class="iconLink">
-                        <div class="gsCategory" ng-click="filterByAudience('federal', $event)">
-                            <div class="categoryBox boxHover">
-                                <div class="circle icon_federal"></div>
-                                <div class="productFooter">U.S. Federal</div>
-                            </div>
-                        </div>
-                    </a><br/>
-                </div>
-            </div>
-            <div class="row"><div class="col-sm-12">&nbsp;</div></div>
-
-            <!-- Start Cybersecurity & Risk Management Section -->
-            <div class="row" ng-show="cyberRiskManagementData"><span class="visibleWrapper" ng-if="cyberRiskManagement"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_cyber_risk_mgmt icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">Cybersecurity &amp; Risk Management</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">                        
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion0">Expand All</a></div> -->
+                            <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion6">Expand All</a></div>
                                 <div class="clearfix"></div>
-                                <div class="panel-group" id="accordion0" role="tablist" aria-multiselectable="true">
+                                <div class="panel-group" id="accordion6" role="tablist" aria-multiselectable="true">
                                     <div class="panel panel-default" ng-repeat="data in cyberRiskManagementData">
                                         <div class="panel-heading" role="tab" id="headingNew{{indexChar($index)}}" ng-click="resizeAccordion($event)">
                                             <h2 class="mb-0">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion0" href="#collapseNew{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseNew{{indexChar($index)}}" class="collapsed">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion6" href="#collapseNew{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseNew{{indexChar($index)}}" class="collapsed">
                                                     {{data.head}}
                                                 </a>
                                             </h2>
                                         </div>
-                                        <div id="collapseNew{{indexChar($index)}}" class="panel-collapse in collapse" ng-class="{'show': indexChar($index) == 'A'}"  role="tabpanel" aria-labelledby="headingNew{{indexChar($index)}}">
+                                        <div id="collapseNew{{indexChar($index)}}" class="panel-collapse in collapse"  role="tabpanel" aria-labelledby="headingNew{{indexChar($index)}}">
                                             <div class="panel-body"><div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div></div>
                                         </div>
-                                    </div>            
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- End Cybersecurity & Risk Management Section -->
-            
-            <!-- Start Information Technology Section -->
-            <div class="row" ng-show="infoTechnology"><span class="visibleWrapper" ng-if="infoTechnology"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_info_technology icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">Information Technology</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion1">Expand All</a></div> -->
-                                <div class="clearfix"></div>
-                                <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in infoTechnologyData">
-                                            <div class="panel-heading" role="tab" id="headingStarted{{indexChar($index)}}" ng-click="resizeAccordion($event)">
-                                                <h2 class="mb-0">
-                                                    <a role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseStarted{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseStarted{{indexChar($index)}}" class="collapsed">
-                                                        {{data.head}}
-                                                    </a>
-                                                </h2>
-                                            </div>
-                                        <div id="collapseStarted{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingStarted{{indexChar($index)}}">
-                                            <div class="panel-body">
-                                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
-                                            </div>
-                                        </div>
-                                    </div>            
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Information Technology Section -->
+                    <div ng-show="isSet(8)" class="getParentWrapper">
+                      <span class="icon_info_technology icon_section_header"></span>
+                      <h1>Information Technology</h1>
+                      <div class="bottom-border"></div>
+                      <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
 
-            <!-- Start Legal Section -->
-            <div class="row" ng-show="legal"><span class="visibleWrapper" ng-if="legal"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_legal icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">Legal</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion2">Expand All</a></div> -->
-                                <div class="clearfix"></div>  
-                                <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in legalData">
-                                        <div class="panel-heading" role="tab" id="headingDeploy{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                        <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion7">Expand All</a></div>
+                            <div class="clearfix"></div>
+                            <div class="panel-group" id="accordion7" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-default" ng-repeat="data in infoTechnologyData">
+                                        <div class="panel-heading" role="tab" id="headingStarted{{indexChar($index)}}" ng-click="resizeAccordion($event)">
                                             <h2 class="mb-0">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseDeploy{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseDeploy{{indexChar($index)}}" class="collapsed">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion7" href="#collapseStarted{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseStarted{{indexChar($index)}}" class="collapsed">
                                                     {{data.head}}
                                                 </a>
                                             </h2>
                                         </div>
-                                        <div id="collapseDeploy{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingDeploy{{indexChar($index)}}">
-                                            <div class="panel-body">
-                                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
-                                            </div>
+                                    <div id="collapseStarted{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingStarted{{indexChar($index)}}">
+                                        <div class="panel-body">
+                                            <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
                                         </div>
-                                    </div>            
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div ng-show="isSet(9)" class="getParentWrapper">
+                      <span class="icon_legal icon_section_header"></span>
+                      <h1>Legal</h1>
+                      <div class="bottom-border"></div>
+                      <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
+
+                      <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion8">Expand All</a></div>
+                        <div class="clearfix"></div>
+                        <div class="panel-group" id="accordion8" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in legalData">
+                                <div class="panel-heading" role="tab" id="headingDeploy{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                    <h2 class="mb-0">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion8" href="#collapseDeploy{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseDeploy{{indexChar($index)}}" class="collapsed">
+                                            {{data.head}}
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div id="collapseDeploy{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingDeploy{{indexChar($index)}}">
+                                    <div class="panel-body">
+                                        <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- End Legal Section -->
-            
-            <!-- Start Marketing Section -->
-            <div class="row" ng-show="marketing"><span class="visibleWrapper" ng-if="marketing"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_marketing icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">Marketing</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion3">Expand All</a></div> -->
-                                <div class="clearfix"></div>
-                                <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in marketingData">
-                                        <div class="panel-heading" role="tab" id="headingSetupandManage{{indexChar($index)}}" ng-click="resizeAccordion($event)">
-                                            <h2 class="mb-0">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseSetupandManage{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseSetupandManage{{indexChar($index)}}" class="collapsed">
-                                                    {{data.head}}
-                                                </a>
-                                            </h2>
+                    <div ng-show="isSet(10)" class="getParentWrapper">
+                        <span class="icon_marketing icon_section_header"></span>
+                        <h1>Marketing</h1>
+                        <div class="bottom-border"></div>
+                        <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
+
+                        <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion9">Expand All</a></div>
+                            <div class="clearfix"></div>
+                            <div class="panel-group" id="accordion9" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-default" ng-repeat="data in marketingData">
+                                    <div class="panel-heading" role="tab" id="headingSetupandManage{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                        <h2 class="mb-0">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion9" href="#collapseSetupandManage{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseSetupandManage{{indexChar($index)}}" class="collapsed">
+                                                {{data.head}}
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseSetupandManage{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingSetupandManage{{indexChar($index)}}">
+                                        <div class="panel-body">
+                                            <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
                                         </div>
-                                        <div id="collapseSetupandManage{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingSetupandManage{{indexChar($index)}}">
-                                            <div class="panel-body">
-                                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
-                                            </div>
-                                        </div>
-                                    </div>            
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div ng-show="isSet(11)" class="getParentWrapper">
+                      <span class="icon_procurement icon_section_header"></span>
+                      <h1>Procurement</h1>
+                      <div class="bottom-border"></div>
+                      <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
+
+                      <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion10">Expand All</a></div>
+                        <div class="clearfix"></div>
+                        <div class="panel-group" id="accordion10" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in procurementData">
+                                <div class="panel-heading" role="tab" id="headingInvestigate{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                    <h2 class="mb-0">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion10" href="#collapseInvestigate{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseInvestigate{{indexChar($index)}}" class="collapsed">
+                                            {{data.head}}
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div id="collapseInvestigate{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingInvestigate{{indexChar($index)}}" style="">
+                                    <div class="panel-body">
+                                        <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- End Marketing Section -->
-            
-            <!-- Start Procurement Section -->
-            <div class="row" ng-show="procurement"><span class="visibleWrapper" ng-if="procurement"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_procurement icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">Procurement</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion4">Expand All</a></div> -->
-                                <div class="clearfix"></div>  
-                                <div class="panel-group" id="accordion4" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in procurementData">
-                                        <div class="panel-heading" role="tab" id="headingInvestigate{{indexChar($index)}}" ng-click="resizeAccordion($event)">
-                                            <h2 class="mb-0">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseInvestigate{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseInvestigate{{indexChar($index)}}" class="collapsed">
-                                                    {{data.head}}
-                                                </a>
-                                            </h2>
-                                        </div>
-                                        <div id="collapseInvestigate{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingInvestigate{{indexChar($index)}}" style="">
-                                            <div class="panel-body">
-                                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
-                                            </div>
-                                        </div>
+                    <div ng-show="isSet(12)" class="getParentWrapper">
+                      <span class="icon_federal icon_section_header"></span>
+                      <h1>U.S. Federal</h1>
+                      <div class="bottom-border"></div>
+                      <div class="searchBox" style="float: left;float: left;padding-top: 1.5%;margin-bottom: -4.5%;padding-left: 1.5%;"><input ng-keyup="searchVolunteer($event)" type="text" class="form-control" id="volunteer" placeholder="Search" ng-model="volunteerInput"></div>
+
+                      <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion11">Expand All</a></div>
+                        <div class="clearfix"></div>
+                        <div class="panel-group" id="accordion11" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in federalData">
+                                <div class="panel-heading" role="tab" id="headingInvestigate{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                    <h2 class="mb-0">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion11" href="#collapseInvestigate{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseInvestigate{{indexChar($index)}}" class="collapsed">
+                                            {{data.head}}
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div id="collapseInvestigate{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingInvestigate{{indexChar($index)}}">
+                                    <div class="panel-body">
+                                        <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Procurement Section -->
-
-            <!-- Start Federal Section -->
-            <div class="row" ng-show="federal"><span class="visibleWrapper" ng-if="federal"></span>
-                <div class="col-sm-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-1"><div class="icon_federal icon_section_header"></div></div>
-                            <div class="col-sm-11"><h4 style="padding-top: 18px;">U.S. Federal</h4></div>
-                        </div>
-                        <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion4">Expand All</a></div> -->
-                                <div class="clearfix"></div>  
-                                <div class="panel-group" id="accordion4" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" ng-repeat="data in federalData">
-                                        <div class="panel-heading" role="tab" id="headingInvestigate{{indexChar($index)}}" ng-click="resizeAccordion($event)">
-                                            <h2 class="mb-0">
-                                                <a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseInvestigate{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseInvestigate{{indexChar($index)}}" class="collapsed">
-                                                    {{data.head}}
-                                                </a>
-                                            </h2>
-                                        </div>
-                                        <div id="collapseInvestigate{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingInvestigate{{indexChar($index)}}">
-                                            <div class="panel-body">
-                                                <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Federal Section -->
-
         </div>
     </div>
 
-    <style>
+<style>
+    .volunteerNamesHeader{display: none}
+    .volunteerNames{display: none}
+    .taskTableHeader th{border-right: 1px #bbb solid;}
+    .jive-link-email-small{color:#006BA6 !important}
+    a.volunteer:focus {
+        background-color: #802629;
+        border: 1px solid #802629;
+        color: #FFF !important;
+        }
+    a.volunteer {
+        padding: 8px 15px !important;
+        font-size: 12px;
+        border-radius: 0px;
+        line-height: 1rem;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: Arial,sans-serif;
+        position: relative;
+        text-transform: none;
+        background-color: #802629;
+        border: 1px solid #802629;
+        color: #FFF !important;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color .25s ease-out,border .25s ease-out;
+        display: flex;
+    }
+    a.volunteer:hover {
+        padding: 8px 15px !important;
+        font-size: 12px;
+        border-radius: 0px;
+        line-height: 1rem;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: Arial,sans-serif;
+        position: relative;
+        text-transform: none;
+        background-color: #FFF;
+        border: 1px solid #802629;
+        cursor: pointer;
+        color: #802629 !important;
+        text-decoration: none;
+        transition: background-color .25s ease-out,border .25s ease-out;
+        display: flex;
+    }
+    a.noVolunteer {
+        padding: 8px 15px !important;
+        font-size: 12px;
+        border-radius: 0px;
+        line-height: 1rem;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: Arial,sans-serif;
+        position: relative;
+        text-transform: none;
+        background-color: #ced2d4;
+        border: 1px solid #ced2d4;
+        color: #FFF !important;
+        text-decoration: none;
+        transition: background-color .25s ease-out,border .25s ease-out;
+        display: flex;
+    }
+    a.noVolunteer:hover {
+        color: #FFF !important;
+    }
+
+    /**  STYLE 3 */
+    #style-3::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+
+    #style-3::-webkit-scrollbar {
+        width: 15px;
+        background-color: #F5F5F5;
+    }
+
+    #style-3::-webkit-scrollbar-thumb {
+        background-color: #802629;
+        border-radius: 10px;
+    }
+
+    .icon_section_header_small {
+        background-size: 50%;
+        height: 35px;
+        width: 70px;
+        float: left;margin-left: -20px;
+    }
+    .icon_section_header {
+        background-size: 75%;
+        height: 50px;
+        width: 70px;
+        float: left;
+    }
+    .icon_communications {
+        background-image: url(https://community.rsa.com/resources/statics/265870/communications_logo.png?a=1582390523660);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_customer_success {
+        background-image: url(https://community.rsa.com/resources/statics/265870/corporate_success_logo.png?a=1582390554162);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_facilities {
+        background-image: url(https://community.rsa.com/resources/statics/265870/facilities_logo.png?a=1582390574124);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_finance {
+        background-image: url(https://community.rsa.com/resources/statics/265870/finance_logo.png?a=1582390593801);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_global_services {
+        background-image: url(https://community.rsa.com/resources/statics/265870/global_services_logo.png?a=1582390609850);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_human_resources {
+        background-image: url(https://community.rsa.com/resources/statics/265870/human_resources_logo.png?a=1582390884900);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_cyber_risk_mgmt {
+        background-image: url(https://community.rsa.com/resources/statics/265870/cyber_risk_mgmt_logo.png?a=1582390914197);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_info_technology {
+        background-image: url(https://community.rsa.com/resources/statics/265870/information_technology_logo.png?a=1582390935362);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_legal {
+        background-image: url(https://community.rsa.com/resources/statics/265870/legal_logo.png?a=1582390956409);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_marketing {
+        background-image: url(https://community.rsa.com/resources/statics/265870/marketing_logo.png?a=1582390976447);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_procurement {
+        background-image: url(https://community.rsa.com/resources/statics/265870/procurement_logo.png?a=1582391001320);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_federal {
+        background-image: url(https://community.rsa.com/resources/statics/265870/federal_logo.png?a=1582391023664);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+
+
+
+    .icon_communications_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/communications_logo_white.png?a=1582535803969);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_customer_success_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/corporate_success_logo_white.png?a=1582535808240);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_facilities_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/facilities_logo_white.png?a=1582535817010);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_finance_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/finance_logo_white.png?a=1582535824688);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_global_services_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/global_services_logo_white.png?a=1582535832216);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_human_resources_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/human_resources_logo_white.png?a=1582535836162);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_cyber_risk_mgmt_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/cyber_risk_mgmt_logo_white.png?a=1582535812913);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_info_technology_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/information_technology_logo_white.png?a=1582535842885);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_legal_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/legal_logo_white.png?a=1582535848977);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_marketing_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/marketing_logo_white.png?a=1582535856731);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_procurement_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/procurement_logo_white.png?a=1582535864157);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .icon_federal_white {
+        background-image: url(https://community.rsa.com/resources/statics/265870/federal_logo_white.png?a=1582535820926);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+        .transactionDetails{height: 600px;overflow-y: scroll;padding:1rem 1rem; font-family: Arial;margin-top: 0.6%;border: 1px #802629 solid;border-radius: 4px;}
+        .bottom-border {
+           margin-left: 0px;
+            margin-right: 0px;
+            border-bottom: 1px #802629 solid;
+        }
+        /* text recolor */
+        .nav {
+           padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+
+        }
+        .nav-stacked > li {
+           float: none;
+           margin-bottom: 10px
+        }
+        .nav-stacked > li.a {
+           width: 100%
+        }
+        .nav > li {
+            position: relative;
+            display: block;
+        }
+        .nav-pills > li{margin-left: 3px;background-color:#e9ecef;width: 100%;border-radius: 25px;}
+        .nav-pills > li > a{text-align: left; color: #802629;background-color:#e9ecef;width: 100%;border-radius: 25px;}
+        .nav-pills li.active > a:hover{background-color: #802629 !important;color: #fff  !important;border-color: #802629 !important;}
+        .nav-pills > li > a:hover{background-color: #fff;color: #802629;border-color: #802629 !important;}
+        .nav-pills > li.active > a, .btn-primary {
+          background-color: #802629 !important;
+          // feeling like it's a rounded corners kind of day
+          border-color: #fff !important;
+          border-radius: 25px;
+          color: #fff !important;
+        }
+
         .categoryBox {text-align: center;/*height: 250px;*/height: 230px; font-family: Calibri;font-size: 20px;padding: 10px;background-color: #dee0e1;}
         .boxHover{-webkit-transform: perspective(1px) translateZ(0);transform: perspective(1px) translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);position: relative;overflow: hidden;}
         .boxHover:before {content: "";position: absolute;z-index: -1;left: 0;right: 0;top: 0;bottom: 0;border-color: #802629;border-style: solid;border-width: 0;-webkit-transition-property: border-width;transition-property: border-width;-webkit-transition-duration: 0.1s;transition-duration: 0.3s;-webkit-transition-timing-function: ease-out;transition-timing-function: ease-out;}
         .boxHover:hover:before, .boxHover:focus:before, .boxHover:active:before {-webkit-transform: translateY(0);transform: translateY(0);border-width: 4px;}
-        .productFooter { border-top: 1px solid #415464;margin-top: 30px;}
+        .productFooter { border-top: 1px solid #ced2d4;margin-top: 30px;}
         .circle {height: 150px;width: 150px;background-color: #fff;border-radius: 50%;border: 3px solid #802629;margin: 0 auto;}
-        .bottom-border{margin-left: 10px;margin-right: 10px; border-bottom:1px #be3a34 solid;}
+        .bottom-border{margin-left: 10px;margin-right: 10px; border-bottom:1px #802629 solid;}
         /*.col-half-offset{margin-left:4.166666667%}*/
         .col-half-offset{margin-left:3.5%}
-        .icon_communications {background-image: url(https://community.rsa.com/resources/statics/265870/communications_logo.png?a=1582390523660);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_corporate_success {background-image: url(https://community.rsa.com/resources/statics/265870/corporate_success_logo.png?a=1582390554162);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_facilities {background-image: url(https://community.rsa.com/resources/statics/265870/facilities_logo.png?a=1582390574124);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_finance {background-image: url(https://community.rsa.com/resources/statics/265870/finance_logo.png?a=1582390593801);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_global_services {background-image: url(https://community.rsa.com/resources/statics/265870/global_services_logo.png?a=1582390609850);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_human_resources {background-image: url(https://community.rsa.com/resources/statics/265870/human_resources_logo.png?a=1582390884900);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_cyber_risk_mgmt {background-image: url(https://community.rsa.com/resources/statics/265870/cyber_risk_mgmt_logo.png?a=1582390914197);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_info_technology {background-image: url(https://community.rsa.com/resources/statics/265870/information_technology_logo.png?a=1582390935362);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_legal {background-image: url(https://community.rsa.com/resources/statics/265870/legal_logo.png?a=1582390956409);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_marketing {background-image: url(https://community.rsa.com/resources/statics/265870/marketing_logo.png?a=1582390976447);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_procurement {background-image: url(https://community.rsa.com/resources/statics/265870/procurement_logo.png?a=1582391001320);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_federal {background-image: url(https://community.rsa.com/resources/statics/265870/federal_logo.png?a=1582391023664);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
-        .icon_section_header {background-size: 75%;height: 70px;width: 70px;margin-left:10px;}
-        
         .container-fluid {padding-right: 0px;padding-left: 0px;}
         .panel-default>.panel-heading {color: #333;background-color: #fff;border-color: #e4e5e7;padding: 1px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 
         .panel-default>.panel-heading a {display: block;padding: 10px 15px;}
 
-        .panel-default>.panel-heading a:before {content: "";position: relative;top: 1px;display: inline-block;/*font-family: 'Glyphicons Halflings';*/font-style: normal;font-weight: 400;line-height: 1;color: #be3a34;font-size: 28px;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;/*float: right;*/transition: transform .25s linear;-webkit-transition: -webkit-transform .25s linear;}
+        .panel-default>.panel-heading a:before {content: "";position: relative;top: 1px;display: inline-block;/*font-family: 'Glyphicons Halflings';*/font-style: normal;font-weight: 400;line-height: 1;color: #802629;font-size: 28px;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;/*float: right;*/transition: transform .25s linear;-webkit-transition: -webkit-transform .25s linear;}
 
         .panel-default>.panel-heading a[aria-expanded="true"] {background-color: #eeeff0;border-bottom: 2px solid #D5D6D7;}
         .panel-default>.panel-heading a[aria-expanded="false"] {background-color: #eeeff0;border-bottom: 2px solid #D5D6D7;border-radius: 4px;}
@@ -960,7 +1100,7 @@
 
         .panel-default>.panel-heading a[aria-expanded="false"]:before {content: "\002b";-webkit-transform: rotate(90deg);transform: rotate(90deg);}
 
-        .accordion-option {width: 100%;float: left;clear: both;margin: 10px -14px 0px;}
+        .accordion-option {width: 50%;float: right;clear: both;margin: 10px 10px 0px;padding-left: 32%;}
 
         .accordion-option .title {font-size: 20px;font-weight: bold;float: left;padding: 0;margin: 0;}
 
@@ -968,7 +1108,7 @@
 
         .panel-group{margin:10px;}
 
-        .wrapper {font-family: Arial;height: auto;margin-top: 0.6%;border: 1px #be3a34 solid; border-radius: 4px;}
+        .wrapper {font-family: Arial;height: auto;margin-top: 0.6%;border: 1px #802629 solid; border-radius: 4px;}
         /* Float Shadow */
         .iconLink {vertical-align: middle;-webkit-transform: perspective(1px) translateZ(0);transform: perspective(1px) translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);position: relative;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform;transition-property: transform;cursor: pointer;}
         .iconLink:before {pointer-events: none;position: absolute;z-index: -1;content: '';top: 100%;left: 5%;height: 10px;width: 90%;opacity: 0;background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);/* W3C */-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform, opacity;transition-property: transform, opacity;}
@@ -976,7 +1116,7 @@
         .iconLink:hover:before, .iconLink:focus:before, .iconLink:active:before {opacity: 1; -webkit-transform: translateY(5px); transform: translateY(5px);}
         .rkcIcon {margin-left: auto;margin-right: auto;display: block;width: 100%;vertical-align: top;}
         .text1 {text-align: justify;padding-top: 10px;font-size: 16px;}
-    
+
         .j-rte-table {max-width: 100%;overflow-x: auto;font-family: Arial, sans-serif;margin:10px;}
         .j-rte-table body {border-color: inherit;border-style: solid;border-width: inherit;text-align: left;vertical-align: baseline;}
         .j-table {border: 1px solid #eeeff0 !important;border-collapse: collapse;margin: 0 0 2px;}
@@ -999,8 +1139,13 @@
         .panel-heading a:hover {color: #802629 !important;  /* The !important flag is needed to override any copy/paste extraneous styling */text-decoration: none !important;}
         .panel-heading a:hover, a:focus {color: #802629 !important ;}
         a:hover, a:focus {color: #802629 !important ;}
-        .j-table a{color: #00528d !important;text-decoration: none !important;}
-        .j-table a:hover, a:focus{color: #802629 !important ;}
+
+        .panel-body .panel-group .panel-default .panel-heading a {
+            display: block;
+            padding: 5px 15px !important;
+        }
+        /*.j-table a{color: #00528d !important;text-decoration: none !important;}*/
+        /*.j-table a:hover, a:focus{color: #802629 !important ;}*/
 
         td p {margin: 0;padding: 0;border: 0;font-weight: inherit;font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;}
         .disabled {opacity: 0.5;pointer-events: none; > * {opacity: 0.5;pointer-events: none;}}
