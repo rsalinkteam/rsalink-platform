@@ -1,0 +1,791 @@
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery.min.3.4.1.js"></script> 
+    <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.css">
+    <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/css/font-awesome.min.css">
+    <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/js/popper.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angularV1.7.9.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angular-sanitize.js"></script>
+
+    <style>
+        .container-fluid {
+            padding-right: 0;
+            padding-left: 0;
+            margin-top: 3%;
+        }
+        .panel-default>.panel-heading {
+          color: #333;
+          background-color: #fff;
+          border-color: #e4e5e7;
+          padding: 0;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        .panel-default>.panel-heading a {
+          display: block;
+          padding: 10px 15px;
+        }
+        .panel-default>.panel-heading a:before {
+          content: "";
+          position: relative;
+          top: 1px;
+          display: inline-block;
+          /*font-family: 'Glyphicons Halflings';*/
+          font-style: normal;
+          font-weight: 400;
+          line-height: 1;
+          color: #be3a34;
+          font-size: 28px;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          /*float: right;*/
+          transition: transform .25s linear;
+          -webkit-transition: -webkit-transform .25s linear;
+        }
+
+        .panel-default>.panel-heading a[aria-expanded="true"] {
+          background-color: #eeeff0;
+          border-bottom: 2px solid #D5D6D7;
+        }
+        .panel-default>.panel-heading a[aria-expanded="false"] {
+          background-color: #eeeff0;
+          border-bottom: 2px solid #D5D6D7;
+        }
+        .panel-default .show {
+            border: 2px #eeeff0 solid;
+        }
+        .panel-default>.panel-heading a[aria-expanded="true"]:before {
+          content: "\2212";
+          -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+        .panel-default>.panel-heading a[aria-expanded="false"]:before {
+          content: "\002b";
+          -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+        }
+
+        .accordion-option {
+          width: 100%;
+          float: left;
+          clear: both;
+          margin: 10px -14px 0px;
+        }
+
+        .accordion-option .title {
+          font-size: 20px;
+          font-weight: bold;
+          float: left;
+          padding: 0;
+          margin: 0;
+        }
+
+        .accordion-option .toggle-accordion {
+          float: right;
+          font-size: 16px;
+          color: #6a6c6f;
+        }
+
+        /*.accordion-option .toggle-accordion:before {
+          content: "Collapse All";
+        }
+
+        .accordion-option .toggle-accordion.active:before {
+          content: "Expand All";
+        }*/
+        .panel-group{margin:10px;}
+
+        .wrapper {
+            font-family: Arial;
+            /*position: relative;*/
+            height: auto;
+            margin-top: 0.6%;
+            border: 3px #be3a34 solid;
+        }
+        .arrow-up {
+            margin-left: 33%;
+            margin-bottom: -5%;
+            margin-top: 10%;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 25px solid #be3a34;
+        }
+        /* Float Shadow */
+        .boxIconLink {
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            position: relative;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: transform;
+            transition-property: transform;
+            cursor: pointer;}
+        .boxIconLink:before {
+            pointer-events: none;
+            position: absolute;
+            z-index: -1;
+            content: '';
+            top: 100%;
+            left: 5%;
+            height: 10px;
+            width: 90%;
+            opacity: 0;
+            background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+            /* W3C */-webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: transform, opacity;
+            transition-property: transform, opacity;
+        }
+        .boxIconLink:hover, .boxIconLink:focus, .boxIconLink:active {
+            -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+        }
+        .boxIconLink:hover:before, .boxIconLink:focus:before, .boxIconLink:active:before {
+            opacity: 1;
+            -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+        }
+        .boxIcon {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 100%;
+            vertical-align: top;
+        }
+        .text1 {
+            text-align: justify;
+            padding-top: 10px;
+            font-size: 16px;
+        }
+
+        .j-rte-table {
+            max-width: 100%;
+            overflow-x: auto;
+            font-family: Arial, sans-serif;
+            margin:10px;
+        }
+        .j-rte-table body {
+            border-color: inherit;
+            border-style: solid;
+            border-width: inherit;
+            text-align: left;
+            vertical-align: baseline;
+        }
+        .j-table {
+            border: 1px solid #eeeff0 !important;
+            border-collapse: collapse;
+            margin: 0 0 2px;
+        }
+        .j-rte-table tr {
+            border-color: inherit;
+            /*border-style: solid;*/
+            border-width: inherit;
+            text-align: left;
+            vertical-align: baseline;
+        }
+        .j-table td {
+            padding: 5px;
+            text-align: left;
+            border: 0 solid;
+            border-bottom: 1px #eeeff0;
+            border: 1px #eeeff0 solid;
+            height: 25px;
+            line-height: 1.73;
+        }
+        .jive-link-wiki-small {
+            background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-wiki-12x12.png);
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: 0 50%;
+            padding: 1px 0 1px 17px;
+            padding-left: -webkit-calc(12px + .35ex);
+            padding-left: calc(12px + .35ex);
+
+        }
+        .jive-link-blog-small {
+            background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-blog-12x12.png);
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: 0 50%;
+            padding: 1px 0 1px 17px;
+            padding-left: -webkit-calc(12px + .35ex);
+            padding-left: calc(12px + .35ex);
+        }
+        .jive-link-video-small {
+            background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-video-12x12.png);
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: 0 50%;
+            padding: 1px 0 1px 17px;
+            padding-left: -webkit-calc(12px + .35ex);
+            padding-left: calc(12px + .35ex);
+        }
+        .jive-link-community-small {
+            background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-community-12x12.png);
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: 0 50%;
+            padding: 1px 0 1px 17px;
+            padding-left: -webkit-calc(12px + .35ex);
+            padding-left: calc(12px + .35ex);
+        }
+
+        /* Hide the content icons */
+        .jive-link-wiki-small,
+        .jive-link-video-small,
+        .jive-link-community-small {
+            background-image: none;
+            padding-left: 0;
+        }
+
+        /* Format hyperlinks in each accordion card */
+        .panel-heading a {
+            font-weight: inherit;
+            font-style: inherit;
+            vertical-align: baseline;
+            font-size: 20px;
+        }
+        .panel-heading a:link {
+            color: #000 !important;  /* The !important flag is needed to override any copy/paste extraneous styling */
+            -webkit-transition: color .1s linear !important;
+            transition: color .1s linear !important;
+        }
+        .panel-heading a:hover {
+            color: #802629 !important;  /* The !important flag is needed to override any copy/paste extraneous styling */
+            text-decoration: none !important;
+        }
+        .panel-heading a:hover, a:focus {
+            color: #802629 !important ;
+        }
+        a:hover, a:focus {
+            color: #802629 !important ;
+        }
+        .j-table a{
+            color: #00528d !important;
+            text-decoration: none !important;
+        }
+        .j-table a:hover, a:focus{
+            color: #802629 !important ;
+        }
+        td p {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-weight: inherit;
+            font-style: inherit;
+            font-size: 100%;
+            font-family: inherit;
+            vertical-align: baseline;
+        }
+        .disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        > * {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .logo .col-sm-2 {
+            padding-right: 5px !important;
+            padding-left: 5px !important;
+        }
+        .centered {
+            line-height: 28px;
+            position: absolute;
+            top: 59%;
+            left: 56%;
+            color: #fff;
+            width: 100%;
+            font-size: 15px;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            margin-left: -15%;
+        }
+
+        .col-half-offset {
+            margin-left:4.166666667%
+        }
+        img.authenticatorMatrix{ 
+            width: 95%;
+            height: auto;
+        }
+    </style>
+
+    <body ng-app="remoteWorkforce">
+        <script>
+            var $j = jQuery.noConflict();
+            angular.module('remoteWorkforce', ['ngSanitize']).controller('remoteWorkforceController', 
+                ['$scope', '$sce','$http', function($scope, $sce, $http) {
+                    $scope.getTitleData = "";
+                    $scope.accordionData = false;
+                    $scope.getOrientedTab = true;
+                    $scope.iNeedToTab = false;
+                    $scope.planningDesignTab = false;
+                    $scope.endUserTab = false;
+                    $scope.optimizingNTuningTab = false;
+
+                    $scope.getGetOrientedData = [];
+                    $scope.getINeedToData = [];
+                    $scope.getPlanningDesignData = [];
+                    $scope.getEndUserData = [];
+                    $scope.getOptimizingNTuning = [];
+                    $scope.getRespondToIncidentsData = [];
+                    $scope.iframeHeight = 0;
+                    $scope.wrapperOffSetHeight = 0;
+                    $scope.collapseOffSetHeight = 0;
+                    $scope.productBoxes = false;
+                    $scope.iconPlusMinus = false;
+                    
+                $scope.init = function () {
+                    $scope.scrollToAnchor = function(aid) {
+                        var aTag = $j("a[name='"+ aid +"']");
+                        console.log(aTag);
+                        $j('html,body').animate({scrollTop: aTag.offset().top},'slow');
+                    }
+                    window.parent.$j(".jive_macro_alert").find("a").attr("href",window.parent.$j(".jive_macro_alert").find("a").attr("href").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":").replace(/%3F\s*/g,"?").replace(/%3D\s*/g,"=").replace(/%26\s*/g,"&").replace(/%2B\s*/g,"+").replace("https://community.rsa.com/external-link.jspa?url=",""));
+                    
+                    /* Get Oriented - https://community.rsa.com/docs/DOC-112351 */
+                    /* I Need To... - https://community.rsa.com/docs/DOC-112352 */
+                    /* Planning & Design - https://community.rsa.com/docs/DOC-112353 */
+                    /* Supporting My End-Users - https://community.rsa.com/docs/DOC-112354 */
+                    /* Optimizing & Tuning - https://community.rsa.com/docs/DOC-111362 */
+
+                    /* Get Oriented - https://community.rsa.com/docs/DOC-112351 */
+                    $http.get("https://community.rsa.com/docs/DOC-112351").then(function(response) {
+                        $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                        var accordionTitles = [];
+                        angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}),
+                            function(value, key) {
+                            $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                            angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("a"), function(value1, key1){
+                                $j(value1).attr("href",$j(value1).attr("href").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":").replace(/%3F\s*/g,"?").replace(/%3D\s*/g,"=").replace(/%26\s*/g,"&").replace(/%2B\s*/g,"+").replace("https://community.rsa.com/external-link.jspa?url=",""));
+                            });
+                            var data = {'head': $j(value).text(),
+                                'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                            this.push(data);
+                        }, accordionTitles);
+                        $scope.getGetOrientedData = accordionTitles;
+                        window.parent.$j(".htmlWidgetIframe").css("height",
+                            window.parent.$j(".htmlWidgetIframe")[0].offsetHeight+$scope.getGetOrientedData.length*66+"px");
+                        $scope.iframeHeight = $scope.getIframeHeight();
+                        setTimeout(resizeMe,0);
+                    });
+
+                    /* I Need To... - https://community.rsa.com/docs/DOC-112352 */
+                    $http.get("https://community.rsa.com/docs/DOC-112352").then(function(response) {
+                        $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                        var accordionTitles = [];
+                        angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}),
+                            function(value, key) {
+                            $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                            angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("a"), function(value1, key1){
+                                $j(value1).attr("href",$j(value1).attr("href").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":").replace(/%3F\s*/g,"?").replace(/%3D\s*/g,"=").replace(/%26\s*/g,"&").replace(/%2B\s*/g,"+").replace("https://community.rsa.com/external-link.jspa?url=",""));
+                            });
+                            var data = {'head': $j(value).text(),
+                                'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                            this.push(data);
+                        }, accordionTitles);
+                        $scope.getINeedToData = accordionTitles;
+                        setTimeout(resizeMe,0);
+
+                    });
+
+                    /* Planning & Design - https://community.rsa.com/docs/DOC-112353 */
+                    $http.get("https://community.rsa.com/docs/DOC-112353").then(function(response) {
+                        $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                        var accordionTitles = [];
+                        angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}),
+                            function(value, key) {
+                            $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                            angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("a"), function(value1, key1){
+                                $j(value1).attr("href",$j(value1).attr("href").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":").replace(/%3F\s*/g,"?").replace(/%3D\s*/g,"=").replace(/%26\s*/g,"&").replace(/%2B\s*/g,"+").replace("https://community.rsa.com/external-link.jspa?url=",""));
+                            });
+                            var data = {'head': $j(value).text(),
+                                'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                            this.push(data);
+
+                        }, accordionTitles);
+                        $scope.getPlanningDesignData = accordionTitles;
+                        setTimeout(resizeMe,0);
+                    });
+
+                    
+                    /* Supporting My End-Users - https://community.rsa.com/docs/DOC-112354 */
+                    $http.get("https://community.rsa.com/docs/DOC-112354").then(function(response) {
+                        $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                        var accordionTitles = [];
+                        angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}),
+                            function(value, key) {
+                            $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                            angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("a"), function(value1, key1){
+                                $j(value1).attr("href",$j(value1).attr("href").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":").replace(/%3F\s*/g,"?").replace(/%3D\s*/g,"=").replace(/%26\s*/g,"&").replace(/%2B\s*/g,"+").replace("https://community.rsa.com/external-link.jspa?url=",""));
+                            });
+                            var data = {'head': $j(value).text(),
+                                'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                            this.push(data);
+
+                        }, accordionTitles);
+                        $scope.getEndUserData = accordionTitles;
+                        setTimeout(resizeMe,0);
+                    });
+
+                    /* Optimizing & Tuning - https://community.rsa.com/docs/DOC-112355 */
+                    $http.get("https://community.rsa.com/docs/DOC-112355").then(function(response) {
+                        $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                        var accordionTitles = [];
+                        angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() != ''}),
+                            function(value, key) {
+                            $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                            angular.forEach($j($j(value).nextAll(".j-rte-table:first")).find("a"), function(value1, key1){
+                                $j(value1).attr("href",$j(value1).attr("href").replace(/%2F\s*/g,"/").replace(/%3A\s*/g,":").replace(/%3F\s*/g,"?").replace(/%3D\s*/g,"=").replace(/%26\s*/g,"&").replace(/%2B\s*/g,"+").replace("https://community.rsa.com/external-link.jspa?url=",""));
+                            });
+                            var data = {'head': $j(value).text(),
+                                'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                            this.push(data);
+
+                        }, accordionTitles);
+                        $scope.getOptimizingNTuning = accordionTitles;
+                        setTimeout(resizeMe,0);
+                    });
+                    
+                    
+                    setTimeout(function(){
+                        window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove();
+                       
+
+                        $j(".toggle-accordion").on("click", function() {
+                            var accordionId = $j(this).attr("accordion-id"),
+                              numPanelOpen = $j(accordionId + ' .collapse.show').length;
+                            console.log(numPanelOpen);
+                            $j(this).toggleClass("active");
+
+                            if (numPanelOpen == 0) {
+                              openAllPanels(accordionId);
+                              $j(this).text("Collapse All");
+                            } else {
+                              if($j(this).text() == 'Expand All'){
+                                openAllPanels(accordionId);
+                               $j(this).text("Collapse All");
+                              }else{
+                                closeAllPanels(accordionId);
+                                $j(this).text("Expand All");
+                              }
+
+                            }
+                            setTimeout(resizeMe,0);
+                          });
+
+                          openAllPanels = function(aId) {
+                            console.log("setAllPanelOpen");
+                            $j(aId + ' .panel-collapse.in').addClass('show');
+                            $j(aId + ' .panel-heading h2 a').attr("aria-expanded", true);
+                          };
+                          closeAllPanels = function(aId) {
+                            console.log("setAllPanelclose");
+                            $j(aId + ' .panel-collapse.in').collapse('hide');
+
+                          }
+
+                    }, 1500);
+                    $scope.productBoxes = true;
+                    setTimeout(function(){
+                        $scope.iframeHeight = $scope.getIframeHeight();
+                    }, 100);
+                    setTimeout(resizeMe,100);
+                };
+                $scope.init();
+                $scope.resizeAccordion = function(event) {
+                    setTimeout(function(){
+                        window.parent.$j(".htmlWidgetIframe").css("height",
+                            $j(event.target).parents('.wrapper').height()+150+"px");
+                    }, 500);
+                    /*setTimeout(resizeMe,500);
+                    setTimeout(function(){
+                        $scope.scrollToAnchor($j(event.target).parents('.panel-heading').attr("id"));
+                    }, 1000);*/
+                    
+                };
+
+
+                $scope.deliberatelySnippet = function(data) {
+                    return $sce.trustAsHtml(data);
+                };
+                $scope.getIframeHeight = function(){
+                    return window.parent.$j(".htmlWidgetIframe")[0].offsetHeight;
+                };
+                $scope.getIframeHeight();
+                $scope.filterByAudience = function(audience){
+                    $scope.iframeHeight = 0;
+                    $scope.wrapperOffSetHeight = 0;
+                    $scope.collapseOffSetHeight = 0;
+                    $scope.getTitleData = "";
+                    if(audience == 'getOriented'){
+                        $scope.getOrientedTab = true; $scope.iNeedToTab = false;
+                        $scope.planningDesignTab = false; $scope.endUserTab = false; $scope.optimizingNTuningTab = false;
+                    }else if(audience == 'iNeedTo'){
+                        $scope.getOrientedTab = false; $scope.iNeedToTab = true;
+                        $scope.planningDesignTab = false; $scope.endUserTab = false; $scope.optimizingNTuningTab = false;
+                    }else if(audience == 'planningDesign'){
+                        $scope.getOrientedTab = false; $scope.iNeedToTab = false;
+                        $scope.planningDesignTab = true; $scope.endUserTab = false; $scope.optimizingNTuningTab = false;
+                    }else if(audience == 'endUsers'){
+                        $scope.getOrientedTab = false; $scope.iNeedToTab = false;
+                        $scope.planningDesignTab = false; $scope.endUserTab = true; $scope.optimizingNTuningTab = false;
+                    }else if(audience == 'optimizingNTuning'){
+                        $scope.getOrientedTab = false; $scope.iNeedToTab = false;
+                        $scope.planningDesignTab = false; $scope.endUserTab = false; $scope.optimizingNTuningTab = true;
+                    }
+                    $j(".collapse").removeClass("show");
+                    $j(".panel-heading").find("a").attr("aria-expanded", false);
+                    $j(".toggle-accordion").text("Expand All");
+
+                    setTimeout(function(){
+                        $scope.iframeHeight = $scope.getIframeHeight();
+                    }, 100);
+
+                    setTimeout(resizeMe,0);
+                };
+                $scope.indexChar = function (index) {
+                        return String.fromCharCode(65 + index);
+                };
+
+                
+
+            }]);
+        </script>
+
+        <div ng-controller="remoteWorkforceController">
+            <div class="container-fluid">
+                <div class="row logo" ng-show="productBoxes">
+                    <div class="col-sm-2" id="p1">
+                        <a class="boxIconLink">
+                            <img class="boxIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964"
+                                 ng-click="filterByAudience('getOriented')" />
+                            <div style="left:70%" class="centered" ng-click="filterByAudience('getOriented')">
+                                <img src="https://community.rsa.com/resources/statics/272210/rsa-link-buttons-securid_global_services_summary.jpg?a=1589553159985" style="width: 225px; height: 106px;" />
+                            </div>
+                        </a><br/>
+                    </div>
+                    <div class="col-sm-2 col-half-offset" id="p2">
+                        <a class="boxIconLink">
+                            <img class="boxIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964"
+                                 ng-click="filterByAudience('iNeedTo')" />
+                            <div class="centered" ng-click="filterByAudience('iNeedTo')">
+                                <img src="https://community.rsa.com/resources/statics/272210/rsa-link-buttons-securid_global_services_summary_i-need-runner.jpg?a=1589553211393" style="width: 225px; height: 106px; margin-left: 7%;"/>
+                            </div>
+                        </a><br/>
+                    </div>
+                    <div class="col-sm-2 col-half-offset" id="p3">
+                        <a class="boxIconLink">
+                            <img class="boxIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964"
+                                 ng-click="filterByAudience('planningDesign')" />
+                            <div class="centered" ng-click="filterByAudience('planningDesign')">
+                                <img src="https://community.rsa.com/resources/statics/272210/rsa-link-buttons-securid_global_services_summary-plan.jpg?a=1589553343559" style="width: 225px; height: 106px;" />
+                            </div>
+                        </a><br/>
+                    </div>
+                    <div class="col-sm-2 col-half-offset" id="p4">
+                        <a class="boxIconLink">
+                            <img class="boxIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964"
+                                 ng-click="filterByAudience('endUsers')" />
+                            <div style="left:48%;" class="centered" ng-click="filterByAudience('endUsers')">
+                                <img src="https://community.rsa.com/resources/statics/272210/rsa-link-buttons-securid_global_services_summary-supporting.jpg?a=1589553349622" style="width: 225px; height: 106px;" />
+                            </div>
+                        </a><br/>
+                    </div>
+                    <div class="col-sm-2 col-half-offset" id="p5">
+                        <a class="boxIconLink">
+                            <img class="boxIcon" src="https://community.rsa.com/resources/statics/247889/PlainBox.png?a=1568174790964"
+                                 ng-click="filterByAudience('optimizingNTuning')" />
+                            <div style="left:40%;" class="centered" ng-click="filterByAudience('optimizingNTuning')">
+                                <img src="https://community.rsa.com/resources/statics/272210/rsa-link-buttons-securid_global_services_summary-optimize.jpg?a=1589553320409" style="width: 225px; height: 106px;" />
+                            </div>
+                        </a><br/>
+                    </div>
+                </div>
+                <div class="row logoPointer">
+                    <div class="col-sm-2" id="p1">
+                        <div class="arrow-up" ng-show="getOrientedTab" style="margin-left: 55%;"></div>
+                    </div>
+                    <div class="col-sm-2 col-half-offset" id="p2">
+                        <div class="arrow-up" ng-show="iNeedToTab" style="margin-left: 45%;"></div>
+                    </div>
+                    <div class="col-sm-2 col-half-offset" id="p3">
+                        <div class="arrow-up" ng-show="planningDesignTab"></div>
+                    </div>
+                    <div class="col-sm-2 col-half-offset" id="p4">
+                        <div class="arrow-up" ng-show="endUserTab"></div>
+                    </div>
+                    <div class="col-sm-2 col-half-offset" id="p5">
+                        <div class="arrow-up" ng-show="optimizingNTuningTab" style="margin-left: 18%;"></div>
+                    </div>
+                </div>
+
+                <div class="row" ng-show="getOrientedTab">
+                    <div class="col-sm-12">
+                        <div class="wrapper">
+                              <div class="accordion-option">
+                                  <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion0">Expand All</a>
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="panel-group" id="accordion0" role="tablist" aria-multiselectable="true">
+                                  <div class="panel panel-default" ng-repeat="data in getGetOrientedData">
+                                      <div class="panel-heading" role="tab" id="headingOriented{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                          <h2 class="mb-0">
+                                              <a role="button" data-toggle="collapse" data-parent="#accordion0"
+                                                  href="#collapseOriented{{indexChar($index)}}" aria-expanded="{{indexChar($index) == 'A'}}"
+                                                  aria-controls="collapseOriented{{indexChar($index)}}" class="collapsed" name="headingOriented{{indexChar($index)}}">
+                                                      {{data.head}}
+                                              </a>
+                                          </h2>
+                                      </div>
+
+                                      <div id="collapseOriented{{indexChar($index)}}" class="panel-collapse in collapse"
+                                           ng-class="{'show': indexChar($index) == 'A'}"  role="tabpanel"
+                                           aria-labelledby="headingOriented{{indexChar($index)}}">
+                                          <div class="panel-body">
+                                              <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="iNeedToTab">
+                    <div class="col-sm-12">
+                        <div class="wrapper">
+                            <div class="accordion-option">
+                                <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion2">Expand All</a>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-default" ng-repeat="data in getINeedToData">
+                                    <div class="panel-heading" role="tab" id="headingINeedTo{{indexChar($index)}}" ng-click="resizeAccordion($event)">
+                                        <h2 class="mb-0">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion2"
+                                               href="#collapseINeedTo{{indexChar($index)}}" aria-expanded="false"
+                                               aria-controls="collapseINeedTo{{indexChar($index)}}" class="collapsed" name="headingINeedTo{{indexChar($index)}}">
+                                                {{data.head}}
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseINeedTo{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel"
+                                         aria-labelledby="headingINeedTo{{indexChar($index)}}" style="">
+                                        <div class="panel-body">
+                                            <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="planningDesignTab">
+                    <div class="col-sm-12">
+                        <div class="wrapper">
+                            <div class="accordion-option">
+                                <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion3">Expand All</a>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
+                                <div class="panel panel-default" ng-repeat="data in getPlanningDesignData">
+                                    <div class="panel-heading" role="tab" id="headingPlanningDesign{{indexChar($index)}}"
+                                         ng-click="resizeAccordion($event)">
+                                        <h2 class="mb-0">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion3"
+                                               href="#collapsePlanningDesign{{indexChar($index)}}" aria-expanded="false"
+                                               aria-controls="collapsePlanningDesign{{indexChar($index)}}" class="collapsed" name="headingPlanningDesign{{indexChar($index)}}">
+                                                {{data.head}}
+                                            </a>
+                                        </h2>
+                                    </div>
+
+                                    <div id="collapsePlanningDesign{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel"
+                                         aria-labelledby="headingPlanningDesign{{indexChar($index)}}" style="">
+                                        <div class="panel-body">
+                                            <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="endUserTab">
+                    <div class="col-sm-12">
+                        <div class="wrapper">
+                              <div class="accordion-option">
+                                  <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion5">Expand All</a>
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="panel-group" id="accordion5" role="tablist" aria-multiselectable="true">
+                                  <div class="panel panel-default" ng-repeat="data in getEndUserData">
+
+                                      <div class="panel-heading" role="tab" id="headingEndUser{{indexChar($index)}}"
+                                           ng-click="resizeAccordion($event)">
+                                          <h2 class="mb-0">
+                                              <a role="button" data-toggle="collapse" data-parent="#accordion5"
+                                                 href="#collapseEndUser{{indexChar($index)}}" aria-expanded="false"
+                                                 aria-controls="collapseEndUser{{indexChar($index)}}" class="collapsed" name="headingEndUser{{indexChar($index)}}">
+                                                  {{data.head}}
+                                              </a>
+                                          </h2>
+                                      </div>
+                                      <div id="collapseEndUser{{indexChar($index)}}" class="panel-collapse in collapse"
+                                           role="tabpanel" aria-labelledby="headingEndUser{{indexChar($index)}}" style="">
+                                          <div class="panel-body">
+                                              <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="optimizingNTuningTab">
+                    <div class="col-sm-12">
+                        <div class="wrapper">
+                              <div class="accordion-option">
+                                  <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion6">Expand All</a>
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="panel-group" id="accordion6" role="tablist" aria-multiselectable="true">
+                                  <div class="panel panel-default" ng-repeat="data in getOptimizingNTuning">
+
+                                      <div class="panel-heading" role="tab" id="headingEndUser{{indexChar($index)}}"
+                                           ng-click="resizeAccordion($event)">
+                                          <h2 class="mb-0">
+                                              <a role="button" data-toggle="collapse" data-parent="#accordion6"
+                                                 href="#collapseEndUser{{indexChar($index)}}" aria-expanded="false"
+                                                 aria-controls="collapseEndUser{{indexChar($index)}}" class="collapsed" name="headingEndUser{{indexChar($index)}}">
+                                                  {{data.head}}
+                                              </a>
+                                          </h2>
+                                      </div>
+                                      <div id="collapseEndUser{{indexChar($index)}}" class="panel-collapse in collapse"
+                                           role="tabpanel" aria-labelledby="headingEndUser{{indexChar($index)}}" style="">
+                                          <div class="panel-body">
+                                              <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
