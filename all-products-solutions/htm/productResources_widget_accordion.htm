@@ -1,0 +1,529 @@
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery.min.3.4.1.js"></script>
+    <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.css">
+    <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/4-3-1/bootstrapV4.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://www.rsa.com/content/dam/rsalink/bootstrap/css/font-awesome.min.css">
+    <script src="https://www.rsa.com/content/dam/rsalink/bootstrap/js/popper.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angularV1.7.9.min.js"></script>
+    <script src="https://www.rsa.com/content/dam/rsalink/angularjs/angular-sanitize.js"></script>
+
+
+    <script>
+    var $j = jQuery.noConflict();
+    angular.module('rsaProductResources', ['ngSanitize']).controller('RSAProductResourcesController', ['$scope', '$sce','$http', function($scope, $sce, $http) {
+            $scope.getTitleData = "";
+            $scope.accordionData = false;
+            $scope.archerSuite = false;
+            $scope.fraudRiskIntelligenceSuite = false;
+            $scope.netWitnessPlatform = false;
+            $scope.securIDSuite = false;
+            $scope.otherRSAProducts = false;
+
+            $scope.archerSuiteData = [];
+            $scope.getFRISuiteData = [];
+            $scope.getNetWitnessPlatformData = [];
+            $scope.getSecurIDSuiteData = [];
+            $scope.getOtherRSAProductsData = [];
+            $scope.iframeHeight = 0;
+            $scope.wrapperOffSetHeight = 0;
+            $scope.collapseOffSetHeight = 0;
+            $scope.productBoxes = false;
+            $scope.iconPlusMinus = false;
+            $scope.defaultIframeHeight = 0;
+            $scope.visibleWrapper = 0;
+        $scope.init = function () {
+
+
+            /* Archer Suite - https://community.rsa.com/docs/DOC-109040*/
+            $http.get("https://community.rsa.com/docs/DOC-109040").then(function(response) {
+                $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                var accordianTitles = [];
+                angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() !== ''}), function(value, key) {
+                    $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                    var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                    this.push(data);
+                }, accordianTitles);
+                $scope.archerSuiteData = accordianTitles;
+                window.parent.$j(".htmlWidgetIframe").css("height",window.parent.$j(".htmlWidgetIframe")[0].offsetHeight+$scope.archerSuiteData.length*66+"px");
+                $scope.iframeHeight = $scope.getIframeHeight();
+                setTimeout(resizeMe,0);
+            });
+            /* FRI - https://community.rsa.com/docs/DOC-109041*/
+            $http.get("https://community.rsa.com/docs/DOC-109041").then(function(response) {
+                $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                var accordianTitles = [];
+                angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() !== ''}), function(value, key) {
+                    $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                    var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                    this.push(data);
+                }, accordianTitles);
+                $scope.getFRISuiteData = accordianTitles;
+                setTimeout(resizeMe,0);
+
+            });
+            /* NW - https://community.rsa.com/docs/DOC-109042*/
+            $http.get("https://community.rsa.com/docs/DOC-109042").then(function(response) {
+                $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                var accordianTitles = [];
+                angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() !== ''}), function(value, key) {
+                    $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                    var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                    this.push(data);
+
+                }, accordianTitles);
+                $scope.getNetWitnessPlatformData = accordianTitles;
+                setTimeout(resizeMe,0);
+            });
+            /* SecureId - https://community.rsa.com/docs/DOC-109043 */
+            $http.get("https://community.rsa.com/docs/DOC-109043").then(function(response) {
+                $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                var accordianTitles = [];
+                angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() !== ''}), function(value, key) {
+                    $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                    var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                    this.push(data);
+
+                }, accordianTitles);
+                $scope.getSecurIDSuiteData = accordianTitles;
+                setTimeout(resizeMe,0);
+            });
+            /* Other RSA Products - https://community.rsa.com/docs/DOC-109044 */
+            $http.get("https://community.rsa.com/docs/DOC-109044").then(function(response) {
+                $scope.getTitleData = $j('.jive-rendered-content h2', response.data);
+                var accordianTitles = [];
+                angular.forEach($scope.getTitleData.filter(function() {return $j(this).text().trim() !== ''}), function(value, key) {
+                    $j($j(value).nextAll(".j-rte-table:first")).find("a").attr("target","_blank");
+                    var data = {'head': $j(value).text(),'body': $j($j(value).nextAll(".j-rte-table:first"))[0].innerHTML};
+                    this.push(data);
+
+                }, accordianTitles);
+                $scope.getOtherRSAProductsData = accordianTitles;
+                setTimeout(resizeMe,0);
+            });
+            setTimeout(function(){
+                window.parent.$j(".customLoaderPage").parents(".jive-widget-documentviewwidget").remove();
+                $j(".toggle-accordion").on("click", function() {
+                    var accordionId = $j(this).attr("accordion-id"),
+                      numPanelOpen = $j(accordionId + ' .collapse.show').length;
+                    console.log(numPanelOpen);
+                    $j(this).toggleClass("active");
+
+                    if (numPanelOpen === 0) {
+                      openAllPanels(accordionId);
+                      $j(this).text("Collapse All");
+                    } else {
+                      if($j(this).text() === 'Expand All'){
+                        openAllPanels(accordionId);
+                       $j(this).text("Collapse All");
+                      }else{
+                        closeAllPanels(accordionId);
+                        $j(this).text("Expand All");
+                      }
+
+                    }
+                    setTimeout(resizeMe,0);
+                  })
+
+                  openAllPanels = function(aId) {
+                    console.log("setAllPanelOpen");
+                    $j(aId + ' .panel-collapse.in').addClass('show');
+                    $j(aId + ' .panel-heading h2 a').attr("aria-expanded", true);
+                  }
+                  closeAllPanels = function(aId) {
+                    console.log("setAllPanelclose");
+                    $j(aId + ' .panel-collapse.in').collapse('hide');
+
+                  }
+                  //$j("#headingNewA").find("a").attr("aria-expanded", true);
+
+            }, 1500);
+            $scope.productBoxes = true;
+
+            setTimeout(function(){
+                $scope.iframeHeight = $scope.getIframeHeight();
+
+            }, 100);
+            setTimeout(resizeMe,100);
+
+
+        };
+        $scope.init();
+        $scope.resizeAccordian = function($event) {
+          console.log()
+            //setTimeout(resizeMe,500);
+            /*console.log($scope.defaultIframeHeight);
+            console.log($scope.visibleWrapper);
+            console.log($j(".visibleWrapper").height());*/
+            setTimeout(function(){
+                window.parent.$j(".htmlWidgetIframe").css("height",$scope.defaultIframeHeight + $j(".visibleWrapper").height()+"px");
+            }, 1000);
+
+        };
+
+
+        $scope.deliberatelySnippet = function(data) {
+            return $sce.trustAsHtml(data);
+        };
+        $scope.getIframeHeight = function(){
+            return window.parent.$j(".htmlWidgetIframe")[0].offsetHeight;
+        };
+        $scope.getIframeHeight();
+        $scope.filterByAudience = function(audience, $event){
+            if(angular.element($event.target).hasClass("font-bold")){
+              $scope.archerSuite = false; $scope.fraudRiskIntelligenceSuite = false; $scope.netWitnessPlatform = false; $scope.securIDSuite = false; $scope.otherRSAProducts = false;
+              $j(".gsProduct").removeClass("boxSizeReduce");
+              angular.element($event.target).removeClass("font-bold");
+            }else if(angular.element($event.target).parents(".gsProduct").hasClass("font-bold")){
+              $scope.archerSuite = false; $scope.fraudRiskIntelligenceSuite = false; $scope.netWitnessPlatform = false; $scope.securIDSuite = false; $scope.otherRSAProducts = false;
+              $j(".gsProduct").removeClass("boxSizeReduce");
+              angular.element($event.target).parents(".gsProduct").removeClass("font-bold");
+            }else{
+              $scope.defaultIframeHeight = 0;
+              $scope.visibleWrapper = 0;
+              $j(".gsProduct").addClass("boxSizeReduce");
+              $j(".gsProduct").removeClass("font-bold");
+              angular.element($event.target).removeClass("boxSizeReduce");
+              angular.element($event.target).parents(".gsProduct").removeClass("boxSizeReduce");
+              angular.element($event.target).parents(".gsProduct").addClass("font-bold");
+
+              $scope.iframeHeight = 0;
+              $scope.wrapperOffSetHeight = 0;
+              $scope.collapseOffSetHeight = 0;
+              $scope.getTitleData = "";
+              if(audience === 'archer'){
+                  $scope.archerSuite = true; $scope.fraudRiskIntelligenceSuite = false; $scope.netWitnessPlatform = false; $scope.securIDSuite = false; $scope.otherRSAProducts = false;
+              }else if(audience === 'fris'){
+                  $scope.archerSuite = false; $scope.fraudRiskIntelligenceSuite = true; $scope.netWitnessPlatform = false; $scope.securIDSuite = false; $scope.otherRSAProducts = false;
+              }else if(audience === 'nwPlatform'){
+                  $scope.archerSuite = false; $scope.fraudRiskIntelligenceSuite = false; $scope.netWitnessPlatform = true; $scope.securIDSuite = false; $scope.otherRSAProducts = false;
+              }else if(audience === 'secureId'){
+                  $scope.archerSuite = false; $scope.fraudRiskIntelligenceSuite = false; $scope.netWitnessPlatform = false; $scope.securIDSuite = true; $scope.otherRSAProducts = false;
+              }else if(audience === 'otherProduct'){
+                  $scope.archerSuite = false; $scope.fraudRiskIntelligenceSuite = false; $scope.netWitnessPlatform = false; $scope.securIDSuite = false; $scope.otherRSAProducts = true;
+              }
+              $j(".collapse").removeClass("show");
+              $j(".panel-heading").find("a").attr("aria-expanded", false);
+              $j(".toggle-accordion").text("Expand All");
+
+              setTimeout(function(){
+                  $scope.iframeHeight = $scope.getIframeHeight();
+                  $scope.defaultIframeHeight = $scope.iframeHeight;
+                  $scope.visibleWrapper = angular.element($event.target).parents(".container-fluid").find(".visibleWrapper").parent().height();
+              }, 100);
+            }
+
+            setTimeout(resizeMe,0);
+        }
+        $scope.indexChar = function (index) {
+                return String.fromCharCode(65 + index);
+        };
+
+    }]);
+    </script>
+
+
+
+<div ng-controller="RSAProductResourcesController" ng-app="rsaProductResources">
+    <div class="container-fluid">
+        <div class="row logo" ng-show="productBoxes">
+            <div class="col-sm-2" style="margin-left: 15px">
+                <a class="rkcIconLink">
+                    <div class="gsProduct" ng-click="filterByAudience('archer', $event)"><div class="productBox boxHover"><div class="circle icon_archer"></div><div class="productFooter">RSA Archer<sup>®</sup> Suite</div></div></div>
+                </a><br/>
+            </div>
+            <div class="col-sm-2 col-half-offset">
+                <a class="rkcIconLink">
+                    <div class="gsProduct" ng-click="filterByAudience('fris', $event)"><div class="productBox boxHover"><div class="circle icon_fraud"></div><div class="productFooter">RSA<sup>®</sup> Fraud & Risk Intelligence</div></div></div>
+                </a><br/>
+            </div>
+            <div class="col-sm-2 col-half-offset">
+                <a class="rkcIconLink">
+                    <div class="gsProduct" ng-click="filterByAudience('nwPlatform', $event)"><div class="productBox boxHover"><div class="circle icon_netwitness"></div><div class="productFooter">RSA NetWitness<sup>®</sup> Platform</div></div></div>
+                </a><br/>
+            </div>
+            <div class="col-sm-2 col-half-offset">
+                <a class="rkcIconLink">
+                    <div class="gsProduct" ng-click="filterByAudience('secureId', $event)"><div class="productBox boxHover"><div class="circle icon_securid"></div><div class="productFooter">RSA SecurID<sup>®</sup> Suite</div></div></div>
+                </a><br/>
+            </div>
+            <div class="col-sm-2 col-half-offset" style="margin-right: 15px">
+                <a class="rkcIconLink">
+                    <div class="gsProduct" ng-click="filterByAudience('otherProduct', $event)"><div class="productBox boxHover"><div class="circle icon_other"></div><div class="productFooter">Other RSA<sup>®</sup> Products</div></div></div>
+                </a><br/>
+            </div>
+        </div>
+        <div class="row"><div class="col-sm-12">&nbsp;</div></div>
+        <div class="row" ng-show="archerSuite"><span class="visibleWrapper" ng-if="archerSuite"></span>
+            <div class="col-sm-12">
+                <div class="wrapper">
+                      <div class="row"><div class="col-sm-1"><div class="icon_archer_head"></div></div><div class="col-sm-11"><h4 style="padding-top: 18px;">RSA Archer<sup>®</sup> Suite</h4></div></div>
+                      <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <!-- <div class="accordion-option">
+                            <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion0">Expand All</a>
+                          </div> -->
+                          <div class="clearfix"></div>
+                          <div class="panel-group" id="accordion0" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in archerSuiteData">
+
+                              <div class="panel-heading" role="tab" id="headingNew{{indexChar($index)}}" ng-click="resizeAccordian($event)">
+                                <h2 class="mb-0">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion0" href="#collapseNew{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseNew{{indexChar($index)}}" class="collapsed">
+                                  {{data.head}}
+                                </a>
+                              </h2>
+                              </div>
+
+                              <div id="collapseNew{{indexChar($index)}}" class="panel-collapse in collapse" ng-class="{'show': indexChar($index) == 'A'}"  role="tabpanel" aria-labelledby="headingNew{{indexChar($index)}}" style="">
+                                <div class="panel-body">
+                                    <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="fraudRiskIntelligenceSuite"><span class="visibleWrapper" ng-if="fraudRiskIntelligenceSuite"></span>
+            <div class="col-sm-12">
+                <div class="wrapper">
+                      <div class="row"><div class="col-sm-1"><div class="icon_fraud1"></div></div><div class="col-sm-11"><h4 style="padding-top: 18px;">RSA<sup>®</sup> Fraud & Risk Intelligence</h4></div></div>
+                      <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
+                      <div class="row">
+
+                        <div class="col-sm-12">
+                          <!-- <div class="accordion-option">
+                            <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion1">Expand All</a>
+                          </div> -->
+                          <div class="clearfix"></div>
+
+                          <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in getFRISuiteData">
+
+                              <div class="panel-heading" role="tab" id="headingStarted{{indexChar($index)}}" ng-click="resizeAccordian($event)">
+                                <h2 class="mb-0">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseStarted{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseStarted{{indexChar($index)}}" class="collapsed">
+                                  {{data.head}}
+                                </a>
+                              </h2>
+                              </div>
+
+                              <div id="collapseStarted{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingStarted{{indexChar($index)}}" style="">
+                                <div class="panel-body">
+                                    <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="netWitnessPlatform" style="margin-right: 0 !important"><span class="visibleWrapper" ng-if="netWitnessPlatform"></span>
+            <div class="col-sm-12">
+                <div class="wrapper">
+                      <div class="row"><div class="col-sm-1"><div class="icon_netwitness1"></div></div><div class="col-sm-11"><h4 style="padding-top: 18px;">RSA NetWitness<sup>®</sup> Platform</h4></div></div>
+                      <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
+                      <div class="row">
+
+                        <div class="col-sm-12">
+                          <!-- <div class="accordion-option">
+                            <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion2">Expand All</a>
+                          </div> -->
+                          <div class="clearfix"></div>
+
+                          <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in getNetWitnessPlatformData">
+
+                              <div class="panel-heading" role="tab" id="headingDeploy{{indexChar($index)}}" ng-click="resizeAccordian($event)">
+                                <h2 class="mb-0">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseDeploy{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseDeploy{{indexChar($index)}}" class="collapsed">
+                                  {{data.head}}
+                                </a>
+                              </h2>
+                              </div>
+
+                              <div id="collapseDeploy{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingDeploy{{indexChar($index)}}" style="">
+                                <div class="panel-body">
+                                    <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="securIDSuite"><span class="visibleWrapper" ng-if="securIDSuite"></span>
+            <div class="col-sm-12">
+                <div class="wrapper">
+                      <div class="row"><div class="col-sm-1"><div class="icon_securid1"></div></div><div class="col-sm-11"><h4 style="padding-top: 18px;">RSA SecurID<sup>®</sup> Suite</h4></div></div>
+                      <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
+                      <div class="row">
+
+                        <div class="col-sm-12">
+                          <!-- <div class="accordion-option">
+                            <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion3">Expand All</a>
+                          </div> -->
+                          <div class="clearfix"></div>
+                          <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in getSecurIDSuiteData">
+
+                              <div class="panel-heading" role="tab" id="headingSetupandManage{{indexChar($index)}}" ng-click="resizeAccordian($event)">
+                                <h2 class="mb-0">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapseSetupandManage{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseSetupandManage{{indexChar($index)}}" class="collapsed">
+                                  {{data.head}}
+                                </a>
+                              </h2>
+                              </div>
+
+                              <div id="collapseSetupandManage{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingSetupandManage{{indexChar($index)}}" style="">
+                                <div class="panel-body">
+                                    <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="otherRSAProducts"><span class="visibleWrapper" ng-if="otherRSAProducts"></span>
+            <div class="col-sm-12">
+                <div class="wrapper">
+                      <div class="row"><div class="col-sm-1"><div class="icon_other1"></div></div><div class="col-sm-11"><h4 style="padding-top: 18px;">Other RSA<sup>®</sup> Products</h4></div></div>
+                      <div class="row"><div class="col-sm-12"><div class="bottom-border"></div></div></div>
+                      <div class="row">
+
+                        <div class="col-sm-12">
+                          <!-- <div class="accordion-option">
+                            <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion4">Expand All</a>
+                          </div> -->
+                          <div class="clearfix"></div>
+
+                          <div class="panel-group" id="accordion4" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="data in getOtherRSAProductsData">
+
+                              <div class="panel-heading" role="tab" id="headingInvestigate{{indexChar($index)}}" ng-click="resizeAccordian($event)">
+                                <h2 class="mb-0">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion4" href="#collapseInvestigate{{indexChar($index)}}" aria-expanded="false" aria-controls="collapseInvestigate{{indexChar($index)}}" class="collapsed">
+                                  {{data.head}}
+                                </a>
+                              </h2>
+                              </div>
+                              <div id="collapseInvestigate{{indexChar($index)}}" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="headingInvestigate{{indexChar($index)}}" style="">
+                                <div class="panel-body">
+                                    <div class="j-rte-table" ng-bind-html="deliberatelySnippet(data.body)"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+    .productBox {text-align: center;height: 250px;font-family: Arial,sans-serif;font-size: 20px;padding: 10px;background-color: #dee0e1;}
+    .boxHover{-webkit-transform: perspective(1px) translateZ(0);transform: perspective(1px) translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);position: relative;overflow: hidden;}
+    .boxHover:before {content: "";position: absolute;z-index: -1;left: 0;right: 0;top: 0;bottom: 0;border-color: #802629;border-style: solid;border-width: 0;-webkit-transition-property: border-width;transition-property: border-width;-webkit-transition-duration: 0.1s;transition-duration: 0.3s;-webkit-transition-timing-function: ease-out;transition-timing-function: ease-out;}
+    .boxHover:hover:before, .boxHover:focus:before, .boxHover:active:before {-webkit-transform: translateY(0);transform: translateY(0);border-width: 4px;}
+    .productFooter { border-top: 1px solid #415464;margin-top: 30px;}
+    .circle {height: 150px;width: 150px;background-color: #fff;border-radius: 50%;border: 3px solid #802629;margin: 0 auto;}
+    .bottom-border{margin-left: 10px;margin-right: 10px; border-bottom:1px #be3a34 solid;}
+    /*.col-half-offset{margin-left:4.166666667%}*/
+    .col-half-offset{margin-left:3.5%}
+    .icon_archer {background-image: url(https://community.rsa.com/resources/statics/257635/icon_archer_red.png?a=1574064633654);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
+    .icon_fraud {background-image: url(https://community.rsa.com/resources/statics/257635/icon_fraud_red.png?a=1573808474405);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
+    .icon_netwitness {background-image: url(https://community.rsa.com/resources/statics/257635/icon_netwitness_red.png?a=1573808481512);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
+    .icon_securid {background-image: url(https://community.rsa.com/resources/statics/257635/icon_securid_red.PNG?a=1573808489950);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
+    .icon_other {background-image: url(https://community.rsa.com/resources/statics/257635/icon_other_red.png?a=1573808485354);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 120px;width: 120px;}
+    .icon_archer_head {background-image: url(https://community.rsa.com/resources/statics/257635/icon_archer_red.png?a=1574064633654);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 70px;width: 120px;}
+    .icon_fraud1 {background-image: url(https://community.rsa.com/resources/statics/257635/icon_fraud_red.png?a=1573808474405);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 70px;width: 120px;}
+    .icon_netwitness1 {background-image: url(https://community.rsa.com/resources/statics/257635/icon_netwitness_red.png?a=1573808481512);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 70px;width: 120px;}
+    .icon_securid1 {background-image: url(https://community.rsa.com/resources/statics/257635/icon_securid_red.PNG?a=1573808489950);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 70px;width: 120px;}
+    .icon_other1 {background-image: url(https://community.rsa.com/resources/statics/257635/icon_other_red.png?a=1573808485354);background-repeat: no-repeat;background-position: center center;background-size: 50%;height: 70px;width: 120px;}
+
+    .container-fluid {padding-right: 0;padding-left: 0;}
+    .panel-default>.panel-heading {color: #333;background-color: #fff;border-color: #e4e5e7;padding: 1px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+
+    .panel-default>.panel-heading a {display: block;padding: 10px 15px;}
+
+    .panel-default>.panel-heading a:before {content: "";position: relative;top: 1px;display: inline-block;/*font-family: 'Glyphicons Halflings';*/font-style: normal;font-weight: 400;line-height: 1;color: #be3a34;font-size: 28px;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;/*float: right;*/transition: transform .25s linear;-webkit-transition: -webkit-transform .25s linear;}
+
+    .panel-default>.panel-heading a[aria-expanded="true"] {background-color: #eeeff0;border-bottom: 2px solid #D5D6D7;}
+    .panel-default>.panel-heading a[aria-expanded="false"] {background-color: #eeeff0;border-bottom: 2px solid #D5D6D7;border-radius: 4px;}
+    .panel-default .show{border: 2px #eeeff0 solid;}
+
+
+
+    .panel-default>.panel-heading a[aria-expanded="true"]:before {content: "\2212";-webkit-transform: rotate(180deg);transform: rotate(180deg);}
+
+    .panel-default>.panel-heading a[aria-expanded="false"]:before {content: "\002b";-webkit-transform: rotate(90deg);transform: rotate(90deg);}
+
+    .accordion-option {width: 100%;float: left;clear: both;margin: 10px -14px 0;}
+
+    .accordion-option .title {font-size: 20px;font-weight: bold;float: left;padding: 0;margin: 0;}
+
+    .accordion-option .toggle-accordion {float: right;font-size: 16px;color: #6a6c6f;}
+
+    .panel-group{margin:10px;}
+
+    .wrapper {font-family: Arial,sans-serif;height: auto;margin-top: 0.6%;border: 1px #be3a34 solid; border-radius: 4px;}
+    /* Float Shadow */
+    .rkcIconLink {vertical-align: middle;-webkit-transform: perspective(1px) translateZ(0);transform: perspective(1px) translateZ(0);box-shadow: 0 0 1px rgba(0, 0, 0, 0);position: relative;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform;transition-property: transform;cursor: pointer;}
+    .rkcIconLink:before {pointer-events: none;position: absolute;z-index: -1;content: '';top: 100%;left: 5%;height: 10px;width: 90%;opacity: 0;background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);/* W3C */-webkit-transition-duration: 0.3s;transition-duration: 0.3s;-webkit-transition-property: transform, opacity;transition-property: transform, opacity;}
+    .rkcIconLink:hover, .rkcIconLink:focus, .rkcIconLink:active {-webkit-transform: translateY(-3px);transform: translateY(-3px);}
+    .rkcIconLink:hover:before, .rkcIconLink:focus:before, .rkcIconLink:active:before {opacity: 1; -webkit-transform: translateY(5px);15 transform: translateY(5px);}
+    .rkcIcon {margin-left: auto;margin-right: auto;display: block;width: 100%;vertical-align: top;}
+    .text1 {text-align: justify;padding-top: 10px;font-size: 16px;}
+
+    .j-rte-table {max-width: 100%;overflow-x: auto;font-family: Arial, sans-serif;margin:10px;}
+    .j-rte-table body {border-color: inherit;border-style: solid;border-width: inherit;text-align: left;vertical-align: baseline;}
+    .j-table {border: 1px solid #eeeff0 !important;border-collapse: collapse;margin: 0 0 2px;}
+    .j-rte-table tr {border-color: inherit;/*border-style: solid;*/border-width: inherit;text-align: left;vertical-align: baseline;}
+
+    .j-table td {padding: 5px;border-style: solid;border-width: inherit;text-align: left;border: 0px;border-bottom: solid 1px #eeeff0;height: 25px;line-height: 1.73;border: 1px #4243435c solid;}
+    .jive-link-wiki-small {background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-wiki-12x12.png);background-color: transparent;background-repeat: no-repeat;background-position: 0 50%;padding: 1px 0 1px 17px;padding-left: -webkit-calc(12px + .35ex);padding-left: calc(12px + .35ex);}
+    .jive-link-blog-small {background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-blog-12x12.png);background-color: transparent;background-repeat: no-repeat;background-position: 0 50%;padding: 1px 0 1px 17px;padding-left: -webkit-calc(12px + .35ex);padding-left: calc(12px + .35ex);}
+    .jive-link-video-small {background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-video-12x12.png);background-color: transparent;background-repeat: no-repeat;background-position: 0 50%;padding: 1px 0 1px 17px;padding-left: -webkit-calc(12px + .35ex);padding-left: calc(12px + .35ex);}
+    .jive-link-community-small {background-image: url(https://assets2.jiveon.com/core/2018.13.0.0.7eaeabc/images/jive-icon-community-12x12.png);background-color: transparent;background-repeat: no-repeat;background-position: 0 50%;padding: 1px 0 1px 17px;padding-left: -webkit-calc(12px + .35ex);padding-left: calc(12px + .35ex);}
+
+    /* Hide the content icons */
+    .jive-link-wiki-small,
+    .jive-link-video-small,
+    .jive-link-community-small {background-image: none;padding-left: 0;}
+
+    /* Format hyperlinks in each accordion card */
+    .panel-heading a {font-weight: inherit;font-style: inherit;font-size: 100%;vertical-align: baseline; font-size: 20px
+}
+    .panel-heading a:link {color: #000 !important;  /* The !important flag is needed to override any copy/paste extraneous styling */-webkit-transition: color .1s linear !important;transition: color .1s linear !important;}
+    .panel-heading a:hover {color: #802629 !important;  /* The !important flag is needed to override any copy/paste extraneous styling */text-decoration: none !important;}
+    .panel-heading a:hover, a:focus {color: #802629 !important ;}
+    a:hover, a:focus {color: #802629 !important ;}
+    .j-table a{color: #00528d !important;text-decoration: none !important;}
+    .j-table a:hover, a:focus{color: #802629 !important ;}
+
+    td p {margin: 0;padding: 0;border: 0;font-weight: inherit;font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;}
+    .disabled {opacity: 0.5;pointer-events: none; > * {opacity: 0.5;pointer-events: none;}}
+    .logo .col-sm-2 {padding-right: 0 !important; padding-left: 0 !important;}
+    .centered {line-height: 28px;position: absolute;top: 50%;left: 50%;color: #fff;width: 100%;font-size: 22px;text-align: center;transform: translate(-50%, -50%);}
+    .font-bold{font-weight: bold;border: 3px solid #802629;}
+    .boxSizeReduce {transition: all 0.3s ease;cursor: pointer;-webkit-transform: scale(0.9);-ms-transform: scale(0.9);transform: scale(0.9);margin: 0px 10px;};
+</style>
