@@ -1,1 +1,108 @@
 
+<script src="https://www.rsa.com/content/dam/rsalink/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/css_browser_selector_v3.js"></script>
+<script src="https://www.rsa.com/content/dam/rsalink/js/zSlider-doubleLength.js"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KS942NN');</script>
+    <!-- End Google Tag Manager -->
+
+<div class="menuBackground">
+    <div class="center myMenu">
+        <ul class="dropDownMenu" style="display: none;">
+            <li><a target="_parent" href="/community/products/fraudaction/advisories">Advisories</a>
+                <ul class="firstLevel advisoriesMenu">
+                    <li><a target="_parent" href="/community/products/fraudaction/advisories/content?filterID=contentstatus%5Bpublished%5D~category%5Bproduct-advisories%5D">Product Advisories</a></li>
+                    <li><a target="_parent" href="/community/products/fraudaction/advisories/content?filterID=contentstatus%5Bpublished%5D~category%5Bsecurity-advisories%5D">Security Advisories</a></li>
+                    <li><a target="_parent" href="/community/products/fraudaction/advisories/content?filterID=contentstatus%5Bpublished%5D~category%5Btechnical-advisories%5D">Technical Advisories</a></li>
+                </ul>
+            </li>
+            <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bdocument%5D">Documentation</a>
+             <ul class="firstLevel documentationMenu">
+                    <li><a target="_parent" href="/community/products/fraudaction/dashboard">RSA FraudAction Dashboard</a></li>
+                    <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bdocument%5D">RSA FraudAction Services</a></li>
+                </ul>
+            </li>
+            <li><a target="_parent" href="/community/products/fraudaction/content?filterID=contentstatus%5Bpublished%5D~objecttype~objecttype%5Bvideo%5D">Videos</a></li>
+            <li><a target="_parent" href="/community/rsa-customer-support/knowledge-base">Knowledge Base</a></li>
+            <li><a target="_parent" href="/community/training">Training</a></li>
+        </ul>
+    </div>
+</div>
+
+<style>
+/* Load base configuration styling for menu and rotating banner */
+@import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-suite-menu-base.css');
+@import url('https://www.rsa.com/content/dam/rsalink/css/rsalink-suite-menu-banner.css');
+
+/* Base styling for the drop down sections */
+.dropDownMenu ul {
+    box-shadow: 2px 2px 15px 0 rgba(0,0,0, 0.5);
+    text-align: left;
+    display: none;
+    background: #FFF;
+    position: absolute;
+    z-index: 999999;
+}
+.firstLevel.advisoriesMenu{width: 215px;}
+.firstLevel.documentationMenu{width: 280px;}
+</style>
+
+<!-- BEGIN ROTATING BANNER -->
+<script>
+    $(function () {
+        $('#slide-box').zSlider({width:920,height:244});
+    })
+</script>
+
+<div id="slide-box">
+    <ul>
+        <li class="bannerSize">
+            <a href="https://www.rsa.com/en-us/offers/buyers-guide-to-fraud-prevention-platforms" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1883/Fraud%2BNamed%2BLeader_Kuppinger%2BReport.jpg?a=1595592731789" />
+            </a>
+        </li>
+        <li>
+            <a href="https://webinars.on24.com/rsa/ReassessYourFraudPrevent?partnerref=link" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1002/RSA-Banners%2Bfor%2B9-16%2BWebinar-banner-rsa-link-April2020-920x244.jpg?a=1599029558153" />
+            </a>
+        </li>
+        <li>
+            <a href="https://www.rsa.com/en-us/products/fraud-prevention/cybercrime-every-60-minutes" target="_blank">
+                <img src="https://community.rsa.com/resources/statics/1883/RSA-FRI-Link-banner-920x244.jpg?a=1564140176333" />
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Script to activate the drop down menu -->
+<script type="text/javascript">
+$(document).ready(function() {
+    setTimeout(function(){
+     $('.dropDownMenu').css("display",'block');
+    },100);
+    $('.myMenu ul.dropDownMenu li').hover(function() {
+        $(this).find('ul.firstLevel').stop(true, false, true).slideToggle(300);
+    });
+    $('.myMenu ul.dropDownMenu li ul.firstLevel li').hover(function() {
+        $(this).find('ul.secondLevel').stop(true, false, true).slideToggle(300);
+    });
+    $('.myMenu ul.dropDownMenu li ul.secondLevel li').hover(function() {
+        $(this).find('ul.thirdLevel').stop(true, false, true).slideToggle(300);
+    });
+});
+</script>
+
+<!-- Google Analytics activation script -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-72926342-1', 'auto');
+    ga('send', 'pageview');
+</script>
