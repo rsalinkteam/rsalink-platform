@@ -2,13 +2,13 @@
 //  Description:    This script dynamically updates edelivery.rsasecurity.com links to use HTTPS.
 //  Location:       Downloads Documents
 //  Author:         Jeff Shurtliff
-//  Last Editor:    Jeff Shurtliff
-//  Last Modified:  12 Oct 2020
-//  Version:        1.1.0
+//  Last Editor:    Max Kimball
+//  Last Modified:  15 Oct 2020
+//  Version:        1.1.1
 
 var jq = jQuery.noConflict();
 jq(document).ready(function() {
-  if (jivePlaceData[0].includes('Downloads')) {
+  if (jivePlaceData[0].includes('Downloads') || jivePlaceData[0].includes('macOS')) {
     console.log('A downloads space has been identified.');
     if (location.href.includes('docs/DOC')) {
       console.log('A downloads document has been identified.');
