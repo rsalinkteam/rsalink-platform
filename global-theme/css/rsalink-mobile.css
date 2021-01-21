@@ -4,7 +4,7 @@ Iteration:      Nov 2018 Redesign
 Scope:          Global (Entire Website - Mobile Devices)
 Author:         Jeff Shurtliff
 Last Editor:    Santhosh V
-Last Updated:   27 Mar 2019
+Last Updated:   11 Oct 2019
 */
 
 /****************************
@@ -24,6 +24,9 @@ Last Updated:   27 Mar 2019
 @media screen and (max-width: 40em) {
 	body.j-body-place #j-main .j-layout {		
 		padding-top: 20px;
+	}
+	.jive-rendered-content img, .jive-rendered-content img.jive-image{
+	    max-width: 98% !important;
 	}
 }
 
@@ -98,6 +101,13 @@ Last Updated:   27 Mar 2019
         background: #415464;
 	}
 }
+/* Fix for RSALINK-6806*/
+@media screen and (max-width: 40em) {
+	.js-tile-body.j-tile-display {
+		padding-left: 5px;
+    	width: 99.5%;
+    }
+}
 
 /* Remove white space between green buttons and other content */
 .js-tile.j-tile.j-tileType-iframe {
@@ -111,6 +121,9 @@ Last Updated:   27 Mar 2019
 		table-layout: fixed;
 		width: 98% !important;
 	}
+	.j-rte-table .activeContracts.activeContractsTable,.j-rte-table .rsaIdeas.ideasTable,.j-rte-table .escalations.escalationsTable{
+		table-layout: auto;
+	}
 	table.kb-article td {
 		padding-bottom: 20px;
 		float: left;
@@ -122,9 +135,9 @@ Last Updated:   27 Mar 2019
 		margin: 0 !important;
 	}
 
-	.jive-rendered-content td, .jive-rendered-content th{
+	/*.jive-rendered-content td, .jive-rendered-content th{
 		width: 100% !important;
-	}
+	}*/
 }
 
 /* Styling from rsa-mobile-view-global.css file */
