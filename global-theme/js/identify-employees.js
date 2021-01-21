@@ -2,7 +2,7 @@
 //  Location:       Website Header
 //  Author:         Jeff Shurtliff
 //  Last Editor:    Charan Rajakumar
-//  Last Modified:  05 Dec 2018
+//  Last Modified:  25 Nov 2019
 //  Description:    Determine whether or not a user is an RSA employee based on the associated security groups.
 
 var userID = window._jive_current_user.ID;
@@ -24,7 +24,8 @@ if(userID == "undefined" || userID < 1) {
 				});
 				
 				userType = 'Unknown';
-				var groupName = 'RSA Employees';	
+				/*Updated New security groups name for RSA Employees (Employees: RSA (Badged))*/
+				var groupName = "Employees: RSA (Badged)";
 				
 				function checkGroups ( id ) {
 					for(i=0; i < jiveGroups.length; i++) {					
