@@ -1,5 +1,5 @@
 /*      BEGIN CUSTOM CSS      */
-/* Last Updated: 05 Oct 2020  */
+/* Last Updated: 22 Jan 2021  */
 
 /*
  *    TABLE OF CONTENTS
@@ -594,7 +594,7 @@ textarea#customFooterHTML {
 
 /* Adding sort arrows to table for all RTE tables and on RSA NetWitness Known Issues page -- RSALINK-5895 */
 th.header.headerSortUp span {
-    background-image: url(https://www.rsa.com/content/dam/rsalink/images/sort-descending-arrow-13px.png);
+    background-image: url('/resources/statics/257635/sort-descending-arrow-13px.png?a=1611333644181');
     background-repeat: no-repeat;
     display: block;
     background-position: right center;
@@ -602,7 +602,7 @@ th.header.headerSortUp span {
 
 /* Adding sort arrows to table for all RTE tables and on RSA NetWitness Known Issues page -- RSALINK-5895 */
 th.header.headerSortDown span {
-    background-image: url(https://www.rsa.com/content/dam/rsalink/images/sort-ascending-arrow-13px.png);
+    background-image: url('/resources/statics/257635/sort-ascending-arrow-13px.png?a=1611333639534');
     background-repeat: no-repeat;
     display: block;
     background-position: right center;
